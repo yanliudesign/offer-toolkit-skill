@@ -1,8 +1,8 @@
 # Resume Skill
 
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
+
 > 🌐 **English** · [中文](./README.zh.md)
->
-> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
 A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 11 print-ready templates — switching templates is just a skin change, the content stays the same.
 

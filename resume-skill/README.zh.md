@@ -1,8 +1,8 @@
 # Resume Skill
 
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 JD · Resume · BQ 三条子 skill。
+
 > 🌐 **中文** · [English](./README.md)
->
-> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
 一个 Claude skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 11 套打印级模板之一——换模板只是换皮，内容不丢。
 

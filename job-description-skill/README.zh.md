@@ -1,8 +1,8 @@
 # Job Description Skill
 
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 JD · Resume · BQ 三条子 skill。
+
 > 🌐 **中文** · [English](./README.md)
->
-> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
 一个专门读 JD 的 Claude skill。贴一份 JD 和你的简历，它给你一份 HTML 报告，告诉你：这岗位到底该不该投、你和它多匹配、差在哪里、面试大概会问什么、薪资合不合理、接下来 6 周该做什么。一份 JD 不只是招聘文案——它一般是招聘经理的真实期望包在 HR 模板里，这个 skill 把它拆开。
 

@@ -1,8 +1,8 @@
 # BQ Skill
 
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
+
 > 🌐 **English** · [中文](./README.zh.md)
->
-> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
 A Claude skill for behavioral interview prep. Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves each one in English and Chinese — so next time you get a different behavioral question, the same story still works.
 

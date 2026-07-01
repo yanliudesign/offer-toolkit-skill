@@ -1,8 +1,8 @@
 # BQ Skill
 
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 JD · Resume · BQ 三条子 skill。
+
 > 🌐 **中文** · [English](./README.md)
->
-> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
 一个 Claude skill，专门做行为面试准备。不是给你现成答案，而是帮你把过去真实做过的事情挖出来、整理成一个可以反复用的故事库。它会一步步追问你的经历，用 STAR/CAR 帮你理清思路，打上"拿主意""处理模糊性"这类标签，中英文各存一份——下次碰上不一样的行为面试题，同一个故事还能接得住。
 

@@ -1,8 +1,8 @@
 # Job Description Skill
 
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
+
 > 🌐 **English** · [中文](./README.zh.md)
->
-> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
 A Claude skill for reading job descriptions. Give it a JD and your resume, and it hands back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what interviews will probably ask, whether the salary is reasonable, and what to do over the next six weeks. A JD is rarely just a recruiting blurb — it's usually the hiring manager's real expectations wrapped in HR boilerplate, and this skill unwraps that.
 
