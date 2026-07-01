@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Ledger (单栏精排衬线 — 合并了原 ledger + elegant + tech 三套单栏)
+  灵感：经典 LaTeX/SheetsResume 简历。衬线、公司与日期两端对齐、职位与地点斜体、可嵌套子弹(Key Result)。
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  单栏 + 标准标题 → ATS 友好，且排版考究、给人看也好看。适合：软件/数据/工程/学术/通用，多项目塞进一两页。
+  含可选 SUMMARY；想更紧凑(原 tech 风)就缩小 padding/字号；想居中标题(原 elegant 风)自行调 h2 text-align。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --ink: #111; --rule: #111; --link: #1a4f8b; --muted: #333; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Latin Modern Roman", "Georgia", "Times New Roman", serif; color: var(--ink); font-size: 10.5pt; line-height: 1.35; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.5in 0.6in; margin: 0 auto; }
+  header { margin-bottom: 10px; }
+  header h1 { font-size: 26pt; font-weight: 700; letter-spacing: -0.3px; }
+  header .contact { font-size: 10pt; margin-top: 3px; border-bottom: 1.2px solid var(--rule); padding-bottom: 9px; }
+  header .contact a { color: var(--link); text-decoration: underline; }
+  header .contact .sep { color: #888; margin: 0 6px; }
+  h2 { font-size: 11.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.2px solid var(--rule); padding-bottom: 2px; margin: 12px 0 6px; }
+  .entry { margin-bottom: 8px; }
+  .entry .l1 { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry .l1 .org { font-weight: 700; }
+  .entry .l1 .date { font-weight: 700; white-space: nowrap; }
+  .entry .l2 { display: flex; justify-content: space-between; align-items: baseline; font-style: italic; color: var(--muted); font-size: 10pt; }
+  ul { list-style: none; margin-top: 2px; }
+  ul li { padding-left: 14px; position: relative; margin-bottom: 1.5px; }
+  ul li::before { content: "•"; position: absolute; left: 2px; }
+  ul ul { margin-top: 1.5px; }
+  ul ul li { padding-left: 16px; }
+  ul ul li::before { content: "◦"; left: 2px; }
+  a { color: var(--link); text-decoration: underline; }
+  .keyres { font-weight: 700; font-style: normal; }
+  .sub { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Jordan Ellis</h1>
+    <div class="contact">
+      <a href="mailto:jordan@email.com">jordan@email.com</a><span class="sep">|</span>(555) 123-4567<span class="sep">|</span>San Francisco, CA<span class="sep">|</span><a href="#">github.com/jellis</a><span class="sep">/</span><a href="#">Portfolio</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="entry">
+      <div class="l1"><span class="org">Acme Payments</span><span class="date">Jan 2021 — Present</span></div>
+      <div class="l2"><span>Senior Backend Engineer</span><span>San Francisco, CA</span></div>
+      <ul>
+        <li>Rebuilt the checkout API serving 12M daily transactions; cut p95 latency from 1.2s to 380ms.
+          <ul><li><span class="keyres">Key Result:</span> Lifted checkout conversion 8%, ~$3.1M incremental annual revenue.</li></ul>
+        </li>
+        <li>Led migration of 40+ services to a unified gRPC mesh, decommissioning the legacy monolith ahead of schedule.
+          <ul><li><span class="keyres">Stack:</span> Go, gRPC, Kubernetes, Kafka, PostgreSQL, AWS.</li></ul>
+        </li>
+        <li>Owned on-call for the payments tier; reduced Sev1 incidents from 9 to 2 per quarter and cut mean time-to-recovery by 65%.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="l1"><span class="org">DataForge</span><span class="date">Jun 2018 — Dec 2020</span></div>
+      <div class="l2"><span>Backend Engineer</span><span>Seattle, WA</span></div>
+      <ul>
+        <li>Built an event-ingestion pipeline handling 2B events/day at 99.99% uptime across three regions.</li>
+        <li>Cut cloud spend $480K/year via tiered storage, autoscaling, and Spot-instance scheduling.
+          <ul><li><span class="keyres">Stack:</span> Python, Kafka, Flink, Snowflake, Terraform, GCP.</li></ul>
+        </li>
+        <li>Shipped a self-serve schema registry adopted by 30+ internal teams, removing a recurring source of pipeline breakage.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="l1"><span class="org">Brightline Software</span><span class="date">Aug 2016 — May 2018</span></div>
+      <div class="l2"><span>Software Engineer</span><span>Portland, OR</span></div>
+      <ul>
+        <li>Developed REST services for a B2B logistics platform processing 4M shipments/year for 200+ enterprise customers.</li>
+        <li>Reduced API error rate from 2.4% to 0.3% by introducing contract testing and circuit breakers.</li>
+        <li>Migrated the primary datastore from MySQL to PostgreSQL with zero customer-facing downtime.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="entry">
+      <div class="l1"><span class="org"><a href="#">OpenTrace</a></span><span class="date">2022 — Present</span></div>
+      <div class="l2"><span>Creator · Go, OpenTelemetry</span><span>3.2K&nbsp;★</span></div>
+      <ul><li>Lightweight distributed-tracing library adopted by 5 companies in production; sub-1% sampling overhead.</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="l1"><span class="org">University of Washington</span><span class="date">Sep 2014 — Jun 2018</span></div>
+      <div class="l2"><span>B.S. Computer Science</span><span>Seattle, WA</span></div>
+      <ul><li><span class="sub">GPA:</span> 3.8/4.0 · Dean's List (6 quarters) · TA for Distributed Systems.</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications, Skills &amp; Interests</h2>
+    <ul>
+      <li><span class="sub">Languages:</span> Go, Rust, Python, Java, TypeScript, SQL, Bash.</li>
+      <li><span class="sub">Infrastructure:</span> Kubernetes, gRPC, Kafka, PostgreSQL, Redis, Flink, Terraform, AWS, GCP.</li>
+      <li><span class="sub">Practices:</span> Distributed systems, event-driven architecture, observability, CI/CD, chaos testing.</li>
+      <li><span class="sub">Certifications:</span> AWS Solutions Architect – Associate (2022); Certified Kubernetes Administrator – CKA (2023).</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+  Template: Executive (行政/高管衬线版)
+  Visual idea: 庄重克制的衬线排版 (Georgia / Times New Roman) + 深海军蓝 (#1f3a5f) 点缀。
+               大号衬线姓名、其下一行 headline、一条细分隔线、单行联系方式。
+               小节标题用大写衬线 + 发丝级下划线。无 chips / 无图标 / 无色块。
+               精炼两栏 (左主栏 + 右窄栏放 Skills/Education/Languages)。
+  Who it suits: 资深领导 / 金融 / 咨询 / 高管 / 高级 PMM —— 需要 gravitas 与稳重感的人。
+  Usage notes (使用说明):
+    - 保留 <style> 不动，替换内容；
+    - 空 section 整块删；
+    - 示例数字必须换成真实数据。
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAYA TORRES — Resume</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1f3a5f;
+    --ink: #1c1c1c;
+    --muted: #555;
+    --hair: #c9cdd4;
+  }
+
+  html, body {
+    background: #f4f4f4;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.55in;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  /* ---------- Header ---------- */
+  .header { text-align: center; }
+  .name {
+    font-size: 27pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .headline {
+    margin-top: 4px;
+    font-size: 12pt;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .rule {
+    border: none;
+    border-top: 1px solid var(--navy);
+    margin: 11px 0 9px;
+  }
+  .contact {
+    font-size: 9.5pt;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .contact .sep { color: var(--navy); padding: 0 5px; }
+
+  /* ---------- Layout ---------- */
+  .body {
+    display: flex;
+    gap: 0.42in;
+    margin-top: 20px;
+  }
+  .main { flex: 1 1 64%; }
+  .rail {
+    flex: 0 0 30%;
+    padding-left: 0.32in;
+    border-left: 1px solid var(--hair);
+  }
+
+  /* ---------- Section headings ---------- */
+  .section { margin-bottom: 16px; }
+  .section:last-child { margin-bottom: 0; }
+  .sec-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--navy);
+    padding-bottom: 3px;
+    margin-bottom: 9px;
+    border-bottom: 1px solid var(--navy);
+  }
+
+  /* ---------- Summary ---------- */
+  .summary { text-align: justify; color: #2a2a2a; }
+
+  /* ---------- Experience ---------- */
+  .role { margin-bottom: 13px; }
+  .role:last-child { margin-bottom: 0; }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .role-title { font-size: 11.5pt; font-weight: 700; color: var(--ink); }
+  .role-dates {
+    font-size: 9pt;
+    font-style: italic;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-left: 10px;
+  }
+  .role-org {
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--navy);
+    margin: 1px 0 5px;
+  }
+  .bullets { list-style: none; }
+  .bullets li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 3px;
+  }
+  .bullets li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+  }
+
+  /* ---------- Rail items ---------- */
+  .rail .section { margin-bottom: 18px; }
+  .edu-degree { font-weight: 700; font-size: 10pt; }
+  .edu-school { font-style: italic; color: var(--navy); font-size: 9.5pt; margin-top: 1px; }
+  .edu-meta { font-size: 9pt; color: var(--muted); margin-top: 1px; }
+
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 9.8pt;
+    padding: 2.5px 0;
+    border-bottom: 1px dotted var(--hair);
+  }
+  .skill-list li:last-child { border-bottom: none; }
+
+  .lang-row {
+    font-size: 9.8pt;
+    margin-bottom: 4px;
+  }
+  .lang-name { font-weight: 700; }
+  .lang-level { font-style: italic; color: var(--muted); }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="name">MAYA TORRES</div>
+      <div class="headline">Product Marketing Manager</div>
+      <hr class="rule">
+      <div class="contact">
+        +1 (415) 555-0182<span class="sep">&middot;</span>maya@email.com<span class="sep">&middot;</span>San Francisco, CA<span class="sep">&middot;</span>linkedin.com/in/mayatorres
+      </div>
+    </header>
+
+    <!-- ===== Body ===== -->
+    <div class="body">
+
+      <!-- ----- Main column ----- -->
+      <div class="main">
+
+        <section class="section">
+          <div class="sec-title">Profile</div>
+          <p class="summary">Product marketer with 12 years taking B2B SaaS products from launch to scale. Bridges product, sales, and content to drive adoption and revenue. Owns positioning, GTM strategy, and lifecycle for portfolios serving 50K+ users and generating $40M+ in annual recurring revenue. Trusted partner to executive and product leadership, with a track record of building category-defining narratives and high-performing cross-functional teams.</p>
+        </section>
+
+        <section class="section">
+          <div class="sec-title">Experience</div>
+
+          <div class="role">
+            <div class="role-head">
+              <span class="role-title">Senior Product Marketing Manager</span>
+              <span class="role-dates">01/2021 &ndash; Present</span>
+            </div>
+            <div class="role-org">Brightwave &mdash; San Francisco, CA</div>
+            <ul class="bullets">
+              <li>Led GTM for 3 product launches, driving $4.2M net-new ARR in year one.</li>
+              <li>Rebuilt positioning and messaging, lifting trial-to-paid conversion from 11% to 19%.</li>
+              <li>Built a competitive-intel program adopted by 40+ sales reps; win rate +12%.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <span class="role-title">Product Marketing Manager</span>
+              <span class="role-dates">06/2017 &ndash; 12/2020</span>
+            </div>
+            <div class="role-org">Northpeak &mdash; Austin, TX</div>
+            <ul class="bullets">
+              <li>Owned lifecycle campaigns reaching 120K users; expansion revenue +28%.</li>
+              <li>Launched the customer-advocacy program, sourcing 60+ case studies and references.</li>
+              <li>Repositioned the flagship platform ahead of a $30M Series C, anchoring investor and analyst narrative.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <span class="role-title">Senior Marketing Specialist</span>
+              <span class="role-dates">03/2015 &ndash; 05/2017</span>
+            </div>
+            <div class="role-org">Cedarline Software &mdash; Denver, CO</div>
+            <ul class="bullets">
+              <li>Ran demand-gen across paid, email, and webinars, sourcing 1,800+ MQLs per quarter.</li>
+              <li>Scaled the partner co-marketing channel to 14 integrations, contributing $1.6M in influenced pipeline.</li>
+              <li>Standardized launch playbooks later adopted as the company-wide GTM framework.</li>
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- ----- Right rail ----- -->
+      <aside class="rail">
+
+        <section class="section">
+          <div class="sec-title">Education</div>
+          <div class="edu-degree">B.A. Marketing &amp; Communications</div>
+          <div class="edu-school">University of Texas at Austin</div>
+          <div class="edu-meta">Austin, TX &middot; 2013 &ndash; 2017</div>
+        </section>
+
+        <section class="section">
+          <div class="sec-title">Skills</div>
+          <ul class="skill-list">
+            <li>Go-to-Market Strategy</li>
+            <li>Positioning &amp; Narrative</li>
+            <li>Messaging Frameworks</li>
+            <li>Lifecycle Marketing</li>
+            <li>Competitive Intelligence</li>
+            <li>Sales Enablement</li>
+            <li>Product Analytics</li>
+            <li>Pricing &amp; Packaging</li>
+            <li>SQL &amp; Tableau</li>
+            <li>Figma &amp; HubSpot</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="sec-title">Certifications</div>
+          <ul class="skill-list">
+            <li>Pragmatic Institute &mdash; PMC-VI</li>
+            <li>Google Analytics 4 Certified</li>
+            <li>HubSpot Marketing Software</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="sec-title">Languages</div>
+          <div class="lang-row"><span class="lang-name">English</span> <span class="lang-level">(Native)</span></div>
+          <div class="lang-row"><span class="lang-name">Spanish</span> <span class="lang-level">(Proficient)</span></div>
+          <div class="lang-row"><span class="lang-name">Portuguese</span> <span class="lang-level">(Conversational)</span></div>
+        </section>
+
+      </aside>
+
+    </div>
+  </div>
+</body>
+</html>

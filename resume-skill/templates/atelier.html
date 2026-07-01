@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Atelier (minimalist, airy, vertical divider)
+  灵感：The Art of Resume。细字大写名、大量留白、竖线分两栏、细横线分隔标题。
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  左窄栏：教育 + 分组技能(//标签)。右宽栏：摘要 + 经历。主色基本黑白，点缀色 :root --accent。
+  适合：设计 / 创意 / 咨询 / 市场 / 偏审美的岗位。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --accent: #7b8aa6; --ink: #1c1c1c; --muted: #777; --line: #1c1c1c; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", "Arial", sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.5; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.7in 0.7in; margin: 0 auto; }
+  /* header */
+  .head { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 16px; border-bottom: 1.5px solid var(--line); margin-bottom: 22px; }
+  .head h1 { font-size: 34pt; font-weight: 200; letter-spacing: 8px; line-height: 1.05; text-transform: uppercase; }
+  .head .title { font-size: 11pt; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+  .head .contact { text-align: right; font-size: 9pt; color: var(--ink); line-height: 1.9; white-space: nowrap; }
+  .head .contact a { color: var(--ink); text-decoration: none; }
+  .head .contact .lbl { color: var(--muted); }
+  /* columns with vertical divider */
+  .cols { display: flex; gap: 30px; }
+  .left { width: 2.1in; flex: none; }
+  .right { flex: 1; padding-left: 30px; border-left: 1px solid #d6d6d6; }
+  h2 { font-size: 10.5pt; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid #cfcfcf; padding-bottom: 5px; margin-bottom: 11px; }
+  section { margin-bottom: 22px; }
+  .edu .deg { font-weight: 700; font-size: 10pt; }
+  .edu .sch { font-weight: 600; }
+  .edu .meta { color: var(--muted); font-size: 9pt; }
+  .grp { margin-bottom: 12px; }
+  .grp .lbl { font-weight: 700; color: var(--accent); letter-spacing: 1px; font-size: 9pt; margin-bottom: 4px; }
+  .grp .it { margin-bottom: 3px; font-size: 9.5pt; }
+  .summary { color: #333; }
+  .entry { margin-bottom: 15px; }
+  .entry .role { font-weight: 700; font-size: 11pt; }
+  .entry .org { font-weight: 600; }
+  .entry .meta { color: var(--muted); font-size: 9pt; margin-bottom: 4px; }
+  ul { list-style: none; }
+  ul li { padding-left: 15px; position: relative; margin-bottom: 3px; color: #333; }
+  ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <div>
+      <h1>Olivia<br>Mills</h1>
+      <div class="title">Brand Designer</div>
+    </div>
+    <div class="contact">
+      <div><span class="lbl">P</span> +1 (123) 456-7890</div>
+      <div><span class="lbl">E</span> <a href="mailto:olivia@email.com">olivia@email.com</a></div>
+      <div><span class="lbl">W</span> <a href="#">oliviamills.design</a></div>
+      <div><span class="lbl">in</span> <a href="#">linkedin.com/in/oliviamills</a></div>
+    </div>
+  </header>
+
+  <div class="cols">
+    <aside class="left">
+      <section class="edu">
+        <h2>Education</h2>
+        <div class="deg">B.F.A. Graphic Design</div>
+        <div class="sch">Rhode Island School of Design</div>
+        <div class="meta">Providence, RI · 2013 — 2017</div>
+      </section>
+
+      <section>
+        <h2>Core Skills</h2>
+        <div class="grp">
+          <div class="lbl">// CRAFT</div>
+          <div class="it">Brand Identity</div>
+          <div class="it">Art Direction</div>
+          <div class="it">Typography</div>
+          <div class="it">Design Systems</div>
+          <div class="it">Naming & Voice</div>
+        </div>
+        <div class="grp">
+          <div class="lbl">// TOOLS</div>
+          <div class="it">Figma</div>
+          <div class="it">Adobe CC</div>
+          <div class="it">Webflow</div>
+          <div class="it">After Effects</div>
+          <div class="it">Cinema 4D</div>
+        </div>
+        <div class="grp">
+          <div class="lbl">// METHODS</div>
+          <div class="it">Design Sprints</div>
+          <div class="it">Brand Workshops</div>
+          <div class="it">User Research</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="grp">
+          <div class="it">English — Native</div>
+          <div class="it">Spanish — Professional</div>
+          <div class="it">Portuguese — Conversational</div>
+        </div>
+      </section>
+    </aside>
+
+    <main class="right">
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">Brand designer with 8 years shaping identities for consumer and tech companies. Leads work end-to-end — from strategy and naming to systems that scale across product, packaging, and campaigns. Equally fluent in the boardroom and the type tray, with a track record of moving brand metrics, not just visuals.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="entry">
+          <div class="role">Senior Brand Designer</div>
+          <div class="org">Lumen Studio · San Francisco, CA</div>
+          <div class="meta">2020 — Present</div>
+          <ul>
+            <li>Built the brand system now used across 5 product lines and 40+ touchpoints, cutting design production time by 35%.</li>
+            <li>Led 3 full rebrands, two recognized in the 2023 Brand Impact Awards.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="role">Brand Designer</div>
+          <div class="org">Northwind Agency · New York, NY</div>
+          <div class="meta">2017 — 2020</div>
+          <ul>
+            <li>Designed identities and launch campaigns for 20+ consumer brands across retail and tech.</li>
+            <li>Grew the studio's social following from 4K to 90K through a visual refresh.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</div>
+</body>
+</html>

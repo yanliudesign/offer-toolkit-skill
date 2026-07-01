@@ -1,0 +1,16 @@
+# Personal JD analyses — only template + index are tracked
+jd-bank/*.md
+!jd-bank/_index.md
+!jd-bank/_jd-template.md
+
+# Generated reports (live outside repo by convention, but exclude defensively)
+*.html
+# ...except the report template skeleton (no personal data)
+!examples/offer-strategy-template.html
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+.cursor/

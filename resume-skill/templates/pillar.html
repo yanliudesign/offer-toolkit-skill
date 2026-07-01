@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Pillar (Enhancv-style info-rich, blue accent)
+  灵感：Enhancv。黑色大写标题+整行下划线、蓝色点缀公司名/胶囊、右栏图标化"成就/优势"+语言进度点。
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  右栏模块可换：KEY ACHIEVEMENTS / STRENGTHS / LANGUAGES / CERTIFICATIONS 任选。主色 :root --accent。
+  适合：产品/市场/运营/PM/综合岗，想要信息量大又现代。注意双栏对 ATS 一般，适合人直接看。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --accent: #2d6cdf; --ink: #1a1a1a; --muted: #6a6a6a; --rule: #1a1a1a; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.45; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.5in 0.55in; margin: 0 auto; }
+  /* header */
+  .head h1 { font-size: 28pt; font-weight: 800; letter-spacing: -0.5px; }
+  .head .title { color: var(--accent); font-size: 13pt; font-weight: 700; margin-top: 1px; }
+  .head .contact { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 8px; font-size: 9pt; color: var(--muted); }
+  .head .contact a { color: var(--muted); text-decoration: none; }
+  .head .contact span { display: inline-flex; align-items: center; gap: 5px; }
+  .ico { width: 11px; height: 11px; fill: var(--accent); flex: none; }
+  /* columns */
+  .cols { display: flex; gap: 26px; margin-top: 14px; }
+  .main { flex: 1.65; min-width: 0; }
+  .aside { flex: 1; min-width: 0; }
+  h2 { font-size: 12pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--rule); padding-bottom: 3px; margin-bottom: 8px; }
+  section { margin-bottom: 14px; }
+  .summary { color: #333; }
+  .entry { margin-bottom: 10px; }
+  .entry .role { font-weight: 700; font-size: 10.5pt; }
+  .entry .org { color: var(--accent); font-weight: 700; font-size: 10pt; }
+  .entry .meta { font-size: 8.5pt; color: var(--muted); margin: 1px 0 2px; display: flex; gap: 14px; }
+  ul { list-style: none; }
+  ul li { padding-left: 13px; position: relative; margin-bottom: 2px; color: #333; }
+  ul li::before { content: "•"; position: absolute; left: 2px; color: var(--muted); }
+  /* skill pills */
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pills span { border-bottom: 2px solid #c9d6ef; padding: 1px 2px 2px; font-weight: 600; font-size: 9pt; }
+  /* achievements */
+  .ach { display: flex; gap: 9px; margin-bottom: 9px; }
+  .ach .badge { width: 22px; height: 22px; border-radius: 6px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11pt; flex: none; }
+  .ach .t { font-weight: 700; font-size: 9.5pt; }
+  .ach .d { font-size: 8.5pt; color: var(--muted); }
+  /* language dots */
+  .lang { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .lang .n b { font-size: 9.5pt; } .lang .n small { display: block; color: var(--muted); font-size: 8pt; }
+  .dots { display: flex; gap: 3px; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: #d4d4d4; }
+  .dots i.on { background: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <h1>MAYA TORRES</h1>
+    <div class="title">Product Marketing Manager</div>
+    <div class="contact">
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>+1 (415) 555-0182</span>
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="#2d6cdf" stroke-width="2"/><path d="M3 6l9 6 9-6" fill="none" stroke="#2d6cdf" stroke-width="2"/></svg><a href="mailto:maya@email.com">maya@email.com</a></span>
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>San Francisco, CA</span>
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M3.9 12a4 4 0 0 1 4-4h3v2h-3a2 2 0 0 0 0 4h3v2h-3a4 4 0 0 1-4-4zm6 1h4v-2h-4v2zm3-5h3a4 4 0 0 1 0 8h-3v-2h3a2 2 0 0 0 0-4h-3V8z"/></svg><a href="#">linkedin.com/in/mayatorres</a></span>
+    </div>
+  </header>
+
+  <div class="cols">
+    <div class="main">
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">Product marketer with 9 years taking B2B SaaS products from launch to scale. Bridges product, sales, and content to drive adoption and revenue. Owns positioning, GTM strategy, and lifecycle marketing for products serving 50K+ users across self-serve and enterprise motions.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="entry">
+          <div class="role">Senior Product Marketing Manager</div>
+          <div class="org">Brightwave</div>
+          <div class="meta"><span>01/2021 — Present</span><span>San Francisco, CA</span></div>
+          <ul>
+            <li>Led GTM for 3 product launches, driving $4.2M net-new ARR in year one.</li>
+            <li>Rebuilt positioning and messaging, lifting trial-to-paid conversion from 11% to 19%.</li>
+            <li>Built a competitive-intel program adopted by 40+ sales reps; win rate +12%.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="role">Product Marketing Manager</div>
+          <div class="org">Northpeak</div>
+          <div class="meta"><span>06/2017 — 12/2020</span><span>Austin, TX</span></div>
+          <ul>
+            <li>Owned lifecycle campaigns reaching 120K users; expansion revenue +28%.</li>
+            <li>Launched the customer-advocacy program, sourcing 60+ case studies and references.</li>
+            <li>Ran pricing and packaging tests that grew average contract value 18%.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="role">Marketing Associate</div>
+          <div class="org">Lumen Analytics</div>
+          <div class="meta"><span>07/2015 — 05/2017</span><span>Austin, TX</span></div>
+          <ul>
+            <li>Managed email and content calendar generating 1,200+ marketing-qualified leads per quarter.</li>
+            <li>Produced 40+ blog posts and webinars, lifting organic traffic 65% year over year.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="entry">
+          <div class="role">B.A. Marketing &amp; Communications</div>
+          <div class="org">University of Texas at Austin</div>
+          <div class="meta"><span>2013 — 2017</span><span>Austin, TX</span></div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <section>
+        <h2>Skills</h2>
+        <div class="pills">
+          <span>Go-to-Market</span><span>Positioning</span><span>Messaging</span><span>Lifecycle Marketing</span><span>Competitive Intel</span><span>Sales Enablement</span><span>Pricing &amp; Packaging</span><span>Customer Research</span><span>Demand Gen</span><span>Analytics</span><span>SQL</span><span>Figma</span><span>HubSpot</span><span>Salesforce</span><span>Marketo</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <div class="entry">
+          <div class="role">Pragmatic Institute — PMC-III</div>
+          <div class="meta"><span>2022</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Key Achievements</h2>
+        <div class="ach"><div class="badge">★</div><div><div class="t">$4.2M ARR Launch</div><div class="d">Owned GTM for the flagship launch that became the top revenue driver.</div></div></div>
+        <div class="ach"><div class="badge">◆</div><div><div class="t">2× Conversion</div><div class="d">Repositioning lifted trial-to-paid from 11% to 19% in two quarters.</div></div></div>
+        <div class="ach"><div class="badge">➜</div><div><div class="t">Sales Win Rate +12%</div><div class="d">Competitive program adopted org-wide by the sales team.</div></div></div>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="lang"><div class="n"><b>English</b><small>Native</small></div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+        <div class="lang"><div class="n"><b>Spanish</b><small>Proficient</small></div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      </section>
+    </aside>
+  </div>
+
+</div>
+</body>
+</html>

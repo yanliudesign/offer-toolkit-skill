@@ -1,0 +1,33 @@
+# OS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+.cursor/
+.claude/
+
+# Node / build
+node_modules/
+*.env
+.env.local
+
+# === Resume Skill · local user-generated resume outputs ===
+# (Don't commit personal data. Keep templates and docs assets.)
+resume-skill/*-resume-*.html
+resume-skill/*.pdf
+
+# === Job Description Skill · personal JD analyses ===
+# Only track template + index inside jd-bank/
+job-description-skill/jd-bank/*.md
+!job-description-skill/jd-bank/_index.md
+!job-description-skill/jd-bank/_jd-template.md
+# Generated reports (defensively exclude, keep the template skeleton)
+job-description-skill/*.html
+!job-description-skill/examples/*.html
+
+# === BQ Skill · personal story bank ===
+# Only track template + index + shipped example stories
+bq-skill/story-bank/*.md
+!bq-skill/story-bank/_index.md
+!bq-skill/story-bank/_story-template.md
+!bq-skill/story-bank/convince-team-rewrite.md

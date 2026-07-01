@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Timeline (时间轴单栏 — 经历沿一条竖直时间轴展开)
+  灵感：一条贯穿 Experience/Education 的竖直主线，每段经历是线上的一个圆点节点，
+  日期贴在节点旁，公司名/圆点/竖线统一用一个 teal 强调色 (#0f766e)。
+  紧凑的头部 + 一条 skills 横条，单主栏；时间轴是本模板的招牌视觉，干净而现代。
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  适合：市场/产品/运营/通用职能，想用一条清晰的成长线讲职业故事，又要单页打印干净。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --accent: #0f766e;
+    --accent-soft: #d7ece9;
+    --rule: #d6d6d6;
+    --line: 2px;          /* timeline spine width */
+    --dot: 11px;          /* node diameter */
+    --rail: 1.05in;       /* left rail width holding dates */
+  }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+    color: var(--ink); font-size: 10pt; line-height: 1.45; background: #fff;
+  }
+  .page { width: 8.5in; min-height: 11in; padding: 0.5in 0.55in; margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+  header { padding-bottom: 11px; border-bottom: 2px solid var(--accent); margin-bottom: 12px; }
+  header h1 { font-size: 24pt; font-weight: 700; letter-spacing: 1px; line-height: 1.05; }
+  header .headline { font-size: 11.5pt; color: var(--accent); font-weight: 600; margin-top: 3px; letter-spacing: 0.3px; }
+  header .contact { font-size: 9.5pt; color: var(--muted); margin-top: 6px; }
+  header .contact a { color: var(--muted); text-decoration: none; }
+  header .contact .sep { color: var(--accent); margin: 0 6px; font-weight: 700; }
+
+  /* ---------- Section titles ---------- */
+  section { margin-bottom: 13px; }
+  h2 {
+    font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.6px;
+    font-weight: 700; color: var(--accent); margin-bottom: 8px;
+  }
+
+  .summary { font-size: 10pt; color: #2a2a2a; }
+
+  /* ---------- Timeline ---------- */
+  .timeline { position: relative; padding-left: var(--rail); }
+  /* the vertical spine */
+  .timeline::before {
+    content: ""; position: absolute;
+    left: calc(var(--rail) - 1px);
+    top: 6px; bottom: 6px;
+    width: var(--line); background: var(--accent-soft);
+  }
+  .tl-item { position: relative; padding-left: 18px; padding-bottom: 11px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  /* node dot sitting on the spine */
+  .tl-item::before {
+    content: ""; position: absolute;
+    left: calc(-1 * (var(--dot) / 2) + 1px);
+    top: 4px;
+    width: var(--dot); height: var(--dot);
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 2.5px #fff;
+  }
+  /* date sits in the left rail, opposite the node */
+  .tl-item .when {
+    position: absolute;
+    left: calc(-1 * var(--rail));
+    width: calc(var(--rail) - 14px);
+    top: 2px;
+    text-align: right;
+    font-size: 8.7pt; font-weight: 600; color: var(--muted);
+    line-height: 1.25;
+  }
+  .tl-item .org { font-weight: 700; color: var(--accent); font-size: 10.5pt; }
+  .tl-item .role { font-weight: 600; color: var(--ink); }
+  .tl-item .loc { color: var(--muted); font-weight: 400; font-style: italic; font-size: 9.3pt; }
+  .tl-item .meta { margin-bottom: 2px; }
+
+  ul { list-style: none; margin-top: 3px; }
+  ul li { padding-left: 13px; position: relative; margin-bottom: 2px; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+  /* ---------- Skills strip ---------- */
+  .strip { border-top: 1px solid var(--rule); padding-top: 10px; }
+  .kv { margin-bottom: 4px; }
+  .kv b { color: var(--ink); font-weight: 700; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+  .tag {
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 8.7pt; font-weight: 600;
+    padding: 1.5px 8px; border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>MAYA TORRES</h1>
+    <div class="headline">Product Marketing Manager</div>
+    <div class="contact">
+      +1 (415) 555-0182<span class="sep">·</span>maya@email.com<span class="sep">·</span>San Francisco, CA<span class="sep">·</span><a href="#">linkedin.com/in/mayatorres</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Product marketer with 10 years taking B2B SaaS products from launch to scale. Bridges product, sales, and content to drive measurable adoption and revenue. Owns positioning, GTM strategy, analyst relations, and lifecycle for products serving 50K+ users across self-serve and enterprise motions.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="when">01/2021 — Present</div>
+        <div class="meta">
+          <span class="org">Brightwave</span> — <span class="role">Senior Product Marketing Manager</span> <span class="loc">· San Francisco, CA</span>
+        </div>
+        <ul>
+          <li>Led GTM for 3 flagship product launches, driving $4.2M net-new ARR in year one and exceeding pipeline targets by 34%.</li>
+          <li>Rebuilt positioning and messaging across the portfolio, lifting trial-to-paid conversion from 11% to 19% in two quarters.</li>
+          <li>Built a competitive-intel program adopted by 40+ sales reps, including battle cards and win/loss reviews; win rate +12%.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="when">06/2017 — 12/2020</div>
+        <div class="meta">
+          <span class="org">Northpeak</span> — <span class="role">Product Marketing Manager</span> <span class="loc">· Austin, TX</span>
+        </div>
+        <ul>
+          <li>Owned lifecycle campaigns reaching 120K users; expansion revenue +28% and churn down 4 points year over year.</li>
+          <li>Launched the customer-advocacy program, sourcing 60+ case studies, references, and G2 reviews that fueled bottom-funnel content.</li>
+          <li>Partnered with analyst relations to secure a Leader placement in two industry grids, boosting inbound enterprise demand.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="when">03/2015 — 05/2017</div>
+        <div class="meta">
+          <span class="org">Lumen Labs</span> — <span class="role">Product Marketing Specialist</span> <span class="loc">· Austin, TX</span>
+        </div>
+        <ul>
+          <li>Drove the messaging refresh for a $9M product line, increasing demo-request volume 41% across paid and organic channels.</li>
+          <li>Built the sales-enablement library (decks, one-pagers, scripts) used by a 25-person field team to ramp 30% faster.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="when">2013 — 2017</div>
+        <div class="meta">
+          <span class="org">University of Texas at Austin</span> <span class="loc">· Austin, TX</span>
+        </div>
+        <div class="role">B.A. Marketing &amp; Communications</div>
+        <ul>
+          <li>Graduated with honors; concentration in digital strategy and consumer behavior.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <h2>Skills &amp; Languages</h2>
+    <div class="tags">
+      <span class="tag">Go-to-Market</span>
+      <span class="tag">Positioning</span>
+      <span class="tag">Messaging</span>
+      <span class="tag">Lifecycle Marketing</span>
+      <span class="tag">Competitive Intel</span>
+      <span class="tag">Sales Enablement</span>
+      <span class="tag">Analyst Relations</span>
+      <span class="tag">Demand Gen</span>
+      <span class="tag">Pricing &amp; Packaging</span>
+      <span class="tag">Win/Loss Analysis</span>
+      <span class="tag">Analytics</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Figma</span>
+      <span class="tag">HubSpot</span>
+      <span class="tag">Salesforce</span>
+      <span class="tag">Marketo</span>
+    </div>
+    <div class="kv" style="margin-top:8px;"><b>Languages:</b> English (Native) · Spanish (Proficient)</div>
+  </section>
+
+</div>
+</body>
+</html>

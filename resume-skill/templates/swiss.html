@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Swiss / International Typographic
+  视觉理念 / VISUAL IDEA:
+    瑞士国际主义排版风格 (Swiss / Helvetica school)。严格的两栏网格：
+    左侧窄栏放大写、加字距的 section 标签 (EXPERIENCE / EDUCATION ...)，
+    右侧宽栏放内容。顶部超大粗体名字，名字后跟一个红色句点。
+    黑白为主，仅用一处红色 (#e3000f) 点缀。发丝级横线分隔，
+    左对齐、无圆角、无阴影，大量留白，像一张自信的瑞士设计海报。
+  适合谁 / WHO IT SUITS:
+    设计师、品牌/产品营销、内容、建筑、以及任何想要克制而有强烈
+    排版气场的求职者。强调层级与秩序感。
+  使用说明 / USAGE NOTES:
+    保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAYA TORRES — Resume</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { background: #d8d8d8; }
+
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.5in;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* ---- Masthead ---- */
+  .masthead {
+    border-bottom: 2px solid #111111;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+  .name {
+    font-size: 42pt;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .name .dot { color: #e3000f; }
+  .headline {
+    margin-top: 8px;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .contact {
+    margin-top: 6px;
+    font-size: 8.5pt;
+    color: #444444;
+    letter-spacing: 0.2px;
+  }
+  .contact span { white-space: nowrap; }
+  .sep { color: #e3000f; padding: 0 5px; font-weight: 700; }
+
+  /* ---- Swiss grid: narrow label gutter + wide content ---- */
+  .row {
+    display: grid;
+    grid-template-columns: 1.35in 1fr;
+    gap: 0 0.3in;
+    padding: 16px 0;
+    border-top: 1px solid #cfcfcf;
+  }
+  .row:first-of-type { border-top: none; }
+
+  .label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: #111111;
+    padding-top: 2px;
+  }
+  .label .tick {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #e3000f;
+    margin-bottom: 7px;
+  }
+
+  .content { min-width: 0; }
+
+  .summary { font-size: 10pt; line-height: 1.5; }
+
+  /* ---- Experience entries ---- */
+  .entry { margin-bottom: 16px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .role { font-size: 10.5pt; font-weight: 700; }
+  .dates {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #888888;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .org {
+    font-size: 9pt;
+    margin-top: 1px;
+    color: #333333;
+  }
+  .org strong { font-weight: 700; color: #111111; }
+  .org .loc { color: #888888; }
+
+  ul.bullets { list-style: none; margin-top: 6px; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 1px;
+    background: #111111;
+  }
+
+  /* ---- Education ---- */
+  .edu .role { font-size: 10pt; }
+
+  /* ---- Skills / languages as inline rows ---- */
+  .taglist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 6px;
+  }
+  .tag {
+    font-size: 8.5pt;
+    border: 1px solid #cfcfcf;
+    padding: 2px 8px;
+    letter-spacing: 0.3px;
+  }
+  .lang-line { font-size: 9.5pt; }
+  .lang-line strong { font-weight: 700; }
+  .lang-line .muted { color: #888888; }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <h1 class="name">Maya Torres<span class="dot">.</span></h1>
+      <div class="headline">Product Marketing Manager</div>
+      <div class="contact">
+        <span>+1 (415) 555-0182</span><span class="sep">/</span><span>maya@email.com</span><span class="sep">/</span><span>San Francisco, CA</span><span class="sep">/</span><span>linkedin.com/in/mayatorres</span>
+      </div>
+    </header>
+
+    <!-- PROFILE -->
+    <section class="row">
+      <div class="label"><span class="tick"></span>Profile</div>
+      <div class="content">
+        <p class="summary">Product marketer with 8 years taking B2B SaaS products from launch to scale. Bridges product, sales, and content to drive adoption across the full funnel. Owns positioning, go-to-market, and lifecycle for products serving 50K+ users. Equal parts narrative and numbers — known for crisp messaging backed by rigorous experimentation and a competitive-intelligence discipline that sales actually uses.</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="row">
+      <div class="label"><span class="tick"></span>Experience</div>
+      <div class="content">
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="role">Senior Product Marketing Manager</div>
+            <div class="dates">01/2021 — Present</div>
+          </div>
+          <div class="org"><strong>Brightwave</strong> <span class="loc">— San Francisco, CA</span></div>
+          <ul class="bullets">
+            <li>Led GTM for 3 product launches, driving $4.2M net-new ARR in year one.</li>
+            <li>Rebuilt positioning and messaging across web, sales, and onboarding, lifting trial-to-paid conversion from 11% to 19%.</li>
+            <li>Built a competitive-intel program adopted by 40+ sales reps; head-to-head win rate +12%.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="role">Product Marketing Manager</div>
+            <div class="dates">06/2017 — 12/2020</div>
+          </div>
+          <div class="org"><strong>Northpeak</strong> <span class="loc">— Austin, TX</span></div>
+          <ul class="bullets">
+            <li>Owned lifecycle campaigns reaching 120K users; expansion revenue +28% YoY.</li>
+            <li>Launched the customer-advocacy program, sourcing 60+ case studies and references.</li>
+            <li>Authored the persona and messaging library adopted company-wide across 4 product lines.</li>
+            <li>Partnered with demand gen on a webinar series generating 1,800 MQLs per quarter.</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="row edu">
+      <div class="label"><span class="tick"></span>Education</div>
+      <div class="content">
+        <div class="entry">
+          <div class="entry-head">
+            <div class="role">B.A. Marketing &amp; Communications</div>
+            <div class="dates">2013 — 2017</div>
+          </div>
+          <div class="org"><strong>University of Texas at Austin</strong> <span class="loc">— Austin, TX</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="row">
+      <div class="label"><span class="tick"></span>Skills</div>
+      <div class="content">
+        <div class="taglist">
+          <span class="tag">Go-to-Market</span>
+          <span class="tag">Positioning</span>
+          <span class="tag">Messaging</span>
+          <span class="tag">Lifecycle Marketing</span>
+          <span class="tag">Competitive Intel</span>
+          <span class="tag">Sales Enablement</span>
+          <span class="tag">Pricing &amp; Packaging</span>
+          <span class="tag">Win/Loss Research</span>
+          <span class="tag">Customer Advocacy</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Funnel Analytics</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Figma</span>
+          <span class="tag">HubSpot</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Marketo</span>
+          <span class="tag">Amplitude</span>
+          <span class="tag">Notion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="row">
+      <div class="label"><span class="tick"></span>Certifications</div>
+      <div class="content">
+        <p class="lang-line"><strong>Pragmatic Institute — PMC III</strong> <span class="muted">2021</span><span class="sep">/</span><strong>Product Marketing Alliance Certified</strong> <span class="muted">2020</span></p>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="row">
+      <div class="label"><span class="tick"></span>Languages</div>
+      <div class="content">
+        <p class="lang-line"><strong>English</strong> <span class="muted">Native</span><span class="sep">/</span><strong>Spanish</strong> <span class="muted">Proficient</span></p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

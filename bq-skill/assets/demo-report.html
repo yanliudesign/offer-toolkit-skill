@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BQ Prep · DEMO — Anthropic × Product Designer, Claude</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0a; --ink-2:#1f1f1d; --paper:#fafaf7; --paper-2:#f3f3ee; --paper-3:#ebebe4;
+    --muted:#6b6b66; --muted-2:#9a9a92; --line:#d9d9d2; --line-soft:#e6e6df;
+    --go:#18a957; --go-soft:#d8f3e0; --warn:#d97706; --warn-soft:#fef0d4;
+    --stop:#c2410c; --stop-soft:#fde0d2; --hint:#2563eb; --accent:#facc15;
+    --behavior:#7c3aed; --values:#c2410c; --craft:#2563eb; --level:#0a0a0a;
+    --serif:"Times New Roman","Noto Serif SC","Songti SC",Georgia,serif;
+    --display:"SF Pro Display",-apple-system,"Helvetica Neue","Noto Sans SC","PingFang SC",sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Noto Sans SC","PingFang SC",sans-serif;
+    --mono:"SF Mono","JetBrains Mono",Menlo,"Noto Sans SC",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+  body{font-family:var(--body);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .page{max-width:960px;margin:0 auto;padding:56px 56px 96px}
+  .demo-flag{position:fixed;top:0;left:0;right:0;background:var(--ink);color:var(--accent);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:7px;z-index:99}
+  .meta-strip{display:flex;gap:14px;align-items:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .meta-strip .dot{width:5px;height:5px;border-radius:50%;background:var(--ink);display:inline-block}
+  h1{font-family:var(--display);font-weight:800;font-size:52px;line-height:1.05;letter-spacing:-.025em;margin:0 0 16px}
+  h1 .tag{display:block;font-size:17px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:14px;line-height:1.55}
+  .header-rule{height:2px;background:var(--ink);margin:26px 0}
+  .role-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:30px}
+  .role-row .cell{padding:0 18px;border-left:1px solid var(--line)}
+  .role-row .cell:first-child{border-left:0;padding-left:0}
+  .role-row .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .role-row .value{font-size:15px;font-weight:700;line-height:1.3}
+  .role-row .value small{font-size:11px;font-weight:500;color:var(--muted);display:block;margin-top:2px}
+  .verdict{background:var(--ink);color:var(--paper);padding:32px 38px;border-radius:6px;margin-bottom:26px}
+  .verdict .kicker{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent);margin-bottom:12px}
+  .verdict p{font-size:15px;color:#d8d8d3;line-height:1.66;margin:0 0 14px;max-width:760px}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict b{color:#fff}
+  .verdict .risk{color:#f6b9a0}
+  .verdict .score-tag{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink);background:var(--accent);padding:3px 12px;border-radius:999px;margin-right:10px}
+  .notice{background:#fff8e6;border-left:4px solid var(--accent);padding:15px 20px;border-radius:0 3px 3px 0;margin-bottom:50px;font-size:13px;color:#4a3f1e;line-height:1.65}
+  .notice strong{color:#2a2308}
+  section{margin-bottom:60px}
+  .section-head{display:flex;align-items:baseline;gap:18px;margin-bottom:8px;border-bottom:1px solid var(--ink);padding-bottom:12px}
+  .section-head .num{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--muted);min-width:26px}
+  .section-head h3{font-family:var(--display);font-size:26px;font-weight:800;margin:0;letter-spacing:-.015em;flex:1}
+  .section-head .pill{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--paper-2);padding:4px 10px;border-radius:999px}
+  .section-intro{font-size:13.5px;color:var(--muted);max-width:740px;margin:14px 0 26px;line-height:1.62}
+  .must{background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px 30px;margin-bottom:22px;position:relative;overflow:hidden}
+  .must::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+  .must .mhead{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+  .must .mid{font-family:var(--display);font-size:34px;font-weight:800;line-height:1;color:var(--ink);min-width:30px}
+  .must .mlabel{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .must .mlabel .shield{color:var(--stop)}
+  .must .q-en{font-family:var(--display);font-size:23px;font-weight:800;line-height:1.28;letter-spacing:-.018em;margin:2px 0 6px}
+  .must .q-zh{font-size:14px;color:var(--muted);margin-bottom:20px;font-style:italic;font-family:var(--serif)}
+  .why-grid{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:13px;margin-bottom:20px;padding:16px 18px;background:var(--paper-2);border-radius:4px}
+  .why-grid .k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:2px}
+  .why-grid .v{color:var(--ink-2);line-height:1.5}
+  .why-grid .v.story{color:var(--go);font-weight:600}
+  .why-grid .v.gapv{color:var(--stop);font-weight:600}
+  .star{border-top:1px solid var(--line-soft);padding-top:6px}
+  .star .lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--ink);margin-top:16px;display:flex;align-items:center;gap:8px}
+  .star .lbl::before{content:"";width:14px;height:2px;background:var(--ink)}
+  .star .filled{font-size:14px;color:var(--ink-2);margin-top:5px;line-height:1.6}
+  .star .fill-in{font-size:13px;color:#7a5a12;margin-top:6px;padding:11px 15px;border:1px dashed var(--warn);border-radius:4px;background:var(--warn-soft);line-height:1.6}
+  .star .fill-in b{color:#5a3a08}
+  .ex{margin-top:20px;background:var(--paper-2);border:1px solid var(--line);border-radius:5px;padding:18px 22px}
+  .ex .ex-lbl{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .ex .ex-lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+  .ex p{font-size:14.5px;color:var(--ink-2);line-height:1.72;margin:0}
+  .toward{margin-top:16px;font-size:13px;color:var(--ink-2);line-height:1.55;padding:10px 14px;background:rgba(124,58,237,.06);border-left:3px solid var(--behavior);border-radius:0 3px 3px 0}
+  .toward b{color:var(--behavior)}
+  .reuse{margin-top:12px;font-size:12.5px;color:var(--muted);font-family:var(--serif);font-style:italic}
+  .reuse b{color:var(--ink);font-style:normal;font-family:var(--body)}
+  .group{margin-bottom:34px}
+  .group-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+  .group-head .gbar{width:22px;height:3px}
+  .group-head h4{font-family:var(--display);font-size:19px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .group-head .cnt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:auto;font-family:var(--mono)}
+  .g1 .gbar{background:var(--behavior)} .g2 .gbar{background:var(--values)} .g3 .gbar{background:var(--craft)} .g4 .gbar{background:var(--level)}
+  .qcard{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);border-radius:0 5px 5px 0;padding:18px 22px;margin-bottom:13px}
+  .g1 .qcard{border-left-color:var(--behavior)} .g2 .qcard{border-left-color:var(--values)} .g3 .qcard{border-left-color:var(--craft)} .g4 .qcard{border-left-color:var(--level)}
+  .qcard .qtop{display:flex;align-items:baseline;gap:10px;margin-bottom:7px}
+  .qcard .qid{font-family:var(--display);font-size:20px;font-weight:800;color:var(--muted-2);line-height:1}
+  .qcard .star-mark{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#8a6d0a;background:var(--accent);padding:2px 8px;border-radius:999px}
+  .qcard .qe{font-family:var(--display);font-size:18.5px;font-weight:700;line-height:1.34;letter-spacing:-.012em;margin:0 0 4px}
+  .qcard .qz{font-size:13px;color:var(--muted);font-family:var(--serif);font-style:italic;margin-bottom:13px}
+  .qcard .rows{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:12.5px;padding-top:12px;border-top:1px solid var(--line-soft)}
+  .qcard .rk{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:2px}
+  .qcard .rv{color:var(--ink-2);line-height:1.5}
+  .qcard .rv.story{color:var(--go);font-weight:600}
+  .qcard .rv.gapv{color:var(--stop);font-weight:600}
+  .qcard .ex{margin-top:14px}
+  .qcard .ex p{font-size:13.5px;line-height:1.66}
+  .gap-grid{display:grid;gap:14px}
+  .gap-card{background:var(--stop-soft);border-left:3px solid var(--stop);padding:16px 20px;border-radius:0 4px 4px 0}
+  .gap-card .gap-label{font-family:var(--display);font-weight:800;font-size:15px;color:var(--ink);margin-bottom:6px;display:flex;align-items:baseline;gap:10px}
+  .gap-card .gap-label .sev{font-family:var(--mono);font-size:9.5px;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.65);color:var(--stop);letter-spacing:.08em;text-transform:uppercase}
+  .gap-card .gap-body{font-size:13px;color:var(--ink-2);line-height:1.6}
+  .brand{margin-top:64px}
+  .brand .rule{height:1px;background:var(--line)}
+  .brand .wordmark{font-family:var(--display);font-weight:800;font-size:clamp(64px,12vw,118px);letter-spacing:-.045em;line-height:1;display:flex;align-items:flex-end;margin:40px 0 0}
+  .brand .wordmark .sq{width:clamp(15px,2.6vw,26px);height:clamp(15px,2.6vw,26px);background:var(--accent);display:inline-block;margin:0 0 .1em 6px}
+  .brand .byline-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:18px 0 40px}
+  .brand .byline{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted);line-height:1.4}
+  .brand .byline b{color:var(--ink);font-style:normal;font-family:var(--display);font-weight:800}
+  .brand .socials{display:flex;gap:13px;flex:none}
+  .brand .socials a{width:46px;height:46px;border:1.6px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+  .brand .socials a svg{width:19px;height:19px}
+  .brand .socials .xhs{border:none;background:#ff2741;color:#fff;border-radius:13px;font-family:var(--display);font-weight:800;font-size:12px}
+  .brand .imprint{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink);margin:32px 0 12px}
+  .brand .src{font-size:12.5px;color:var(--muted);line-height:1.7;max-width:820px}
+  .brand .src b{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="demo-flag">Demo · fictional candidate "Alex Chen" — illustrates layout only, no real personal data</div>
+<div class="page">
+
+  <div class="meta-strip"><span>Career Story OS</span><span class="dot"></span><span>JD-Driven BQ Prep</span><span class="dot"></span><span>Flow E</span></div>
+  <h1>Interview Story Playbook
+    <span class="tag">Anthropic · Product Designer, Claude —— your real experience, mapped to the 20 behavioral questions this company will actually ask.</span>
+  </h1>
+  <div class="header-rule"></div>
+  <div class="role-row">
+    <div class="cell"><div class="label">Candidate</div><div class="value">Alex Chen<small>Senior PD · 7 yrs</small></div></div>
+    <div class="cell"><div class="label">Role / Level</div><div class="value">PD, Claude<small>IC · SF</small></div></div>
+    <div class="cell"><div class="label">Match</div><div class="value">~82%<small>strong · 1 risk</small></div></div>
+    <div class="cell"><div class="label">Style</div><div class="value">agency<small>first-principles · ship</small></div></div>
+  </div>
+
+  <div class="verdict">
+    <div class="kicker">Match picture</div>
+    <p><span class="score-tag">82%</span>A strong fit. Your edge is an <b>opinion on how AI products should behave</b> — you've shipped assistant features at consumer scale and care about trust. End-to-end ownership and comfort with ambiguity both land.</p>
+    <p class="risk">The one real risk —— most of your craft is design-systems work; this role is judged on pixel-level interaction craft. <b style="color:#fff">Q18 is the question that de-risks it — rehearse it.</b></p>
+  </div>
+
+  <div class="notice">📝 <strong>About the model answers ·</strong> each English sample below is grounded in the candidate's resume facts, but action details are editable drafts — verify against your real experience before speaking, especially the "I vs the team" attribution of any metric. Items marked ⚠️ are resume gaps; treat their samples as structure only.</div>
+
+  <section>
+    <div class="section-head"><span class="num">i.</span><h3>Five to rehearse · full STAR templates</h3><span class="pill">Top 5</span></div>
+    <p class="section-intro">S / T are pre-filled from the resume; the <b style="color:#5a3a08">amber dashed boxes</b> are what you fill with real actions and numbers; the <b style="color:var(--muted)">sand block</b> is an editable English model answer.</p>
+
+    <div class="must">
+      <div class="mhead"><span class="mid">10</span><span class="mlabel">Rehearse · #10 of 20</span></div>
+      <div class="q-en">"How should AI-first products look and behave? Tell me about a time you defined that for a product."</div>
+      <div class="q-zh">AI-first 产品该长什么样、怎么行为?讲一次你为某产品定义它的经历。</div>
+      <div class="why-grid">
+        <span class="k">Tests</span><span class="v">opinion on AI form · first-principles</span>
+        <span class="k">Why here</span><span class="v">JD signature line on defining AI behavior — the core mission-fit question, almost always asked</span>
+        <span class="k">Your story</span><span class="v story">Linear · AI quick-actions behavior model</span>
+      </div>
+      <div class="star">
+        <div class="lbl">S · SITUATION</div>
+        <div class="filled">As an early designer on Linear's AI features, there was no shared model for when the assistant should act inside a fast keyboard-driven tool.</div>
+        <div class="lbl">T · TASK</div>
+        <div class="filled">You owned defining the interaction model: when AI acts vs waits, and how users stay in control.</div>
+        <div class="lbl">A · ACTION</div>
+        <div class="fill-in"><b>Fill:</b> ① your first principle (one line) ② a concrete behavior you designed ③ how you validated it ④ how you got the team aligned</div>
+        <div class="lbl">R · RESULT</div>
+        <div class="fill-in"><b>Confirm:</b> adoption / engagement number — and your personal vs team attribution; add one line of reflection.</div>
+      </div>
+      <div class="ex">
+        <div class="ex-lbl">Model answer · editable</div>
+        <p>"I believe AI-first products should be judged less by what they generate and more by how gracefully they hand control back to the user. On Linear's AI work I owned the behavior model — when the assistant should surface an action versus stay out of the way in a keyboard-first flow. I prototyped the thresholds, tested them with power users, and aligned the team on a 'suggest, never auto-apply' default with one-keystroke undo. It shipped as the pattern other AI features built on. If I did it again I'd write the override rules down on day one."</p>
+      </div>
+      <div class="toward"><b>Aim →</b> first-principles + you defined something undefined, rather than polishing an existing product.</div>
+      <div class="reuse"><b>Reuse:</b> also answers Q4 (ambiguity→vision), Q1 (ownership), Q12 (working with research).</div>
+    </div>
+
+    <div class="must">
+      <div class="mhead"><span class="mid">18</span><span class="mlabel"><span class="shield">🛡️ de-risk</span> · #18 of 20</span></div>
+      <div class="q-en">"Walk me through a screen or interaction you crafted to a very high bar. Why those pixels, that timing?"</div>
+      <div class="q-zh">挑一个你亲手做到极高 craft 的界面或交互,讲讲为什么是这个间距、这个时机。</div>
+      <div class="why-grid">
+        <span class="k">Tests</span><span class="v">hands-on UI / interaction craft</span>
+        <span class="k">Why here</span><span class="v gapv">JD's "high bar for craft" + portfolio gets pixel-level scrutiny — your biggest risk is reading as a systems lead, not a maker</span>
+        <span class="k">Your story</span><span class="v story">A signature screen from your portfolio</span>
+      </div>
+      <div class="star">
+        <div class="lbl">S · SITUATION</div>
+        <div class="filled">Pick something you personally crafted, not directed — a motion moment or a dense screen you're proud of.</div>
+        <div class="lbl">T · TASK</div>
+        <div class="filled">Prove you still go deep to the pixel and the frame — exactly what the interviewer wants to confirm.</div>
+        <div class="lbl">A · ACTION</div>
+        <div class="fill-in"><b>Fill:</b> ① one specific craft decision (spacing, 200ms vs 400ms, a state transition) ② how many versions you cut ③ a real trade-off you weighed</div>
+        <div class="lbl">R · RESULT</div>
+        <div class="fill-in"><b>Fill:</b> the felt difference the craft made; add "leading teams never pulled me out of the pixels."</div>
+      </div>
+      <div class="ex">
+        <div class="ex-lbl">Model answer · editable</div>
+        <p>"I crafted the command-bar open animation myself — the 120ms ease where the panel scales up and the backdrop dims. I tuned it to 120ms because slower felt heavy in a tool people open fifty times a day, and faster lost the sense of a surface arriving. I cut four versions against real muscle-memory use until it felt instant but not jarring. Even while leading, I never left this layer — I prototype in code daily. That's the craft I want to bring here."</p>
+      </div>
+      <div class="toward"><b>Aim →</b> have 1–2 portfolio screens you can discuss pixel by pixel; show genuine appetite for hands-on craft.</div>
+      <div class="reuse"><b>Reuse:</b> also answers Q14 (portfolio deep-dive), Q15 (craft trade-off), Q16 (design system).</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">ii.</span><h3>Twenty questions · with English samples</h3><span class="pill">Top 20</span></div>
+    <p class="section-intro">Reverse-engineered from this JD, grouped into four kinds. Each tags what it tests, why this company asks it, and which of your experiences answers it.</p>
+
+    <div class="group g1">
+      <div class="group-head"><span class="gbar"></span><h4>General behavior</h4><span class="cnt">8 q</span></div>
+      <div class="qcard">
+        <div class="qtop"><span class="qid">Q1</span><span class="star-mark">★ rehearse</span></div>
+        <div class="qe">Tell me about something you initiated that wasn't assigned to you.</div>
+        <div class="qz">主动发起、没人要求你做的事。</div>
+        <div class="rows"><span class="rk">Tests</span><span class="rv">Ownership / agency</span><span class="rk">Why here</span><span class="rv">"early team member... shaping" wants self-starters</span><span class="rk">Story</span><span class="rv story">Linear · started the AI behavior framework</span></div>
+        <div class="ex"><div class="ex-lbl">English</div><p>"When Linear started shipping AI features, behavior was inconsistent across the app and no one owned the pattern. Unasked, I drafted a shared interaction model for when the assistant acts versus waits, prototyped it, and rallied the team around it. It became the default other AI features built on. Ownership, to me, is closing the gap nobody owns before you're asked."</p></div>
+      </div>
+      <div class="qcard">
+        <div class="qtop"><span class="qid">Q2</span></div>
+        <div class="qe">Describe a disagreement with a cross-functional partner. How did you resolve it?</div>
+        <div class="qz">与跨职能伙伴的分歧,你怎么解决。</div>
+        <div class="rows"><span class="rk">Tests</span><span class="rv">Conflict / collaboration</span><span class="rk">Why here</span><span class="rv">dense 4-way partnership in JD</span><span class="rk">Story</span><span class="rv story">Aligning with eng on AI latency</span></div>
+        <div class="ex"><div class="ex-lbl">English</div><p>"Engineering wanted to ship a faster AI response that hid the model's reasoning; I worried it would erode trust. Instead of arguing, I built two prototypes and tested them — the opaque version scored worse on confidence. We aligned on progressive disclosure. The disagreement made the feature stronger and taught me to turn a values debate into a testable question."</p></div>
+      </div>
+      <div class="qcard">
+        <div class="qtop"><span class="qid">Q4</span><span class="star-mark">★ rehearse</span></div>
+        <div class="qe">An ambiguous problem you shaped into a clear vision.</div>
+        <div class="qz">把模糊问题塑造成清晰愿景。</div>
+        <div class="rows"><span class="rk">Tests</span><span class="rv">Ambiguity / agency</span><span class="rk">Why here</span><span class="rv">JD repeats "shape ambiguous problems"</span><span class="rk">Story</span><span class="rv story">Notion · vague "improve onboarding" brief</span></div>
+        <div class="ex"><div class="ex-lbl">English</div><p>"At Notion the brief was just 'improve onboarding.' I reframed it: I ran interviews and funnel analysis and narrowed the blocker to a mental-model gap in the first session. I turned that into a clear vision the team rallied behind. In ambiguity, defining the right problem precisely is the highest-leverage move."</p></div>
+      </div>
+    </div>
+
+    <div class="group g2">
+      <div class="group-head"><span class="gbar"></span><h4>Company-values custom</h4><span class="cnt">5 q</span></div>
+      <div class="qcard">
+        <div class="qtop"><span class="qid">Q9</span><span class="star-mark">★ rehearse</span></div>
+        <div class="qe">A time you chose user trust or safety over growth.</div>
+        <div class="qz">为信任 / 安全放弃增长。</div>
+        <div class="rows"><span class="rk">Tests</span><span class="rv">Safety mindset</span><span class="rk">Why here</span><span class="rv gapv">Anthropic's signature value question</span><span class="rk">Story</span><span class="rv gapv">⚠️ thin in resume — mine a real one</span></div>
+        <div class="ex"><div class="ex-lbl">English · ⚠️ structure only, replace with a real story</div><p>"We tested a re-engagement nudge that lifted DAU but leaned on slightly dark-pattern urgency. I pushed to soften it even though it cost measurable engagement, because the long-term trust cost outweighed the metric. We kept a gentler version. 'Trust over growth' was a number we chose to give up."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">iii.</span><h3>Gap list · no resume material, mine these</h3><span class="pill">2</span></div>
+    <p class="section-intro">High-frequency questions with no strong resume material. Use Flow A (the four-layer probing engine) to mine a real story for each, then bank it for reuse.</p>
+    <div class="gap-grid">
+      <div class="gap-card"><div class="gap-label">Q3 · A failure / what you learned <span class="sev">honesty</span></div><div class="gap-body">Resume is all wins, but this culture prizes honest reflection. Recall a real "it shipped, it didn't land, I changed course" moment.</div></div>
+      <div class="gap-card"><div class="gap-label">Q9 · A concrete safety-over-growth call <span class="sev">signature</span></div><div class="gap-body">You have the instinct but need one specific story — which feature, what the trade-off was. A signature value question; it needs to be real.</div></div>
+    </div>
+  </section>
+
+  <div class="brand">
+    <div class="rule"></div>
+    <div class="wordmark">BQ SKILL<span class="sq"></span></div>
+    <div class="byline-row">
+      <div class="byline">Created by <b>Dreameryanyan</b> · <span style="font-style:italic">Behavioral Question · Career Story OS</span></div>
+      <div class="socials">
+        <a title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v15.5H.25V8zm7.5 0h4.31v2.12h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9v8.82h-4.5v-7.82c0-1.86-.03-4.26-2.6-4.26-2.6 0-3 2.03-3 4.12v7.96h-4.5V8z"/></svg></a>
+        <a title="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.5h3.68l-8.04 9.19L24 22.5h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.5h7.59l5.24 6.93L18.9 1.5zm-1.29 18.8h2.04L6.48 3.6H4.29l13.32 16.7z"/></svg></a>
+        <a class="xhs" title="小红书">小红书</a>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="imprint">— BQ Skill · JD-Driven Prep Report (DEMO)</div>
+    <div class="src">Top 20 questions reverse-engineered from a job description per <b>prompts/jd-driven-prep.md</b> · STAR templates grounded in the candidate's resume — <b>no fabricated facts</b>. This page uses a fictional candidate for illustration only.</div>
+  </div>
+
+</div>
+</body>
+</html>

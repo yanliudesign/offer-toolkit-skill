@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--
+  模板名称 / Template: Color-block (色块顶栏)
+  视觉构思 / Visual idea: 一条满幅、edge-to-edge 的珊瑚色 (#ff5a4d) 顶栏横贯页面顶部，
+    白色大字姓名 + 半透明白色 title 与 contact；下方为干净的白色正文区，
+    同色珊瑚被克制地用于 section 标题、细线与小标记。横向顶栏，不是侧栏。
+  适合谁 / Who it suits: 科技 / 市场营销 / 偏年轻的求职者 —— 现代、有活力、友好。
+  使用须知 / Usage notes:
+    保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAYA TORRES — Resume</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent: #ff5a4d;
+    --ink: #1f2328;
+    --muted: #5b636c;
+    --line: #e6e8eb;
+  }
+
+  html, body {
+    background: #f3f4f6;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  /* ----- Full-bleed color-block header band ----- */
+  .band {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.5in 0.55in 0.42in;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .band .name {
+    font-size: 27pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1.05;
+  }
+  .band .title {
+    margin-top: 4px;
+    font-size: 12pt;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: 0.4px;
+  }
+  .band .contact {
+    margin-top: 12px;
+    font-size: 9pt;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.2px;
+  }
+  .band .contact .sep { opacity: 0.55; padding: 0 6px; }
+
+  /* ----- White body ----- */
+  .body {
+    padding: 0.42in 0.55in 0.5in;
+  }
+
+  section { margin-bottom: 16px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 9px;
+  }
+  .sec-head h2 {
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .sec-head .rule {
+    flex: 1;
+    height: 2px;
+    background: var(--line);
+  }
+
+  .summary { color: var(--muted); }
+
+  /* Experience / Education entries */
+  .entry { margin-bottom: 12px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .entry-role { font-weight: 700; font-size: 10.5pt; }
+  .entry-org { color: var(--accent); font-weight: 600; }
+  .entry-dates {
+    color: var(--muted);
+    font-size: 8.5pt;
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+  .entry-meta { color: var(--muted); font-size: 9pt; margin-top: 1px; }
+
+  ul.bullets { list-style: none; margin-top: 5px; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 3px;
+    color: #2c3138;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Skills */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 9pt;
+    color: #343a40;
+    background: #fafbfc;
+  }
+
+  /* Languages */
+  .langs { color: #2c3138; }
+  .langs .lang { display: inline-block; margin-right: 18px; }
+  .langs .lang b { font-weight: 700; }
+  .langs .lang span { color: var(--muted); }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="band">
+      <div class="name">MAYA TORRES</div>
+      <div class="title">Product Marketing Manager</div>
+      <div class="contact">
+        +1 (415) 555-0182<span class="sep">·</span>maya@email.com<span class="sep">·</span>San Francisco, CA<span class="sep">·</span>linkedin.com/in/mayatorres
+      </div>
+    </header>
+
+    <div class="body">
+
+      <section>
+        <div class="sec-head"><h2>Summary</h2><span class="rule"></span></div>
+        <p class="summary">Product marketer with 8+ years taking B2B SaaS products from launch to scale across security, fintech, and developer-tools categories. Bridges product, sales, and content to drive adoption, retention, and expansion. Owns positioning, GTM, and lifecycle for products serving 120K+ users and $40M+ in pipeline. Known for translating technical capabilities into sharp, buyer-resonant narratives that move win rates.</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Experience</h2><span class="rule"></span></div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-role">Senior Product Marketing Manager <span class="entry-org">— Brightwave</span></div>
+            <div class="entry-dates">01/2021 – Present</div>
+          </div>
+          <div class="entry-meta">San Francisco, CA</div>
+          <ul class="bullets">
+            <li>Led cross-functional GTM for 3 flagship product launches, driving $4.2M net-new ARR in year one and exceeding the launch pipeline target by 38%.</li>
+            <li>Rebuilt positioning and messaging architecture across the portfolio, lifting trial-to-paid conversion from 11% to 19% and shortening sales cycles by 16 days.</li>
+            <li>Built a competitive-intelligence program (battlecards, kill-sheets, win/loss interviews) adopted by 40+ sales reps; competitive win rate +12%.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-role">Product Marketing Manager <span class="entry-org">— Northpeak</span></div>
+            <div class="entry-dates">06/2017 – 12/2020</div>
+          </div>
+          <div class="entry-meta">Austin, TX</div>
+          <ul class="bullets">
+            <li>Owned lifecycle and onboarding campaigns reaching 120K users; expansion revenue +28% and 30-day activation +21%.</li>
+            <li>Launched the customer-advocacy program, sourcing 60+ case studies, references, and G2 reviews that lifted the category rating to 4.6.</li>
+            <li>Partnered with demand gen on a webinar series averaging 900 registrants and a 24% MQL-to-SQL rate.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Education</h2><span class="rule"></span></div>
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-role">B.A. Marketing &amp; Communications <span class="entry-org">— University of Texas at Austin</span></div>
+            <div class="entry-dates">2013 – 2017</div>
+          </div>
+          <div class="entry-meta">Austin, TX</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Skills</h2><span class="rule"></span></div>
+        <div class="chips">
+          <span class="chip">Go-to-Market</span>
+          <span class="chip">Positioning</span>
+          <span class="chip">Messaging</span>
+          <span class="chip">Lifecycle Marketing</span>
+          <span class="chip">Competitive Intel</span>
+          <span class="chip">Sales Enablement</span>
+          <span class="chip">Analytics</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Figma</span>
+          <span class="chip">HubSpot</span>
+          <span class="chip">Salesforce</span>
+          <span class="chip">Pendo</span>
+          <span class="chip">Looker</span>
+          <span class="chip">Win/Loss Analysis</span>
+          <span class="chip">Pricing &amp; Packaging</span>
+          <span class="chip">Demand Gen</span>
+          <span class="chip">Content Strategy</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Product Launches</span>
+          <span class="chip">Analyst Relations</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><h2>Languages</h2><span class="rule"></span></div>
+        <div class="langs">
+          <span class="lang"><b>English</b> <span>(Native)</span></span>
+          <span class="lang"><b>Spanish</b> <span>(Proficient)</span></span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Modern sidebar (two-column, colored left rail)
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  注意：双栏 ATS 解析较差，适合定向投递 / 人会直接看的场景，不适合海投。
+  侧栏主色在 :root --accent，用户想换色改这一处即可。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --accent: #2b3a55; --accent-light: #e8edf5; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #222; font-size: 10pt; line-height: 1.45; }
+  .page { width: 8.5in; min-height: 11in; margin: 0 auto; display: flex; }
+  /* sidebar */
+  .side { width: 2.7in; background: var(--accent); color: #fff; padding: 0.55in 0.4in; }
+  .side h1 { font-size: 19pt; line-height: 1.1; font-weight: 700; }
+  .side .headline { font-size: 10.5pt; color: #cbd6e8; margin-top: 4px; margin-bottom: 18px; }
+  .side h3 { font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1.5px; color: #9db0d0; margin: 16px 0 6px; border-bottom: 1px solid #44557a; padding-bottom: 3px; }
+  .side .item { margin-bottom: 4px; font-size: 9.5pt; word-break: break-word; }
+  .side a { color: #dbe4f3; text-decoration: none; }
+  .side .skill-group { margin-bottom: 8px; }
+  .side .skill-group b { color: #cbd6e8; font-weight: 600; display: block; font-size: 9pt; }
+  /* main */
+  .main { flex: 1; padding: 0.55in 0.5in; }
+  .main section { margin-bottom: 15px; }
+  .main h2 { font-size: 12pt; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 9px; position: relative; padding-bottom: 4px; }
+  .main h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 32px; height: 2.5px; background: var(--accent); }
+  .summary { font-size: 10pt; color: #444; }
+  .entry { margin-bottom: 11px; }
+  .entry .title { font-weight: 700; font-size: 10.5pt; }
+  .entry .org { color: var(--accent); font-weight: 600; }
+  .entry .date { font-size: 9pt; color: #888; }
+  ul { list-style: none; margin-top: 4px; }
+  ul li { padding-left: 14px; position: relative; margin-bottom: 3px; color: #333; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="side">
+    <h1>Jordan<br>Ellis</h1>
+    <div class="headline">Senior Backend Engineer</div>
+
+    <h3>Contact</h3>
+    <div class="item">San Francisco, CA</div>
+    <div class="item"><a href="mailto:jordan@email.com">jordan@email.com</a></div>
+    <div class="item">(555) 123-4567</div>
+    <div class="item"><a href="#">linkedin.com/in/jordanellis</a></div>
+    <div class="item"><a href="#">github.com/jellis</a></div>
+
+    <h3>Skills</h3>
+    <div class="skill-group"><b>Languages</b>Go · Python · Java · Rust · SQL</div>
+    <div class="skill-group"><b>Infrastructure</b>Kubernetes · gRPC · Kafka · PostgreSQL · Redis · AWS</div>
+    <div class="skill-group"><b>Observability</b>Datadog · Prometheus · Grafana · OpenTelemetry</div>
+    <div class="skill-group"><b>Tools</b>Terraform · Docker · CI/CD · Git</div>
+
+    <h3>Certifications</h3>
+    <div class="item"><b>AWS Solutions Architect</b><br>Professional · 2023</div>
+    <div class="item"><b>Certified Kubernetes Administrator</b><br>CNCF · 2022</div>
+
+    <h3>Awards</h3>
+    <div class="item"><b>Engineering Excellence Award</b><br>Acme Payments · 2023</div>
+
+    <h3>Education</h3>
+    <div class="item"><b>B.S. Computer Science</b><br>University of Washington<br>2014 — 2018 · GPA 3.8</div>
+  </aside>
+
+  <main class="main">
+    <section>
+      <h2>Profile</h2>
+      <p class="summary">Backend engineer with 7 years building high-throughput distributed systems. Focused on reliability and developer velocity; led teams of up to 6. Seeking a staff-level role on payments or infrastructure.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="title">Senior Backend Engineer · <span class="org">Acme Payments</span></div>
+        <div class="date">2021 — Present · San Francisco</div>
+        <ul>
+          <li>Rebuilt the checkout API, cutting p95 latency from 1.2s to 380ms and lifting conversion 8%.</li>
+          <li>Led migration of 40+ services to a unified gRPC mesh, reducing cross-team integration time by 60%.</li>
+          <li>Mentored 4 engineers; 2 promoted within a year.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="title">Backend Engineer · <span class="org">DataForge</span></div>
+        <div class="date">2019 — 2021 · Seattle</div>
+        <ul>
+          <li>Built an event-ingestion pipeline handling 2B events/day at 99.99% uptime.</li>
+          <li>Cut cloud spend $480K/year via tiered storage and autoscaling.</li>
+          <li>Designed a schema-registry service adopted by 12 teams, eliminating 30+ incidents/quarter.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="title">Software Engineer · <span class="org">Northwind Logistics</span></div>
+        <div class="date">2018 — 2019 · Seattle</div>
+        <ul>
+          <li>Shipped a route-optimization microservice that trimmed delivery times 14% across 200+ daily routes.</li>
+          <li>Migrated a monolith to 8 containerized services, cutting deploy frequency from weekly to 20+/day.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="title">Software Engineering Intern · <span class="org">Cascade Cloud</span></div>
+        <div class="date">Summer 2017 · Bellevue</div>
+        <ul>
+          <li>Prototyped a billing-reconciliation job that flagged $90K in mismatched charges in its first month.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="entry">
+        <div class="title">OpenTrace · <span class="org">open-source</span></div>
+        <ul>
+          <li>Lightweight distributed-tracing library, 3.2K GitHub stars.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+</div>
+</body>
+</html>

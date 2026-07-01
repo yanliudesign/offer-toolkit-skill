@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Tech compact (high density, monospace accents)
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  为工程师设计：紧凑、可塞下多段经历+项目。单栏，ATS 解析尚可。主色 :root --accent。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --accent: #0a7d5a; --ink: #1c1c1c; --muted: #666; --line: #e2e2e2; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 9.5pt; line-height: 1.4; }
+  .mono { font-family: "SF Mono", "JetBrains Mono", "Consolas", monospace; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.5in 0.6in; margin: 0 auto; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 12px; }
+  header h1 { font-size: 20pt; font-weight: 800; letter-spacing: -0.5px; }
+  header .headline { color: var(--accent); font-weight: 600; font-size: 10pt; }
+  header .contact { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.6; }
+  header .contact a { color: var(--muted); text-decoration: none; }
+  section { margin-bottom: 12px; }
+  h2 { font-size: 9pt; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 7px; font-weight: 700; }
+  .entry { margin-bottom: 8px; }
+  .entry .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry .title { font-weight: 700; font-size: 10pt; }
+  .entry .org { color: var(--accent); font-weight: 600; }
+  .entry .date { font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+  ul { list-style: none; margin-top: 2px; }
+  ul li { padding-left: 13px; position: relative; margin-bottom: 1.5px; }
+  ul li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); font-size: 9pt; }
+  .skills-grid { display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px; font-size: 9pt; }
+  .skills-grid .k { font-weight: 700; color: var(--muted); }
+  .proj-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .stack { font-size: 8pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Jordan Ellis</h1>
+      <div class="headline">Senior Backend Engineer</div>
+    </div>
+    <div class="contact">
+      <div class="mono">jordan@email.com · (555) 123-4567</div>
+      <div class="mono"><a href="#">github.com/jellis</a> · <a href="#">linkedin.com/in/jordanellis</a></div>
+      <div>San Francisco, CA</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">Senior Backend Engineer</span> · <span class="org">Acme Payments</span></span><span class="date mono">2021 — Present</span></div>
+      <ul>
+        <li>Rebuilt the checkout API — p95 latency 1.2s → 380ms, conversion +8%.</li>
+        <li>Migrated 40+ services to a unified gRPC mesh; cross-team integration time −60%.</li>
+        <li>Designed an idempotent ledger and double-entry settlement engine processing $2.1B/yr with zero reconciliation breaks across 14 currencies.</li>
+        <li>Introduced a feature-flagged progressive rollout framework, reducing failed deploys 35% and enabling 60+ shipments/week.</li>
+        <li>Owned on-call for the payments tier; cut Sev1 incidents from 9 to 2 per quarter and authored 25+ runbooks adopted org-wide.</li>
+        <li>Mentored 4 engineers and led the backend hiring loop, interviewing 50+ candidates and shaping the leveling rubric.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Backend Engineer</span> · <span class="org">DataForge</span></span><span class="date mono">2018 — 2021</span></div>
+      <ul>
+        <li>Built an event-ingestion pipeline at 2B events/day with 99.99% uptime on Kafka + Flink.</li>
+        <li>Cut cloud spend $480K/yr via tiered storage, autoscaling, and spot-instance scheduling.</li>
+        <li>Shipped a self-serve analytics API that replaced 30+ bespoke ETL jobs and cut query latency 4×.</li>
+        <li>Hardened multi-region failover, lifting recovery from 22 min to under 90s via automated leader election.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Software Engineer</span> · <span class="org">Northwind Systems</span></span><span class="date mono">2016 — 2018</span></div>
+      <ul>
+        <li>Decomposed a Java monolith into 12 services, halving release cycles from biweekly to twice weekly.</li>
+        <li>Added Redis caching and query tuning that cut average API response time from 640ms to 190ms.</li>
+        <li>Built the CI/CD foundation (Jenkins → containerized pipelines) used by 6 product teams.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="entry">
+      <div class="proj-row"><span class="title">OpenTrace</span><span class="date mono">3.2K ★</span></div>
+      <div class="stack mono">Go · OpenTelemetry</div>
+      <ul><li>Lightweight distributed-tracing library adopted by 5 companies in production.</li></ul>
+    </div>
+    <div class="entry">
+      <div class="proj-row"><span class="title">kqlite</span><span class="date mono">800 ★</span></div>
+      <div class="stack mono">Rust</div>
+      <ul><li>Embeddable SQL engine; 3× faster reads than SQLite on analytical workloads.</li></ul>
+    </div>
+    <div class="entry">
+      <div class="proj-row"><span class="title">flowqueue</span><span class="date mono">1.4K ★</span></div>
+      <div class="stack mono">Go · Redis · Postgres</div>
+      <ul><li>Durable job-queue with exactly-once delivery and backpressure; powers 200M+ tasks/day at two startups.</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <span class="k">Languages</span><span>Go, Rust, Python, Java, TypeScript, SQL</span>
+      <span class="k">Infra</span><span>Kubernetes, gRPC, Kafka, Flink, PostgreSQL, Redis, AWS, GCP</span>
+      <span class="k">Observability</span><span>OpenTelemetry, Datadog, Prometheus, Grafana</span>
+      <span class="k">Tooling</span><span>Terraform, Bazel, Docker, GitHub Actions, Git</span>
+      <span class="k">Practices</span><span>Distributed systems, event-driven design, API design, on-call/SRE, mentoring</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="skills-grid">
+      <span class="k">AWS</span><span>Solutions Architect — Professional (2023)</span>
+      <span class="k">CNCF</span><span>Certified Kubernetes Administrator, CKA (2022)</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">B.S. Computer Science</span> · <span class="org">University of Washington</span></span><span class="date mono">2014 — 2018</span></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

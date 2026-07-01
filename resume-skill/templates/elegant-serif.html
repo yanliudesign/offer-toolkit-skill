@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Elegant serif (editorial / one-column, refined)
+  保留 <style> 不动，替换内容；空 section 整块删；示例数字必须换成真实数据。
+  适合设计 / 咨询 / 市场 / 内容等偏人文岗。主色在 :root --ink。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --ink: #3a2f2a; --rule: #d8cfc4; --muted: #8a7d72; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hoefler Text", "Georgia", "Garamond", serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; background: #fff; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.7in 0.85in; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 22px; }
+  header h1 { font-size: 30pt; font-weight: 400; letter-spacing: 3px; }
+  header .headline { font-size: 11pt; font-style: italic; color: var(--muted); letter-spacing: 1px; margin-top: 5px; }
+  header .contact { font-size: 9.5pt; color: var(--ink); margin-top: 12px; letter-spacing: 0.3px; }
+  header .contact a { color: var(--ink); text-decoration: none; }
+  header .rule { width: 60px; height: 1px; background: var(--ink); margin: 14px auto 0; }
+  section { margin-bottom: 18px; }
+  h2 { font-size: 12pt; font-variant: small-caps; letter-spacing: 2px; text-align: center; color: var(--ink); margin-bottom: 11px; position: relative; }
+  h2 span { background: #fff; padding: 0 14px; position: relative; z-index: 1; }
+  h2::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--rule); z-index: 0; }
+  .summary { text-align: center; font-style: italic; color: #4a3f38; font-size: 10.5pt; padding: 0 0.3in; }
+  .entry { margin-bottom: 12px; }
+  .entry .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry .title { font-weight: 700; font-size: 11pt; }
+  .entry .org { font-style: italic; color: var(--muted); }
+  .entry .date { font-size: 9.5pt; color: var(--muted); font-style: italic; white-space: nowrap; }
+  ul { list-style: none; margin-top: 4px; }
+  ul li { padding-left: 16px; position: relative; margin-bottom: 3px; }
+  ul li::before { content: "—"; position: absolute; left: 0; color: var(--muted); }
+  .skills { text-align: center; }
+  .skills .grp { margin-bottom: 4px; }
+  .skills .grp b { font-variant: small-caps; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Jordan Ellis</h1>
+    <div class="headline">Brand &amp; Content Strategist</div>
+    <div class="contact">
+      San Francisco · <a href="mailto:jordan@email.com">jordan@email.com</a> · (555) 123-4567 · <a href="#">linkedin.com/in/jordanellis</a>
+    </div>
+    <div class="rule"></div>
+  </header>
+
+  <section>
+    <p class="summary">Storyteller turning complex products into brands people remember. A decade across editorial, campaigns, and content systems — equal parts writer and operator, fluent in both the sentence and the spreadsheet.</p>
+  </section>
+
+  <section>
+    <h2><span>Experience</span></h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">Head of Content</span> · <span class="org">Lumen Studio</span></span><span class="date">2020 — Present</span></div>
+      <ul>
+        <li>Grew organic readership from 12K to 310K monthly within two years through a repeatable editorial calendar and SEO program.</li>
+        <li>Built the brand voice and content system now used across 5 product lines, cutting briefing-to-publish time by 40%.</li>
+        <li>Launched a thought-leadership newsletter that reached 45K subscribers and drove 18% of inbound enterprise demos.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Senior Copywriter</span> · <span class="org">Northwind Agency</span></span><span class="date">2016 — 2020</span></div>
+      <ul>
+        <li>Wrote launch campaigns for 20+ consumer brands, three winning industry awards including a Webby and two ADDYs.</li>
+        <li>Scripted a national broadcast spot that lifted unaided brand recall by 22 points in post-campaign tracking.</li>
+        <li>Developed messaging frameworks adopted as the agency standard across 4 verticals and 30+ retained accounts.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Content Marketing Specialist</span> · <span class="org">Brightline Media</span></span><span class="date">2014 — 2016</span></div>
+      <ul>
+        <li>Produced 150+ long-form articles and case studies, growing the blog to 80K monthly sessions.</li>
+        <li>Owned the editorial style guide and trained 12 contributors to ship consistent, on-brand copy.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>Education</span></h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">B.A. English &amp; Communications</span> · <span class="org">NYU</span></span><span class="date">2012 — 2016</span></div>
+      <ul>
+        <li>Graduated cum laude; Editor-in-Chief of the undergraduate literary magazine.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>Skills</span></h2>
+    <div class="skills">
+      <div class="grp"><b>Craft:</b> Brand voice · Editorial · Campaign strategy · Storytelling · Messaging frameworks · UX writing</div>
+      <div class="grp"><b>Growth:</b> SEO · A/B testing · Email nurture · Content analytics · Audience research</div>
+      <div class="grp"><b>Tools:</b> Figma · Notion · Webflow · Google Analytics · Ahrefs · Contentful · HubSpot</div>
+      <div class="grp"><b>Languages:</b> English (native) · Spanish (professional) · French (conversational)</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

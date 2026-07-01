@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Classic / ATS-friendly
+  渲染规则：保留 <style> 不动，把示例内容替换成用户真实数据；
+  没有的 <section> 整块删除；任何示例数字必须换成真实数据或删除。
+  单栏、标准标题、纯文本 → 机器可解析。海投大公司最稳。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #1a1a1a; line-height: 1.4; font-size: 10.5pt;
+    background: #fff;
+  }
+  .page { width: 8.5in; min-height: 11in; padding: 0.6in 0.7in; margin: 0 auto; }
+  header { text-align: center; border-bottom: 1.5px solid #1a1a1a; padding-bottom: 10px; margin-bottom: 14px; }
+  header h1 { font-size: 22pt; letter-spacing: 1px; font-weight: 700; }
+  header .headline { font-size: 11pt; color: #444; margin-top: 2px; }
+  header .contact { font-size: 9.5pt; color: #333; margin-top: 6px; }
+  header .contact a { color: #333; text-decoration: none; }
+  header .contact span { margin: 0 5px; }
+  section { margin-bottom: 13px; }
+  h2 {
+    font-size: 11pt; text-transform: uppercase; letter-spacing: 1.5px;
+    border-bottom: 1px solid #999; padding-bottom: 2px; margin-bottom: 7px; font-weight: 700;
+  }
+  .summary { font-size: 10.5pt; }
+  .entry { margin-bottom: 9px; }
+  .entry .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry .title { font-weight: 700; }
+  .entry .org { font-style: italic; }
+  .entry .date { font-size: 9.5pt; color: #555; white-space: nowrap; }
+  ul { list-style: none; margin-top: 3px; }
+  ul li { padding-left: 14px; position: relative; margin-bottom: 2px; }
+  ul li::before { content: "▪"; position: absolute; left: 2px; color: #555; font-size: 8pt; top: 1px; }
+  .skills-row { margin-bottom: 3px; }
+  .skills-row b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>JORDAN ELLIS</h1>
+    <div class="headline">Senior Backend Engineer</div>
+    <div class="contact">
+      <span>San Francisco, CA</span>·
+      <span><a href="mailto:jordan@email.com">jordan@email.com</a></span>·
+      <span>(555) 123-4567</span>·
+      <span><a href="#">linkedin.com/in/jordanellis</a></span>·
+      <span><a href="#">github.com/jellis</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Backend engineer with 9 years building high-throughput distributed systems across payments, data, and platform infrastructure. Focused on reliability, cost efficiency, and developer velocity; led teams of up to 6 and shipped systems serving billions of requests/day. Looking for a staff-level role on payments or infrastructure.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">Senior Backend Engineer</span>, <span class="org">Acme Payments</span></span><span class="date">2021 — Present</span></div>
+      <ul>
+        <li>Rebuilt the checkout API, cutting p95 latency from 1.2s to 380ms and lifting conversion 8%.</li>
+        <li>Designed an idempotent ledger service processing $2.1B/year in transactions with zero double-charge incidents over 18 months.</li>
+        <li>Mentored 4 engineers (2 promoted within a year) and established the team's on-call runbook and SLO review process.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Backend Engineer</span>, <span class="org">DataForge</span></span><span class="date">2018 — 2021</span></div>
+      <ul>
+        <li>Built an event-ingestion pipeline handling 2B events/day at 99.99% uptime.</li>
+        <li>Cut cloud spend $480K/year by introducing tiered storage and autoscaling.</li>
+        <li>Replaced a batch ETL with a streaming Kafka pipeline, reducing data freshness from 6 hours to under 90 seconds.</li>
+        <li>Introduced schema-registry contracts that eliminated ~30 breaking-change incidents per quarter.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><span class="title">Software Engineer</span>, <span class="org">Northbridge Systems</span></span><span class="date">2016 — 2018</span></div>
+      <ul>
+        <li>Developed REST APIs for a B2B analytics product scaling from 5K to 120K monthly active users.</li>
+        <li>Reduced average query time 45% by adding read replicas and indexing hot tables in PostgreSQL.</li>
+        <li>Automated the release pipeline with CI/CD, shrinking deploy time from 2 hours to 12 minutes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><span><span class="title">B.S. Computer Science</span>, <span class="org">University of Washington</span></span><span class="date">2014 — 2018</span></div>
+      <div>GPA 3.8 · Dean's List</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-row"><b>Languages:</b> Go, Python, Java, SQL, TypeScript</div>
+    <div class="skills-row"><b>Infrastructure:</b> Kubernetes, gRPC, Kafka, PostgreSQL, Redis, AWS, GCP</div>
+    <div class="skills-row"><b>Tools:</b> Terraform, Datadog, Prometheus, Grafana, Git, GitHub Actions</div>
+    <div class="skills-row"><b>Practices:</b> Distributed systems design, event-driven architecture, observability, SLO/SLA management</div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="skills-row">AWS Certified Solutions Architect — Professional (2023)</div>
+    <div class="skills-row">Certified Kubernetes Application Developer (CKAD) (2021)</div>
+  </section>
+</div>
+</body>
+</html>
