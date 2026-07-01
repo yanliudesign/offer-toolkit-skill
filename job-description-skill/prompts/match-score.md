@@ -96,7 +96,7 @@
 
 ---
 
-## Step 4 · 沉淀 + 导流
+## Step 4 · 存档 + 导流
 
 1. 把 Match Score 结果**写回这份 JD 的文件**（更新 status: matched，加 match_score 字段）。
 2. 主动问下一步：

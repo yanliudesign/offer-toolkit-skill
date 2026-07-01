@@ -98,7 +98,7 @@ B1. "Tell me about a time you had to drive a decision with incomplete informatio
 
 ---
 
-## Step 4 · 沉淀 + 导流
+## Step 4 · 存档 + 导流
 
 1. **更新 JD 文件**：加 predicted_questions section，记录 20 道题。
 2. **导流**：

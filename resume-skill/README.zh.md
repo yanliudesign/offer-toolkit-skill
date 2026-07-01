@@ -1,8 +1,10 @@
-# Resume Skill — 简历生成与美化
+# Resume Skill
 
 > 🌐 **中文** · [English](./README.md)
+>
+> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
-> 一个 Claude **skill**,把"我需要一份好看的简历"变成一条稳定流程:所有素材先汇入一份**标准化结构化数据**,再套模板渲染。换模板只是换皮,内容不丢。
+一个 Claude skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 11 套打印级模板之一——换模板只是换皮，内容不丢。
 
 ![一份数据 schema 渲染出的十一套打印优化模板](docs/preview.png)
 

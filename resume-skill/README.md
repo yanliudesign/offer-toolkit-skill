@@ -1,8 +1,10 @@
-# Resume Skill — Resume Builder & Beautifier
+# Resume Skill
 
 > 🌐 **English** · [中文](./README.zh.md)
+>
+> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
-> A Claude **skill** that turns *"I need a good-looking resume"* into a stable, repeatable workflow. Every input flows into **one standardized data schema**, then renders through a swappable template — switching templates is just a skin change, content is never lost.
+A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 11 print-ready templates — switching templates is just a skin change, the content stays the same.
 
 ![Eleven print-ready resume templates rendered from one data schema](docs/preview.png)
 
@@ -81,8 +83,8 @@ resume-skill/
 ```
 
 ## Related skills
-- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD Decoder & Offer Strategy OS
-- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / Career Story OS
+- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
+- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank
 
 ## License
 MIT

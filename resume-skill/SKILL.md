@@ -1,6 +1,6 @@
 ---
 name: resume-skill
-description: "简历生成与美化 OS。两种入口：把已有简历(PDF/Word/文本)解析、诊断、套用模板美化；或者还没有简历时，通过 LinkedIn 导入或一问一答的对话帮你从零建出一份。输出单页打印优化的 HTML(浏览器里 Cmd+P 直接存成 PDF)，提供 4 套模板：Classic/ATS 友好、Modern 侧栏、Elegant 衬线、Tech 紧凑。关键词：resume, CV, 简历, 美化简历, 做简历, 简历模板, resume template, LinkedIn 简历, 求职简历, ATS, 改简历, polish resume。"
+description: "简历生成与美化。两种入口：把已有简历(PDF/Word/文本)解析、诊断、套用模板美化；或者还没有简历时，通过 LinkedIn 导入或一问一答的对话帮你从零建出一份。输出单页打印优化的 HTML(浏览器里 Cmd+P 直接存成 PDF)，提供 4 套模板：Classic/ATS 友好、Modern 侧栏、Elegant 衬线、Tech 紧凑。关键词：resume, CV, 简历, 美化简历, 做简历, 简历模板, resume template, LinkedIn 简历, 求职简历, ATS, 改简历, polish resume。"
 ---
 
 # Resume Skill — 简历生成与美化

@@ -83,7 +83,7 @@
 
 ---
 
-## 第 4 层 · 沉淀层 —— 写进故事库
+## 第 4 层 · 存进故事库
 
 1. 读 `story-bank/_story-template.md`，按模板把这个故事写成一个文件：
    `story-bank/<英文短slug>.md`（如 `convince-team-rewrite.md`）。

@@ -1,14 +1,13 @@
-# BQ Skill — Career Story OS
+# BQ Skill
 
 > 🌐 **English** · [中文](./README.zh.md)
+>
+> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
-A Claude skill that turns *"I can answer this one behavioral question"* into *"I own a reusable bank of career stories."* It mines your real experiences, structures them with STAR/CAR, maps them to competencies, and builds a bilingual (EN/中文) story bank you can reuse across any behavioral interview.
+A Claude skill for behavioral interview prep. Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves each one in English and Chinese — so next time you get a different behavioral question, the same story still works.
 
-![JD-driven prep report — JD-driven Top 20 interview-question prep with STAR templates](assets/preview.png)
+![JD-driven prep report — Top 20 interview-question prep with STAR templates](assets/preview.png)
 <sub>JD-driven prep output: a Top 20 question set reverse-engineered from a JD, with STAR templates and editable model answers. <i>(Demo uses a fictional candidate — no real personal data.)</i></sub>
-
-## Core loop
-Mine → Structure → Map → Save → Reuse
 
 ## Layout
 ```
@@ -30,19 +29,19 @@ bq-skill/
     └── convince-team-rewrite.md  # Example story (safe to delete)
 ```
 
-## The five flows
-- **A · Mine a new story** — a four-layer probing engine that pulls real, signal-rich, quantifiable events out of someone who thinks "I have nothing to talk about," then deepens one into a bank-ready story.
-- **B · Answer a specific BQ** — check the bank first, reuse a hit, or mine a new one on the spot.
-- **C · Polish an existing answer** — diagnose structure problems (Situation too long, "I" vs "we", no quantified result) and rewrite.
-- **D · Mock interview** — one question at a time in the target company's style, with feedback.
-- **E · JD-driven prep** — see below.
+## What it can do
+
+- **Mine a new story** — pulls real, quantifiable events out of someone who thinks *"I have nothing to talk about,"* then deepens one into a bank-ready story.
+- **Answer a specific BQ** — check the bank first, reuse a hit, or mine a new one on the spot.
+- **Polish an existing answer** — diagnose structure problems (Situation too long, "I" vs "we", no quantified result) and rewrite.
+- **Mock interview** — one question at a time in the target company's style, with feedback.
+- **JD-driven prep** — reads a JD + your resume, reverse-engineers a Top 20 interview-question set for that role, and builds a STAR prep template for each question. (See next.)
 
 ## Hooks into job-description-skill
 JD-driven prep reuses the **Must-Haves + Hidden Signals** decoded by
 [job-description-skill](https://github.com/yanliudesign/job-description-skill) to reverse-engineer a
-**Top 20 interview-question set** for one specific role, builds a STAR prep template per question from
-the candidate's real resume, and outputs an editorial-style HTML report. Together the three skills form
-a Career Coach loop: **JD decode → match / tailor résumé → BQ prep + story building.**
+**Top 20 interview-question set** for one specific role, builds a STAR prep template per question
+from your real resume, and outputs an HTML report.
 
 ## Usage
 Tell Claude *"help me prep for behavioral interviews"*, *"mine a story for my bank"*,
@@ -53,17 +52,11 @@ Tell Claude *"help me prep for behavioral interviews"*, *"mine a story for my ba
 2. **One question at a time.** Mining is a conversation, not a questionnaire.
 3. **Never fabricate.** All material comes from the user's real experience; every metric is verified with them.
 
-## Versions
-- **v0.6 (current)** — Story Mining engine + single-story closed loop + bilingual output + lightweight mock +
-  **JD-driven prep (JD-driven Top 20 questions + STAR templates + editorial HTML report, hooked into job-description-skill).**
-- v1 — deeper competency dictionary / company profiles, bank retrieval polish.
-- v2 — deeper mock interview (per-company questions + scored feedback).
-
-## What you inject (the moat)
-The probing scripts in `prompts/story-mining.md` and the tag dictionary in
-`frameworks/competency-tags.md` are where a coach's private experience lives — feed in your own phrasing
-and tags and the skill grows more and more like *you*.
+## Making it your own
+The probing scripts in `prompts/story-mining.md` and the competency dictionary in
+`frameworks/competency-tags.md` are where to inject your own phrasing and vocabulary — the more you
+put in, the more the skill sounds like you.
 
 ## Related skills
-- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD Decoder & Offer Strategy OS
+- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume generation & beautification

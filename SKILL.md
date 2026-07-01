@@ -1,9 +1,9 @@
 ---
 name: offer-toolkit-skill
-description: "Career Coach 全流程求职工具包。把「看到心动岗位 → 拿到 offer」拆成三步闭环并各自沉淀成子 skill：① Job Description Skill 解码 JD 并出一份 Offer Strategy Report（该不该投 / 匹配度 / 面试题预测），② Resume Skill 把简历结构化并渲染成 11 套打印级模板，③ BQ Skill 挖掘真实经历、STAR 化，建可复用的行为面试故事库。任何求职相关请求（该不该投、改简历、准备行为面试、看 JD、Tell me about a time…）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, JD, job description, 简历, resume, CV, 行为面试, behavioral interview, BQ, STAR, tell me about a time, 面试准备, career coach。"
+description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆成三个独立子 skill：① Job Description Skill 解码 JD 并出一份 Offer Strategy Report（该不该投 / 匹配度 / 面试题预测），② Resume Skill 把简历结构化并渲染成 11 套打印级模板，③ BQ Skill 挖掘真实经历、STAR 化，建可复用的行为面试故事库。任何求职相关请求（该不该投、改简历、准备行为面试、看 JD、Tell me about a time…）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, JD, job description, 简历, resume, CV, 行为面试, behavioral interview, BQ, STAR, tell me about a time, 面试准备。"
 ---
 
-# Offer Toolkit — Career Coach OS
+# Offer Toolkit
 
 一整套求职 skill 的聚合入口。三条子 skill 各自独立可用，也可以组成完整的求职链路：
 
@@ -59,16 +59,16 @@ description: "Career Coach 全流程求职工具包。把「看到心动岗位 �
 11 套打印级模板：Classic-ATS · Ledger · Tech Compact · Modern Sidebar · Pillar · Elegant Serif · Atelier · Timeline · Swiss · Executive · Color-block。
 每次渲染同时输出**锁定版**（直接 Cmd+P 存 PDF）和**可编辑版**（浏览器里点字微调 + 浮动工具条）。
 
-### 3 · [BQ Skill](bq-skill/SKILL.md) — 行为面试故事库 OS
+### 3 · [BQ Skill](bq-skill/SKILL.md) — 行为面试故事库
 
-不是背答案，而是**建一套可复用的职业故事库**。核心循环：挖掘 → 结构化 → 打标 → 沉淀 → 复用。
+不是背答案，而是**建一套可复用的职业故事库**。流程：挖掘 → 结构化 → 打标 → 存库 → 复用。
 
-五条流程：
-- **A** 挖新故事（四层追问引擎，专治"我没什么亮点"）
-- **B** 回答一道具体 BQ（先查库，命中就复用）
-- **C** 打磨已有答案（诊断 STAR 结构 + 改写）
-- **D** 模拟面试（一次一道，按目标公司风格）
-- **E** JD 驱动的 Top 20 BQ 选题 + STAR 模板 + HTML 报告（对接 job-description-skill）
+能做的事：
+- 挖新故事（四层追问引擎，专治"我没什么亮点"）
+- 回答一道具体 BQ（先查库，命中就复用）
+- 打磨已有答案（诊断 STAR 结构 + 改写）
+- 模拟面试（一次一道，按目标公司风格）
+- JD 驱动的 Top 20 BQ 选题 + STAR 模板 + HTML 报告（对接 job-description-skill）
 
 ---
 

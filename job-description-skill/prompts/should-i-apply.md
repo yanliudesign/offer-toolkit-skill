@@ -110,7 +110,7 @@
 
 ---
 
-## Step 3 · 沉淀 + 生成 HTML 报告 + 导流
+## Step 3 · 存档 + 生成 HTML 报告 + 导流
 
 1. **更新 JD 文件**：加 should_i_apply section（推荐指数 + 决策 + 下一步动作）。
 2. **生成 HTML Offer Strategy Report（默认动作）** —— 把 解码 + 匹配 + 面试预测 + Should-I-Apply + 策略层（内推 / portfolio / 时间线）融合成一份可分享的单文件 HTML：

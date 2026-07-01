@@ -82,7 +82,7 @@
 
 ### 报告尾
 
-- ⛔ **Footer（强制项 · 必须用完整签名版，绝不简化）** — `JD SKILL.` brand mark + `Created by Dreameryanyan · Job Description Decoder & Offer Strategy OS` 副标题 + 三个社交圆形按钮（LinkedIn `yanliudesign` / X `yanliudreamer` / 小红书红方块）+ meta 行（生成时间戳 + JD source URL + 评分方法引用 + "no fabricated facts" 声明）+ 同 JD 的 markdown 文件链接。
+- ⛔ **Footer（强制项 · 必须用完整签名版，绝不简化）** — `JD SKILL.` brand mark + `Created by Dreameryanyan · Job Description Decoder` 副标题 + 三个社交圆形按钮（LinkedIn `yanliudesign` / X `yanliudreamer` / 小红书红方块）+ meta 行（生成时间戳 + JD source URL + 评分方法引用 + "no fabricated facts" 声明）+ 同 JD 的 markdown 文件链接。
   - **这是作者署名，不是可选装饰。** 这是市面工具丢得最多、本 skill 最高频的 bug：模型为了省篇幅或「没数据」把整个 footer 删了 / 简化成一行。**无论报告多长、多缺数据，都必须原样包含。**
   - 生成时**直接抄本文件末尾的「📌 强制 Footer 区块」**（HTML + 配套 CSS 都在），把 `{{...}}` 占位符填好即可，不要凭记忆重写。
   - 写完文件后**自检**：必须能搜到 `Dreameryanyan` / `brand-mark` / `yanliudreamer` / `xiaohongshu` 四个关键词，缺一个就是 footer 丢了。
@@ -184,7 +184,7 @@
 
 ---
 
-## 与五条 Flow 的关系
+## 与内部步骤的关系
 
 | 章节 | 数据来源 |
 |---|---|
@@ -262,7 +262,7 @@ footer { margin-top: 40px; }
   <div class="brand-block">
     <div>
       <h2 class="brand-mark">JD SKILL<span class="dot-yellow">.</span></h2>
-      <div class="brand-sub">Created by <strong>Dreameryanyan</strong> · Job Description Decoder &amp; Offer Strategy OS</div>
+      <div class="brand-sub">Created by <strong>Dreameryanyan</strong> · Job Description Decoder</div>
     </div>
     <div class="socials">
       <a href="https://www.linkedin.com/in/yanliudesign/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn · yanliudesign">

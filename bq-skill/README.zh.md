@@ -1,14 +1,13 @@
-# BQ Skill — Career Story OS
+# BQ Skill
 
 > 🌐 **中文** · [English](./README.md)
+>
+> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
-帮求职者把"会回答某道行为面试题"升级成"拥有一套可复用的职业故事库"。
+一个 Claude skill，专门做行为面试准备。不是给你现成答案，而是帮你把过去真实做过的事情挖出来、整理成一个可以反复用的故事库。它会一步步追问你的经历，用 STAR/CAR 帮你理清思路，打上"拿主意""处理模糊性"这类标签，中英文各存一份——下次碰上不一样的行为面试题，同一个故事还能接得住。
 
-![「JD 驱动准备」 报告 — JD 驱动的 Top 20 选题 + STAR 模板](assets/preview.png)
-<sub>「JD 驱动准备」 产出:对着 JD 反推的 Top 20 选题,带 STAR 模板和可改写的范例答案。<i>(Demo 用虚构候选人,无真实个人数据。)</i></sub>
-
-## 核心循环
-挖掘 (Mine) → 结构化 (Structure) → 打标 (Map) → 沉淀 (Save) → 复用 (Reuse)
+![「JD 驱动准备」报告 — Top 20 选题 + STAR 模板](assets/preview.png)
+<sub>「JD 驱动准备」产出：对着 JD 反推的 Top 20 选题，带 STAR 模板和可改写的范例答案。<i>（Demo 用虚构候选人，无真实个人数据。）</i></sub>
 
 ## 目录
 ```
@@ -31,19 +30,13 @@ bq-skill/
 ```
 
 ## 与 job-description-skill 挂钩
-「JD 驱动准备」 直接复用 [job-description-skill](https://github.com/yanliudesign/job-description-skill) 解码出的
-Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**，并用简历里的真实经历
-为每题搭 STAR 准备模板，输出一份 editorial 风格的 HTML 报告。形成 Career Coach 闭环：
-JD 解码 → 匹配/改简历 → **BQ 选题 + 故事准备**。
+「JD 驱动准备」直接复用 [job-description-skill](https://github.com/yanliudesign/job-description-skill) 解码出的
+Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**，用你简历里的真实经历
+为每题搭 STAR 准备模板，输出一份 HTML 报告。
 
 ## 用法
 对 Claude 说"帮我准备 behavioral 面试""帮我挖一个故事建库""贴一道 BQ 帮我答"，或直接 `/bq-skill`。
 
-## 版本
-- **v0.6（当前）**：Story Mining 引擎 + 单故事完整闭环 + 双语产出 + 轻量模拟 + **「JD 驱动准备」（JD 驱动 Top 20 选题 + STAR 模板 + editorial HTML 报告，挂钩 job-description-skill）**。
-- v1 计划：能力词典/公司档案加深、库检索复用打磨。
-- v2 计划：模拟面试加深（按公司出题 + 评分反馈）。
-
-## 待用户注入（护城河）
+## 打造自己的版本
 `prompts/story-mining.md` 的追问话术、`frameworks/competency-tags.md` 的标签词典，
-是 coach 经验最该私有化的部分——把你独有的话术和标签喂进去，Skill 会越来越像"你"。
+是最该按你自己经验去改的地方——你越往里喂自己的话术和标签，这个 skill 就越像你。

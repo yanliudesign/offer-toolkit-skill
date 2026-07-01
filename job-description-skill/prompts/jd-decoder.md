@@ -118,7 +118,7 @@ JD 反复出现 "ambiguity" + "ownership" + "drive"
 
 ---
 
-## Step 3 · 沉淀进 JD Bank
+## Step 3 · 存进 JD Bank
 
 1. 按 [../jd-bank/_jd-template.md](../jd-bank/_jd-template.md) 创建 `jd-bank/<company>-<role-slug>-<YYYYMM>.md`。
 2. frontmatter 必填：company / role / level / source_url / decoded_at / status: decoded。

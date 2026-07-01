@@ -83,11 +83,11 @@
 4. **缺口清单**(简历没素材的题)
 5. 底部:导流(缺口题去「挖新故事」 挖 / 故事可入库 / 简历整体优化去 resume-skill)
 
-## Step 8 · 导流与沉淀
+## Step 8 · 导流与存档
 
 - 缺口题 → 「要不要现在挖一个?」转「挖新故事」(`story-mining.md`)。
 - 配到的故事如果还没入库 → 提示按 `story-bank/_story-template.md` 存,更新 `_index.md`,以后换公司可复用。
-- 把这次 JD↔故事的映射回写到 job-description-skill 的 jd-bank 文件「Predicted Questions」section(若存在),形成闭环。
+- 把这次 JD↔故事的映射回写到 job-description-skill 的 jd-bank 文件「Predicted Questions」section(若存在)。
 
 ---
 

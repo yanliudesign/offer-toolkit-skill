@@ -1,10 +1,10 @@
 # Job Description Skill
 
 > 🌐 **中文** · [English](./README.md)
+>
+> 📦 也可以从 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 一站式获取（JD · Resume · BQ 三合一）。
 
-> **JD Decoder & Offer Strategy OS** — 把任何 Job Description 翻译成"该不该投 / 怎么投 / 怎么赢"的完整作战图。求职链路的入口。
-
-一份 JD ≠ 一份招聘文案。它是招聘经理的真实期望、团队当前的痛点、公司文化的暗号——只是被 HR 模板包了一层。这个 Skill 把它解码回来。
+一个专门读 JD 的 Claude skill。贴一份 JD 和你的简历，它给你一份 HTML 报告，告诉你：这岗位到底该不该投、你和它多匹配、差在哪里、面试大概会问什么、薪资合不合理、接下来 6 周该做什么。一份 JD 不只是招聘文案——它一般是招聘经理的真实期望包在 HR 模板里，这个 skill 把它拆开。
 
 ---
 
@@ -25,9 +25,9 @@
 
 ---
 
-## 📊 Offer Strategy Report · 10 节报告框架
+## Offer Strategy Report · 10 节报告框架
 
-Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Desktop/Claude skills/offer-strategy-<slug>.html`。这份报告是**区别市面其他 JD 工具的核心交付物**。固定 10 节主骸 + TL;DR 预头 + 关键指标仪表：
+Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Desktop/Claude skills/offer-strategy-<slug>.html`。固定 10 节骨架 + TL;DR 预头 + 关键指标仪表：
 
 ![Offer Strategy Report 预览](docs/report-preview.png)
 
@@ -52,11 +52,11 @@ Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Deskto
 
 ---
 
-## 三铁律
+## 三条规则
 
-1. **先解码，再行动** — 没跑过解码 不允许直接跳 后续匹配 / Tailor。匹配错对象 = 匹配错了。
-2. **不杜撰** — 候选人没说过的经历 / 技能 / 数字一律不发明。出不了真实证据就标 ❌。
-3. **一次只走一条流程** — 不混跑。解码出来如果还有 ambiguity，先澄清再前进。
+1. **先解码，再行动** — 没解码 JD 就直接算匹配 / 做 tailor 是不行的。对错了目标，匹配就是错的。
+2. **不杜撰** — 候选人没说过的经历、技能、数字一律不发明。没有真实证据就标 ❌。
+3. **一次只走一件事** — 不混跑。解码出来如果还有含糊的地方，先澄清再往下。
 
 ---
 
@@ -64,7 +64,7 @@ Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Deskto
 
 ```
 job-description-skill/
-├── SKILL.md                      # 入口 · 路由 · 三铁律
+├── SKILL.md                      # 入口 · 路由 · 三条规则
 ├── prompts/                      # 5 条流程的执行 prompt
 │   ├── jd-decoder.md
 │   ├── match-score.md
@@ -86,12 +86,11 @@ job-description-skill/
 
 ---
 
-## 设计原则
+## 设计思路
 
-- **JD 是一面镜子，不是一份题目** — 它照出公司、HM、产品三层信息。我们要做的是看穿包装层。
-- **决策优先于优化** — 大多数候选人在错的 role 上反复优化简历。这个 Skill 先帮你决定该不该投。
-- **可复现的逻辑，不是玄学** — 每个评分 / 概率都有显式公式，不喜欢可以反驳前提。
-- **配合 [BQ Skill](https://github.com/yanliudesign/Behavior-question-skill)（故事挖掘）+ [Resume Skill](https://github.com/yanliudesign/resume-builder-skill)（简历美化）形成完整求职链路。**
+- **JD 反映三层信息** — 公司信号、招聘经理的真实期望、这个 role / product 本身。这个 skill 的工作就是看穿 HR 包装、把这三层拆出来。
+- **决策优先于优化** — 大多数候选人在错的 role 上反复优化简历。先决定该不该投，再想怎么改。
+- **每个评分都有公式** — 不是玄学。所有 Match Score / Interview Probability 都来自 `frameworks/` 里明写的公式，不同意可以反驳前提。
 
 ---
 

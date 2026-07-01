@@ -1,10 +1,10 @@
 # Job Description Skill
 
 > 🌐 **English** · [中文](./README.zh.md)
+>
+> 📦 Also available as part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** bundle (JD · Resume · BQ).
 
-> **JD Decoder & Offer Strategy OS** — translate any Job Description into a complete go/no-go battle map: should you apply, how to apply, how to win. The entry point of the job-hunt chain.
-
-A JD ≠ a recruiting blurb. It's the hiring manager's real expectations, the team's current pain, and the company's culture cues — all wrapped in HR boilerplate. This skill peels that wrapper back off.
+A Claude skill for reading job descriptions. Give it a JD and your resume, and it hands back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what interviews will probably ask, whether the salary is reasonable, and what to do over the next six weeks. A JD is rarely just a recruiting blurb — it's usually the hiring manager's real expectations wrapped in HR boilerplate, and this skill unwraps that.
 
 ---
 
@@ -25,9 +25,9 @@ If you explicitly want only one flow ("only decode this" / "just match score") t
 
 ---
 
-## 📊 Offer Strategy Report · the 10-section framework
+## Offer Strategy Report · the 10-section framework
 
-Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills/offer-strategy-<slug>.html`. The report is **the differentiator** — it's what other JD tools don't give you. Fixed 10-section spine, plus a TL;DR preamble and a key-metrics gauge block:
+Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills/offer-strategy-<slug>.html`. Fixed 10-section spine, plus a TL;DR preamble and a key-metrics gauge block:
 
 ![Offer Strategy Report preview](docs/report-preview.png)
 
@@ -52,11 +52,11 @@ The report supports **Export to PDF** (CJK-safe Noto font embedding) and **Expor
 
 ---
 
-## Three Ironclad Rules
+## Three rules
 
-1. **Decode before you act** — Decoding first is mandatory before jumping to 后续匹配 / Tailor. Matching against the wrong target = the match is wrong.
-2. **No fabrication** — Never invent experience / skills / numbers the candidate didn't claim. If real evidence is missing, mark it ❌.
-3. **One flow at a time** — No mixing. If the decode step left ambiguity, clarify before moving on.
+1. **Decode before you act** — Decoding the JD first is mandatory before doing match or tailor. Matching against the wrong target means the match is wrong.
+2. **Never fabricate** — Never invent experience, skills, or numbers the candidate didn't claim. If real evidence is missing, mark it ❌.
+3. **One thing at a time** — No mixing. If the decode step left ambiguity, clarify before moving on.
 
 ---
 
@@ -86,21 +86,20 @@ job-description-skill/
 
 ---
 
-## Design Principles
+## How it thinks
 
-- **A JD is a mirror, not a quiz** — It reflects three layers: company, hiring manager, product. Our job is to see through the packaging.
-- **Decision before optimization** — Most candidates keep polishing resumes for the wrong roles. This skill decides first whether to apply at all.
-- **Reproducible logic, not magic** — Every score and probability comes from an explicit formula. Disagree with the premise? You can argue back.
-- **Pairs with [BQ Skill](https://github.com/yanliudesign/Behavior-question-skill) (story mining) + [Resume Skill](https://github.com/yanliudesign/resume-builder-skill) (resume polish) to form the full job-hunt chain.**
+- **A JD reflects three layers** — company signals, the hiring manager's real expectations, and the product / role in question. The skill's job is to see through the HR packaging to those three.
+- **Decide before you optimize** — most candidates keep polishing resumes for the wrong roles. Decide whether to apply at all first.
+- **Every score has a formula** — not magic. Every Match Score and Interview Probability comes from an explicit formula in `frameworks/`. Disagree with the premise? You can argue back.
 
 ---
 
 ## Related skills
 
-Part of a three-skill **Career Coach** chain — decode the JD here, then hand off:
+Pairs with these two — decode the JD here, then hand off:
 
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume Builder & Beautifier (11 print-ready templates)
-- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / Career Story OS
+- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank
 
 ```
 See a dream job → JD Skill (decode · match · should-I-apply)
