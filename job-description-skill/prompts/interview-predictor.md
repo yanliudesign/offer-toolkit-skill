@@ -1,4 +1,4 @@
-# Interview Predictor — 流程 4
+# Interview Predictor
 
 **目标：** 基于 JD（已解码）输出 Top 20 道大概率会被问的题，分四类，每道题标"为什么会被问"。Behavior 类导流到 BQ Skill。
 

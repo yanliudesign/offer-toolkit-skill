@@ -1,4 +1,4 @@
-# Should I Apply? — 流程 5
+# Should I Apply?
 
 **目标：** 输出投不投这份 JD 的决策建议。五件套：推荐指数 / 值得投 / 不值得投 / 拿面概率 / 建议下一步。
 
@@ -11,7 +11,7 @@
 
 ## Step 1 · 收齐输入
 
-1. **JD Decode + Match Score 产出**（强烈推荐先有这两个）。没有就先跑流程 1 + 2 的极简版。
+1. **JD Decode + Match Score 产出**（强烈推荐先有这两个）。没有就先跑解码 + 匹配 的极简版。
 2. **用户硬约束**（必问）：
    - 期望薪资底线
    - 地点 / 远程是否能接受
@@ -95,7 +95,7 @@
 从这几个动作里挑最该做的 1-2 个：
 
 - 🚀 直接投（裸投也能拿面）
-- 🔧 先 Tailor 再投（去流程 3）
+- 🔧 先 Tailor 再投（去 Tailor）
 - 🕵️ 先找内推（具体怎么找）
 - 📚 先补 1-2 个关键 Gap（如重写某段经历 / 加某个 portfolio case）再投
 - ⏸ 暂时不投（明确理由）
@@ -104,8 +104,8 @@
 ```
 🎯 建议下一步：
 1. 优先找内推（LinkedIn 搜该公司 Design 同事，提 referral）
-2. 同步把简历用流程 3 tailor 一版
-3. 投递前再用流程 4 看一下面试可能题，准备 Top 5
+2. 同步把跑一版 tailored 简历
+3. 投递前再用面试预测看一下面试可能题，准备 Top 5
 ```
 
 ---
@@ -113,15 +113,15 @@
 ## Step 3 · 沉淀 + 生成 HTML 报告 + 导流
 
 1. **更新 JD 文件**：加 should_i_apply section（推荐指数 + 决策 + 下一步动作）。
-2. **生成 HTML Offer Strategy Report（默认动作）** —— 把 Flow 1 + 2 + 4 + 5 + 策略层（内推 / portfolio / 时间线）融合成一份可分享的单文件 HTML：
+2. **生成 HTML Offer Strategy Report（默认动作）** —— 把 解码 + 匹配 + 面试预测 + Should-I-Apply + 策略层（内推 / portfolio / 时间线）融合成一份可分享的单文件 HTML：
    - 路径：`~/Desktop/Claude skills/offer-strategy-<company>-<role>-<YYYYMM>.html`（目录不存在也先建）
    - 完整 20 章骨架 / 视觉规范 / 内容铁律见 [../frameworks/offer-strategy-report.md](../frameworks/offer-strategy-report.md)
    - CSS / 结构骨架参考 [../examples/offer-strategy-template.html](../examples/offer-strategy-template.html)
    - **生成后告诉用户文件路径**，并在 JD 文件末尾加一行 `> 📊 HTML 报告：~/Desktop/Claude skills/offer-strategy-<slug>.html`
-   - 如果 Flow 2 还没跑或者简历事实不足以填 6 条 Must Have 证据 → **拒绝生成**，告诉用户"先补完 ___ 再出报告"
+   - 如果匹配还没跑或者简历事实不足以填 6 条 Must Have 证据 → **拒绝生成**，告诉用户"先补完 ___ 再出报告"
 3. **导流**：
    > "评估完成 ✅，报告在 `~/Desktop/Claude skills/offer-strategy-<slug>.html`。基于上面的建议：
-   > - 决定投 → 流程 3 Tailor 简历
+   > - 决定投 → 跑一版 Tailor 简历
    > - 还想多看一份对比 → 把另一份 JD 发我
    > - 决定不投 → 我帮你把这份归档到 jd-bank（status: closed）"
 
@@ -131,7 +131,7 @@
 
 | 症状 | 处理 |
 |---|---|
-| 用户已经决定要投 | 告诉用户："那直接走流程 3 Tailor。但建议先看一眼我这里的 ❌ 部分，避免盲区。" |
+| 用户已经决定要投 | 告诉用户："那直接走 Tailor。但建议先看一眼我这里的 ❌ 部分，避免盲区。" |
 | 用户犹豫到底投不投 | 不要逼用户决定。给清楚信息后说："要不要先把这份存进 jd-bank（status: considering），过两天再决定？" |
 | 用户说"你帮我决定" | **温和拒绝**："最终决策需要你自己的硬约束和直觉。我能做的是把信息摆清楚——基于我看到的，倾向是 ___（推荐指数对应方向）。" |
 | 用户问"我能不能拿到 offer" | 老实说：「拿面概率我能估，拿 offer 受面试表现和 fit 影响太大，估了也不准。先把拿面概率最大化。」 |

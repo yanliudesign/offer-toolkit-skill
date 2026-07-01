@@ -1,6 +1,6 @@
 # Offer Strategy Report — HTML 报告规格
 
-把 Flow 1（Decode 精华）+ Flow 2（完整 Match）+ Flow 4（Top 10 题预览）+ Flow 5（完整 Should I Apply）+ 策略层（内推 / portfolio / 时间线）融合成**一份可分享的单文件 HTML 报告**。是 Onboarding Wizard 跑到 Step 7 后**默认产出**的终极交付物。
+把 解码流程（精华）+ 匹配流程（完整）+ 面试预测流程（Top 10 题预览）+ Should-I-Apply 流程（完整）+ 策略层（内推 / portfolio / 时间线）融合成**一份可分享的单文件 HTML 报告**。是 Onboarding Wizard 跑到 Step 7 后**默认产出**的终极交付物。
 
 参考实现：[../examples/offer-strategy-template.html](../examples/offer-strategy-template.html)（CSS / 排版骨架）+ 用户桌面上已生成过的真实样例。
 
@@ -9,8 +9,8 @@
 ## 何时生成
 
 - **Onboarding Wizard 跑完 Step 7（Should I Apply）→ 默认生成。**
-- 用户单独要："给我出一份 HTML 报告" → 前提是 **Flow 1 + Flow 2 + Flow 5 至少都跑过**（否则数据不够）。
-- 跑完 Flow 3 / Flow 4 之后用户要求更新报告 → 重新生成同文件名（覆盖）。
+- 用户单独要："给我出一份 HTML 报告" → 前提是 **解码 + 匹配 + Should-I-Apply 至少都跑过**（否则数据不够）。
+- 跑完 Tailor / 面试预测 之后用户要求更新报告 → 重新生成同文件名（覆盖）。
 
 ---
 
@@ -48,11 +48,11 @@
    {{PRODUCT_NAME}} 的设计挑战 + 这个 role 的真实 scope。包含：产品规模（用户/营收/付费层/主要 surfaces）+ 4 个核心设计难题（JD 在找解题人）+ role 真实 scope vs JD 文字 + 成败信号（6 个月/12 个月的 ✅ + 2 个 ⚠️ 失败信号）。**让候选人在面试前就知道"这个团队真正在解什么题"。**
 
 3. **§3 · JD 深度解读** — `#decode`
-   Flow 1 精华。每段 JD 原文 → 真实诉求 + Hidden Signal 词典命中（表格：JD 措辞 → 解读 → 是否命中你的画像）。
+   解码流程精华。每段 JD 原文 → 真实诉求 + Hidden Signal 词典命中（表格：JD 措辞 → 解读 → 是否命中你的画像）。
 
 4. **§4 · JD ↔ 简历 逐条匹配** — `#match` + `#matrix` + `#nicehidden`
    三个子块（同一节，共用 `4.` 编号）：
-   - `#match` (4.) — Must Have 命中分析：Flow 2 每条 Must Have 一张卡片（评分 + 简历原文证据 + 风险提示）
+   - `#match` (4.) — Must Have 命中分析：匹配流程每条 Must Have 一张卡片（评分 + 简历原文证据 + 风险提示）
    - `#matrix` (4·) — Match Matrix 完整对照表：3 列表格（JD 要求 / 简历证据 / 评分+Gap），覆盖 Must + Nice + Hidden
    - `#nicehidden` (4·) — Nice to Have 隐性命中清单 + 10 维度 Hidden Signal Fit 雷达
 
@@ -75,7 +75,7 @@
    **`<span id="nextstep"></span>` 锚点要放在三块的最前面**，让 TOC 跳转准确。
 
 9. **§9 · Top 10 面试题预测** — `#questions` / `#qs`
-   Flow 4 preview，每题标"为什么会问 + 准备方向"。结尾导流："要完整 Top 20 + Behavior 故事，去 BQ Skill"。
+   面试预测预览，每题标"为什么会问 + 准备方向"。结尾导流："要完整 Top 20 + Behavior 故事，去 BQ Skill"。
 
 10. **§10 · 6 周行动时间线** — `#timeline`
     按周拆解：投递前 / 投递后 / 面试前。每周 2-4 条具体 to-do。
@@ -190,24 +190,24 @@
 |---|---|
 | §1 公司背景 | 公司 research（网站 / Crunchbase / TechCrunch / Glassdoor）+ 选择性拼接，不能编 |
 | §2 本职位产品分析 | 产品组件拆解 + JD 中隐含的 design challenge，可推演 |
-| §3 JD 深度解读 | Flow 1（精简版，2-3 段就够） |
-| §4 JD ↔ 简历 逐条匹配 | Flow 2（完整 6 条左右 Must Have + Matrix 重组 + Nice/Hidden）。三个子块：Must Have 卡·Match Matrix 表·Nice + Hidden Signal 雷达 |
+| §3 JD 深度解读 | 解码流程（精简版，2-3 段就够） |
+| §4 JD ↔ 简历 逐条匹配 | 匹配流程（完整 6 条左右 Must Have + Matrix 重组 + Nice/Hidden）。三个子块：Must Have 卡·Match Matrix 表·Nice + Hidden Signal 雷达 |
 | §5 Gap 要提升的 | 从 Matrix 里红/橙色格提炼，2-4 张 Gap 卡。Gap 不能空，宁可标「本报告未发现关键 gap」也不要删 |
-| §6 为什么投 / 不投 | Flow 5 |
-| §7 薪资 reality check | Flow 5 + 外部数据（Levels.fyi 等） |
-| §8 Next step | Flow 5 + Flow 3 简版（会叙事弧/内推/portfolio audit 三子块） |
-| §9 Top 10 面试题 | Flow 4 preview（不替代完整 Top 20） |
-| §10 6 周行动计划 | Flow 5 collapse 后的执行版 |
+| §6 为什么投 / 不投 | Should-I-Apply 流程 |
+| §7 薪资 reality check | Should-I-Apply + 外部数据（Levels.fyi 等） |
+| §8 Next step | Should-I-Apply + Tailor 简版（会叙事弧/内推/portfolio audit 三子块） |
+| §9 Top 10 面试题 | 面试预测预览（不替代完整 Top 20） |
+| §10 6 周行动计划 | Should-I-Apply collapse 后的执行版 |
 
-**这份报告不替代单独跑 Flow 3 / Flow 4 完整版。** 报告底部要明确导流：
-- 想要三版简历 → 跑 Flow 3 Resume Tailor
-- 想要完整 Top 20 + Behavior 故事 → 跑 Flow 4 + 转 BQ Skill
+**这份报告不替代单独跑 Tailor / 面试预测 完整版。** 报告底部要明确导流：
+- 想要三版简历 → 跑 Resume Tailor 流程
+- 想要完整 Top 20 + Behavior 故事 → 跑 面试预测流程 + 转 BQ Skill
 
 ---
 
 ## 生成流程
 
-1. 确认 Flow 1 / 2 / 5 数据齐全（至少这三条）。少了就**告诉用户"先跑完 ___ 再生成报告"**，不要硬出。
+1. 确认 解码 / 匹配 / Should-I-Apply 数据齐全（至少这三条）。少了就**告诉用户"先跑完 ___ 再生成报告"**，不要硬出。
 2. 在内存里组装报告头 + 10 节正文的内容。§1 公司背景 和 §2 本职位产品分析 需要额外跑一轮公司 / 产品 research。
 3. 用 [examples/offer-strategy-template.html](../examples/offer-strategy-template.html) 的 CSS / 结构当骨架，把内容填进去。
 4. 写到 `~/Desktop/Claude skills/offer-strategy-<slug>.html`。
@@ -220,7 +220,7 @@
 
 | 症状 | 处理 |
 |---|---|
-| 用户没跑完 Flow 5 就要报告 | 拒绝 + 一句话引导："还需要先跑 Should I Apply 才能出报告，要不要现在跑？" |
+| 用户没跑完 Should-I-Apply 流程 就要报告 | 拒绝 + 一句话引导："还需要先跑 Should I Apply 才能出报告，要不要现在跑？" |
 | 用户简历事实不足，§4 / §5 写不出证据 | **标 `[需用户补充：具体项目 / 数字]`**，不要编。报告顶部 Assumptions 加一条"简历未完全提供，部分章节为占位" |
 | 用户希望"只要 Verdict 那一段" | 给一份**极简单页摘要**（5 个 block：Verdict / Match / 概率 / 3 投 3 不投 / 下一步），不要塞 20 章 |
 | 公司是中国公司 | 字体换思源宋体 / 思源黑体；薪资章节用 RMB 区间 + level 对标（P7/P8 等）|

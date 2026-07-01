@@ -69,7 +69,7 @@ Drop the whole `resume-skill/` folder into your skills directory (e.g. `~/.claud
 ## Layout
 ```
 resume-skill/
-├── SKILL.md                       # Flow entry point (read first)
+├── SKILL.md                       # Workflow entry point (read first)
 ├── schema/resume-data.md          # Standardized fields — the hub format for every entry point
 ├── prompts/
 │   ├── beautify.md                # Entry A: beautify an existing resume

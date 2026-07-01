@@ -12,9 +12,9 @@
 
 | 用户说的话 | 流程 | 脚本 |
 |---|---|---|
-| "帮我美化简历" / 上传了 PDF/docx/txt | **A. 美化已有简历** | [`prompts/beautify.md`](prompts/beautify.md) |
-| "这是我的 LinkedIn" / 贴 linkedin.com 链接 | **B. LinkedIn 导入** | [`prompts/linkedin-import.md`](prompts/linkedin-import.md) |
-| "帮我从零做一份" / "咱们聊一聊" | **C. 对话式建简历** | [`prompts/interview.md`](prompts/interview.md) |
+| "帮我美化简历" / 上传了 PDF/docx/txt | **美化已有简历** | [`prompts/beautify.md`](prompts/beautify.md) |
+| "这是我的 LinkedIn" / 贴 linkedin.com 链接 | **LinkedIn 导入** | [`prompts/linkedin-import.md`](prompts/linkedin-import.md) |
+| "帮我从零做一份" / "咱们聊一聊" | **对话式建简历** | [`prompts/interview.md`](prompts/interview.md) |
 
 三条入口最终都把数据汇入 [`schema/resume-data.md`](schema/resume-data.md),再套模板渲染。
 

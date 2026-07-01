@@ -19,7 +19,7 @@ Invoke the skill with anything like "help me with this job" / "走一下这个 J
    - 🅲️ No resume yet → short self-introduction. Results will be flagged as "unverified against a real resume" and you'll be nudged toward **[Resume Skill](https://github.com/yanliudesign/resume-builder-skill)** to build one.
 3. **HTML report auto-opens** — a single-file Offer Strategy Report is generated to `~/Desktop/Claude skills/offer-strategy-<slug>.html` and pops open in your browser. Inside: TL;DR verdict, two gauges, the 10 sections below, and in-page Export PDF / Export Markdown buttons.
 
-That's the whole thing. No multi-step wizard, no separate "flow 1" / "flow 2" outputs to wade through — the 5 internal flows (Decode / Match / Tailor / Predict / Should I Apply) all run silently and assemble into the same HTML report.
+That's the whole thing. No multi-step wizard, no separate "只解码" / "只算匹配度" outputs to wade through — the 5 internal flows (Decode / Match / Tailor / Predict / Should I Apply) all run silently and assemble into the same HTML report.
 
 If you explicitly want only one flow ("only decode this" / "just match score") the skill skips the report and gives you the raw output for that one flow.
 
@@ -39,13 +39,13 @@ Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills
 | — | **Key metrics** | Match Score gauge + Interview Probability gauge. |
 | **1** | **Company background** | Who runs this place, what are the cultural signals, what shipped in the last 12–24 months. |
 | **2** | **Product analysis for this role** | What product / surface this role owns + the 4 core design challenges + the *real* scope behind the JD. |
-| **3** | **JD deep decode** | Why this JD reads the way it does (Flow 1 essence + Hidden Signal dictionary hits). |
+| **3** | **JD deep decode** | Why this JD reads the way it does (JD 解码精华 + Hidden Signal dictionary hits). |
 | **4** | **JD ↔ resume line-by-line match** | Must Have cards + full Match Matrix (3 columns: JD ask / resume evidence / score+gap) + Nice + 10-dim Hidden Signal radar. |
 | **5** | **Gap — what to upgrade** | 2–4 gap cards with severity (high/middle) + 4-week mitigation. |
 | **6** | **Why apply / why not** | 3 reasons each side. Every "why not" comes with an HM probe response. |
 | **7** | **Salary reality check** | JD band + market data + negotiation talking points. |
 | **8** | **Next step** | Career arc fit + referral playbook (who, DM template) + portfolio audit (4-week action list). |
-| **9** | **Top 10 interview questions** | Flow 4 preview. Full Top 20 + behavior stories → hand off to BQ Skill. |
+| **9** | **Top 10 interview questions** | 面试预测预览. Full Top 20 + behavior stories → hand off to BQ Skill. |
 | **10** | **6-week action plan** | Week-by-week to-dos: before applying / after applying / before interview. |
 
 The report supports **Export to PDF** (CJK-safe Noto font embedding) and **Export to Markdown** (single-file MD download). Spec: [`frameworks/offer-strategy-report.md`](frameworks/offer-strategy-report.md) · skeleton: [`examples/offer-strategy-template.html`](examples/offer-strategy-template.html).
@@ -54,9 +54,9 @@ The report supports **Export to PDF** (CJK-safe Noto font embedding) and **Expor
 
 ## Three Ironclad Rules
 
-1. **Decode before you act** — Flow 1 is mandatory before jumping to Flow 2/3. Matching against the wrong target = the match is wrong.
+1. **Decode before you act** — Decoding first is mandatory before jumping to 后续匹配 / Tailor. Matching against the wrong target = the match is wrong.
 2. **No fabrication** — Never invent experience / skills / numbers the candidate didn't claim. If real evidence is missing, mark it ❌.
-3. **One flow at a time** — No mixing. If Flow 1 left ambiguity, clarify before moving on.
+3. **One flow at a time** — No mixing. If the decode step left ambiguity, clarify before moving on.
 
 ---
 

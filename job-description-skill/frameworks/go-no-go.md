@@ -10,7 +10,7 @@
 
 ### 维度 1 · Match Quality（权重 30%）
 
-基于流程 2 的 Match Score：
+基于匹配 的 Match Score：
 
 | Match Score | 分数 |
 |---|---|

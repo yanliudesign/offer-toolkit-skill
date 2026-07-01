@@ -1,4 +1,4 @@
-# JD Decoder — 流程 1
+# JD Decoder
 
 **目标：** 把一份招聘话术 JD 翻译成"招聘经理真实需求"的结构化情报。后面 4 条流程都依赖这一步的产出。
 
@@ -148,4 +148,4 @@ JD 反复出现 "ambiguity" + "ownership" + "drive"
 | JD 太短 / 全是 buzzword | 主动告诉用户"这份 JD 信息量不够，我能解出的部分有限，建议补充：① 公司近期产品方向 ② LinkedIn 上 hiring manager 信息 ③ 团队其他成员背景" |
 | JD 是中文 / 国内公司 | 套路一样，但 Hidden Signal 词典要切换（"狼性" / "拥抱变化" / "结果导向" 各有所指） |
 | 用户只给链接抓不到 | 让用户粘 JD 文本，**别根据公司名瞎猜 JD 内容** |
-| 用户问"我能不能投" | 别在 Decoder 里直接回答，引导走流程 5（Should I Apply） |
+| 用户问"我能不能投" | 别在 Decoder 里直接回答，引导走Should I Apply（Should I Apply） |

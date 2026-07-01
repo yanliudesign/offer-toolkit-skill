@@ -5,7 +5,7 @@ level: "<L4 / Senior / Principal / etc.>"
 source_url: "<JD 链接，没有就空着>"
 decoded_at: "<YYYY-MM-DD>"
 status: "decoded"   # decoded → matched → tailored → applied → interview → offer / closed
-match_score: ""     # 流程 2 跑完后填，例："72-80%"
+match_score: ""     # 匹配跑完后填，例："72-80%"
 applied_at: ""      # 投递时间
 deadline: ""        # 申请截止（如有）
 tags: []            # 例：[ai, b2b, startup, design-lead]
@@ -84,9 +84,9 @@ JD 写：
 
 ---
 
-## 6 · Match Score（流程 2 填）
+## 6 · Match Score（匹配后回填）
 
-> 跑过流程 2 后回填
+> 匹配跑完后回填
 
 - **匹配度**：___
 - **强项**：
@@ -100,9 +100,9 @@ JD 写：
 
 ---
 
-## 7 · Resume Tailor 记录（流程 3 填）
+## 7 · Resume Tailor 记录（tailor 后回填）
 
-> 跑过流程 3 后回填
+> Tailor 跑完后回填
 
 - 改写了哪几段：
 - ATS 版要点：
@@ -112,9 +112,9 @@ JD 写：
 
 ---
 
-## 8 · Predicted Questions（流程 4 填）
+## 8 · Predicted Questions（面试预测后回填）
 
-> 跑过流程 4 后回填
+> 面试预测跑完后回填
 
 ### Behavior（→ BQ Skill 挖故事）
 - B1. ...
@@ -136,9 +136,9 @@ JD 写：
 
 ---
 
-## 9 · Should I Apply（流程 5 填）
+## 9 · Should I Apply（is-apply 判断后回填）
 
-> 跑过流程 5 后回填
+> Should I Apply 跑完后回填
 
 - **推荐指数**：⭐⭐⭐⭐☆
 - **拿面概率**：__-__%

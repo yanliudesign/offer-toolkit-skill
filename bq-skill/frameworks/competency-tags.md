@@ -19,12 +19,12 @@
 | **Innovation / Bias for Action** | 创新、快速试错、果断行动 | "a creative solution" / "moved fast with incomplete info" |
 | **Handling Failure / Resilience** | 失败、犯错、挫折后的恢复 | "a mistake you made" / "missed a deadline" |
 
-## 反查用法（流程 B 入口）
+## 反查用法（「答题」 入口）
 
 1. 读到一道 BQ → 在上表对应到 1–2 个核心能力。
 2. 去 `story-bank/_index.md` 找带这些 `competencies` 的故事。
 3. 命中多个 → 选信号最强、量化最好、与目标公司最契合的那个。
-4. 全未命中 → 触发流程 A 现场挖。
+4. 全未命中 → 触发「挖新故事」 现场挖。
 
 ## 打标纪律
 

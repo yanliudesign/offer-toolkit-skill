@@ -19,9 +19,9 @@ description: "简历生成与美化 OS。两种入口：把已有简历(PDF/Word
 
 | 用户说的话 | 走哪条流程 |
 |---|---|
-| "帮我美化简历" / "改简历" / 上传了一份已有简历(PDF/docx/txt/md) | **A. 美化已有简历** → `prompts/beautify.md` |
-| "我还没简历，这是我 LinkedIn" / 贴出 linkedin.com 链接 | **B. LinkedIn 导入** → `prompts/linkedin-import.md` |
-| "我没有简历，帮我做一份" / "通过聊天帮我做" | **C. 对话式建简历** → `prompts/interview.md` |
+| "帮我美化简历" / "改简历" / 上传了一份已有简历(PDF/docx/txt/md) | **美化已有简历** → `prompts/beautify.md` |
+| "我还没简历，这是我 LinkedIn" / 贴出 linkedin.com 链接 | **LinkedIn 导入** → `prompts/linkedin-import.md` |
+| "我没有简历，帮我做一份" / "通过聊天帮我做" | **对话式建简历** → `prompts/interview.md` |
 | "换个模板" / "这套不好看" | 已有结构化数据时，直接重渲染(见下方渲染流程) |
 
 判断不了就问一句：
@@ -29,7 +29,7 @@ description: "简历生成与美化 OS。两种入口：把已有简历(PDF/Word
 
 ---
 
-## 流程 A — 美化已有简历
+## 美化已有简历
 
 详见 `prompts/beautify.md`。要点：
 
@@ -41,13 +41,13 @@ description: "简历生成与美化 OS。两种入口：把已有简历(PDF/Word
 
 ---
 
-## 流程 B — LinkedIn 导入
+## LinkedIn 导入
 
 详见 `prompts/linkedin-import.md`。要点：现实是 LinkedIn 有登录墙，直接抓公开 URL 经常被拦。流程会先尝试 WebFetch，拿不到就引导用户用 LinkedIn 的"Save to PDF"导出个人资料或复制粘贴各板块内容，再解析进 schema。
 
 ---
 
-## 流程 C — 对话式建简历
+## 对话式建简历
 
 详见 `prompts/interview.md`。一问一答，按 联系方式 → 目标岗位 → 每段经历(公司/职位/时间 → 做了什么 → 成果数字) → 教育 → 技能 的顺序，挖一段结构化一段，最后汇总进 schema。
 

@@ -30,7 +30,7 @@ description: "Career Coach 全流程求职工具包。把「看到心动岗位 �
 | 贴出一份 JD / "这个岗位我该不该投" / "帮我看看这份工作" / "match score" / "面试会问什么" | → [`job-description-skill/`](job-description-skill/SKILL.md) |
 | "帮我美化简历" / "改简历" / 上传 PDF/docx / "我没有简历帮我做一份" / "换个模板" / LinkedIn 导入 | → [`resume-skill/`](resume-skill/SKILL.md) |
 | "帮我准备 behavioral 面试" / "Tell me about a time…" / "帮我挖一个面试故事" / "STAR 怎么写" / "建我的故事库" / "Amazon LP 怎么准备" | → [`bq-skill/`](bq-skill/SKILL.md) |
-| 一次交出 JD + 简历，想要"全套准备好" | → 先跑 `job-description-skill/`（生成 Offer Strategy Report，内含 Top 10 面试题） → 用户说"投" → 转 `resume-skill/` tailor → "拿到面试" → 转 `bq-skill/` Flow E（JD-driven Top 20 + STAR 模板） |
+| 一次交出 JD + 简历，想要"全套准备好" | → 先跑 `job-description-skill/`（生成 Offer Strategy Report，内含 Top 10 面试题） → 用户说"投" → 转 `resume-skill/` tailor → "拿到面试" → 转 `bq-skill/` JD-driven prep（JD-driven Top 20 + STAR 模板） |
 
 判断不了就问一句：
 
