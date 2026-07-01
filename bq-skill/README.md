@@ -58,5 +58,6 @@ The probing scripts in `prompts/story-mining.md` and the competency dictionary i
 put in, the more the skill sounds like you.
 
 ## Related skills
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (JD · Resume · BQ)
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume generation & beautification

@@ -83,8 +83,9 @@ resume-skill/
 ```
 
 ## 配套 skill
-- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略 OS
-- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试 / 职业故事 OS
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 三件套（JD · Resume · BQ）
+- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略
+- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试 / 职业故事库
 
 ## License
 MIT

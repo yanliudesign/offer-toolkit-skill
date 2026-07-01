@@ -94,6 +94,13 @@ job-description-skill/
 
 ---
 
+## 配套 skill
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 三件套（JD · Resume · BQ）
+- [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — 简历生成与美化
+- [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试 / 职业故事库
+
+---
+
 ## License
 
 MIT — fork it, remix it, ship your own version.

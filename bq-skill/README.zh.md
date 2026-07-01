@@ -40,3 +40,8 @@ Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**
 ## 打造自己的版本
 `prompts/story-mining.md` 的追问话术、`frameworks/competency-tags.md` 的标签词典，
 是最该按你自己经验去改的地方——你越往里喂自己的话术和标签，这个 skill 就越像你。
+
+## 配套 skill
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 三件套（JD · Resume · BQ）
+- [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略
+- [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — 简历生成与美化

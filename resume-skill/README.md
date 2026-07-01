@@ -83,6 +83,7 @@ resume-skill/
 ```
 
 ## Related skills
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (JD · Resume · BQ)
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank
 
