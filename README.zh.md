@@ -1,8 +1,8 @@
-# Offer Toolkit — Career Copilot OS
+# Offer Toolkit — Career Coach OS
 
 > 🌐 **中文** · [English](./README.md)
 
-> 一整套求职流程的 **Career Copilot skill pack**。三个独立自包含的子 skill 打包成一个仓库——可以整包装，也可以只挑你需要的那个。
+> 一整套求职流程的 **Career Coach skill pack**。三个独立自包含的子 skill 打包成一个仓库——可以整包装，也可以只挑你需要的那个。
 
 ```
 看到心动岗位 → [Job Description Skill] 解码 JD · 出 Offer Strategy Report
@@ -38,7 +38,7 @@
 
 ## 安装
 
-### 作为 Claude / Copilot skill pack 整体安装
+### 作为 Claude skill pack 整体安装
 
 把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），三条子 skill 一次性都被发现。
 
@@ -96,7 +96,7 @@ offer-toolkit-skill/
 - [`resume-builder-skill`](https://github.com/yanliudesign/resume-builder-skill)
 - [`Behavior-question-skill`](https://github.com/yanliudesign/Behavior-question-skill)
 
-这个 toolkit 是**一站式打包版**，为想在一次 clone 里拿到完整 Career Copilot 链路的人准备——再加一层顶层 `SKILL.md`，根据你当前处在求职链的哪一步自动路由。
+这个 toolkit 是**一站式打包版**，为想在一次 clone 里拿到完整 Career Coach 链路的人准备——再加一层顶层 `SKILL.md`，根据你当前处在求职链的哪一步自动路由。
 
 ---
 

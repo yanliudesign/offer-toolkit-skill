@@ -1,6 +1,6 @@
 # BQ Prep Report — HTML 视觉规范(Editorial)
 
-JD 驱动流程(`prompts/jd-driven-prep.md` Step 7)的 HTML 报告生成规范。**与 job-description-skill 的 Offer Strategy Report 共用同一套 editorial 视觉系统**,保证 Career Copilot 全链路报告风格一致。
+JD 驱动流程(`prompts/jd-driven-prep.md` Step 7)的 HTML 报告生成规范。**与 job-description-skill 的 Offer Strategy Report 共用同一套 editorial 视觉系统**,保证 Career Coach 全链路报告风格一致。
 
 ## 文件
 

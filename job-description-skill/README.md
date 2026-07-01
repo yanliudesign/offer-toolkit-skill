@@ -97,7 +97,7 @@ job-description-skill/
 
 ## Related skills
 
-Part of a three-skill **Career Copilot** chain — decode the JD here, then hand off:
+Part of a three-skill **Career Coach** chain — decode the JD here, then hand off:
 
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume Builder & Beautifier (11 print-ready templates)
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / Career Story OS

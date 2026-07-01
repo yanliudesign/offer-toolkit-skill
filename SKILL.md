@@ -1,9 +1,9 @@
 ---
 name: offer-toolkit-skill
-description: "Career Copilot 全流程求职工具包。把「看到心动岗位 → 拿到 offer」拆成三步闭环并各自沉淀成子 skill：① Job Description Skill 解码 JD 并出一份 Offer Strategy Report（该不该投 / 匹配度 / 面试题预测），② Resume Skill 把简历结构化并渲染成 11 套打印级模板，③ BQ Skill 挖掘真实经历、STAR 化，建可复用的行为面试故事库。任何求职相关请求（该不该投、改简历、准备行为面试、看 JD、Tell me about a time…）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, JD, job description, 简历, resume, CV, 行为面试, behavioral interview, BQ, STAR, tell me about a time, 面试准备, career copilot。"
+description: "Career Coach 全流程求职工具包。把「看到心动岗位 → 拿到 offer」拆成三步闭环并各自沉淀成子 skill：① Job Description Skill 解码 JD 并出一份 Offer Strategy Report（该不该投 / 匹配度 / 面试题预测），② Resume Skill 把简历结构化并渲染成 11 套打印级模板，③ BQ Skill 挖掘真实经历、STAR 化，建可复用的行为面试故事库。任何求职相关请求（该不该投、改简历、准备行为面试、看 JD、Tell me about a time…）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, JD, job description, 简历, resume, CV, 行为面试, behavioral interview, BQ, STAR, tell me about a time, 面试准备, career coach。"
 ---
 
-# Offer Toolkit — Career Copilot OS
+# Offer Toolkit — Career Coach OS
 
 一整套求职 skill 的聚合入口。三条子 skill 各自独立可用，也可以组成完整的求职链路：
 
@@ -74,7 +74,7 @@ description: "Career Copilot 全流程求职工具包。把「看到心动岗位
 
 ## 安装
 
-### Claude / Copilot 用户
+### Claude 用户
 
 把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），三条子 skill 会一起被发现。
 

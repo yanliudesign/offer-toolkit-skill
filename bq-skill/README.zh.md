@@ -33,7 +33,7 @@ bq-skill/
 ## 与 job-description-skill 挂钩
 流程 E 直接复用 [job-description-skill](https://github.com/yanliudesign/job-description-skill) 解码出的
 Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**，并用简历里的真实经历
-为每题搭 STAR 准备模板，输出一份 editorial 风格的 HTML 报告。形成 Career Copilot 闭环：
+为每题搭 STAR 准备模板，输出一份 editorial 风格的 HTML 报告。形成 Career Coach 闭环：
 JD 解码 → 匹配/改简历 → **BQ 选题 + 故事准备**。
 
 ## 用法

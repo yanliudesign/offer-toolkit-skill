@@ -67,7 +67,7 @@
 - **顶部加 Headline / Summary（1-3 行）**
   - 一句话把用户定位成 JD 在找的那种人
   - 句式：`[Title] with [年限] experience in [JD 的关键领域], having shipped [关键作品 / 量化结果]`
-  - 例：`Principal Product Designer with 10+ years shaping AI-powered enterprise products, having led 0→1 design for Microsoft Copilot (1M+ DAU).`
+  - 例：`Principal Product Designer with 10+ years shaping AI-powered enterprise products, having led 0→1 design for Microsoft Teams AI (1M+ DAU).`
 - **经历排序**
   - 最相关的经历置顶，即使不是时间最新（如果不是时间最新，加副标题"Most Relevant Experience"）
   - 不相关的早期经历压缩到 1 行

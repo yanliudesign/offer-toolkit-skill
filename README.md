@@ -1,8 +1,8 @@
-# Offer Toolkit — Career Copilot OS
+# Offer Toolkit — Career Coach OS
 
 > 🌐 **English** · [中文](./README.zh.md)
 
-> An end-to-end **Career Copilot skill pack** for job hunting. Three independent, self-contained sub-skills packaged as one — install the whole toolkit, or grab just the piece you need.
+> An end-to-end **Career Coach skill pack** for job hunting. Three independent, self-contained sub-skills packaged as one — install the whole toolkit, or grab just the piece you need.
 
 ```
 See a dream job → [Job Description Skill] decode JD · generate Offer Strategy Report
@@ -38,7 +38,7 @@ Every sub-skill enforces the same three rules:
 
 ## Install
 
-### As a Claude / Copilot skill pack
+### As a Claude skill pack
 
 Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All three sub-skills are auto-discovered together.
 
@@ -96,7 +96,7 @@ Each sub-skill originally shipped as its own repo:
 - [`resume-builder-skill`](https://github.com/yanliudesign/resume-builder-skill)
 - [`Behavior-question-skill`](https://github.com/yanliudesign/Behavior-question-skill)
 
-They're still there, still maintained. This toolkit is the **one-stop bundle** for people who want the full Career Copilot loop in a single clone — plus a top-level `SKILL.md` that auto-routes based on where in the job hunt you are.
+They're still there, still maintained. This toolkit is the **one-stop bundle** for people who want the full Career Coach loop in a single clone — plus a top-level `SKILL.md` that auto-routes based on where in the job hunt you are.
 
 ---
 

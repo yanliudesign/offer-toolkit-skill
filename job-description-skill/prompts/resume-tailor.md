@@ -86,13 +86,13 @@
 
 改后（HM 版）：
 > Led AI-powered meeting experiences in Microsoft Teams (1M+ enterprise users),
-> defining product direction with PM/ENG from 0→1, shipping Copilot for Teams.
+> defining product direction with PM/ENG from 0→1, shipping Teams AI.
 
 对齐了 JD 的：
-- Must Have #1（AI 产品经验）— "AI-powered" + "Copilot"
+- Must Have #1（AI 产品经验）— "AI-powered" + "Teams AI"
 - Must Have #3（End-to-end design）— "0→1" + "defining...with PM/ENG"
 - Hidden Signal（ownership）— "defining product direction"
-依据简历事实：用户原简历提到"主导 Teams Copilot 项目"+"DAU 1M+"
+依据简历事实：用户原简历提到"主导 Teams AI 项目"+"DAU 1M+"
 ```
 
 **改了几条就给几条 diff，不要只给最终版本。** 用户需要看到"为什么"才能学到下次自己怎么改。

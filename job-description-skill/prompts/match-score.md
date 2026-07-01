@@ -52,7 +52,7 @@
 
 ```
 ✅ AI 产品经验 — Must Have #1
-   简历依据：2023 在 Microsoft 主导 Copilot for Teams 的设计，DAU 1M+
+   简历依据：2023 在 Microsoft 主导 Teams AI 的设计，DAU 1M+
    信号强度：强（端到端 + 量化 + 大规模用户）
 ```
 
@@ -67,7 +67,7 @@
 ```
 ⚠️ Agent / Multi-step AI 经验 — Must Have #2
    档位：🔧 能补
-   补法：把现有 Copilot 项目里"多步推理 UX"的部分单独拆出来重写
+   补法：把现有 Teams AI 项目里"多步推理 UX"的部分单独拆出来重写
 
 ⚠️ Coding (HTML/CSS/JS) — Nice to Have #2
    档位：🤷 不重要
