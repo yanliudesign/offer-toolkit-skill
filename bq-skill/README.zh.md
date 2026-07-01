@@ -45,3 +45,12 @@ Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**
 - [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 三件套（JD · Resume · BQ）
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — 简历生成与美化
+
+## License
+
+MIT — fork it, remix it, ship your own version.
+
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
+[LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
+[X](https://x.com/yanliudreamer) ·
+[小红书](https://www.xiaohongshu.com/notification)

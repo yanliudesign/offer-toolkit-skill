@@ -108,4 +108,4 @@ MIT — fork it, remix it, ship your own version.
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
 [LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
 [X](https://x.com/yanliudreamer) ·
-[小红书](https://www.xiaohongshu.com/user/profile/5b2afdf311be104ac3c22931)
+[小红书](https://www.xiaohongshu.com/notification)

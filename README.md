@@ -67,6 +67,9 @@ This bundle just puts them together with a top-level router.
 
 ## License
 
-MIT.
+MIT — fork it, remix it, ship your own version.
 
-Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/dreameryanyan) · [小红书](https://www.xiaohongshu.com/user/profile/5c1d8d3c000000001202b7fb)
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
+[LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
+[X](https://x.com/yanliudreamer) ·
+[Xiaohongshu](https://www.xiaohongshu.com/notification)

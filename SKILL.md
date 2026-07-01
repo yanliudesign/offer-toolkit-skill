@@ -91,4 +91,4 @@ description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆�
 
 MIT — fork, remix, ship your own version.
 
-Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/dreameryanyan) · [小红书](https://www.xiaohongshu.com/user/profile/5c1d8d3c000000001202b7fb)
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [小红书](https://www.xiaohongshu.com/notification)

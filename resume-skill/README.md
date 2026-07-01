@@ -88,4 +88,10 @@ resume-skill/
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank
 
 ## License
-MIT
+
+MIT — fork it, remix it, ship your own version.
+
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
+[LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
+[X](https://x.com/yanliudreamer) ·
+[Xiaohongshu](https://www.xiaohongshu.com/notification)

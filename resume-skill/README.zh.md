@@ -88,4 +88,10 @@ resume-skill/
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试 / 职业故事库
 
 ## License
-MIT
+
+MIT — fork it, remix it, ship your own version.
+
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
+[LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
+[X](https://x.com/yanliudreamer) ·
+[小红书](https://www.xiaohongshu.com/notification)

@@ -61,3 +61,12 @@ put in, the more the skill sounds like you.
 - [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (JD · Resume · BQ)
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume generation & beautification
+
+## License
+
+MIT — fork it, remix it, ship your own version.
+
+Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
+[LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
+[X](https://x.com/yanliudreamer) ·
+[Xiaohongshu](https://www.xiaohongshu.com/notification)
