@@ -148,12 +148,31 @@
   .report-tools .lang-toggle .sep { color: #3a3a37; margin: 0 8px; font-weight: 400; }
   html[lang="en"] .report-tools .lang-toggle .seg.en { color: #fafaf7; }
   html[lang="zh"] .report-tools .lang-toggle .seg.zh { color: #fafaf7; }
+  .report-tools .rt-export { position: relative; display: inline-flex; }
   .report-tools .rt-btn.pdf {
     background: var(--accent, #facc15); color: #1f1f1d;
     padding: 8px 18px; border: 1.5px solid #1f1f1d;
     box-shadow: inset 0 0 0 2px var(--accent, #facc15);
   }
   .report-tools .rt-btn.pdf:hover { background: #fde047; color: #1f1f1d; }
+  .report-tools .rt-btn.pdf .caret { font-size: 10px; margin-left: 2px; opacity: 0.7; transition: transform 160ms ease; }
+  .report-tools .rt-btn.pdf[aria-expanded="true"] .caret { transform: rotate(180deg); }
+  .report-tools .rt-menu {
+    position: absolute; bottom: calc(100% + 10px); right: 0;
+    background: #1f1f1d; border-radius: 14px; padding: 6px;
+    display: flex; flex-direction: column; min-width: 180px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.34), 0 0 0 1px rgba(0,0,0,0.06);
+  }
+  .report-tools .rt-menu[hidden] { display: none; }
+  .report-tools .rt-menu button {
+    background: transparent; color: #d8d8d3; border: 0; cursor: pointer;
+    padding: 10px 14px; font: inherit; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.03em; text-align: left; border-radius: 8px;
+    display: flex; align-items: center; gap: 10px;
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .report-tools .rt-menu button:hover { background: #2a2a27; color: #fafaf7; }
+  .report-tools .rt-menu button .glyph { color: #7a7a72; font-weight: 500; width: 14px; text-align: center; }
   @media print { .report-tools { display: none !important; } }
 </style>
 </head>
@@ -164,8 +183,22 @@
     <span class="seg en">EN</span><span class="sep">/</span><span class="seg zh">中文</span>
   </button>
   <span class="rt-divider"></span>
-  <button type="button" class="rt-btn md" onclick="exportMarkdown()" aria-label="导出 Markdown">↓ MARKDOWN</button>
-  <button type="button" class="rt-btn pdf" onclick="window.print()" aria-label="导出 PDF">↓ PDF</button>
+  <div class="rt-export">
+    <button type="button" class="rt-btn pdf" onclick="toggleExportMenu(event)" aria-haspopup="menu" aria-expanded="false" aria-label="导出 / Export">
+      <span data-lang="en">↓ EXPORT</span><span data-lang="zh">↓ 导出</span>
+      <span class="caret" aria-hidden="true">▾</span>
+    </button>
+    <div class="rt-menu" role="menu" hidden>
+      <button type="button" role="menuitem" onclick="exportMarkdown(); closeExportMenu()">
+        <span class="glyph">MD</span>
+        <span data-lang="en">Markdown (.md)</span><span data-lang="zh">Markdown 文件</span>
+      </button>
+      <button type="button" role="menuitem" onclick="closeExportMenu(); window.print()">
+        <span class="glyph">PDF</span>
+        <span data-lang="en">PDF (Print…)</span><span data-lang="zh">PDF（打印…）</span>
+      </button>
+    </div>
+  </div>
 </div>
 <div class="demo-flag">Demo · fictional candidate "Alex Chen" — illustrates layout only, no real personal data</div>
 <div class="page">
@@ -329,7 +362,31 @@
       if (saved === 'en' || saved === 'zh') document.documentElement.lang = saved;
     } catch (e) {}
   })();
-
+  // Export dropdown menu (MD + PDF share one button).
+  window.toggleExportMenu = function (event) {
+    if (event) event.stopPropagation();
+    const wrap = document.querySelector('.rt-export');
+    if (!wrap) return;
+    const menu = wrap.querySelector('.rt-menu');
+    const btn  = wrap.querySelector('.rt-btn');
+    const hidden = menu.hasAttribute('hidden');
+    if (hidden) { menu.removeAttribute('hidden'); btn.setAttribute('aria-expanded', 'true'); }
+    else        { menu.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+  };
+  window.closeExportMenu = function () {
+    const wrap = document.querySelector('.rt-export');
+    if (!wrap) return;
+    const menu = wrap.querySelector('.rt-menu');
+    const btn  = wrap.querySelector('.rt-btn');
+    if (menu) menu.setAttribute('hidden', '');
+    if (btn)  btn.setAttribute('aria-expanded', 'false');
+  };
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.rt-export')) window.closeExportMenu();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeExportMenu();
+  });
   // DOM → Markdown converter. Walks the report and emits a readable .md file.
   // Skips UI chrome and the hidden-language twin so exports stay monolingual.
   (function () {
