@@ -6,7 +6,7 @@
 
 ---
 
-**Three job-hunt tools in one Claude skill pack — JD · Resume · BQ.**
+**Three job-hunt tools in one agent skill pack — JD · Resume · BQ.**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
 [![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
@@ -21,7 +21,7 @@
 
 </div>
 
-Three job-hunting tools bundled as a Claude skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
+Three job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
 
 ```
 See a job you want → job-description-skill   decode the JD, get an Offer Strategy report

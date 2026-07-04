@@ -6,7 +6,7 @@
 
 ---
 
-**三个求职工具打包成一个 Claude skill 包 — JD · Resume · BQ。**
+**三个求职工具打包成一个 agent skill 包 — JD · Resume · BQ。**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
 [![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
@@ -21,7 +21,7 @@
 
 </div>
 
-三个求职工具打包成一个 Claude skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
+三个求职工具打包成一个 agent skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
 
 ```
 看到心动岗位 → job-description-skill   解码 JD、出一份 Offer Strategy 报告
