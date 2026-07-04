@@ -67,7 +67,7 @@ offer-toolkit-skill/
 
 ## License
 
-MIT — fork it, remix it, ship your own version.
+MIT 协议 — 随便 fork、改造、发一个你自己的版本。
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
 [LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
