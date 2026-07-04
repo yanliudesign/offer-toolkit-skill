@@ -273,33 +273,49 @@
   .socials a.xhs span { display: inline-block; transform: skewX(-6deg); white-space: nowrap; }
   .socials a.xhs:hover { background: #d11838; border-color: #d11838; transform: translateY(-2px); }
 
-  /* === Export toolbar (floating bottom-right; hidden in print) === */
-  .export-tools { position: fixed; right: 24px; bottom: 24px; z-index: 9999; display: flex; gap: 10px; }
-  .export-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 18px; background: #1f1f1d; color: #fafaf7;
-    border: none; border-radius: 999px;
+  /* === Unified report toolbar (floating bottom-right; hidden in print) === */
+  .report-tools {
+    position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #1f1f1d; color: #fafaf7;
+    padding: 8px 8px 8px 22px; border-radius: 999px;
     font-family: var(--body, system-ui, sans-serif);
-    font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    font-size: 13px; letter-spacing: 0.02em;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.28), 0 0 0 1px rgba(0,0,0,0.06);
   }
-  .export-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.05); }
-  .export-btn.pdf:hover { background: #d11838; box-shadow: 0 6px 18px rgba(209,24,56,0.32), 0 0 0 1px rgba(0,0,0,0.05); }
-  .export-btn.md:hover  { background: #0d8a45; box-shadow: 0 6px 18px rgba(13,138,69,0.32), 0 0 0 1px rgba(0,0,0,0.05); }
-  .export-btn:active { transform: translateY(0); }
-  .export-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .report-tools .rt-kicker {
+    color: #7a7a72; font-size: 12px; font-weight: 500;
+    margin-right: 12px; user-select: none;
+  }
+  .report-tools .rt-btn {
+    background: transparent; color: #d8d8d3; border: 0; cursor: pointer;
+    padding: 8px 14px; font: inherit; font-weight: 600; letter-spacing: 0.05em;
+    display: inline-flex; align-items: center; gap: 6px;
+    border-radius: 999px;
+    transition: color 160ms ease, background 160ms ease;
+  }
+  .report-tools .rt-btn:hover { color: #fafaf7; }
+  .report-tools .rt-divider { width: 1px; height: 18px; background: #3a3a37; margin: 0 6px; }
+  /* Segmented language toggle */
+  .report-tools .lang-toggle { padding: 6px 10px; }
+  .report-tools .lang-toggle .seg { color: #6b6b66; font-weight: 600; transition: color 160ms ease; }
+  .report-tools .lang-toggle .sep { color: #3a3a37; margin: 0 8px; font-weight: 400; }
+  html[lang="en"] .report-tools .lang-toggle .seg.en { color: #fafaf7; }
+  html[lang="zh"] .report-tools .lang-toggle .seg.zh { color: #fafaf7; }
+  /* PDF: solid yellow pill with dark outline */
+  .report-tools .rt-btn.pdf {
+    background: var(--accent, #facc15); color: #1f1f1d;
+    padding: 8px 18px; border: 1.5px solid #1f1f1d;
+    box-shadow: inset 0 0 0 2px var(--accent, #facc15);
+  }
+  .report-tools .rt-btn.pdf:hover { background: #fde047; color: #1f1f1d; }
 
-  /* === Language toggle · en / zh ===
+  /* === Language toggle content swap ===
      Every user-visible chunk of copy should exist as a twin pair:
        <span data-lang="en">English</span><span data-lang="zh">中文</span>
-     The <html lang=""> attribute controls which twin shows.
-     Content wrapped in data-lang preserves whatever display: type its parent gives it. */
+     The <html lang=""> attribute controls which twin shows. */
   html[lang="en"] [data-lang="zh"] { display: none !important; }
   html[lang="zh"] [data-lang="en"] { display: none !important; }
-  .export-btn.lang { background: #fafaf7; color: #1f1f1d; border: 1.5px solid #1f1f1d; }
-  .export-btn.lang:hover { background: #1f1f1d; color: #fafaf7; box-shadow: 0 6px 18px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.05); }
 
   @media print {
     /* Page setup */
@@ -309,7 +325,7 @@
     h1 { font-size: 42px; }
 
     /* Hide on-screen chrome */
-    .export-tools, .export-btn { display: none !important; }
+    .report-tools { display: none !important; }
 
     /* Preserve background / accent colors */
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -348,32 +364,14 @@
 </head>
 <body>
 
-<div class="export-tools" role="toolbar" aria-label="导出工具">
-  <button type="button" class="export-btn lang" onclick="toggleLang()" aria-label="Switch language / 切换语言">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M2 12h20"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>
-    <span class="lang-label">中文</span>
+<div class="report-tools" role="toolbar" aria-label="工具">
+  <span class="rt-kicker"><span data-lang="en">Tools</span><span data-lang="zh">工具</span></span>
+  <button type="button" class="rt-btn lang-toggle" onclick="toggleLang()" aria-label="Switch language / 切换语言">
+    <span class="seg en">EN</span><span class="sep">/</span><span class="seg zh">中文</span>
   </button>
-  <button type="button" class="export-btn md" onclick="exportMarkdown()" aria-label="导出 Markdown">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-      <polyline points="14 2 14 8 20 8"/>
-      <line x1="9" y1="13" x2="15" y2="13"/>
-      <line x1="9" y1="17" x2="13" y2="17"/>
-    </svg>
-    <span>导出 Markdown</span>
-  </button>
-  <button type="button" class="export-btn pdf" onclick="window.print()" aria-label="导出 PDF">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    <span>导出 PDF</span>
-  </button>
+  <span class="rt-divider"></span>
+  <button type="button" class="rt-btn md" onclick="exportMarkdown()" aria-label="导出 Markdown">↓ MARKDOWN</button>
+  <button type="button" class="rt-btn pdf" onclick="window.print()" aria-label="导出 PDF">↓ PDF</button>
 </div>
 
 <header class="report-header">
@@ -761,29 +759,24 @@
 
 <script>
   // Language toggle · en / zh. Persists choice via localStorage.
+  // No JS-side label update needed — the segmented toggle highlights the
+  // active language purely via CSS keyed off <html lang>.
   window.toggleLang = function () {
     const html = document.documentElement;
-    const next = html.lang === 'zh' ? 'en' : 'zh';
-    html.lang = next;
-    const label = document.querySelector('.lang-label');
-    if (label) label.textContent = next === 'zh' ? 'EN' : '中文';
-    try { localStorage.setItem('report-lang', next); } catch (e) {}
+    html.lang = html.lang === 'zh' ? 'en' : 'zh';
+    try { localStorage.setItem('report-lang', html.lang); } catch (e) {}
   };
   (function initLang () {
     try {
       const saved = localStorage.getItem('report-lang');
-      if (saved === 'en' || saved === 'zh') {
-        document.documentElement.lang = saved;
-        const label = document.querySelector('.lang-label');
-        if (label) label.textContent = saved === 'zh' ? 'EN' : '中文';
-      }
+      if (saved === 'en' || saved === 'zh') document.documentElement.lang = saved;
     } catch (e) {}
   })();
 
   // DOM → Markdown converter. Walks the report and emits a readable .md file.
   // Skips UI chrome (buttons, SVGs), preserves headings / lists / tables / links / emphasis.
   (function () {
-    const SKIP_SELECTOR = 'script, style, svg, .export-tools, .export-btn';
+    const SKIP_SELECTOR = 'script, style, svg, .report-tools, .rt-btn';
     function walk(node) {
       if (!node) return '';
       if (node.nodeType === 3) return node.textContent.replace(/\s+/g, ' ');
