@@ -1,6 +1,21 @@
-# Offer Toolkit
+<div align="center">
 
-> 🌐 **English** · [中文](./README.zh.md)
+[中文](./README.zh.md) · **English**
+
+# 🧰 Offer Toolkit
+
+---
+
+**Three job-hunt tools in one Claude skill pack — JD · Resume · BQ.**
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Skills](https://img.shields.io/badge/SKILLS-3-2ea44f?style=flat-square&labelColor=333)]()
+[![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
+
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
+
+</div>
 
 Three job-hunting tools bundled as a Claude skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
 

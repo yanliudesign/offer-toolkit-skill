@@ -1,6 +1,21 @@
-# Offer Toolkit
+<div align="center">
 
-> 🌐 **中文** · [English](./README.md)
+**中文** · [English](./README.md)
+
+# 🧰 Offer Toolkit
+
+---
+
+**三个求职工具打包成一个 Claude skill 包 — JD · Resume · BQ。**
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Skills](https://img.shields.io/badge/SKILLS-3-2ea44f?style=flat-square&labelColor=333)]()
+[![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
+
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
+
+</div>
 
 三个求职工具打包成一个 Claude skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
 
