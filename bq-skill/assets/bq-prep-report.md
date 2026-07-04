@@ -2,6 +2,16 @@
 
 JD 驱动流程(`prompts/jd-driven-prep.md` Step 7)的 HTML 报告生成规范。**与 job-description-skill 的 Offer Strategy Report 共用同一套 editorial 视觉系统**,保证跟 job-description-skill 报告风格一致。
 
+## 双语输出 · Bilingual output（必须）
+
+报告右下角有 中文 / EN 切换按钮，靠 CSS 根据 `<html lang>` 切显 `[data-lang="en"]` 和 `[data-lang="zh"]`。你写入报告的**每一句用户可见拷贝**必须双语：
+
+```html
+<span data-lang="en">English version</span><span data-lang="zh">中文版本</span>
+```
+
+适用于：Verdict / notice / 章节 intro / STAR 的 S/T/A/R 四行 / Model answer / Why here / Tests / Story / 每个 Gap 卡 / Reuse 提示 ……。不需要双语的：人名 / 职位名 / 数字 / 静态标签（已在 HTML shell）。英文在前，中文在后。同一个行内元素内直接放两个 span，不要用 block。
+
 ## 文件
 
 - 路径:`~/Desktop/Claude skills/bq-prep-<company>-<role>-<YYYYMM>.html`

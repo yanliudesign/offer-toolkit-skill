@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -291,6 +291,16 @@
   .export-btn:active { transform: translateY(0); }
   .export-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
+  /* === Language toggle · en / zh ===
+     Every user-visible chunk of copy should exist as a twin pair:
+       <span data-lang="en">English</span><span data-lang="zh">中文</span>
+     The <html lang=""> attribute controls which twin shows.
+     Content wrapped in data-lang preserves whatever display: type its parent gives it. */
+  html[lang="en"] [data-lang="zh"] { display: none !important; }
+  html[lang="zh"] [data-lang="en"] { display: none !important; }
+  .export-btn.lang { background: #fafaf7; color: #1f1f1d; border: 1.5px solid #1f1f1d; }
+  .export-btn.lang:hover { background: #1f1f1d; color: #fafaf7; box-shadow: 0 6px 18px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.05); }
+
   @media print {
     /* Page setup */
     @page { margin: 14mm; }
@@ -339,6 +349,14 @@
 <body>
 
 <div class="export-tools" role="toolbar" aria-label="导出工具">
+  <button type="button" class="export-btn lang" onclick="toggleLang()" aria-label="Switch language / 切换语言">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+    <span class="lang-label">中文</span>
+  </button>
   <button type="button" class="export-btn md" onclick="exportMarkdown()" aria-label="导出 Markdown">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -742,6 +760,26 @@
 </footer>
 
 <script>
+  // Language toggle · en / zh. Persists choice via localStorage.
+  window.toggleLang = function () {
+    const html = document.documentElement;
+    const next = html.lang === 'zh' ? 'en' : 'zh';
+    html.lang = next;
+    const label = document.querySelector('.lang-label');
+    if (label) label.textContent = next === 'zh' ? 'EN' : '中文';
+    try { localStorage.setItem('report-lang', next); } catch (e) {}
+  };
+  (function initLang () {
+    try {
+      const saved = localStorage.getItem('report-lang');
+      if (saved === 'en' || saved === 'zh') {
+        document.documentElement.lang = saved;
+        const label = document.querySelector('.lang-label');
+        if (label) label.textContent = saved === 'zh' ? 'EN' : '中文';
+      }
+    } catch (e) {}
+  })();
+
   // DOM → Markdown converter. Walks the report and emits a readable .md file.
   // Skips UI chrome (buttons, SVGs), preserves headings / lists / tables / links / emphasis.
   (function () {
@@ -751,6 +789,9 @@
       if (node.nodeType === 3) return node.textContent.replace(/\s+/g, ' ');
       if (node.nodeType !== 1) return '';
       if (node.matches && node.matches(SKIP_SELECTOR)) return '';
+      // Skip the twin-language span that isn't the currently-shown language,
+      // so exports stay monolingual instead of dumping both en+zh side by side.
+      if (node.dataset && node.dataset.lang && node.dataset.lang !== document.documentElement.lang) return '';
       const tag = node.tagName.toLowerCase();
       const kids = () => Array.from(node.childNodes).map(walk).join('');
       const txt  = () => node.textContent.trim().replace(/\s+/g, ' ');

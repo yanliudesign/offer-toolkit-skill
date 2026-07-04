@@ -6,6 +6,33 @@
 
 ---
 
+## 双语输出 · Bilingual output（必须）
+
+**记住：模板右下角有一个 中文 / EN 切换按钮**，靠 CSS 根据 `<html lang>` 属性切显 `[data-lang="en"]` 和 `[data-lang="zh"]`。为了让按钮真的有用，**你写进占位符的每一句用户可见拷贝**都必须产出双语：
+
+```html
+<span data-lang="en">English version</span><span data-lang="zh">中文版本</span>
+```
+
+**适用范围**：
+- Verdict / TL;DR / takeaway 三条 / gauge caption
+- 公司画像、文化信号、产品难题、真实 scope、成败信号
+- JD 真实诉求 bullet、Hidden Signal 词典解释
+- Must Have 卡的证据 / risk / nuance、Match Matrix 三列、Gap 的否与 how-to-fix
+- 为什么投 / 不投、HM probe 与你的应答
+- 薪资段落、Career arc 叙事、DM 模板、Portfolio audit 动作
+- Top 10 题 + 为什么会问 + 准备方向
+- 6 周时间线的每一条 to-do
+
+**不用双语的东西**：
+- 数字 / 百分比 / 带宽 / 则日期 / 人名 / 公司名 / 职位名
+- 静态模板标签（已在 HTML shell 里）——那些本来就是 hybrid CN/EN
+- placeholder 本身（如 `{{COMPANY}}`）
+
+**英文版在前，中文版在后**（与默认显示对齐）。不要写成 `<div data-lang="en">...</div><div data-lang="zh">...</div>` ——归 span 就用 span，归 li / p / td 就在内部放两个 span，避免多余的 block 换行。
+
+---
+
 ## 何时生成
 
 - **Onboarding Wizard 跑完 Step 7（Should I Apply）→ 默认生成。**
