@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Photo Minimal
+  灵感：极简红点缀 + 圆形头像 — 顶部联系方式(红色圆角图标) + 姓氏红名对比 + About + 双栏 (Awards/Skills | Employment/Education)。
+  主色：红点缀 (#c62828) + 米白背景。适合：设计师 / 创作者 / 学生转行 / portfolio 类岗位，海投 ATS 一般。
+  用法：保留 <style> 不动，替换内容；空 section 整块删；`photo` 有就填 <img>，没有留姓名首字母；Skills 进度点位置改 --v。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #6a6a6a; --accent: #c62828; --paper: #f6f4ef; --band: #eeeae2; --line: #cfcbc3; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Georgia", "Times New Roman", serif; background: var(--paper); color: var(--ink); font-size: 10pt; line-height: 1.6; }
+  .page { width: 8.5in; min-height: 11in; margin: 0 auto; background: var(--paper); }
+  /* ----- top band (contact + name) ----- */
+  .top { background: var(--band); padding: 30px 0.6in 26px; display: grid; grid-template-columns: 2.1in 1fr; gap: 30px; align-items: center; }
+  .contacts .row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 9.5pt; }
+  .contacts .ic { width: 18px; height: 18px; background: var(--accent); border-radius: 4px; color: white; font-size: 10pt; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .nameblock h1 { font-family: "Georgia", serif; font-weight: 300; font-size: 40pt; letter-spacing: 10px; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+  .nameblock h1 .last { color: var(--accent); font-weight: 700; }
+  .nameblock .sub { color: var(--muted); letter-spacing: 4px; text-transform: uppercase; font-size: 10pt; border-top: 1px solid var(--line); padding-top: 8px; max-width: 3.4in; }
+  /* ----- body ----- */
+  .body { display: grid; grid-template-columns: 2.4in 1fr; gap: 30px; padding: 26px 0.6in 0.4in; }
+  h2 { font-size: 12pt; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  h2::after { content: ""; display: block; width: 42%; height: 1px; background: var(--ink); margin-top: 6px; }
+  section { margin-bottom: 22px; }
+  aside .photo { width: 1.6in; height: 1.6in; border-radius: 50%; background: var(--accent); color: var(--paper); font-family: "Georgia", serif; font-weight: 700; font-size: 40pt; letter-spacing: 4px; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; overflow: hidden; }
+  aside .photo img { width: 100%; height: 100%; object-fit: cover; }
+  /* awards */
+  .awards .item { margin-bottom: 12px; }
+  .awards .item .t { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 10pt; }
+  .awards .item .yr, .awards .item .who { color: var(--muted); font-size: 9pt; }
+  /* skills row with dot */
+  .skill { margin-bottom: 12px; }
+  .skill .lbl { font-size: 9.5pt; margin-bottom: 4px; }
+  .skill .track { position: relative; height: 2px; background: var(--line); }
+  .skill .track::after { content: ""; position: absolute; top: 50%; transform: translate(-50%, -50%); left: var(--v, 60%); width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  /* main */
+  main .about p { color: #333; }
+  .job { margin-bottom: 16px; }
+  .job .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .job .role { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 10pt; }
+  .job .when { color: var(--muted); font-size: 9pt; font-style: italic; }
+  .job .org { color: var(--muted); font-size: 9pt; margin-bottom: 4px; }
+  .job p { color: #333; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .edu-grid .deg { text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 10pt; }
+  .edu-grid .yr, .edu-grid .sch { color: var(--muted); font-size: 9pt; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="contacts">
+      <div class="row"><span class="ic">☎</span> +00 123 456 7890</div>
+      <div class="row"><span class="ic">✉</span> user@example.com</div>
+      <div class="row"><span class="ic">◎</span> 123 Street Name, City, Country 12345</div>
+    </div>
+    <div class="nameblock">
+      <h1>Sibyl <span class="last">Vane</span></h1>
+      <div class="sub">Product Designer · London</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <aside>
+      <div class="photo"><!-- <img src="photo-url-or-data-uri"> --><span>SV</span></div>
+
+      <section class="awards">
+        <h2>Awards</h2>
+        <div class="item">
+          <div class="t">Design Award of the Year</div>
+          <div class="yr">2024</div>
+          <div class="who">Awarding Body Name</div>
+        </div>
+        <div class="item">
+          <div class="t">Studio Impact Prize</div>
+          <div class="yr">2022</div>
+          <div class="who">Awarding Body Name</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skill"><div class="lbl">Product & UX Design</div><div class="track" style="--v:90%"></div></div>
+        <div class="skill"><div class="lbl">Interaction & Prototyping</div><div class="track" style="--v:80%"></div></div>
+        <div class="skill"><div class="lbl">Design Systems</div><div class="track" style="--v:75%"></div></div>
+        <div class="skill"><div class="lbl">Research & Testing</div><div class="track" style="--v:70%"></div></div>
+        <div class="skill"><div class="lbl">Motion & Illustration</div><div class="track" style="--v:60%"></div></div>
+      </section>
+    </aside>
+
+    <main>
+      <section class="about">
+        <h2>About Me</h2>
+        <p>Product designer with 7 years shipping consumer surfaces across mobile, web, and wearables. Comfortable owning a feature end-to-end — from framing the problem with PM to landing the last-mile polish with engineering. Recent focus: onboarding, monetization, and design systems that survive a redesign.</p>
+      </section>
+
+      <section>
+        <h2>Employment History</h2>
+        <div class="job">
+          <div class="top"><div class="role">Senior Product Designer</div><div class="when">2023 – Present</div></div>
+          <div class="org">Company Name · City, State</div>
+          <p>Led design for the paid tier launch — 12% adoption in Q1, beating the 8% goal. Rebuilt the settings surface used by 40M+ MAU; support tickets on account issues down 22%.</p>
+        </div>
+        <div class="job">
+          <div class="top"><div class="role">Product Designer</div><div class="when">2020 – 2023</div></div>
+          <div class="org">Company Name · City, State</div>
+          <p>Owned two of the three onboarding variants that shipped to 100% of new users. Built the first shared component library adopted by 3 product teams; still in use.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-grid">
+          <div>
+            <div class="deg">M.A. Interaction Design</div>
+            <div class="yr">2000 – 2004</div>
+            <div class="sch">University Name Here</div>
+          </div>
+          <div>
+            <div class="deg">B.F.A. Graphic Design</div>
+            <div class="yr">2000 – 2004</div>
+            <div class="sch">University Name Here</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</div>
+</body>
+</html>

@@ -4,9 +4,9 @@
 
 > 🌐 **English** · [中文](./README.zh.md)
 
-A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 11 print-ready templates — switching templates is just a skin change, the content stays the same.
+A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 13 print-ready templates — switching templates is just a skin change, the content stays the same.
 
-![Eleven print-ready resume templates rendered from one data schema](docs/preview.png)
+![Thirteen print-ready resume templates rendered from one data schema](docs/preview.png)
 
 ---
 
@@ -20,7 +20,7 @@ A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or 
 
 All three funnel into [`schema/resume-data.md`](schema/resume-data.md), then render through a template.
 
-## Eleven templates
+## Thirteen templates
 
 | Preview | Template | Best for |
 |:---:|---|---|
@@ -34,7 +34,9 @@ All three funnel into [`schema/resume-data.md`](schema/resume-data.md), then ren
 | <img src="docs/templates/timeline.png" width="300"> | **Timeline**<br>[`timeline.html`](templates/timeline.html) | Vertical timeline spine — shows career progression at a glance |
 | <img src="docs/templates/swiss.png" width="300"> | **Swiss**<br>[`swiss.html`](templates/swiss.html) | Swiss grid, bold Helvetica + red accent — design / brand / creative |
 | <img src="docs/templates/executive.png" width="300"> | **Executive**<br>[`executive.html`](templates/executive.html) | Navy serif, understated gravitas — finance / consulting / senior leaders |
-| <img src="docs/templates/colorblock.png" width="300"> | **Color-block**<br>[`colorblock.html`](templates/colorblock.html) | Bold full-width coral header band — tech / marketing / energetic |
+| <img src="docs/templates/editorial-banner.png" width="300"> | **Editorial Banner**<br>[`editorial-banner.html`](templates/editorial-banner.html) | Magazine-style 3-col header, red serif accent, giant last-name band at the bottom — brand / content / editorial |
+| <img src="docs/templates/photo-corporate.png" width="300"> | **Photo Corporate**<br>[`photo-corporate.html`](templates/photo-corporate.html) | Dark banner + circular photo, sidebar with skill bars, vertical timeline, References section — marketing / PM / business |
+| <img src="docs/templates/photo-minimal.png" width="300"> | **Photo Minimal**<br>[`photo-minimal.html`](templates/photo-minimal.html) | Red-accent split serif name, circular photo, Awards + Skills sidebar — designer / creator / portfolio |
 
 **Picking one:** mass-applying / passing the bots → Classic-ATS or Ledger; a human reads it / referral / portfolio-facing → the others stand out more.
 
@@ -79,7 +81,7 @@ resume-skill/
 │   ├── interview.md               # Entry C: conversational collection
 │   └── editable-version.md        # Injection snippet that upgrades any render into a click-to-edit page
 ├── guides/writing-tips.md         # Bullet craft, quantification, ATS keywords, common mistakes
-└── templates/                     # 11 print-optimized HTML templates
+└── templates/                     # 13 print-optimized HTML templates
 ```
 
 ## Related skills

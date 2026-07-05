@@ -9,6 +9,7 @@ headline:        # 一句话定位 / 目标职位，如 "Senior Backend Engineer
 location:        # 城市, 国家（可选，远程时可省）
 email:
 phone:           # 可选
+photo:           # 可选，头像图片 URL 或 data URI。仅少数带头像的模板（photo-corporate / photo-minimal）会用；其余模板忽略。
 links:           # 0-N 个，name + url
   - { name: LinkedIn, url: }
   - { name: GitHub,   url: }

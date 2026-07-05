@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Photo Corporate
+  灵感：Canva-style 企业模板 — 顶部深色 banner + 圆形头像；左侧浅灰侧栏 (About / Education / Skills 进度条 / Language)，
+  右侧主区 (联系方式 grid + 竖向时间轴 Experience + References)。sans-serif 现代职业感。
+  主色：深灰蓝 banner + 浅灰侧栏 + 白背景。适合：营销 / 项目管理 / 商务 / 咨询等偏企业岗位，海投 ATS 一般。
+  用法：保留 <style> 不动，替换内容；空 section 整块删；`photo` 字段有就填 <img src>，没有用姓名首字母降级。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --ink: #1e2028; --muted: #6c6f78; --paper: #ffffff; --sidebar: #efeeeb; --outer: #e5e5e6; --banner: #2b2c37; --line: #cfcecb; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", "Arial", sans-serif; background: var(--outer); color: var(--ink); font-size: 10pt; line-height: 1.55; }
+  .page { width: 8.5in; min-height: 11in; margin: 0 auto; background: var(--paper); position: relative; }
+  /* banner */
+  .banner { background: var(--banner); color: white; padding: 32px 0.5in 32px 2.2in; min-height: 1.5in; display: flex; flex-direction: column; justify-content: center; }
+  .banner h1 { font-size: 32pt; font-weight: 700; letter-spacing: 6px; text-transform: uppercase; }
+  .banner .title { font-size: 12pt; letter-spacing: 4px; margin-top: 6px; color: #cfd2df; text-transform: capitalize; }
+  /* photo — circular overlap onto banner */
+  .photo { position: absolute; top: 22px; left: 0.35in; width: 1.55in; height: 1.55in; border-radius: 50%; background: #ddd; border: 6px solid var(--paper); display: flex; align-items: center; justify-content: center; overflow: hidden; z-index: 2; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo .initials { font-size: 42pt; font-weight: 700; color: var(--banner); letter-spacing: 2px; }
+  /* body layout */
+  .body { display: grid; grid-template-columns: 2.1in 1fr; min-height: 8in; }
+  aside { background: var(--sidebar); padding: 0.9in 0.35in 0.4in; }
+  main  { padding: 0.35in 0.45in 0.4in; }
+  h2 { font-size: 11.5pt; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; position: relative; padding-bottom: 6px; }
+  h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 1.5px; background: var(--ink); }
+  section { margin-bottom: 22px; }
+  /* sidebar */
+  aside .about p { color: #333; }
+  aside .edu-block { margin-bottom: 10px; }
+  aside .edu-block .deg { font-weight: 700; font-size: 10pt; }
+  aside .edu-block .sch { color: var(--muted); font-size: 9pt; }
+  aside .edu-block .yr  { color: var(--muted); font-size: 9pt; }
+  .skill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 9.5pt; }
+  .bar { width: 80px; height: 3px; background: #d4d3cf; position: relative; }
+  .bar::after { content: ""; position: absolute; left: 0; top: 0; height: 100%; background: var(--ink); width: var(--w, 70%); }
+  aside .lang li { list-style: disc; margin-left: 16px; font-size: 9.5pt; }
+  /* main: contact */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; margin-bottom: 22px; font-size: 9.5pt; }
+  .contact .item { display: flex; align-items: center; gap: 8px; }
+  .contact .icon { width: 16px; height: 16px; border: 1px solid var(--ink); border-radius: 3px; flex: none; display: inline-block; }
+  /* main: experience timeline */
+  .exp-item { position: relative; padding-left: 22px; margin-bottom: 16px; }
+  .exp-item::before { content: ""; position: absolute; left: 0; top: 5px; width: 9px; height: 9px; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper); z-index: 1; }
+  .timeline { position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 4px; top: 12px; bottom: 8px; width: 1px; background: var(--ink); }
+  .exp-item .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .exp-item .role { font-weight: 700; font-size: 10.5pt; }
+  .exp-item .when { color: var(--muted); font-style: italic; font-size: 9pt; }
+  .exp-item .org { color: var(--muted); font-size: 9pt; margin-bottom: 4px; }
+  .exp-item ul { list-style: disc; padding-left: 16px; }
+  .exp-item ul li { margin-bottom: 2px; }
+  /* references */
+  .refs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 12px; }
+  .refs .r .name { font-weight: 700; font-size: 10.5pt; }
+  .refs .r .role { color: var(--muted); font-size: 9pt; margin-bottom: 6px; }
+  .refs .r .meta { font-size: 9pt; }
+  .refs .r .meta .lbl { font-weight: 700; margin-right: 4px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Circular photo (falls back to initials if no photo) -->
+  <div class="photo">
+    <!-- <img src="photo-url-or-data-uri"> -->
+    <span class="initials">LA</span>
+  </div>
+
+  <div class="banner">
+    <h1>Lorna Alvarado</h1>
+    <div class="title">Marketing Manager</div>
+  </div>
+
+  <div class="body">
+
+    <aside>
+      <section class="about">
+        <h2>About Me</h2>
+        <p>Marketing manager with 8+ years leading integrated campaigns across B2C and B2B. Builds teams that ship on cadence and measures every launch against pipeline, not vanity metrics.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-block">
+          <div class="deg">Bachelor of Business Management</div>
+          <div class="sch">Wardiere University</div>
+          <div class="yr">2016 – 2020</div>
+        </div>
+        <div class="edu-block">
+          <div class="deg">MBA, Marketing</div>
+          <div class="sch">Wardiere University</div>
+          <div class="yr">2020 – 2023</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skill-row"><span>Team Leadership</span><span class="bar" style="--w:90%"></span></div>
+        <div class="skill-row"><span>Creative Direction</span><span class="bar" style="--w:85%"></span></div>
+        <div class="skill-row"><span>Digital Marketing</span><span class="bar" style="--w:80%"></span></div>
+        <div class="skill-row"><span>Negotiation</span><span class="bar" style="--w:70%"></span></div>
+        <div class="skill-row"><span>Critical Thinking</span><span class="bar" style="--w:75%"></span></div>
+        <div class="skill-row"><span>Analytics</span><span class="bar" style="--w:65%"></span></div>
+      </section>
+
+      <section class="lang">
+        <h2>Language</h2>
+        <ul><li>English — Native</li><li>Spanish — Professional</li></ul>
+      </section>
+    </aside>
+
+    <main>
+      <div class="contact">
+        <div class="item"><span class="icon"></span> +1 (123) 456-7890</div>
+        <div class="item"><span class="icon"></span> lorna.example.com</div>
+        <div class="item"><span class="icon"></span> hello@example.com</div>
+        <div class="item"><span class="icon"></span> 123 Anywhere St., Any City</div>
+      </div>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="exp-item">
+            <div class="top"><div class="role">Product Marketing Manager</div><div class="when">2020 – 2023</div></div>
+            <div class="org">Arowwai Industries · Any City</div>
+            <ul>
+              <li>Owned launch strategy for 4 product lines; two exceeded first-year ARR targets by 30%+.</li>
+              <li>Grew ABM pipeline 2.3× in 18 months by rebuilding the segmentation model.</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="top"><div class="role">Marketing Manager</div><div class="when">2019 – 2020</div></div>
+            <div class="org">Arowwai Industries · Any City</div>
+            <ul>
+              <li>Led a team of 6 across content, ops and paid; hit demand-gen goal two quarters early.</li>
+              <li>Rebuilt the marketing → sales handoff, cutting SLA breach from 34% to under 8%.</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="top"><div class="role">Senior Marketing Specialist</div><div class="when">2017 – 2019</div></div>
+            <div class="org">Arowwai Industries · Any City</div>
+            <ul>
+              <li>Ran the annual customer conference — 1.4K attendees, sponsor revenue up 40% YoY.</li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="top"><div class="role">Marketing Analyst</div><div class="when">2016 – 2017</div></div>
+            <div class="org">Arowwai Industries · Any City</div>
+            <ul>
+              <li>Built the first shared dashboard for the marketing org; adopted by 4 teams.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>References</h2>
+        <div class="refs">
+          <div class="r">
+            <div class="name">Harumi Kobayashi</div>
+            <div class="role">Wardiere Inc. · CEO</div>
+            <div class="meta"><span class="lbl">Phone:</span>+1 (123) 456-7890</div>
+            <div class="meta"><span class="lbl">Email:</span>harumi@example.com</div>
+          </div>
+          <div class="r">
+            <div class="name">Bailey Dupont</div>
+            <div class="role">Wardiere Inc. · CMO</div>
+            <div class="meta"><span class="lbl">Phone:</span>+1 (123) 456-7890</div>
+            <div class="meta"><span class="lbl">Email:</span>bailey@example.com</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</div>
+</body>
+</html>

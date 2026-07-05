@@ -4,7 +4,7 @@
 
 > 🌐 **中文** · [English](./README.md)
 
-一个 Claude skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 11 套打印级模板之一——换模板只是换皮，内容不丢。
+一个 Claude skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 13 套打印级模板之一——换模板只是换皮，内容不丢。
 
 ![一份数据 schema 渲染出的十一套打印优化模板](docs/preview.png)
 
@@ -20,7 +20,7 @@
 
 三条入口最终都把数据汇入 [`schema/resume-data.md`](schema/resume-data.md),再套模板渲染。
 
-## 11 套模板
+## 13 套模板
 
 | 预览 | 模板 | 适合 |
 |:---:|---|---|
@@ -34,7 +34,9 @@
 | <img src="docs/templates/timeline.png" width="300"> | **Timeline 时间轴**<br>[`timeline.html`](templates/timeline.html) | 左侧竖向时间轴脊柱,一眼看出职业成长轨迹 |
 | <img src="docs/templates/swiss.png" width="300"> | **Swiss 栅格**<br>[`swiss.html`](templates/swiss.html) | 瑞士栅格,粗体 Helvetica + 红点缀,设计/品牌/创意 |
 | <img src="docs/templates/executive.png" width="300"> | **Executive 高管**<br>[`executive.html`](templates/executive.html) | 藏青衬线,稳重有分量,金融/咨询/高管/资深领导 |
-| <img src="docs/templates/colorblock.png" width="300"> | **Color-block 色块头**<br>[`colorblock.html`](templates/colorblock.html) | 顶部整宽珊瑚色块,现代大胆,互联网/营销/年轻求职者 |
+| <img src="docs/templates/editorial-banner.png" width="300"> | **Editorial 刊物**<br>[`editorial-banner.html`](templates/editorial-banner.html) | 三栏刊物式顶部 + 红衬线 + 底部已名巨型色带 —— 品牌/内容/编辑 |
+| <img src="docs/templates/photo-corporate.png" width="300"> | **Photo Corporate 公司头像**<br>[`photo-corporate.html`](templates/photo-corporate.html) | 深色 banner + 圆形头像，侧栏带技能进度条 + 竖向时间轴 + References —— 营销/项目/商务 |
+| <img src="docs/templates/photo-minimal.png" width="300"> | **Photo Minimal 红点约头像**<br>[`photo-minimal.html`](templates/photo-minimal.html) | 红点缀 + 分体衬线名字 + 圆形头像，侧栏 Awards + Skills —— 设计/创作/portfolio |
 
 **选模板提示**:海投/过机器筛 → Classic/ATS 或 Ledger;人直接看/内推/作品集向 → 其余几套更出彩。
 
@@ -79,7 +81,7 @@ resume-skill/
 │   ├── interview.md               # 入口 C:对话式采集脚本
 │   └── editable-version.md        # 把任何渲染成品升级为点击即改页面的注入片段
 ├── guides/writing-tips.md         # bullet 写法、量化、ATS 关键词、常见错误
-└── templates/                     # 11 套打印优化 HTML 模板
+└── templates/                     # 13 套打印优化 HTML 模板
 ```
 
 ## 配套 skill

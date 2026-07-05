@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Editorial Banner
+  灵感：editorial magazine layout — 顶部三栏 (contact / about / links)，中部三栏 (education / interests / skillset)，
+  下部经验列表 (company · date | title | description)，底部姓氏巨型色带作签名。
+  主色：亮红衬线 + 米色背景。适合：品牌 / 内容 / 市场 / 设计 / 编辑类岗位，人直接看/内推场景，海投 ATS 一般。
+  用法：保留 <style> 不动，替换内容；空 section 整块删；数字必须换成用户真实数据；姓氏色带取 name 里的姓。
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume</title>
+<style>
+  :root { --accent: #d23f2e; --ink: #1c1c1c; --muted: #565656; --paper: #faf5ea; --line: #d23f2e; }
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Georgia", "Times New Roman", serif; background: var(--paper); color: var(--ink); font-size: 10pt; line-height: 1.55; }
+  .page { width: 8.5in; min-height: 11in; margin: 0 auto; background: var(--paper); display: flex; flex-direction: column; }
+  .content { padding: 0.55in 0.6in 0.3in; flex: 1; }
+  h2 { font-size: 10pt; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 800; margin-bottom: 10px; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 20px 0; }
+  a { color: var(--accent); text-decoration: underline; }
+  .row3 { display: grid; grid-template-columns: 1fr 1.4fr 0.9fr; gap: 40px; }
+  .row3 .col p { margin-bottom: 4px; }
+  .col-block { line-height: 1.7; }
+  .about p { font-family: "Georgia", serif; color: #333; }
+  .links a { display: block; margin-bottom: 2px; }
+  .exp-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 12px; }
+  .exp-head h2:nth-child(2) { grid-column: 2; }
+  .exp-row { display: grid; grid-template-columns: 1.2in 1.4in 1fr; gap: 20px; margin-bottom: 18px; }
+  .exp-row .who { font-weight: 700; }
+  .exp-row .when { color: var(--muted); font-size: 9pt; }
+  .exp-row .title { font-weight: 700; }
+  .exp-row .desc { color: #333; }
+  .exp-row ul { list-style: none; padding: 0; }
+  .exp-row ul li { margin-bottom: 4px; }
+  .signature { background: var(--accent); color: var(--paper); font-family: "Georgia", serif; font-weight: 900; font-size: 92pt; letter-spacing: -2px; line-height: 0.95; text-align: center; text-transform: uppercase; padding: 22px 0 26px; margin-top: auto; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="content">
+
+    <div class="row3">
+      <div class="col">
+        <h2>Contact</h2>
+        <div class="col-block">
+          <p>Calvin McLoughlin</p>
+          <p>510 499 0084</p>
+          <p>mclough@gmail.com</p>
+          <p>122 Pizza Street</p>
+          <p>Los Angeles, CA 90018</p>
+        </div>
+      </div>
+      <div class="col about">
+        <h2>About</h2>
+        <p>Content-first brand designer with 8 years across editorial, packaging and campaign work. Leads projects end-to-end and cares as much about the copy on the page as the type it's set in.</p>
+      </div>
+      <div class="col">
+        <h2>Resume</h2>
+        <div class="col-block links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Website</a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row3">
+      <div class="col">
+        <h2>Education</h2>
+        <div class="col-block">
+          <p>University of Colorado</p>
+          <p>2010 – 2014</p>
+          <p>B.S. in Communications</p>
+        </div>
+        <div class="col-block" style="margin-top:14px">
+          <p>University of Austin</p>
+          <p>2014 – 2016</p>
+          <p>M.A in Communications</p>
+        </div>
+      </div>
+      <div class="col">
+        <h2>Interests</h2>
+        <p>Art, climbing, pottery, occasional cooking, petting my cat, music, video games, running, swimming, doodling.</p>
+      </div>
+      <div class="col">
+        <h2>Skillset</h2>
+        <div class="col-block">
+          <p>Skillset 1</p>
+          <p>Skillset 2</p>
+          <p>Skillset 3</p>
+          <p>Skillset 4</p>
+          <p>Skillset 5</p>
+          <p>Skillset 6</p>
+          <p>Skillset 7</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="exp-head">
+      <h2>Experience</h2>
+      <h2>Title</h2>
+    </div>
+
+    <div class="exp-row">
+      <div>
+        <div class="who">Squarespace</div>
+        <div class="when">Nov 2024 – Present</div>
+      </div>
+      <div class="title">Sr. Graphic Designer</div>
+      <div class="desc">
+        <ul>
+          <li>Led the visual system used across 5 product surfaces and the annual brand campaign.</li>
+          <li>Rebuilt the illustration library — 40+ assets adopted org-wide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div>
+        <div class="who">Duolingo</div>
+        <div class="when">Jun 2021 – Oct 2024</div>
+      </div>
+      <div class="title">UX / UI Designer</div>
+      <div class="desc">
+        <ul>
+          <li>Owned the streaks and stats surface — DAU +18% after the redesign.</li>
+          <li>Shipped 12 A/B-tested onboarding variants; the winner shipped to 50M+ users.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div>
+        <div class="who">72andSunny</div>
+        <div class="when">Jun 2018 – May 2021</div>
+      </div>
+      <div class="title">Graphic Designer</div>
+      <div class="desc">
+        <ul>
+          <li>Designed launch campaigns for 20+ consumer brands across retail and tech.</li>
+          <li>Two projects recognized in Communication Arts' Design Annual.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="signature">McLoughlin</div>
+</div>
+</body>
+</html>
