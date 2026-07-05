@@ -1,10 +1,29 @@
-# Resume Skill
+<div align="center">
+
+[中文](./README.zh.md) · **English**
+
+# 📄 Resume Skill
+
+---
+
+**One resume data schema, eleven print-ready templates.**
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Templates](https://img.shields.io/badge/TEMPLATES-11-2ea44f?style=flat-square&labelColor=333)]()
+[![Stars](https://img.shields.io/github/stars/yanliudesign/resume-builder-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/resume-builder-skill/stargazers)
+
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
+[![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)]()
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)]()
+[![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)]()
+
+</div>
 
 > 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
 
-> 🌐 **English** · [中文](./README.zh.md)
-
-A Claude skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 13 print-ready templates — switching templates is just a skin change, the content stays the same.
+An agent skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 13 print-ready templates — switching templates is just a skin change, the content stays the same.
 
 ![Thirteen print-ready resume templates rendered from one data schema](docs/preview.png)
 

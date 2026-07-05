@@ -1,10 +1,29 @@
-# Resume Skill
+<div align="center">
+
+**中文** · [English](./README.md)
+
+# 📄 Resume Skill
+
+---
+
+**一份简历数据，十一套打印级模板。**
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Templates](https://img.shields.io/badge/TEMPLATES-11-2ea44f?style=flat-square&labelColor=333)]()
+[![Stars](https://img.shields.io/github/stars/yanliudesign/resume-builder-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/resume-builder-skill/stargazers)
+
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
+[![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)]()
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)]()
+[![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)]()
+
+</div>
 
 > 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 JD · Resume · BQ 三条子 skill。
 
-> 🌐 **中文** · [English](./README.md)
-
-一个 Claude skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 13 套打印级模板之一——换模板只是换皮，内容不丢。
+一个 agent skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 13 套打印级模板之一——换模板只是换皮，内容不丢。
 
 ![一份数据 schema 渲染出的十一套打印优化模板](docs/preview.png)
 
@@ -91,7 +110,7 @@ resume-skill/
 
 ## License
 
-MIT — fork it, remix it, ship your own version.
+MIT 协议 — 随便 fork、改造、发一个你自己的版本。
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
 [LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
