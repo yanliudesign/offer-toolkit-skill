@@ -31,3 +31,10 @@ bq-skill/story-bank/*.md
 !bq-skill/story-bank/_index.md
 !bq-skill/story-bank/_story-template.md
 !bq-skill/story-bank/convince-team-rewrite.md
+
+# === Raw video source files ===
+# Only ship compressed demo.mp4 (< 20MB). Original .mov / .avi / uncompressed
+# masters stay local — they blow past GitHub's 100MB single-file limit.
+*.mov
+*.avi
+*.mkv
