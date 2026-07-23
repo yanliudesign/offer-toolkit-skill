@@ -37,20 +37,23 @@
 
 <sub>由 <code>job-description-skill</code> 生成的 Offer Strategy 报告，在浏览器里打开——Verdict、假设说明、TL;DR，以及右下角内置的 EN / 中文 切换。</sub>
 
-<details>
-<summary><strong>看完整报告走读</strong> · 另 9 张截图 · <a href="README.md#screenshots">English</a> 也有一份</summary>
-
-<img src="docs/zh/screenshot-02.png" width="100%">
-<img src="docs/zh/screenshot-03.png" width="100%">
-<img src="docs/zh/screenshot-04.png" width="100%">
-<img src="docs/zh/screenshot-05.png" width="100%">
-<img src="docs/zh/screenshot-06.png" width="100%">
-<img src="docs/zh/screenshot-07.png" width="100%">
-<img src="docs/zh/screenshot-08.png" width="100%">
-<img src="docs/zh/screenshot-09.png" width="100%">
-<img src="docs/zh/screenshot-10.png" width="100%">
-
-</details>
+<table>
+<tr>
+<td width="33%"><img src="docs/zh/screenshot-02.png" alt="截图 2" width="100%"></td>
+<td width="33%"><img src="docs/zh/screenshot-03.png" alt="截图 3" width="100%"></td>
+<td width="33%"><img src="docs/zh/screenshot-04.png" alt="截图 4" width="100%"></td>
+</tr>
+<tr>
+<td><img src="docs/zh/screenshot-05.png" alt="截图 5" width="100%"></td>
+<td><img src="docs/zh/screenshot-06.png" alt="截图 6" width="100%"></td>
+<td><img src="docs/zh/screenshot-07.png" alt="截图 7" width="100%"></td>
+</tr>
+<tr>
+<td><img src="docs/zh/screenshot-08.png" alt="截图 8" width="100%"></td>
+<td><img src="docs/zh/screenshot-09.png" alt="截图 9" width="100%"></td>
+<td><img src="docs/zh/screenshot-10.png" alt="截图 10" width="100%"></td>
+</tr>
+</table>
 
 <sub>完整相册：<a href="docs/zh/">中文</a> · <a href="docs/en/">English</a> — 各子 skill 的单独相册在各自目录下的 <code>docs/</code> 或 <code>assets/</code>。</sub>
 
