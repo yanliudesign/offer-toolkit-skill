@@ -11,6 +11,11 @@
   - 数据全部以 {{PLACEHOLDER}} 标记，由 skill 在生成时填充
   - 完整规格见: ../frameworks/offer-strategy-report.md
   - 真实样例（含数据）由用户在桌面生成，本仓库只保留骨架
+
+  ⚠️ 双语强制：<html lang="en"> 必须为 "en"，正文每一句用户可见拷贝
+    都要写成 <span data-lang="en">EN</span><span data-lang="zh">ZH</span>。
+    生成后跑 frameworks/offer-strategy-report.md 顶部的 grep 自检：
+    EN 双胞胎数量必须等于 ZH，且总数 ≥ 80。假双语（按钮点了内容不变）比单语更破坏信任。
 -->
 <!-- CJK font for reliable PDF embedding (macOS PingFang SC 无法被嵌入 PDF) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -45,7 +45,9 @@ description: "Job Description 解码器 + Offer 策略系统。把任何 JD 翻�
 2. 按 [frameworks/offer-strategy-report.md](frameworks/offer-strategy-report.md) 的规格 + [examples/offer-strategy-template.html](examples/offer-strategy-template.html) 的骨架组装一份 10 节报告（TL;DR · 关键指标 · 1-10）。
    - ⛔ **品牌 footer 是强制项，不是装饰。** 报告结尾必须**原样**包含 `<footer>` 里的 `JD SKILL.` brand mark + `Created by Dreameryanyan` 副标题 + LinkedIn / X / 小红书三个社交按钮（含对应 CSS：`.brand-block` / `.brand-mark` / `.socials` / `.foot-meta`）。这是作者署名，**无论报告多长、数据多少都不许删或简化**。生成时直接从 [frameworks/offer-strategy-report.md](frameworks/offer-strategy-report.md) 末尾「📌 强制 Footer 区块」整段抄过去。
 3. 写到 `~/Desktop/Claude skills/offer-strategy-<company>-<role>-<YYYYMM>.html`。
-   - 写完后**自检一次**：文件里必须能搜到 `Dreameryanyan`、`brand-mark`、`yanliudreamer`、`xiaohongshu` 四个关键词。缺任何一个 = footer 被丢了，必须补回再继续。
+   - 写完后**跑两道自检**，任一道失败 = 报告不合格，必须重写这几块再继续（不要跳过校验直接宣称“已生成”）：
+     - ① **Footer 自检** — 文件里必须能搜到 `Dreameryanyan`、`brand-mark`、`yanliudreamer`、`xiaohongshu` 四个关键词，缺任一 = footer 被丢了。
+     - ② **双语自检** — `<html lang="en">` 必须默认为 `en`（不允许 `zh` / `zh-CN`），且 `grep -c 'data-lang="en"'` 与 `grep -c 'data-lang="zh"'` **数量相等且 ≥ 80**。少于 80 = 模型又把内文写成了单语，已知失败模式，参见铁律四。双语 span 对的写法与适用范围见 [frameworks/offer-strategy-report.md](frameworks/offer-strategy-report.md#双语输出--bilingual-output必须)。
 4. **自动打开**：跑 `open "<完整路径>"`（macOS）/ `xdg-open` (Linux) / `start` (Windows)，让 HTML 直接在浏览器弹出来。
 5. **同步 [jd-bank/](jd-bank/)**：按 [jd-bank/_jd-template.md](jd-bank/_jd-template.md) 写一份 `<slug>.md`，更新 [jd-bank/_index.md](jd-bank/_index.md)，文件末尾加一行 `> 📊 HTML 报告：~/Desktop/Claude skills/offer-strategy-<slug>.html`。
 
@@ -63,18 +65,25 @@ description: "Job Description 解码器 + Offer 策略系统。把任何 JD 翻�
 
 ---
 
-## 三条铁律（内部 5 条流程跑的时候都要守）
+## 四条铁律（内部 5 条流程跑的时候都要守）
 
 **铁律一 · 先解码，再做任何事。**
 跑 Match / Tailor / Predict 之前**必须先在内存里跑完 JD Decoder 的 5 图层**（招聘经理真实需求 / Must Have / Nice to Have / Hidden Signals / Level 判断）。直接拿原始 JD 去算匹配度，是在跟「招聘话术」对齐，不是跟「招聘经理真实需求」对齐 — 这是 90% 求职工具最大的盲区。
 
 **铁律二 · 不替用户编简历内容、不编公司情报。**
-- Resume Tailor 只能**重新组织 / 突出 / 翻译**用户简历里已有的事实，不能凭空捏造成就、数字、职责。
-- 公司文化、团队信号只能从 JD 文本 + 用户提供的信息推断；不要装作知道某公司内部情况。所有推断都标"我从 ___ 推断"。
+- Resume Tailor 只能**重新组织 / 突出 / 翻译**用户简历里已有的事实，不能凭空捣造成就、数字、职责。
+- 公司文化、团队信号只能从 JD 文本 + 用户提供的信息推断；不要装作知道某公司内部情况。所有推断都标“我从 ___ 推断”。
 - 报告 §1 公司背景 / §2 本职位产品分析 用到的公司画像、产品节点等若做了 web 调研，标明来源；查不到就标 `[需用户补充]`，**别编**。
 
 **铁律三 · 数据没齐就不要硬出报告。**
-JD 缺关键内容 / 用户没给简历或自述 → 先把缺的要齐，**别硬跑**。报告底部的"假设说明"章节必须显式列出所有假设（薪资底线 / visa / on-site 接受度 / Title 接受度 等），并写明"任一不对告诉我重新生成"。
+JD 缺关键内容 / 用户没给简历或自述 → 先把缺的要齐，**别硬跑**。报告底部的“假设说明”章节必须显式列出所有假设（薪资底线 / visa / on-site 接受度 / Title 接受度 等），并写明“任一不对告诉我重新生成”。
+
+**铁律四 · 报告必须真双语，不是代码已插了切换按钮就算数。**
+模板 `.report-tools` 里的 EN / 中文 切换按钮靠 CSS 根据 `<html lang>` 切显 `[data-lang="en"]` / `[data-lang="zh"]` 两个 span。若你把正文写成单语（全中文或混排），按钮看起来能点但切什么都不变 — **这比报告内容自身错更严重**，因为它伪造了交付完整度。
+- 默认 `<html lang="en">`。EN 在前、ZH 在后：`<span data-lang="en">English</span><span data-lang="zh">中文</span>`。
+- **每一句用户可见拷贝**都要双胞胎：Verdict / Assumptions / Must Have 卡 / Matrix 三列 / Gap / 不投理由 + HM probe / Top 10 题 / 6 周时间线 / DM 模板…具体范围及例子见 [frameworks/offer-strategy-report.md](frameworks/offer-strategy-report.md#双语输出--bilingual-output必须)。
+- 注释 / 占位符 / 纯数字 / 专有名词不用双胞胎。
+- 自检 ② 会卡住单语报告（`data-lang="en"` 与 `data-lang="zh"` 数量不相等或总数 < 80）。
 
 ---
 

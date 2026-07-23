@@ -31,6 +31,33 @@
 
 **英文版在前，中文版在后**（与默认显示对齐）。不要写成 `<div data-lang="en">...</div><div data-lang="zh">...</div>` ——归 span 就用 span，归 li / p / td 就在内部放两个 span，避免多余的 block 换行。
 
+### 顶部 `<html lang>` 默认值（严格）
+
+**必须 `<html lang="en">`**，不允许 `zh` / `zh-CN`。原因：报告默认展示英文版（切换按钮里 EN 处于 active 状态），若你把根 lang 写成 `zh`，用户第一眼看到的就是「按钮显示 EN 高亮但内容却是中文」的错乱。
+
+### ✍️ 生成完必跑的自检（硬门槛）
+
+写完文件后**立刻**在 shell 里跑：
+
+```bash
+FILE="~/Desktop/Claude skills/offer-strategy-<slug>.html"
+EN=$(grep -c 'data-lang="en"' "$FILE")
+ZH=$(grep -c 'data-lang="zh"' "$FILE")
+echo "EN=$EN  ZH=$ZH"
+grep -c '<html lang="en">' "$FILE"   # 必须为 1
+```
+
+**通过条件（三条都要满足）**：
+- `EN == ZH`（每一个 EN 双胞胎必须配一个 ZH 双胞胎）
+- `EN >= 80`（10 章报告的合规下限；参考同工具箱的 offer-compare 产出典型 120–170）
+- `<html lang="en">` 存在且是唯一根标签
+
+任一条不过 = 你写成了「假双语」（右下角按钮点击后内容不变），必须回去把正文按范围表补上 `<span data-lang>` 对。**不要交付「假双语」报告** — 它比单语更破坏信任，因为它暗示"我实现了但坏了"。
+
+### ⛔ 反面案例（真实踩过的坑）
+
+早期 `offer-strategy-anthropic-product-designer-claude-code-202606.html` 全文 1212 行只有 7 个 `data-lang="en"` — 且这 7 个全部来自模板顶部工具条 (`.report-tools` 里的 Tools / EXPORT / Markdown / PDF 等标签)。正文 1000+ 行**没有任何 `data-lang` 双胞胎**，全是中文单语。切换按钮点了没反应。这就是"假双语"的典型表现，本节自检就是为此而生。
+
 ---
 
 ## 何时生成
@@ -208,6 +235,7 @@
 4. **简历事实必须引用原文** —— Must Have 命中分析里的证据必须是简历 / LinkedIn 里能查到的原文片段，不能是"我推断你大概有"。
 5. **绝不杜撰** —— 数字 / 公司 / 项目 / Title 用户没说过的，标 `[需用户补充]`，不要凭空填。
 6. **Verdict 不许中性** —— ⭐ 1-5 必须明确，倾向不投也要敢说，模糊就标"Match 不足或假设缺失，建议先补 ___ 再生成"。
+7. **每一句可见拷贝双语** —— EN / ZH 双胞胎 `<span data-lang>` 对必须成对出现，通不过顶部「✍️ 生成完必跑的自检」= 报告不合格，必须回改。
 
 ---
 
@@ -254,6 +282,7 @@
 | 报告超过 80KB | 砍 §10 时间线和 §8 内推模板的字数，保留所有视觉组件 |
 | **导出的 PDF 里中文消失 / 变成空位** | 检查 `<head>` 里 Noto Sans SC 的 `<link>` 是否在；CSS 变量里 `Noto * SC` 是否排在 `PingFang SC` 之前。原因见「字体系统」段。 |
 | **导出的 PDF 整页只有一两个 card，下面全是空白** | 检查 `@media print` 里有没有 `section { page-break-inside: avoid; }` —— 有就删掉。只允许小原子单元用 `break-inside: avoid`，长 section 必须能自然跨页。详见「打印 / PDF 排版规则」。 |
+| **右下角 EN / 中文 按钮点了内容不变（假双语）** | `data-lang` 双胞胎漏写。跑本文档顶部「✍️ 生成完必跑的自检」的三行 grep 命令验证，`EN == ZH` 且 `>= 80` 才算过。历史真实案例：Anthropic JD 分析报告 1212 行只有 7 个 `data-lang="en"`，全在工具条。 |
 | **footer 没有作者名字 / 社交按钮（最高频）** | 生成时漏抄了 footer。从下方「📌 强制 Footer 区块」整段抄回去，并跑自检搜 `Dreameryanyan`。原因：footer 是软提醒时最容易被模型省略。 |
 
 ---
