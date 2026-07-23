@@ -31,6 +31,8 @@
               bq-skill                挖故事、建故事库、准备 BQ
 ```
 
+<sub>截图预览：[中文相册](docs/zh/) · [English gallery](docs/en/) — 各子 skill 的单独相册在各自目录下的 `docs/` 或 `assets/`。</sub>
+
 ## 里面有什么
 
 | 子 skill | 做什么 |

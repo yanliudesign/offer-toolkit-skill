@@ -27,6 +27,8 @@
 
 ![一份数据 schema 渲染出的十一套打印优化模板](docs/preview.png)
 
+<sub>更多截图：[中文相册](docs/zh/) · [English gallery](docs/en/)</sub>
+
 ---
 
 ## 三条入口

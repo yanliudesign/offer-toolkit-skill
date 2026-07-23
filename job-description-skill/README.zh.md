@@ -33,6 +33,8 @@ Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Deskto
 
 *一份真实报告的顶部 — Verdict + Assumptions + TL;DR + 两个仪表，右下角是页内的导出 PDF / Markdown 按钮。*
 
+<sub>更多截图：[中文相册](docs/zh/) · [English gallery](docs/en/)</sub>
+
 | # | 章节 | 回答什么 |
 |---|------|----------|
 | — | **TL;DR · 一分钟摘要** | 这到底能不能投？⭐ 1–5 分。 |

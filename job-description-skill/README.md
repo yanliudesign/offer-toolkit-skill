@@ -33,6 +33,8 @@ Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills
 
 *Hero of an actual run — verdict + assumptions + TL;DR + two gauges, plus the in-page Export PDF / Export Markdown buttons in the bottom right.*
 
+<sub>More screenshots: [English gallery](docs/en/) · [中文相册](docs/zh/)</sub>
+
 | # | Section | What it answers |
 |---|---------|-----------------|
 | — | **TL;DR · one-minute verdict** | Should I apply? ⭐ 1–5. |

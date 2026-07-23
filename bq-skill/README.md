@@ -9,6 +9,8 @@ A Claude skill for behavioral interview prep. Instead of handing you canned answ
 ![JD-driven prep report — Top 20 interview-question prep with STAR templates](assets/preview.png)
 <sub>JD-driven prep output: a Top 20 question set reverse-engineered from a JD, with STAR templates and editable model answers. <i>(Demo uses a fictional candidate — no real personal data.)</i></sub>
 
+<sub>More screenshots: [English gallery](assets/en/) · [中文相册](assets/zh/)</sub>
+
 ## Layout
 ```
 bq-skill/

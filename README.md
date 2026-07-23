@@ -31,6 +31,8 @@ See a job you want → job-description-skill   decode the JD, get an Offer Strat
                      bq-skill                mine stories, build a story bank, prep BQs
 ```
 
+<sub>Screenshots: [English gallery](docs/en/) · [中文相册](docs/zh/) — sub-skill galleries live under each sub-folder's `docs/` or `assets/`.</sub>
+
 ## What's inside
 
 | Sub-skill | What it does |

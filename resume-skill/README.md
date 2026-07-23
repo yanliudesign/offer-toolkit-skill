@@ -27,6 +27,8 @@ An agent skill that polishes an existing resume, pulls one in from LinkedIn, or 
 
 ![Thirteen print-ready resume templates rendered from one data schema](docs/preview.png)
 
+<sub>More screenshots: [English gallery](docs/en/) · [中文相册](docs/zh/)</sub>
+
 ---
 
 ## Three entry points

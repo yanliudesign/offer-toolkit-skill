@@ -9,6 +9,8 @@
 ![「JD 驱动准备」报告 — Top 20 选题 + STAR 模板](assets/preview.png)
 <sub>「JD 驱动准备」产出：对着 JD 反推的 Top 20 选题，带 STAR 模板和可改写的范例答案。<i>（Demo 用虚构候选人，无真实个人数据。）</i></sub>
 
+<sub>更多截图：[中文相册](assets/zh/) · [English gallery](assets/en/)</sub>
+
 ## 目录
 ```
 bq-skill/
