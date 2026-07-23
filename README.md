@@ -53,11 +53,6 @@ See a job you want → job-description-skill   decode the JD, get an Offer Strat
 <td><img src="docs/en/screenshot-09.png" alt="Screenshot 9" width="100%"></td>
 <td><img src="docs/en/screenshot-10.png" alt="Screenshot 10" width="100%"></td>
 </tr>
-<tr>
-<td><img src="docs/en/screenshot-11.png" alt="Screenshot 11" width="100%"></td>
-<td></td>
-<td></td>
-</tr>
 </table>
 
 <sub>Full galleries: <a href="docs/en/">English</a> · <a href="docs/zh/">中文</a> — sub-skill galleries live under each sub-folder's <code>docs/</code> or <code>assets/</code>.</sub>
