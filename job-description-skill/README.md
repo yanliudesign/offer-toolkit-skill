@@ -37,7 +37,7 @@ Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills
 
 ### ▶ Video walkthrough (~2 min)
 
-<video src="docs/en/demo.mp4" controls muted></video>
+https://github.com/yanliudesign/offer-toolkit-skill/raw/main/job-description-skill/docs/en/demo.mp4
 
 <sub>Live run against a real Anthropic JD — paste JD → attach resume → HTML report opens in your browser. If the video doesn't play inline, <a href="docs/en/demo.mp4">download it here</a> (~15 MB). 中文版本 · <a href="README.zh.md#▶-视频演示-2-分钟">Chinese walkthrough</a>.</sub>
 
