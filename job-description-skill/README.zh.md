@@ -37,11 +37,11 @@ Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Deskto
 
 ### ▶ 视频演示（~2 分钟）
 
-<a href="docs/zh/demo.mp4" title="点击播放 2 分钟演示">
-  <img src="docs/report-preview.png" alt="▶ 播放 2 分钟演示 — Anthropic × Product Designer, Claude Code" width="100%">
+<a href="docs/zh/demo.mp4" title="点击播放完整 2 分钟演示">
+  <img src="docs/zh/preview.gif" alt="▶ 播放 2 分钟演示 — Anthropic × Product Designer, Claude Code" width="100%">
 </a>
 
-<sub>▶ <a href="docs/zh/demo.mp4"><strong>点这里看视频</strong></a> · 一次真实地跑 Anthropic JD（贴 JD → 附简历 → 浏览器弹出 HTML 报告，约 14 MB）。GitHub 不支持在 README 里内嵌播放 repo 里的视频 —— 点图会在新标签页打开 mp4 直接播放。English version · <a href="README.md#▶-video-walkthrough-2-min">英文演示</a>。</sub>
+<sub>⬆ 前 8 秒自动循环预览。<a href="docs/zh/demo.mp4"><strong>点这里看完整 2 分钟演示</strong></a> — 一次真实地跑 Anthropic JD（贴 JD → 附简历 → 浏览器弹出 HTML 报告，约 14 MB，在新标签页打开）。English version · <a href="README.md#▶-video-walkthrough-2-min">英文演示</a>。</sub>
 
 | # | 章节 | 回答什么 |
 |---|------|----------|
