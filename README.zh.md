@@ -31,7 +31,28 @@
               bq-skill                挖故事、建故事库、准备 BQ
 ```
 
-<sub>截图预览：[中文相册](docs/zh/) · [English gallery](docs/en/) — 各子 skill 的单独相册在各自目录下的 `docs/` 或 `assets/`。</sub>
+## 截图预览
+
+<img src="docs/zh/screenshot-01.png" alt="Offer Strategy 报告 — 顶部：Anthropic × Product Designer, Claude Code" width="100%">
+
+<sub>由 <code>job-description-skill</code> 生成的 Offer Strategy 报告，在浏览器里打开——Verdict、假设说明、TL;DR，以及右下角内置的 EN / 中文 切换。</sub>
+
+<details>
+<summary><strong>看完整报告走读</strong> · 另 9 张截图 · <a href="README.md#screenshots">English</a> 也有一份</summary>
+
+<img src="docs/zh/screenshot-02.png" width="100%">
+<img src="docs/zh/screenshot-03.png" width="100%">
+<img src="docs/zh/screenshot-04.png" width="100%">
+<img src="docs/zh/screenshot-05.png" width="100%">
+<img src="docs/zh/screenshot-06.png" width="100%">
+<img src="docs/zh/screenshot-07.png" width="100%">
+<img src="docs/zh/screenshot-08.png" width="100%">
+<img src="docs/zh/screenshot-09.png" width="100%">
+<img src="docs/zh/screenshot-10.png" width="100%">
+
+</details>
+
+<sub>完整相册：<a href="docs/zh/">中文</a> · <a href="docs/en/">English</a> — 各子 skill 的单独相册在各自目录下的 <code>docs/</code> 或 <code>assets/</code>。</sub>
 
 ## 里面有什么
 
