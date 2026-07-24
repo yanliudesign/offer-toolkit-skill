@@ -1,8 +1,27 @@
-# Job Description Skill
+<div align="center">
+
+[中文](./README.zh.md) · **English**
+
+# 🔍 Job Description Skill
+
+---
+
+**Decode any JD → get a one-page Offer Strategy report.** Should I apply · how well I match · top interview questions.
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](../LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Sections](https://img.shields.io/badge/SECTIONS-10-2ea44f?style=flat-square&labelColor=333)]()
+[![Stars](https://img.shields.io/github/stars/yanliudesign/job-description-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/job-description-skill/stargazers)
+
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
+[![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)]()
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)]()
+[![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)]()
+
+</div>
 
 > 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
-
-> 🌐 **English** · [中文](./README.zh.md)
 
 A Claude skill for reading job descriptions. Give it a JD and your resume, and it hands back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what interviews will probably ask, whether the salary is reasonable, and what to do over the next six weeks. A JD is rarely just a recruiting blurb — it's usually the hiring manager's real expectations wrapped in HR boilerplate, and this skill unwraps that.
 
