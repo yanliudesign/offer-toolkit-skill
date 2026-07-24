@@ -29,7 +29,7 @@
 
 Wizard 跑完的默认交付物是一份单文件 HTML 报告，存到 `~/Desktop/Claude skills/offer-strategy-<slug>.html`。固定 10 节骨架 + TL;DR 预头 + 关键指标仪表：
 
-![Offer Strategy Report 预览](docs/report-preview.png)
+![Offer Strategy Report 预览](docs/report-preview-zh.png)
 
 *一份真实报告的顶部 — Verdict + Assumptions + TL;DR + 两个仪表，右下角是页内的导出 PDF / Markdown 按钮。*
 
