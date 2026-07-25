@@ -24,11 +24,9 @@
 三个求职工具打包成一个 agent skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
 
 ```
-看到心动岗位 → job-description-skill   解码 JD、出一份 Offer Strategy 报告
-       ↓ 决定投
-              resume-skill            改简历、11 套打印级模板
-       ↓ 拿到面试
-              bq-skill                挖故事、建故事库、准备 BQ
+1  看到心动岗位    →  job-description-skill    解码 JD、出一份 Offer Strategy 报告
+2  决定投          →  resume-skill             改简历、11 套打印级模板
+3  拿到面试        →  bq-skill                 挖故事、建故事库、准备 BQ
 ```
 
 ## 里面有什么

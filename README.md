@@ -24,11 +24,9 @@
 Three job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
 
 ```
-See a job you want → job-description-skill   decode the JD, get an Offer Strategy report
-       ↓ decide to apply
-                     resume-skill            tailor & polish, 11 print-ready templates
-       ↓ get the interview
-                     bq-skill                mine stories, build a story bank, prep BQs
+1  See a job you want    →  job-description-skill    Decode the JD, get an Offer Strategy report.
+2  Decide to apply       →  resume-skill             Tailor & polish. 11 print-ready templates.
+3  Land the interview    →  bq-skill                 Mine stories, build a story bank, prep BQs.
 ```
 
 ## What's inside
