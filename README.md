@@ -75,6 +75,8 @@ Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~
 
 Only want one? Copy just that sub-folder — each one is self-contained.
 
+> 🔒 **Your data stays on your machine.** JDs, resumes, and stories are read by the model in the moment and written back to your local disk — nothing gets shipped to a server or trained on.
+
 ## Trigger phrases
 
 | You say | Runs |
