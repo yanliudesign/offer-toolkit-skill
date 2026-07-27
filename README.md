@@ -77,6 +77,16 @@ Only want one? Copy just that sub-folder — each one is self-contained.
 
 > 🔒 **Your data stays on your machine.** JDs, resumes, and stories are read by the model in the moment and written back to your local disk — nothing gets shipped to a server or trained on.
 
+### Try it in 30 seconds
+
+Once installed, just paste any of these into your Claude Code / VS Code chat:
+
+- *"Should I apply to this?"* + paste a JD link (or full text)
+- *"Beautify my resume"* + drag in a PDF
+- *"Prep me for behavioral interviews"*
+
+The router picks the right sub-skill. You get an HTML report / resume / story bank on your desktop, ready to open.
+
 ## Trigger phrases
 
 | You say | Runs |
