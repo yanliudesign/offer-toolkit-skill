@@ -1,0 +1,23 @@
+{
+  "skill_name": "job-hunt-list",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这是我的简历。我想找湾区或美国 remote 的 Principal / Staff Product Designer，偏 AI、Fintech、Healthcare、Enterprise 或 Consumer。请尽量完整地找一批岗位并做成可以搜索筛选的清单。",
+      "expected_output": "建立搜索画像和互补查询矩阵，采集并去重所有通过硬条件的公开岗位，区分核验事实与方向性推断，输出自包含、可搜索筛选的 HTML Job Hunt List，而不是只返回少量 shortlist。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "LinkedIn 登录墙挡住了。继续帮我整理公开可找到的职位，但不要猜薪资、发布时间或工作方式。",
+      "expected_output": "不绕过登录墙；切换到公司招聘页或公开搜索结果。未知薪资留空，其他未知字段标待核验，并在报告中记录来源和访问限制。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "把这 80 个 LinkedIn 职位链接合并进我上周的 job hunt list，去重并标出新增内容。不要显示 Tier A/B 标签。",
+      "expected_output": "解析旧清单与新链接，按 job id/URL 去重，保留 first_seen、更新 last_checked，报告新增和更新数量；输出职位行不显示 Tier A/B badge，但可在内部继续用优先级排序。",
+      "files": []
+    }
+  ]
+}

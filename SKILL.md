@@ -1,21 +1,23 @@
 ---
 name: offer-toolkit-skill
-description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆成三个独立子 skill：① Job Description Skill 解码 JD 并出一份 Offer Strategy Report（该不该投 / 匹配度 / 面试题预测），② Resume Skill 把简历结构化并渲染成 11 套打印级模板，③ BQ Skill 挖掘真实经历、STAR 化，建可复用的行为面试故事库。任何求职相关请求（该不该投、改简历、准备行为面试、看 JD、Tell me about a time…）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, JD, job description, 简历, resume, CV, 行为面试, behavioral interview, BQ, STAR, tell me about a time, 面试准备。"
+description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个独立子 skill：⓪ Job Hunt List 批量发现并生成可搜索职位清单，① Job Description Skill 解码具体 JD，② Resume Skill 定向简历，③ BQ Skill 准备行为面试。任何求职相关请求（LinkedIn 找工作、推荐岗位、该不该投、改简历、准备面试）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, LinkedIn jobs, 找工作, 岗位推荐, JD, job description, 简历, resume, CV, behavioral interview, BQ, STAR。"
 ---
 
 # Offer Toolkit
 
-一整套求职 skill 的聚合入口。三条子 skill 各自独立可用，也可以组成完整的求职链路：
+一整套求职 skill 的聚合入口。四条子 skill 各自独立可用，也可以组成完整的求职链路：
 
 ```
-看到心动岗位 → [Job Description Skill] 解码 JD · 出 Offer Strategy Report
+种子 JD + 简历 → [Job Hunt List] 搜索 · 去重 · 证据分层 · HTML 清单
+                    ↓ 选中岗位
+              [Job Description Skill] 解码 JD · 出 Offer Strategy Report
                     ↓ 决定投
               [Resume Skill] tailor + 美化 · 11 套模板 · 单文件 HTML
                     ↓ 拿到面试
               [BQ Skill] 挖故事 · 建故事库 · STAR 化 · 模拟面试
 ```
 
-**顶层原则（三条子 skill 共用）：**
+**顶层原则（四条子 skill 共用）：**
 
 1. **绝不杜撰。** 所有经历、职责、数字都必须来自用户真实提供的内容。可以引导、追问、把弱的改强，绝不编公司、职位、成果、量化数字。
 2. **一次只问一个问题。** 挖掘 / 建简历 / 准备 BQ 都是对话，不是问卷。
@@ -27,6 +29,7 @@ description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆�
 
 | 用户说的话 | 走哪个子 skill |
 |---|---|
+| "帮我找工作" / "在 LinkedIn 搜适合我的岗位" / "根据这份 JD 找相似职位" / "根据简历推荐岗位" / "整理职位清单" | → [`job-hunt-list/`](job-hunt-list/SKILL.md) |
 | 贴出一份 JD / "这个岗位我该不该投" / "帮我看看这份工作" / "match score" / "面试会问什么" | → [`job-description-skill/`](job-description-skill/SKILL.md) |
 | "帮我美化简历" / "改简历" / 上传 PDF/docx / "我没有简历帮我做一份" / "换个模板" / LinkedIn 导入 | → [`resume-skill/`](resume-skill/SKILL.md) |
 | "帮我准备 behavioral 面试" / "Tell me about a time…" / "帮我挖一个面试故事" / "STAR 怎么写" / "建我的故事库" / "Amazon LP 怎么准备" | → [`bq-skill/`](bq-skill/SKILL.md) |
@@ -35,17 +38,22 @@ description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆�
 判断不了就问一句：
 
 > "你现在在求职链路的哪一步？
+> · 还在找机会，希望自动发现并整理匹配岗位 → **Job Hunt List**
 > · 看到一个心动岗位，还没决定要不要投 → **JD Skill**
 > · 已经决定投，需要一份简历 → **Resume Skill**
 > · 已经拿到面试，要准备行为面试题 → **BQ Skill**"
 
 ---
 
-## 三个子 skill 各自的入口
+## 四个子 skill 各自的入口
 
 每个子目录都是一份完整的 skill（各自有 `SKILL.md` + 独立 README）。可以聚合装，也可以只装其中一个。
 
-### 1 · [Job Description Skill](job-description-skill/SKILL.md) — 求职链路的入口
+### 0 · [Job Hunt List](job-hunt-list/SKILL.md) — 岗位发现入口
+
+根据简历、目标方向或种子 JD 生成搜索画像，执行多组公开职位查询，采集、去重并区分已核验事实与方向性推断。默认保留所有通过硬条件的唯一岗位，输出可搜索筛选的单文件 HTML 清单；只搜索分析，不自动投递、不处理登录凭据、不绕过访问限制。
+
+### 1 · [Job Description Skill](job-description-skill/SKILL.md) — 单岗位决策入口
 
 把任何 JD 翻译成一份 10 节的 **Offer Strategy Report**（HTML 单文件，自动打开浏览器）：TL;DR 结论 · Match Score · Interview Probability · 公司背景 · JD 深度解码 · JD ↔ 简历逐条比对 · Gap 与补救 · 为什么投/不投 · 薪资 · 下一步 · Top 10 面试题 · 6 周行动计划。
 
@@ -76,7 +84,7 @@ description: "求职工具包。把「看到心动岗位 → 拿到 offer」拆�
 
 ### Claude 用户
 
-把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），三条子 skill 会一起被发现。
+把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），四条子 skill 会一起被发现。
 
 **只想装其中一个？** 直接把对应子目录（如 `resume-skill/`）单独复制过去也可以，每个子 skill 都是自包含的。
 

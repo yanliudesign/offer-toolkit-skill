@@ -6,11 +6,11 @@
 
 ---
 
-**Three job-hunt tools in one agent skill pack — JD · Resume · BQ.**
+**Four job-hunt tools in one agent skill pack — Search · JD · Resume · BQ.**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
-[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
-[![Skills](https://img.shields.io/badge/SKILLS-3-2ea44f?style=flat-square&labelColor=333)]()
+[![Version](https://img.shields.io/badge/VERSION-1.1.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Skills](https://img.shields.io/badge/SKILLS-4-2ea44f?style=flat-square&labelColor=333)]()
 [![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
@@ -21,9 +21,10 @@
 
 </div>
 
-Three job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
+Four job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
 
 ```
+0  Discover opportunities → job-hunt-list            Build a deduplicated, searchable HTML job list.
 1  See a job you want    →  job-description-skill    Decode the JD, get an Offer Strategy report.
 2  Decide to apply       →  resume-skill             Tailor & polish. 11 print-ready templates.
 3  Land the interview    →  bq-skill                 Mine stories, build a story bank, prep BQs.
@@ -33,6 +34,7 @@ Three job-hunting tools bundled as an agent skill pack. Use the whole thing, or 
 
 | Sub-skill | What it does |
 |---|---|
+| **[job-hunt-list](job-hunt-list/)** | Give it a resume, target direction, seed JD, or existing job links. It searches public sources, deduplicates candidates, separates verified facts from inference, and generates a searchable HTML job list. It discovers and analyzes; it never applies for you. |
 | **[job-description-skill](job-description-skill/)** | Give it a JD and your resume. You get back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what you'll probably be asked in interviews, whether the salary is reasonable, and what to do over the next six weeks. |
 | **[resume-skill](resume-skill/)** | Polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. The content then flows into **11 print-ready templates** (Classic-ATS, Ledger, Tech Compact, Modern Sidebar, Pillar, Elegant Serif, Atelier, Timeline, Swiss, Executive, Color-block). Each render gives you two files: one that prints straight to PDF, and one you can click on in the browser to edit. |
 | **[bq-skill](bq-skill/)** | Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves them in English and Chinese — so next time you get a different behavioral question, the same story still works. It can also read a JD, predict the 20 questions that company is likely to ask, and walk you through prep for each one. |
@@ -63,15 +65,16 @@ Three job-hunting tools bundled as an agent skill pack. Use the whole thing, or 
 
 <sub>Full galleries: <a href="docs/en/">English</a> · <a href="docs/zh/">中文</a> — sub-skill galleries live under each sub-folder's <code>docs/</code> or <code>assets/</code>.</sub>
 
-## Three rules the sub-skills share
+## Four rules the sub-skills share
 
 1. **Never fabricate.** Every experience, number, and title comes from what the user actually said. Sharpen weak content, don't invent it. Verify numbers.
 2. **One question at a time.** Building a resume, mining a story, prepping a BQ — these are conversations, not questionnaires.
 3. **Structure first, render second.** Get the content into a standard shape and confirm it before generating anything.
+4. **Never apply on the user's behalf.** Search can be automated; submitting forms and sending messages remain user actions.
 
 ## Install
 
-Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All three sub-skills get picked up.
+Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All four sub-skills get picked up.
 
 Only want one? Copy just that sub-folder — each one is self-contained.
 
@@ -82,6 +85,7 @@ Only want one? Copy just that sub-folder — each one is self-contained.
 Once installed, just paste any of these into your Claude Code / VS Code chat:
 
 - *"Should I apply to this?"* + paste a JD link (or full text)
+- *"Use this JD and my resume to find matching LinkedIn jobs"*
 - *"Beautify my resume"* + drag in a PDF
 - *"Prep me for behavioral interviews"*
 
@@ -91,6 +95,7 @@ The router picks the right sub-skill. You get an HTML report / resume / story ba
 
 | You say | Runs |
 |---|---|
+| *"Find me a job"* / *"Search LinkedIn for matching roles"* / *"Build a job hunt list from my resume"* | job-hunt-list |
 | Paste a JD / *"should I apply to this?"* / *"help me with this job"* | job-description-skill |
 | *"Beautify my resume"* / *"build me one from scratch"* / upload PDF / paste LinkedIn | resume-skill |
 | *"Prep me for behavioral interviews"* / *"tell me about a time…"* / *"mine a story"* | bq-skill |
@@ -103,6 +108,7 @@ offer-toolkit-skill/
 ├── SKILL.md                        # Router: intent → sub-skill
 ├── README.md / README.zh.md
 ├── LICENSE                         # MIT
+├── job-hunt-list/                  # ⓪ Complete searchable job discovery list
 ├── job-description-skill/          # ① JD decoder + Offer Strategy report
 ├── resume-skill/                   # ② Resume builder + 11 templates
 └── bq-skill/                       # ③ Behavioral interview / story bank
