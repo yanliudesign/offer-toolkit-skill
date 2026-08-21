@@ -24,7 +24,7 @@
 四个求职工具打包成一个 agent skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
 
 ```
-0  还在找机会      →  job-hunt-list            批量发现、去重、生成可搜索清单
+0  还在找机会      →  job-hunt-skill           批量发现、去重、生成可搜索清单
 1  看到心动岗位    →  job-description-skill    解码 JD、出一份 Offer Strategy 报告
 2  决定投          →  resume-skill             改简历、11 套打印级模板
 3  拿到面试        →  bq-skill                 挖故事、建故事库、准备 BQ
@@ -34,36 +34,27 @@
 
 | 子 skill | 做什么 |
 |---|---|
-| **[job-hunt-list](job-hunt-list/)** | 给一份简历、目标方向、种子 JD 或已有职位链接，自动搜索公开来源、去重并区分事实与推断，生成可搜索筛选的 HTML 职位清单。只发现和分析，不自动投递。 |
+| **[job-hunt-skill](job-hunt-skill/)** | 给一份简历、目标方向、种子 JD 或已有职位链接，自动搜索公开来源、去重并区分事实与推断，生成可搜索筛选的 HTML 职位清单。只发现和分析，不自动投递。 |
 | **[job-description-skill](job-description-skill/)** | 贴一份 JD 和你的简历，给你一份 HTML 报告，告诉你：这岗位到底该不该投、你和它多匹配、差在哪里、面试大概会问什么、薪资合不合理、接下来 6 周该做什么。 |
 | **[resume-skill](resume-skill/)** | 帮你把现有简历改好看，或者从 LinkedIn 导入，再或者聊着聊着帮你从零写一份。给你 **11 套打印级模板**（Classic-ATS、Ledger、Tech Compact、Modern Sidebar、Pillar、Elegant Serif、Atelier、Timeline、Swiss、Executive、Color-block）。每次同时给你两份文件：一份直接可以打印成 PDF，一份在浏览器里点字就能改。 |
 | **[bq-skill](bq-skill/)** | 不是给你现成答案，而是帮你把过去真实做过的事情挖出来、整理成一个可以反复用的故事库。它会一步步追问你的经历，帮你用 STAR/CAR 理清思路，打上“拿主意”“択历就难”这类标签，中英文各存一份，下次碰上不同行为面试题也能用同一个故事。还能对着一份 JD，预测这家公司会问的 20 道题，帮你逐题准备。 |
 
 ## 示例
 
-<img src="docs/zh/screenshot-01.png" alt="Offer Strategy 报告 — 顶部：Anthropic × Product Designer, Claude Code" width="100%">
+<img src="job-hunt-skill/examples/cn/job-search-01.png" alt="job-hunt-skill 报告总览" width="100%">
 
-<sub>由 <code>job-description-skill</code> 生成的 Offer Strategy 报告，在浏览器里打开——Verdict、假设说明、TL;DR，以及右下角内置的 EN / 中文 切换。</sub>
+<sub>自动生成的 job-hunt-skill 报告，包含岗位排序、证据标签和快速筛选。</sub>
 
 <table>
 <tr>
-<td width="33%"><img src="docs/zh/screenshot-02.png" alt="截图 2" width="100%"></td>
-<td width="33%"><img src="docs/zh/screenshot-03.png" alt="截图 3" width="100%"></td>
-<td width="33%"><img src="docs/zh/screenshot-04.png" alt="截图 4" width="100%"></td>
+<td width="50%"><img src="job-hunt-skill/examples/cn/job-search-02.png" alt="job-hunt-skill 报告岗位排序" width="100%"></td>
+<td width="50%"><img src="job-hunt-skill/examples/cn/job-search-03.png" alt="job-hunt-skill 报告岗位详情" width="100%"></td>
 </tr>
 <tr>
-<td><img src="docs/zh/screenshot-05.png" alt="截图 5" width="100%"></td>
-<td><img src="docs/zh/screenshot-06.png" alt="截图 6" width="100%"></td>
-<td><img src="docs/zh/screenshot-07.png" alt="截图 7" width="100%"></td>
-</tr>
-<tr>
-<td><img src="docs/zh/screenshot-08.png" alt="截图 8" width="100%"></td>
-<td><img src="docs/zh/screenshot-09.png" alt="截图 9" width="100%"></td>
-<td><img src="docs/zh/screenshot-10.png" alt="截图 10" width="100%"></td>
+<td><img src="job-hunt-skill/examples/cn/job-search-04.png" alt="job-hunt-skill 报告搜索策略" width="100%"></td>
+<td><img src="job-hunt-skill/examples/cn/job-search-05.png" alt="job-hunt-skill 报告方法说明" width="100%"></td>
 </tr>
 </table>
-
-<sub>完整相册：<a href="docs/zh/">中文</a> · <a href="docs/en/">English</a> — 各子 skill 的单独相册在各自目录下的 <code>docs/</code> 或 <code>assets/</code>。</sub>
 
 ## 四条共用规则
 
@@ -95,7 +86,7 @@
 
 | 用户说 | 走哪个 |
 |---|---|
-| "帮我找工作" / "在 LinkedIn 搜适合我的岗位" / "根据简历做职位清单" | job-hunt-list |
+| "帮我找工作" / "在 LinkedIn 搜适合我的岗位" / "根据简历做职位清单" | job-hunt-skill |
 | 贴 JD / "这个岗位该不该投" / "帮我看看这份工作" | job-description-skill |
 | "帮我美化简历" / "帮我从零做一份" / 上传 PDF / 贴 LinkedIn | resume-skill |
 | "帮我准备 behavioral 面试" / "Tell me about a time…" / "帮我挖一个故事" | bq-skill |
@@ -108,7 +99,7 @@ offer-toolkit-skill/
 ├── SKILL.md                        # 路由：意图 → 子 skill
 ├── README.md / README.zh.md
 ├── LICENSE                         # MIT
-├── job-hunt-list/                  # ⓪ 完整可搜索职位清单
+├── job-hunt-skill/                 # ⓪ 完整可搜索职位清单
 ├── job-description-skill/          # ① JD 解码 + Offer Strategy 报告
 ├── resume-skill/                   # ② 简历生成 + 11 套模板
 └── bq-skill/                       # ③ 行为面试 / 故事库
@@ -118,8 +109,9 @@ offer-toolkit-skill/
 
 ## 独立仓库
 
-这三个 skill 也各自有独立仓库，独立维护：
+这四个 skill 也各自有独立仓库，独立维护：
 
+- [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill)
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill)
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill)
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill)

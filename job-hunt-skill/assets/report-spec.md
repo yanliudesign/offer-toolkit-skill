@@ -1,4 +1,4 @@
-# Job Hunt List HTML Contract
+# job-hunt-skill HTML Contract
 
 Generate one self-contained HTML file with inline CSS and JavaScript. Do not require a build step, external framework, server, or remote font.
 

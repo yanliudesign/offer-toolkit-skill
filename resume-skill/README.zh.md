@@ -21,7 +21,7 @@
 
 </div>
 
-> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 JD · Resume · BQ 三条子 skill。
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 Search · JD · Resume · BQ 四条子 skill。
 
 一个 agent skill：帮你把现有简历改好看、从 LinkedIn 导入、或者聊着聊着帮你从零写一份。所有素材先汇入一份标准结构化数据，再套模板渲染成 13 套打印级模板之一——换模板只是换皮，内容不丢。
 
@@ -106,7 +106,8 @@ resume-skill/
 ```
 
 ## 配套 skill
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 三件套（JD · Resume · BQ）
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 四件套（Search · JD · Resume · BQ）
+- [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill) — 岗位发现与可搜索职位清单
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试 / 职业故事库
 

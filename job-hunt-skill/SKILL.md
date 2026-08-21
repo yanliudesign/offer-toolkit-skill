@@ -1,10 +1,10 @@
 ---
-name: job-hunt-list
-description: "批量发现、整理和持续维护求职岗位清单。根据用户的简历、目标方向或种子 JD，搜索 LinkedIn 与公开网页，去重并建立尽量完整的候选池，用证据区分已核验事实和方向性推断，最后生成可搜索、可筛选的单文件 HTML Job Hunt List。用户说‘帮我批量找岗位’、‘整理职位清单’、‘做一个 job hunt list’、‘根据简历搜工作’、‘把这些 LinkedIn 职位做成表格’、‘持续跟踪岗位’时必须使用。只发现和分析岗位；绝不自动申请、处理登录凭据或绕过访问限制。"
+name: job-hunt-skill
+description: "批量发现、整理和持续维护求职岗位清单。根据用户的简历、目标方向或种子 JD，搜索 LinkedIn 与公开网页，去重并建立尽量完整的候选池，用证据区分已核验事实和方向性推断，最后生成可搜索、可筛选的单文件 HTML job-hunt-skill 报告。用户说‘帮我批量找岗位’、‘整理职位清单’、‘使用 job-hunt-skill’、‘根据简历搜工作’、‘把这些 LinkedIn 职位做成表格’、‘持续跟踪岗位’时必须使用。只发现和分析岗位；绝不自动申请、处理登录凭据或绕过访问限制。"
 compatibility: "需要网页或浏览器工具以实时发现岗位；无法访问网页时可整理用户提供的链接，或输出可点击的搜索查询。生成报告需要本地文件写入能力。"
 ---
 
-# Job Hunt List
+# job-hunt-skill
 
 把“帮我看看有哪些工作”变成一份可以持续搜索、比较和更新的职位数据库，而不是一次性的推荐答案。
 
@@ -13,7 +13,7 @@ compatibility: "需要网页或浏览器工具以实时发现岗位；无法访�
           ↓
 搜索画像 → 查询矩阵 → 公开候选池 → 去重与证据分层
           ↓
-完整 Job Hunt List HTML → 搜索 / 筛选 / 打开职位 → 选择深评对象
+完整 job-hunt-skill HTML 报告 → 搜索 / 筛选 / 打开职位 → 选择深评对象
 ```
 
 ## 职责边界
@@ -133,7 +133,7 @@ seed_signals: []
 
 默认生成 HTML，而不是 Markdown。读取 [assets/report-spec.md](assets/report-spec.md) 并遵守其数据、表格和交互契约。
 
-文件名：`job-hunt-list-{candidate-or-topic}-{YYYYMMDD}.html`
+文件名：`job-hunt-skill-{candidate-or-topic}-{YYYYMMDD}.html`
 
 默认保存到用户指定目录；未指定时保存到当前工作目录。生成后打开本地文件供用户检查。
 
@@ -165,7 +165,7 @@ seed_signals: []
 
 ## 8. 后续更新
 
-用户提供旧 Job Hunt List 时：
+用户提供旧 job-hunt-skill 报告时：
 
 1. 解析现有职位 id / URL。
 2. 只新增新发现职位，合并更完整证据。

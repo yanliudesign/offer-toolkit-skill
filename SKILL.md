@@ -1,6 +1,6 @@
 ---
 name: offer-toolkit-skill
-description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个独立子 skill：⓪ Job Hunt List 批量发现并生成可搜索职位清单，① Job Description Skill 解码具体 JD，② Resume Skill 定向简历，③ BQ Skill 准备行为面试。任何求职相关请求（LinkedIn 找工作、推荐岗位、该不该投、改简历、准备面试）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, LinkedIn jobs, 找工作, 岗位推荐, JD, job description, 简历, resume, CV, behavioral interview, BQ, STAR。"
+description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个独立子 skill：⓪ job-hunt-skill 批量发现并生成可搜索职位清单，① Job Description Skill 解码具体 JD，② Resume Skill 定向简历，③ BQ Skill 准备行为面试。任何求职相关请求（LinkedIn 找工作、推荐岗位、该不该投、改简历、准备面试）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, LinkedIn jobs, 找工作, 岗位推荐, JD, job description, 简历, resume, CV, behavioral interview, BQ, STAR。"
 ---
 
 # Offer Toolkit
@@ -8,7 +8,7 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 一整套求职 skill 的聚合入口。四条子 skill 各自独立可用，也可以组成完整的求职链路：
 
 ```
-种子 JD + 简历 → [Job Hunt List] 搜索 · 去重 · 证据分层 · HTML 清单
+种子 JD + 简历 → [job-hunt-skill] 搜索 · 去重 · 证据分层 · HTML 清单
                     ↓ 选中岗位
               [Job Description Skill] 解码 JD · 出 Offer Strategy Report
                     ↓ 决定投
@@ -29,7 +29,7 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 
 | 用户说的话 | 走哪个子 skill |
 |---|---|
-| "帮我找工作" / "在 LinkedIn 搜适合我的岗位" / "根据这份 JD 找相似职位" / "根据简历推荐岗位" / "整理职位清单" | → [`job-hunt-list/`](job-hunt-list/SKILL.md) |
+| "帮我找工作" / "在 LinkedIn 搜适合我的岗位" / "根据这份 JD 找相似职位" / "根据简历推荐岗位" / "整理职位清单" | → [`job-hunt-skill/`](job-hunt-skill/SKILL.md) |
 | 贴出一份 JD / "这个岗位我该不该投" / "帮我看看这份工作" / "match score" / "面试会问什么" | → [`job-description-skill/`](job-description-skill/SKILL.md) |
 | "帮我美化简历" / "改简历" / 上传 PDF/docx / "我没有简历帮我做一份" / "换个模板" / LinkedIn 导入 | → [`resume-skill/`](resume-skill/SKILL.md) |
 | "帮我准备 behavioral 面试" / "Tell me about a time…" / "帮我挖一个面试故事" / "STAR 怎么写" / "建我的故事库" / "Amazon LP 怎么准备" | → [`bq-skill/`](bq-skill/SKILL.md) |
@@ -38,7 +38,7 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 判断不了就问一句：
 
 > "你现在在求职链路的哪一步？
-> · 还在找机会，希望自动发现并整理匹配岗位 → **Job Hunt List**
+> · 还在找机会，希望自动发现并整理匹配岗位 → **job-hunt-skill**
 > · 看到一个心动岗位，还没决定要不要投 → **JD Skill**
 > · 已经决定投，需要一份简历 → **Resume Skill**
 > · 已经拿到面试，要准备行为面试题 → **BQ Skill**"
@@ -49,7 +49,7 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 
 每个子目录都是一份完整的 skill（各自有 `SKILL.md` + 独立 README）。可以聚合装，也可以只装其中一个。
 
-### 0 · [Job Hunt List](job-hunt-list/SKILL.md) — 岗位发现入口
+### 0 · [job-hunt-skill](job-hunt-skill/SKILL.md) — 岗位发现入口
 
 根据简历、目标方向或种子 JD 生成搜索画像，执行多组公开职位查询，采集、去重并区分已核验事实与方向性推断。默认保留所有通过硬条件的唯一岗位，输出可搜索筛选的单文件 HTML 清单；只搜索分析，不自动投递、不处理登录凭据、不绕过访问限制。
 

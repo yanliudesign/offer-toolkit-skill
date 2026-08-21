@@ -21,7 +21,7 @@
 
 </div>
 
-> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (JD · Resume · BQ). Install the bundle to get all three in one shot.
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (Search · JD · Resume · BQ). Install the bundle to get all four in one shot.
 
 An agent skill that polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. Every input funnels through one standardized data schema and then renders into any of 13 print-ready templates — switching templates is just a skin change, the content stays the same.
 
@@ -106,7 +106,8 @@ resume-skill/
 ```
 
 ## Related skills
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (JD · Resume · BQ)
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (Search · JD · Resume · BQ)
+- [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill) — Job discovery and searchable opportunity list
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank
 
