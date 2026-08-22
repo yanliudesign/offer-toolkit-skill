@@ -1,11 +1,11 @@
 ---
 name: offer-toolkit-skill
-description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个独立子 skill：⓪ job-hunt-skill 批量发现并生成可搜索职位清单，① Job Description Skill 解码具体 JD，② Resume Skill 定向简历，③ BQ Skill 准备行为面试。任何求职相关请求（LinkedIn 找工作、推荐岗位、该不该投、改简历、准备面试）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, LinkedIn jobs, 找工作, 岗位推荐, JD, job description, 简历, resume, CV, behavioral interview, BQ, STAR。"
+description: "求职工具包。把「找岗位 → 签 offer」拆成六个独立子 skill：⓪ Job Hunt 批量发现岗位，① Job Description 解码具体 JD，② Resume 定向简历，③ BQ 准备行为面试，④ Offer Compare 对比多份 offer，⑤ Salary Negotiation 谈 package。任何求职相关请求（找工作、该不该投、改简历、准备面试、选 offer、谈薪）都从这里进，再路由到对应子 skill。关键词：求职, offer, career, job hunt, LinkedIn jobs, JD, resume, CV, behavioral interview, BQ, STAR, offer compare, salary negotiation, 薪资谈判, 选 offer。"
 ---
 
 # Offer Toolkit
 
-一整套求职 skill 的聚合入口。四条子 skill 各自独立可用，也可以组成完整的求职链路：
+一整套求职 skill 的聚合入口。六条子 skill 各自独立可用，也可以组成从找岗位到签 offer 的完整链路：
 
 ```
 种子 JD + 简历 → [job-hunt-skill] 搜索 · 去重 · 证据分层 · HTML 清单
@@ -15,12 +15,15 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
               [Resume Skill] tailor + 美化 · 11 套模板 · 单文件 HTML
                     ↓ 拿到面试
               [BQ Skill] 挖故事 · 建故事库 · STAR 化 · 模拟面试
+                    ↓ 拿到 offer
+              ┌ 一份 offer ───────────────→ [Salary Negotiation] 谈 package
+              └ 多份 offer → [Offer Compare] 选 offer ────────┘
 ```
 
-**顶层原则（四条子 skill 共用）：**
+**顶层原则（六条子 skill 共用）：**
 
 1. **绝不杜撰。** 所有经历、职责、数字都必须来自用户真实提供的内容。可以引导、追问、把弱的改强，绝不编公司、职位、成果、量化数字。
-2. **一次只问一个问题。** 挖掘 / 建简历 / 准备 BQ 都是对话，不是问卷。
+2. **只问会改变结论的信息。** 遵循各子 skill 规定的逐题或批量提问节奏，不把对话变成长问卷。
 3. **先结构化，再产出。** 无论是简历还是故事，先落到标准数据模型，确认无误再渲染 HTML / 生成答案。
 
 ---
@@ -33,7 +36,9 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 | 贴出一份 JD / "这个岗位我该不该投" / "帮我看看这份工作" / "match score" / "面试会问什么" | → [`job-description-skill/`](job-description-skill/SKILL.md) |
 | "帮我美化简历" / "改简历" / 上传 PDF/docx / "我没有简历帮我做一份" / "换个模板" / LinkedIn 导入 | → [`resume-skill/`](resume-skill/SKILL.md) |
 | "帮我准备 behavioral 面试" / "Tell me about a time…" / "帮我挖一个面试故事" / "STAR 怎么写" / "建我的故事库" / "Amazon LP 怎么准备" | → [`bq-skill/`](bq-skill/SKILL.md) |
-| 一次交出 JD + 简历，想要"全套准备好" | → 先跑 `job-description-skill/`（生成 Offer Strategy Report，内含 Top 10 面试题） → 用户说"投" → 转 `resume-skill/` tailor → "拿到面试" → 转 `bq-skill/` JD-driven prep（JD-driven Top 20 + STAR 模板） |
+| "两份 offer 怎么选" / "A 还是 B" / "compare offers" / "算 4 年 TC" | → [`offer-compare-skill/`](offer-compare-skill/SKILL.md) |
+| "帮我谈薪" / "怎么 counter" / "能不能多要 RSU" / "salary negotiation" | → [`salary-negotiation-skill/`](salary-negotiation-skill/SKILL.md) |
+| 一次交出 JD + 简历，想要"全套准备好" | → `job-description-skill/` → `resume-skill/` → `bq-skill/` → 有多份 offer 先 `offer-compare-skill/` → `salary-negotiation-skill/` |
 
 判断不了就问一句：
 
@@ -41,11 +46,13 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 > · 还在找机会，希望自动发现并整理匹配岗位 → **job-hunt-skill**
 > · 看到一个心动岗位，还没决定要不要投 → **JD Skill**
 > · 已经决定投，需要一份简历 → **Resume Skill**
-> · 已经拿到面试，要准备行为面试题 → **BQ Skill**"
+> · 已经拿到面试，要准备行为面试题 → **BQ Skill**
+> · 已经拿到多份 offer，不知道选哪份 → **Offer Compare Skill**
+> · 已经选定 offer，想把 package 谈高 → **Salary Negotiation Skill**"
 
 ---
 
-## 四个子 skill 各自的入口
+## 六个子 skill 各自的入口
 
 每个子目录都是一份完整的 skill（各自有 `SKILL.md` + 独立 README）。可以聚合装，也可以只装其中一个。
 
@@ -78,20 +85,32 @@ description: "求职工具包。把「找岗位 → 拿到 offer」拆成四个�
 - 模拟面试（一次一道，按目标公司风格）
 - JD 驱动的 Top 20 BQ 选题 + STAR 模板 + HTML 报告（对接 job-description-skill）
 
+### 4 · [Offer Compare Skill](offer-compare-skill/SKILL.md) — 多 Offer 决策
+
+结构化对比两份或多份 offer 的 4 年 TC、成长、AI 敞口、公司与团队风险、晋升、生活方式和未来跳槽价值。输出一份 HTML Offer Decision Report，并给出明确推荐，而不是把选择留给用户。
+
+三步：贴多份 offer → 补充 priorities 与当前处境 → 生成报告并打开。
+
+### 5 · [Salary Negotiation Skill](salary-negotiation-skill/SKILL.md) — 薪资谈判
+
+诊断 Base、RSU、Sign-on 和 Bonus 的谈判空间，识别用户与招聘官双方杠杆，生成谈判顺序、可直接使用的中英文电话/邮件脚本、两轮 counter 模拟和明确 stop-line。
+
+三步：贴 offer → 补充竞争 offer、deadline 与风险偏好 → 生成 HTML Negotiation Playbook 并打开。
+
 ---
 
 ## 安装
 
 ### Claude 用户
 
-把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），四条子 skill 会一起被发现。
+把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录），六条子 skill 会一起被发现。
 
 **只想装其中一个？** 直接把对应子目录（如 `resume-skill/`）单独复制过去也可以，每个子 skill 都是自包含的。
 
 ### 手动调用
 
 - 顶层调度：说"我要找工作 / 求职 / offer" → 走这份 SKILL.md 的路由
-- 直接进子 skill：说"帮我美化简历" / "解码这份 JD" / "帮我准备 BQ" → 直接命中对应子 skill
+- 直接进子 skill：说"帮我美化简历" / "解码这份 JD" / "帮我准备 BQ" / "比较两份 offer" / "帮我谈薪" → 直接命中对应子 skill
 
 ---
 

@@ -6,11 +6,11 @@
 
 ---
 
-**Four job-hunt tools in one agent skill pack — Search · JD · Resume · BQ.**
+**Six job-hunt tools in one agent skill pack — Search · JD · Resume · BQ · Compare · Negotiate.**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
-[![Version](https://img.shields.io/badge/VERSION-1.1.0-2ea44f?style=flat-square&labelColor=333)]()
-[![Skills](https://img.shields.io/badge/SKILLS-4-2ea44f?style=flat-square&labelColor=333)]()
+[![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)]()
 [![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
@@ -21,13 +21,15 @@
 
 </div>
 
-Four job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
+Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
 
 ```
 0  Discover opportunities → job-hunt-skill           Build a deduplicated, searchable HTML job list.
 1  See a job you want    →  job-description-skill    Decode the JD, get an Offer Strategy report.
 2  Decide to apply       →  resume-skill             Tailor & polish. 11 print-ready templates.
 3  Land the interview    →  bq-skill                 Mine stories, build a story bank, prep BQs.
+4  Compare offers        →  offer-compare-skill      Compare TC, growth, risk, and get a clear recommendation.
+5  Negotiate the package →  salary-negotiation-skill Diagnose leverage, generate scripts, and set stop-lines.
 ```
 
 ## What's inside
@@ -38,6 +40,8 @@ Four job-hunting tools bundled as an agent skill pack. Use the whole thing, or j
 | **[job-description-skill](job-description-skill/)** | Give it a JD and your resume. You get back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what you'll probably be asked in interviews, whether the salary is reasonable, and what to do over the next six weeks. |
 | **[resume-skill](resume-skill/)** | Polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. The content then flows into **11 print-ready templates** (Classic-ATS, Ledger, Tech Compact, Modern Sidebar, Pillar, Elegant Serif, Atelier, Timeline, Swiss, Executive, Color-block). Each render gives you two files: one that prints straight to PDF, and one you can click on in the browser to edit. |
 | **[bq-skill](bq-skill/)** | Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves them in English and Chinese — so next time you get a different behavioral question, the same story still works. It can also read a JD, predict the 20 questions that company is likely to ask, and walk you through prep for each one. |
+| **[offer-compare-skill](offer-compare-skill/)** | Compares two or more offers across four-year TC, growth, AI exposure, company and team risk, promotion, lifestyle, resume value, and future mobility. It produces an HTML Offer Decision Report with an explicit recommendation. |
+| **[salary-negotiation-skill](salary-negotiation-skill/)** | Diagnoses Base, RSU, Sign-on, and Bonus leverage; builds a negotiation strategy; writes ready-to-use phone and email scripts; simulates recruiter pushback; and defines clear sign, walk, and stop-lines in an HTML Negotiation Playbook. |
 
 ## Example
 
@@ -59,13 +63,13 @@ Four job-hunting tools bundled as an agent skill pack. Use the whole thing, or j
 ## Four rules the sub-skills share
 
 1. **Never fabricate.** Every experience, number, and title comes from what the user actually said. Sharpen weak content, don't invent it. Verify numbers.
-2. **One question at a time.** Building a resume, mining a story, prepping a BQ — these are conversations, not questionnaires.
+2. **Ask only what changes the answer.** Follow each child skill's stated one-at-a-time or batched intake cadence; never turn the conversation into a sprawling questionnaire.
 3. **Structure first, render second.** Get the content into a standard shape and confirm it before generating anything.
 4. **Never apply on the user's behalf.** Search can be automated; submitting forms and sending messages remain user actions.
 
 ## Install
 
-Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All four sub-skills get picked up.
+Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All six sub-skills get picked up.
 
 Only want one? Copy just that sub-folder — each one is self-contained.
 
@@ -79,6 +83,8 @@ Once installed, just paste any of these into your Claude Code / VS Code chat:
 - *"Use this JD and my resume to find matching LinkedIn jobs"*
 - *"Beautify my resume"* + drag in a PDF
 - *"Prep me for behavioral interviews"*
+- *"Compare these two offers and tell me which one to take"*
+- *"Help me negotiate this offer"*
 
 The router picks the right sub-skill. You get an HTML report / resume / story bank on your desktop, ready to open.
 
@@ -90,6 +96,8 @@ The router picks the right sub-skill. You get an HTML report / resume / story ba
 | Paste a JD / *"should I apply to this?"* / *"help me with this job"* | job-description-skill |
 | *"Beautify my resume"* / *"build me one from scratch"* / upload PDF / paste LinkedIn | resume-skill |
 | *"Prep me for behavioral interviews"* / *"tell me about a time…"* / *"mine a story"* | bq-skill |
+| *"Compare these offers"* / *"which offer should I take?"* / *"calculate four-year TC"* | offer-compare-skill |
+| *"Help me negotiate"* / *"write a counter offer"* / *"can I ask for more RSU?"* | salary-negotiation-skill |
 | *"Help me find a job"* / hand over JD + resume at once | Top-level [SKILL.md](SKILL.md) routes you to the right one |
 
 ## Layout
@@ -102,19 +110,23 @@ offer-toolkit-skill/
 ├── job-hunt-skill/                 # ⓪ Complete searchable job discovery list
 ├── job-description-skill/          # ① JD decoder + Offer Strategy report
 ├── resume-skill/                   # ② Resume builder + 11 templates
-└── bq-skill/                       # ③ Behavioral interview / story bank
+├── bq-skill/                       # ③ Behavioral interview / story bank
+├── offer-compare-skill/            # ④ Multi-offer comparison + decision report
+└── salary-negotiation-skill/       # ⑤ Package negotiation + scripts
 ```
 
 Each sub-folder has its own `SKILL.md`, README, prompts, frameworks, and templates.
 
 ## Standalone repos
 
-These four also live as separate repos and get maintained there:
+These six also live as separate repos and get maintained there:
 
 - [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill)
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill)
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill)
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill)
+- [offer-compare-skill](https://github.com/yanliudesign/offer-compare-skill)
+- [salary-negotiation](https://github.com/yanliudesign/salary-negotiation)
 
 This bundle just puts them together with a top-level router.
 

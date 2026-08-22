@@ -21,7 +21,7 @@
 
 </div>
 
-> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 覆盖 Search · JD · Resume · BQ 的完整链路。
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 覆盖 Search · JD · Resume · BQ · Compare · Negotiate 的完整链路。
 
 一个把简历、目标方向、种子 JD 或已有职位链接变成可搜索 HTML 职位数据库的 agent skill。它会搜索公开来源、去重、区分已核验事实与方向性推断，并保留所有通过硬条件的唯一岗位，而不是随意压缩成 5 个推荐。
 
@@ -106,7 +106,7 @@ job-hunt-skill/
 
 ## 配套 skill
 
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — Search · JD · Resume · BQ 完整工具包
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — Search · JD · Resume · BQ · Compare · Negotiate 完整工具包
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — 对选中岗位做深度解码
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — 简历生成与美化
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — 行为面试准备与故事库

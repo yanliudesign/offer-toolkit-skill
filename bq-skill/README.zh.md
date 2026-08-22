@@ -1,6 +1,6 @@
 # BQ Skill
 
-> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 Search · JD · Resume · BQ 四条子 skill。
+> 📦 属于 **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** 求职工具包 — 装工具包等于一次性拿到 Search · JD · Resume · BQ · Compare · Negotiate 六条子 skill。
 
 > 🌐 **中文** · [English](./README.md)
 
@@ -44,7 +44,7 @@ Must Have + Hidden Signals，针对某个具体岗位反推 **Top 20 BQ 选题**
 是最该按你自己经验去改的地方——你越往里喂自己的话术和标签，这个 skill 就越像你。
 
 ## 配套 skill
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 四件套（Search · JD · Resume · BQ）
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — 六件套（Search · JD · Resume · BQ · Compare · Negotiate）
 - [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill) — 岗位发现与可搜索职位清单
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — JD 解码 + Offer 策略
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — 简历生成与美化

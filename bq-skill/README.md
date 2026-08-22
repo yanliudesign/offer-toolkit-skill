@@ -1,6 +1,6 @@
 # BQ Skill
 
-> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (Search · JD · Resume · BQ). Install the bundle to get all four in one shot.
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (Search · JD · Resume · BQ · Compare · Negotiate). Install the bundle to get all six in one shot.
 
 > 🌐 **English** · [中文](./README.zh.md)
 
@@ -60,7 +60,7 @@ The probing scripts in `prompts/story-mining.md` and the competency dictionary i
 put in, the more the skill sounds like you.
 
 ## Related skills
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (Search · JD · Resume · BQ)
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (Search · JD · Resume · BQ · Compare · Negotiate)
 - [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill) — Job discovery and searchable opportunity list
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — Job Description Decoder
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume generation & beautification

@@ -21,7 +21,7 @@
 
 </div>
 
-> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (Search · JD · Resume · BQ). Install the bundle to get all four in one shot.
+> 📦 Part of the **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the full job-hunt bundle (Search · JD · Resume · BQ · Compare · Negotiate). Install the bundle to get all six in one shot.
 
 A Claude skill for reading job descriptions. Give it a JD and your resume, and it hands back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what interviews will probably ask, whether the salary is reasonable, and what to do over the next six weeks. A JD is rarely just a recruiting blurb — it's usually the hiring manager's real expectations wrapped in HR boilerplate, and this skill unwraps that.
 
@@ -127,7 +127,7 @@ job-description-skill/
 
 Continue the workflow with these related skills:
 
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (Search · JD · Resume · BQ)
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — the all-in-one bundle (Search · JD · Resume · BQ · Compare · Negotiate)
 - [job-hunt-skill](https://github.com/yanliudesign/job-hunt-skill) — Job discovery and searchable opportunity list
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — Resume Builder & Beautifier (11 print-ready templates)
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — Behavioral interview / story bank

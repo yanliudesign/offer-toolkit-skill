@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Offer Compare · {{A_COMPANY}} vs {{B_COMPANY}} — {{CANDIDATE}}</title>
+<!--
+  Offer Compare Report Template · Offer Compare Skill
+  - Single file + one Google Fonts link (for CJK PDF embedding)
+  - Visual system: cream/sand + blue (A) vs green (B) + red/orange accents
+  - All data as {{PLACEHOLDER}}, filled by skill at generation time
+  - Full spec: ../frameworks/offer-compare-report.md
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-2: #1f1f1d;
+    --paper: #fafaf7;
+    --paper-2: #f3f3ee;
+    --paper-3: #ebebe4;
+    --muted: #6b6b66;
+    --muted-2: #9a9a92;
+    --line: #d9d9d2;
+    --line-soft: #e6e6df;
+    --go: #18a957;
+    --go-soft: #d8f3e0;
+    --warn: #d97706;
+    --warn-soft: #fef0d4;
+    --stop: #c2410c;
+    --stop-soft: #fde0d2;
+    --hint: #2563eb;
+    --accent: #facc15;
+
+    /* Offer A vs Offer B color system (used throughout report) */
+    --a-primary: #1e40af;
+    --a-accent:  #3b82f6;
+    --a-soft:    #dbeafe;
+    --a-tint:    #eff6ff;
+    --b-primary: #065f46;
+    --b-accent:  #059669;
+    --b-soft:    #d1fae5;
+    --b-tint:    #ecfdf5;
+
+    /* CJK 字体 (Noto * SC) 必须排在系统字体之前，确保 PDF 导出时中文字符可嵌入 */
+    --serif: "Times New Roman", "Noto Serif SC", "Songti SC", Georgia, serif;
+    --display: "SF Pro Display", -apple-system, "Helvetica Neue", "Noto Sans SC", "PingFang SC", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", Menlo, "Noto Sans SC", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: var(--body); font-size: 15px; line-height: 1.62; -webkit-font-smoothing: antialiased; }
+  a { color: var(--hint); text-decoration: none; border-bottom: 1px solid currentColor; }
+  code { font-family: var(--mono); font-size: 0.88em; background: var(--paper-2); padding: 1px 5px; border-radius: 3px; }
+  .page { max-width: 1000px; margin: 0 auto; padding: 56px 56px 96px; }
+
+  /* === Header === */
+  .meta-strip { display: flex; gap: 16px; align-items: center; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .meta-strip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink); display: inline-block; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: 54px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 14px; }
+  h1 .vs { color: var(--muted); font-weight: 500; margin: 0 12px; }
+  h1 .a { color: var(--a-primary); }
+  h1 .b { color: var(--b-primary); }
+  h1 .tag { display: block; font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 12px; line-height: 1.55; }
+  .header-rule { height: 2px; background: var(--ink); margin: 24px 0 28px; }
+
+  /* Two-column offer summary */
+  .offer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 32px; }
+  .offer-card { padding: 20px 22px; border-radius: 6px; }
+  .offer-card.a { background: var(--a-tint); border-left: 4px solid var(--a-primary); }
+  .offer-card.b { background: var(--b-tint); border-left: 4px solid var(--b-primary); }
+  .offer-card .kicker { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+  .offer-card.a .kicker { color: var(--a-primary); }
+  .offer-card.b .kicker { color: var(--b-primary); }
+  .offer-card .co { font-family: var(--display); font-size: 22px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 4px; }
+  .offer-card .ro { font-size: 14px; color: var(--ink-2); margin-bottom: 12px; }
+  .offer-card .row { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; border-bottom: 1px dotted var(--line-soft); }
+  .offer-card .row:last-child { border-bottom: 0; }
+  .offer-card .row span:last-child { font-family: var(--mono); font-weight: 600; }
+
+  /* === TOC === */
+  .toc { background: var(--paper-2); border: 1px solid var(--line); padding: 18px 22px; border-radius: 4px; margin-bottom: 32px; display: grid; grid-template-columns: 100px 1fr; gap: 18px; align-items: start; }
+  .toc .kicker { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+  .toc ol { margin: 0; padding-left: 0; list-style: none; columns: 2; column-gap: 28px; font-size: 13px; }
+  .toc li { padding: 2px 0; break-inside: avoid; }
+  .toc a { color: var(--ink); border: none; }
+  .toc a:hover { border-bottom: 1px solid var(--ink); }
+
+  /* === Assumptions notice === */
+  .notice { background: #fff8e6; border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 3px 3px 0; margin-bottom: 32px; font-size: 13px; color: #4a3f1e; line-height: 1.65; }
+  .notice strong { color: #2a2308; }
+  .notice .head { font-weight: 700; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b5312; }
+  .notice ul { margin: 0; padding-left: 20px; }
+  .notice ul li { padding: 3px 0; }
+  .notice .fix { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(0,0,0,0.15); font-style: italic; font-family: var(--serif); }
+
+  /* === Verdict === */
+  .verdict { background: var(--ink); color: var(--paper); padding: 36px 40px 34px; border-radius: 6px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; margin-bottom: 28px; border: 2px solid var(--accent); }
+  .verdict .left .kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 700; }
+  .verdict .left h2 { font-size: 30px; font-weight: 800; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.012em; }
+  .verdict .left h2 .pick { background: var(--accent); color: var(--ink); padding: 2px 10px; border-radius: 4px; }
+  .verdict .left .sub { font-size: 14px; color: #c8c8c3; max-width: 560px; line-height: 1.6; }
+  .stars .row { font-size: 34px; letter-spacing: 4px; color: var(--accent); line-height: 1; margin-bottom: 8px; text-align: right; }
+  .stars .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #999; text-align: right; }
+
+  /* === Gauges (side by side) === */
+  .gauges { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; margin-bottom: 48px; }
+  .gauge-card { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 22px 24px; text-align: center; }
+  .gauge-card.a { border-top: 4px solid var(--a-primary); }
+  .gauge-card.b { border-top: 4px solid var(--b-primary); }
+  .gauge-card .label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+  .gauge-card .co { font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .gauge-card svg { display: block; margin: 0 auto 6px; }
+  .gauge-card .score { font-family: var(--display); font-size: 42px; font-weight: 800; line-height: 1; }
+  .gauge-card .score .of { font-size: 16px; color: var(--muted); font-weight: 500; }
+  .gauge-card .caption { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .gauge-delta { text-align: center; font-family: var(--display); font-size: 16px; font-weight: 700; padding: 20px 12px; background: var(--paper-2); border-radius: 6px; }
+  .gauge-delta .arrow { font-size: 28px; display: block; margin-bottom: 4px; }
+  .gauge-delta .num { font-family: var(--mono); font-size: 22px; color: var(--ink); }
+  .gauge-delta .cap { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: 4px; }
+
+  /* === Section head === */
+  section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  .section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; }
+  .section-head .num { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--muted); min-width: 30px; }
+  .section-head h3 { font-family: var(--display); font-size: 26px; font-weight: 800; margin: 0; letter-spacing: -0.015em; flex: 1; }
+  .section-head .pill { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); background: var(--paper-2); padding: 4px 10px; border-radius: 999px; }
+  .section-intro { font-size: 14px; color: var(--muted); max-width: 760px; margin-bottom: 22px; line-height: 1.6; }
+
+  /* === §1 Breakdown table === */
+  .breakdown-wrap { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+  table.breakdown { width: 100%; border-collapse: collapse; font-size: 13.5px; background: white; }
+  table.breakdown th { text-align: left; padding: 12px 16px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; background: var(--ink); color: var(--paper); }
+  table.breakdown th.a { background: var(--a-primary); }
+  table.breakdown th.b { background: var(--b-primary); }
+  table.breakdown th:first-child { width: 28%; }
+  table.breakdown td { padding: 12px 16px; border-top: 1px solid var(--line-soft); vertical-align: top; line-height: 1.55; }
+  table.breakdown td.metric { font-weight: 600; color: var(--muted); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  table.breakdown td.val { font-family: var(--mono); font-weight: 600; color: var(--ink); }
+  table.breakdown td.val .note { display: block; font-family: var(--body); font-weight: 400; font-size: 11.5px; color: var(--muted); margin-top: 3px; letter-spacing: 0; }
+  table.breakdown td.val.winner { background: rgba(250, 204, 21, 0.16); position: relative; }
+  table.breakdown td.val.winner::before { content: "🏆"; position: absolute; top: 10px; right: 12px; font-size: 12px; }
+  table.breakdown tr.total td { background: var(--paper-2); font-weight: 700; }
+  table.breakdown tr.total td.val { font-size: 15px; }
+  table.breakdown .risk-badge { display: inline-block; font-family: var(--body); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.04em; }
+  table.breakdown .risk-badge.low { background: var(--go-soft); color: var(--go); }
+  table.breakdown .risk-badge.med { background: var(--warn-soft); color: var(--warn); }
+  table.breakdown .risk-badge.high { background: var(--stop-soft); color: var(--stop); }
+  .breakdown-note { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--muted); padding: 12px 16px; background: var(--paper-2); border-left: 3px solid var(--muted-2); border-radius: 0 3px 3px 0; line-height: 1.6; }
+
+  /* === §2 Dimension bars === */
+  .dim-list { display: grid; gap: 14px; }
+  .dim-row { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 16px 20px; }
+  .dim-row .head { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; margin-bottom: 10px; }
+  .dim-row .name { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .dim-row .name .icon { margin-right: 6px; }
+  .dim-row .winner-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .dim-row .winner-badge.a { background: var(--a-soft); color: var(--a-primary); }
+  .dim-row .winner-badge.b { background: var(--b-soft); color: var(--b-primary); }
+  .dim-row .winner-badge.tie { background: var(--paper-2); color: var(--muted); }
+  .dim-bars { display: grid; grid-template-columns: 60px 1fr 60px; gap: 12px; align-items: center; margin-bottom: 4px; font-size: 12px; }
+  .dim-bars .who { font-family: var(--mono); font-weight: 700; }
+  .dim-bars .who.a { color: var(--a-primary); }
+  .dim-bars .who.b { color: var(--b-primary); }
+  .dim-bars .score-num { font-family: var(--mono); font-weight: 700; text-align: right; }
+  .bar-track { position: relative; height: 10px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .bar-fill { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 999px; }
+  .bar-fill.a { background: linear-gradient(90deg, var(--a-accent), var(--a-primary)); }
+  .bar-fill.b { background: linear-gradient(90deg, var(--b-accent), var(--b-primary)); }
+  .dim-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 12.5px; line-height: 1.55; color: var(--ink-2); }
+  .dim-notes .a-note { border-left: 3px solid var(--a-primary); padding-left: 10px; }
+  .dim-notes .b-note { border-left: 3px solid var(--b-primary); padding-left: 10px; }
+  .dim-notes .conf { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 1px 6px; border-radius: 3px; background: var(--paper-2); color: var(--muted); margin-left: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .dim-winner-note { font-family: var(--serif); font-style: italic; font-size: 12.5px; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
+
+  /* === §3 Signal cards === */
+  .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .signal-card { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; position: relative; }
+  .signal-card.a-wins { border-top: 4px solid var(--a-primary); background: linear-gradient(180deg, var(--a-tint) 0%, white 30%); }
+  .signal-card.b-wins { border-top: 4px solid var(--b-primary); background: linear-gradient(180deg, var(--b-tint) 0%, white 30%); }
+  .signal-card .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .signal-card .sname { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .signal-card .sname .num { font-family: var(--serif); font-style: italic; color: var(--muted); margin-right: 6px; font-weight: 400; }
+  .signal-card .winner-tag { font-family: var(--display); font-size: 13px; font-weight: 800; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.02em; }
+  .signal-card .winner-tag.a { background: var(--a-primary); color: white; }
+  .signal-card .winner-tag.b { background: var(--b-primary); color: white; }
+  .signal-card .verdict-line { font-size: 13.5px; line-height: 1.55; color: var(--ink); margin-bottom: 12px; font-weight: 500; }
+  .signal-card .split { display: grid; grid-template-columns: 1fr; gap: 8px; padding-top: 10px; border-top: 1px dashed var(--line); }
+  .signal-card .for, .signal-card .against { font-size: 12px; line-height: 1.55; padding: 6px 10px; border-radius: 3px; }
+  .signal-card .for { background: var(--go-soft); color: #0d5c30; }
+  .signal-card .for::before { content: "✓ "; font-weight: 700; }
+  .signal-card .against { background: var(--stop-soft); color: #6b1b04; }
+  .signal-card .against::before { content: "⚠ "; font-weight: 700; }
+
+  /* === §4 Risk cards (two columns) === */
+  .risk-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .risk-col { }
+  .risk-col-head { padding: 12px 18px; border-radius: 6px; margin-bottom: 14px; }
+  .risk-col-head.a { background: var(--a-tint); border-left: 4px solid var(--a-primary); }
+  .risk-col-head.b { background: var(--b-tint); border-left: 4px solid var(--b-primary); }
+  .risk-col-head .co { font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: -0.01em; }
+  .risk-col-head .co small { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-left: 8px; }
+  .risk-col-head .summary { font-family: var(--serif); font-style: italic; font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  .risk-list { display: grid; gap: 10px; }
+  .risk-card { background: white; border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px; border-left: 3px solid var(--muted-2); }
+  .risk-card.high { border-left-color: var(--stop); }
+  .risk-card.medium { border-left-color: var(--warn); }
+  .risk-card.low { border-left-color: var(--muted-2); }
+  .risk-card .rhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .risk-card .rname { font-weight: 700; font-size: 13.5px; color: var(--ink); line-height: 1.35; }
+  .risk-card .tags { display: flex; gap: 6px; flex-shrink: 0; }
+  .risk-card .sev { font-family: var(--mono); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .risk-card .sev.high { background: var(--stop-soft); color: var(--stop); }
+  .risk-card .sev.medium { background: var(--warn-soft); color: var(--warn); }
+  .risk-card .sev.low { background: var(--paper-2); color: var(--muted); }
+  .risk-card .cat { font-family: var(--mono); font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 3px; background: var(--paper-2); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+  .risk-card .reason { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; margin-bottom: 8px; }
+  .risk-card .ifreal { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; padding: 6px 10px; background: var(--paper-2); border-radius: 3px; }
+  .risk-card .ifreal::before { content: "IF REALIZED · "; font-weight: 700; font-size: 10px; letter-spacing: 0.06em; color: var(--stop); }
+  .risk-card .mit { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-2); padding-top: 8px; border-top: 1px dashed var(--line); line-height: 1.55; }
+  .risk-card .mit::before { content: "MITIGATION · "; font-family: var(--body); font-style: normal; font-weight: 700; font-size: 10px; letter-spacing: 0.06em; color: var(--go); }
+
+  /* === §5 Recommendation === */
+  .rec-main { background: var(--ink); color: var(--paper); padding: 36px 40px; border-radius: 6px; border: 3px solid var(--accent); margin-bottom: 24px; }
+  .rec-main .kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 700; }
+  .rec-main h4 { font-family: var(--display); font-size: 36px; font-weight: 800; margin: 0 0 20px; letter-spacing: -0.02em; line-height: 1.1; }
+  .rec-main h4 .pick { background: var(--accent); color: var(--ink); padding: 2px 14px; border-radius: 4px; }
+  .rec-main .support { margin: 0 0 18px; padding: 0; list-style: none; counter-reset: sup; }
+  .rec-main .support li { counter-increment: sup; padding: 10px 0 10px 42px; border-bottom: 1px dashed #333; position: relative; font-size: 14px; line-height: 1.6; color: #ebebe4; }
+  .rec-main .support li:last-child { border-bottom: 0; }
+  .rec-main .support li::before { content: counter(sup); position: absolute; left: 0; top: 8px; font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1; width: 32px; text-align: center; }
+  .rec-main .caveat { font-family: var(--serif); font-style: italic; font-size: 13px; color: #c8c8c3; padding-top: 18px; border-top: 1px solid #444; }
+  .rec-main .caveat strong { font-family: var(--body); font-style: normal; color: var(--accent); }
+
+  .rec-block { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 24px 28px; margin-bottom: 20px; }
+  .rec-block h5 { font-family: var(--display); font-size: 18px; font-weight: 800; margin: 0 0 14px; letter-spacing: -0.01em; padding-bottom: 8px; border-bottom: 2px solid var(--ink); display: inline-block; }
+  .rec-block ul { margin: 0; padding-left: 22px; font-size: 13.5px; line-height: 1.7; color: var(--ink-2); }
+  .rec-block ul li { padding: 3px 0; }
+  .rec-block ul li strong { color: var(--ink); }
+
+  .fork-grid { display: grid; gap: 14px; }
+  .fork-card { padding: 18px 22px; border-radius: 6px; border-left: 4px solid var(--muted-2); background: var(--paper-2); }
+  .fork-card.a { border-left-color: var(--a-primary); background: var(--a-tint); }
+  .fork-card.b { border-left-color: var(--b-primary); background: var(--b-tint); }
+  .fork-card.walk { border-left-color: var(--stop); background: var(--stop-soft); }
+  .fork-card .persona { font-family: var(--display); font-size: 14px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.005em; }
+  .fork-card .persona .arrow { color: var(--muted); margin: 0 6px; }
+  .fork-card .persona .go { font-weight: 800; }
+  .fork-card.a .persona .go { color: var(--a-primary); }
+  .fork-card.b .persona .go { color: var(--b-primary); }
+  .fork-card.walk .persona .go { color: var(--stop); }
+  .fork-card .reason { font-size: 13px; line-height: 1.6; color: var(--ink-2); }
+
+  .action-list { display: grid; gap: 10px; }
+  .action-item { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; padding: 12px 16px; background: white; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; }
+  .action-item .aid { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--ink); line-height: 1.2; }
+  .action-item .atext { font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+  .action-item .atext strong { color: var(--ink); }
+
+  /* === Footer (mandatory) === */
+  footer { margin-top: 40px; }
+  .brand-block { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; padding: 44px 0 28px; border-top: 1px solid var(--line); }
+  .brand-block .brand-mark { font-family: var(--display); font-weight: 800; font-size: 92px; line-height: 0.92; letter-spacing: -0.045em; color: var(--ink); margin: 0; }
+  .brand-block .brand-mark .dot-yellow { color: var(--accent); -webkit-text-stroke: 1px var(--ink); }
+  .brand-block .brand-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); margin-top: 10px; }
+  .brand-block .brand-sub strong { font-style: normal; font-family: var(--display); font-weight: 700; color: var(--ink); }
+  .socials { display: flex; gap: 12px; align-items: center; }
+  .socials a { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper); color: var(--ink); transition: all 0.18s ease; }
+  .socials a:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+  .socials a svg { width: 20px; height: 20px; display: block; }
+  .socials a.xhs { width: 46px; height: 46px; padding: 0; border-radius: 11px; background: #ff2442; border: 1.5px solid #ff2442; color: white; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-weight: 900; font-size: 11px; font-style: italic; letter-spacing: -0.02em; line-height: 1; }
+  .socials a.xhs span { display: inline-block; transform: skewX(-6deg); white-space: nowrap; }
+  .socials a.xhs:hover { background: #d11838; border-color: #d11838; transform: translateY(-2px); }
+  .foot-meta { font-size: 11px; color: var(--muted); line-height: 1.75; padding-top: 16px; }
+  .foot-meta strong { color: var(--ink); font-weight: 700; }
+
+  /* === Unified report toolbar — brand chip + segmented lang toggle + export buttons === */
+  /* Brand chip (top of header — highlighted, one per skill family) */
+  .brand-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent, #facc15);
+    color: var(--ink, #1f1f1d);
+    font-family: var(--display, -apple-system, "SF Pro Display", "Helvetica Neue", sans-serif);
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.005em;
+    line-height: 1.1;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1.75px solid var(--ink, #1f1f1d);
+    box-shadow: 3px 3px 0 var(--ink, #1f1f1d);
+    margin-bottom: 18px;
+  }
+  /* Bottom-right floating toolbar */
+  .report-tools {
+    position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+    display: flex; gap: 10px; align-items: center;
+  }
+  /* Segmented [EN | 中文] toggle */
+  .report-tools .lang-toggle {
+    display: inline-flex;
+    background: #1f1f1d;
+    border-radius: 999px;
+    padding: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.20);
+  }
+  .report-tools .lang-toggle button {
+    background: transparent;
+    color: #9a9a92;
+    border: 0;
+    padding: 9px 16px;
+    font-family: var(--mono, "SF Mono", "JetBrains Mono", Menlo, monospace);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.15s ease;
+    min-width: 54px;
+  }
+  .report-tools .lang-toggle button:hover { color: #fafaf7; }
+  html[lang="en"] .report-tools .lang-toggle button[data-set="en"],
+  html[lang="zh"] .report-tools .lang-toggle button[data-set="zh"] {
+    background: var(--accent, #facc15);
+    color: #1f1f1d;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  /* Export buttons — separate black pills */
+  .report-tools .export-btn {
+    background: #1f1f1d;
+    color: #fafaf7;
+    border: 0;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: var(--body, -apple-system, "SF Pro Text", sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.18s ease;
+  }
+  .report-tools .export-btn:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+  }
+  /* === Language toggle content swap === */
+  html[lang="en"] [data-lang="zh"] { display: none !important; }
+  html[lang="zh"] [data-lang="en"] { display: none !important; }
+
+  /* === Print === */
+  @media print {
+    @page { margin: 14mm; }
+    body { background: white; }
+    .page { padding: 0; max-width: none; }
+    h1 { font-size: 40px; }
+    .report-tools { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .verdict, .gauge-card, .gauge-delta, .offer-card, .signal-card, .dim-row,
+    .risk-card, .risk-col-head, .rec-main, .rec-block, .fork-card, .action-item,
+    .toc, .notice, .breakdown-note { break-inside: avoid; page-break-inside: avoid; }
+    h1, h2, h3, h4, .section-head { break-after: avoid; page-break-after: avoid; }
+    section { margin-bottom: 18px; }
+  }
+
+  @media (max-width: 720px) {
+    .page { padding: 32px 22px 64px; }
+    h1 { font-size: 34px; }
+    .offer-row, .gauges, .dim-notes, .signal-grid, .risk-columns { grid-template-columns: 1fr; }
+    .verdict { grid-template-columns: 1fr; gap: 18px; }
+    .stars .row, .stars .label { text-align: left; }
+    .toc { grid-template-columns: 1fr; }
+    .toc ol { columns: 1; }
+    .brand-block { grid-template-columns: 1fr; gap: 18px; }
+    .brand-block .brand-mark { font-size: 56px; }
+    .socials { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     REPORT TOOLS · bottom-right floating toolbar
+     ============================================================ -->
+<div class="report-tools" role="toolbar" aria-label="Report tools">
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-set="en" onclick="setLang('en')">EN</button>
+    <button type="button" data-set="zh" onclick="setLang('zh')">中文</button>
+  </div>
+  <button type="button" class="export-btn" onclick="exportMarkdown()">Export MD</button>
+  <button type="button" class="export-btn" onclick="window.print()">Export PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <div class="brand-chip">⚖️ <span data-lang="en">Offer Decision Report</span><span data-lang="zh">Offer 决策报告</span></div>
+  <div class="meta-strip">
+    <span><span data-lang="en">Offer Compare Report</span><span data-lang="zh">Offer 决策报告</span></span>
+    <span class="dot"></span>
+    <span>{{YYYY-MM-DD}}</span>
+    <span class="dot"></span>
+    <span>{{CANDIDATE}}</span>
+  </div>
+
+  <h1>
+    <span class="a">{{A_COMPANY}}</span><span class="vs">vs</span><span class="b">{{B_COMPANY}}</span>
+    <span class="tag">
+      <span data-lang="en">{{CANDIDATE_ONE_LINER_EN}}</span>
+      <span data-lang="zh">{{CANDIDATE_ONE_LINER_ZH}}</span>
+    </span>
+  </h1>
+
+  <div class="header-rule"></div>
+
+  <!-- Two-column offer summary -->
+  <div class="offer-row">
+    <div class="offer-card a">
+      <div class="kicker">Offer A</div>
+      <div class="co">{{A_COMPANY}}</div>
+      <div class="ro">{{A_ROLE}} · {{A_LEVEL}} · {{A_LOCATION}}</div>
+      <div class="row"><span>Base</span><span>{{A_BASE}}</span></div>
+      <div class="row"><span>Bonus (target)</span><span>{{A_BONUS}}</span></div>
+      <div class="row"><span>RSU Y1 vest</span><span>{{A_RSU_Y1}}</span></div>
+      <div class="row"><span>Sign-on</span><span>{{A_SIGNON}}</span></div>
+      <div class="row"><span>Y1 total</span><span>{{A_Y1_TOTAL}}</span></div>
+      <div class="row"><span>4-yr TC</span><span>{{A_4YR_TC_RANGE}}</span></div>
+    </div>
+    <div class="offer-card b">
+      <div class="kicker">Offer B</div>
+      <div class="co">{{B_COMPANY}}</div>
+      <div class="ro">{{B_ROLE}} · {{B_LEVEL}} · {{B_LOCATION}}</div>
+      <div class="row"><span>Base</span><span>{{B_BASE}}</span></div>
+      <div class="row"><span>Bonus (target)</span><span>{{B_BONUS}}</span></div>
+      <div class="row"><span>RSU Y1 vest</span><span>{{B_RSU_Y1}}</span></div>
+      <div class="row"><span>Sign-on</span><span>{{B_SIGNON}}</span></div>
+      <div class="row"><span>Y1 total</span><span>{{B_Y1_TOTAL}}</span></div>
+      <div class="row"><span>4-yr TC</span><span>{{B_4YR_TC_RANGE}}</span></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TOC
+       ============================================================ -->
+  <div class="toc">
+    <div class="kicker">Inside</div>
+    <ol>
+      <li><a href="#assumptions">⚠️ <span data-lang="en">Assumptions</span><span data-lang="zh">假设说明</span></a></li>
+      <li><a href="#verdict"><span data-lang="en">Verdict</span><span data-lang="zh">推荐结论</span></a></li>
+      <li><a href="#metrics"><span data-lang="en">Weighted scores</span><span data-lang="zh">加权总分</span></a></li>
+      <li><a href="#breakdown">§1 · <span data-lang="en">Offer Breakdown</span><span data-lang="zh">Offer 明细</span></a></li>
+      <li><a href="#dimensions">§2 · <span data-lang="en">Dimension Comparison</span><span data-lang="zh">7 维对比</span></a></li>
+      <li><a href="#signals">§3 · <span data-lang="en">Hidden Signals</span><span data-lang="zh">隐藏信号</span></a></li>
+      <li><a href="#risks">§4 · <span data-lang="en">Risk Analysis</span><span data-lang="zh">风险分析</span></a></li>
+      <li><a href="#recommendation">§5 · <span data-lang="en">Recommendation</span><span data-lang="zh">最终推荐</span></a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================================
+       ASSUMPTIONS (必填 · 最关键章节)
+       ============================================================ -->
+  <div class="notice" id="assumptions">
+    <div class="head">⚠️ <span data-lang="en">Assumptions this report depends on</span><span data-lang="zh">本报告所依赖的假设</span></div>
+    <ul>
+      <li>{{ASSUMPTION_1}}</li>
+      <li>{{ASSUMPTION_2}}</li>
+      <li>{{ASSUMPTION_3}}</li>
+      <li>{{ASSUMPTION_4}}</li>
+      <li>{{ASSUMPTION_5}}</li>
+      <!-- Add more <li> as needed. Typical assumptions:
+           - RSU vest schedule 25/25/25/25 unless stated
+           - Currency conversion rate (e.g., USD:CNY = 7.2)
+           - Bonus target %
+           - RSU refresh assumption (default: no refresh unless HM committed)
+           - Stock price range assumption (±30%)
+           - User priorities weighting (or Balanced default if none given)
+      -->
+    </ul>
+    <span class="fix">
+      <span data-lang="en">Any of these wrong? Tell me and I'll regenerate.</span>
+      <span data-lang="zh">任何一条不对？告诉我我重新生成。</span>
+    </span>
+  </div>
+
+  <!-- ============================================================
+       VERDICT (必填 · 不许中性)
+       ============================================================ -->
+  <div class="verdict" id="verdict">
+    <div class="left">
+      <div class="kicker"><span data-lang="en">Recommendation</span><span data-lang="zh">决策推荐</span></div>
+      <h2>
+        <span data-lang="en">Take <span class="pick">{{PICK_LABEL_EN}}</span></span>
+        <span data-lang="zh">建议接 <span class="pick">{{PICK_LABEL_ZH}}</span></span>
+      </h2>
+      <div class="sub">
+        <span data-lang="en">{{VERDICT_ONE_LINER_EN}}</span>
+        <span data-lang="zh">{{VERDICT_ONE_LINER_ZH}}</span>
+      </div>
+    </div>
+    <div class="stars">
+      <div class="row">{{STAR_ROW}}</div>
+      <div class="label"><span data-lang="en">Confidence</span><span data-lang="zh">决心指数</span></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GAUGES (Weighted scores · A vs B)
+       ============================================================ -->
+  <div class="gauges" id="metrics">
+    <div class="gauge-card a">
+      <div class="label">Offer A</div>
+      <div class="co">{{A_COMPANY}}</div>
+      <svg viewBox="0 0 120 120" width="100" height="100">
+        <circle cx="60" cy="60" r="50" stroke="#eff6ff" stroke-width="12" fill="none"/>
+        <!-- stroke-dasharray = A_TOTAL/100 * 314 (2πr with r=50); adjust A_DASH accordingly -->
+        <circle cx="60" cy="60" r="50" stroke="#1e40af" stroke-width="12" fill="none"
+                stroke-dasharray="{{A_DASH}} 314" stroke-linecap="round"
+                transform="rotate(-90 60 60)"/>
+      </svg>
+      <div class="score">{{A_TOTAL}}<span class="of">/100</span></div>
+      <div class="caption">
+        <span data-lang="en">{{A_TOTAL_CAPTION_EN}}</span>
+        <span data-lang="zh">{{A_TOTAL_CAPTION_ZH}}</span>
+      </div>
+    </div>
+
+    <div class="gauge-delta">
+      <span class="arrow">{{DELTA_ARROW}}</span>
+      <span class="num">Δ {{DELTA_NUM}}</span>
+      <div class="cap">
+        <span data-lang="en">{{DELTA_CAPTION_EN}}</span>
+        <span data-lang="zh">{{DELTA_CAPTION_ZH}}</span>
+      </div>
+    </div>
+
+    <div class="gauge-card b">
+      <div class="label">Offer B</div>
+      <div class="co">{{B_COMPANY}}</div>
+      <svg viewBox="0 0 120 120" width="100" height="100">
+        <circle cx="60" cy="60" r="50" stroke="#ecfdf5" stroke-width="12" fill="none"/>
+        <circle cx="60" cy="60" r="50" stroke="#065f46" stroke-width="12" fill="none"
+                stroke-dasharray="{{B_DASH}} 314" stroke-linecap="round"
+                transform="rotate(-90 60 60)"/>
+      </svg>
+      <div class="score">{{B_TOTAL}}<span class="of">/100</span></div>
+      <div class="caption">
+        <span data-lang="en">{{B_TOTAL_CAPTION_EN}}</span>
+        <span data-lang="zh">{{B_TOTAL_CAPTION_ZH}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       §1 · OFFER BREAKDOWN
+       ============================================================ -->
+  <section id="breakdown">
+    <div class="section-head">
+      <span class="num">§1</span>
+      <h3><span data-lang="en">Offer Breakdown · A vs B</span><span data-lang="zh">Offer 明细 · A vs B</span></h3>
+      <span class="pill">Base · Bonus · RSU · Sign-on · 4-yr TC</span>
+    </div>
+    <p class="section-intro">
+      <span data-lang="en">Cash + equity structure side-by-side. Winner cell = better for candidate (higher cash, lower risk, or better structure). All numbers are ranges, not points.</span>
+      <span data-lang="zh">Cash + equity 结构并排对照。金色格 = 对候选人更优（更高现金 / 更低风险 / 更好结构）。所有数字为区间，非单点。</span>
+    </p>
+
+    <div class="breakdown-wrap">
+      <table class="breakdown">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="a">Offer A · {{A_COMPANY}}</th>
+            <th class="b">Offer B · {{B_COMPANY}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric">Base</td>
+            <td class="val">{{A_BASE}}<span class="note">{{A_BASE_NOTE}}</span></td>
+            <td class="val">{{B_BASE}}<span class="note">{{B_BASE_NOTE}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Bonus</td>
+            <td class="val">{{A_BONUS}}<span class="note">{{A_BONUS_NOTE}}</span></td>
+            <td class="val">{{B_BONUS}}<span class="note">{{B_BONUS_NOTE}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">RSU (Y1 vest)</td>
+            <td class="val">{{A_RSU_Y1}}<span class="note">{{A_RSU_NOTE}}</span></td>
+            <td class="val">{{B_RSU_Y1}}<span class="note">{{B_RSU_NOTE}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Sign-on</td>
+            <td class="val">{{A_SIGNON}}<span class="note">{{A_SIGNON_NOTE}}</span></td>
+            <td class="val">{{B_SIGNON}}<span class="note">{{B_SIGNON_NOTE}}</span></td>
+          </tr>
+          <tr class="total">
+            <td class="metric">Y1 total</td>
+            <td class="val">{{A_Y1_TOTAL}}</td>
+            <td class="val">{{B_Y1_TOTAL}}</td>
+          </tr>
+          <tr class="total">
+            <td class="metric">4-year TC (low ~ high)</td>
+            <td class="val">{{A_4YR_TC_RANGE}}<span class="note">{{A_4YR_NOTE}}</span></td>
+            <td class="val">{{B_4YR_TC_RANGE}}<span class="note">{{B_4YR_NOTE}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Equity Risk</td>
+            <td class="val"><span class="risk-badge {{A_EQUITY_RISK_CLASS}}">{{A_EQUITY_RISK}}</span><span class="note">{{A_EQUITY_RISK_REASON}}</span></td>
+            <td class="val"><span class="risk-badge {{B_EQUITY_RISK_CLASS}}">{{B_EQUITY_RISK}}</span><span class="note">{{B_EQUITY_RISK_REASON}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Stability</td>
+            <td class="val"><span class="risk-badge {{A_STABILITY_CLASS}}">{{A_STABILITY}}</span><span class="note">{{A_STABILITY_REASON}}</span></td>
+            <td class="val"><span class="risk-badge {{B_STABILITY_CLASS}}">{{B_STABILITY}}</span><span class="note">{{B_STABILITY_REASON}}</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Comp Quality Type</td>
+            <td class="val">{{A_COMP_TYPE}}<span class="note">{{A_COMP_TYPE_REASON}}</span></td>
+            <td class="val">{{B_COMP_TYPE}}<span class="note">{{B_COMP_TYPE_REASON}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="breakdown-note">
+      <span data-lang="en">{{BREAKDOWN_NOTE_EN}}</span>
+      <span data-lang="zh">{{BREAKDOWN_NOTE_ZH}}</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §2 · DIMENSION COMPARISON
+       ============================================================ -->
+  <section id="dimensions">
+    <div class="section-head">
+      <span class="num">§2</span>
+      <h3><span data-lang="en">Dimension Comparison</span><span data-lang="zh">7 维对比</span></h3>
+      <span class="pill">7 dims · 0-10</span>
+    </div>
+    <p class="section-intro">
+      <span data-lang="en">Seven dimensions, each 0-10. Winner tag on the right. Weighted total (top gauge) uses your priorities — or Balanced default if none provided.</span>
+      <span data-lang="zh">7 个维度，每维 0-10。右侧标 winner。上方 gauge 的加权总分按你的 priorities 计算 · 未提供则用 Balanced default。</span>
+    </p>
+
+    <div class="dim-list">
+      <!-- Repeat this .dim-row block 7 times, once per dimension.
+           winner-badge class = a / b / tie
+           bar-fill width = score/10 * 100%
+      -->
+
+      <!-- Dim 1: Compensation Quality -->
+      <div class="dim-row">
+        <div class="head">
+          <div class="name"><span class="icon">💰</span> <span data-lang="en">Compensation Quality</span><span data-lang="zh">薪酬质量</span></div>
+          <span class="winner-badge {{DIM1_WINNER_CLASS}}">🏆 {{DIM1_WINNER}}</span>
+        </div>
+        <div class="dim-bars">
+          <span class="who a">A · {{DIM1_A}}</span>
+          <div class="bar-track"><div class="bar-fill a" style="width: {{DIM1_A_PCT}}%"></div></div>
+          <span class="score-num"></span>
+        </div>
+        <div class="dim-bars">
+          <span class="who b">B · {{DIM1_B}}</span>
+          <div class="bar-track"><div class="bar-fill b" style="width: {{DIM1_B_PCT}}%"></div></div>
+          <span class="score-num"></span>
+        </div>
+        <div class="dim-notes">
+          <div class="a-note"><span data-lang="en">{{DIM1_A_NOTE_EN}}</span><span data-lang="zh">{{DIM1_A_NOTE_ZH}}</span></div>
+          <div class="b-note"><span data-lang="en">{{DIM1_B_NOTE_EN}}</span><span data-lang="zh">{{DIM1_B_NOTE_ZH}}</span></div>
+        </div>
+        <div class="dim-winner-note">
+          <span data-lang="en">{{DIM1_WINNER_NOTE_EN}}</span>
+          <span data-lang="zh">{{DIM1_WINNER_NOTE_ZH}}</span>
+          <span class="conf">Conf: {{DIM1_CONF}}</span>
+        </div>
+      </div>
+
+      <!-- Dim 2-7: same structure — repeat 6 more times for:
+           📈 Career Growth · 🤖 AI / Future Exposure · 🏢 Company Strength ·
+           👤 Manager / Team Risk · 🔁 Promotion Speed · 🌍 Location / Lifestyle
+      -->
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §3 · HIDDEN SIGNALS
+       ============================================================ -->
+  <section id="signals">
+    <div class="section-head">
+      <span class="num">§3</span>
+      <h3><span data-lang="en">Hidden Signals</span><span data-lang="zh">隐藏信号</span></h3>
+      <span class="pill">5 signals · winner per row</span>
+    </div>
+    <p class="section-intro">
+      <span data-lang="en">Five signals that don't show up on the offer letter but decide which one you'll regret in 3 years. Each has one winner.</span>
+      <span data-lang="zh">Offer letter 上不会告诉你、但 3 年后决定你后不后悔的 5 条信号。每条都必须选出一个 winner。</span>
+    </p>
+
+    <div class="signal-grid">
+      <!-- Signal 1 · Front-loaded -->
+      <div class="signal-card {{SIG1_WINNER_CLASS}}-wins">
+        <div class="head">
+          <div class="sname"><span class="num">01</span> <span data-lang="en">Front-loaded</span><span data-lang="zh">前重后轻</span></div>
+          <span class="winner-tag {{SIG1_WINNER_CLASS}}">🏆 {{SIG1_WINNER}}</span>
+        </div>
+        <div class="verdict-line">
+          <span data-lang="en">{{SIG1_VERDICT_EN}}</span>
+          <span data-lang="zh">{{SIG1_VERDICT_ZH}}</span>
+        </div>
+        <div class="split">
+          <div class="for"><span data-lang="en">{{SIG1_FOR_EN}}</span><span data-lang="zh">{{SIG1_FOR_ZH}}</span></div>
+          <div class="against"><span data-lang="en">{{SIG1_AGAINST_EN}}</span><span data-lang="zh">{{SIG1_AGAINST_ZH}}</span></div>
+        </div>
+      </div>
+
+      <!-- Signal 2 · Long-term Upside -->
+      <div class="signal-card {{SIG2_WINNER_CLASS}}-wins">
+        <div class="head">
+          <div class="sname"><span class="num">02</span> <span data-lang="en">Long-term Upside</span><span data-lang="zh">长期上行空间</span></div>
+          <span class="winner-tag {{SIG2_WINNER_CLASS}}">🏆 {{SIG2_WINNER}}</span>
+        </div>
+        <div class="verdict-line"><span data-lang="en">{{SIG2_VERDICT_EN}}</span><span data-lang="zh">{{SIG2_VERDICT_ZH}}</span></div>
+        <div class="split">
+          <div class="for"><span data-lang="en">{{SIG2_FOR_EN}}</span><span data-lang="zh">{{SIG2_FOR_ZH}}</span></div>
+          <div class="against"><span data-lang="en">{{SIG2_AGAINST_EN}}</span><span data-lang="zh">{{SIG2_AGAINST_ZH}}</span></div>
+        </div>
+      </div>
+
+      <!-- Signal 3 · Uncertainty (winner = 更 uncertain 的一方 — 反向 signal，"赢"其实是"更 risky") -->
+      <div class="signal-card {{SIG3_WINNER_CLASS}}-wins">
+        <div class="head">
+          <div class="sname"><span class="num">03</span> <span data-lang="en">Uncertainty (higher = riskier)</span><span data-lang="zh">不确定性（分越高越 risky）</span></div>
+          <span class="winner-tag {{SIG3_WINNER_CLASS}}">⚠️ {{SIG3_WINNER}}</span>
+        </div>
+        <div class="verdict-line"><span data-lang="en">{{SIG3_VERDICT_EN}}</span><span data-lang="zh">{{SIG3_VERDICT_ZH}}</span></div>
+        <div class="split">
+          <div class="for"><span data-lang="en">{{SIG3_FOR_EN}}</span><span data-lang="zh">{{SIG3_FOR_ZH}}</span></div>
+          <div class="against"><span data-lang="en">{{SIG3_AGAINST_EN}}</span><span data-lang="zh">{{SIG3_AGAINST_ZH}}</span></div>
+        </div>
+      </div>
+
+      <!-- Signal 4 · Better for Resume -->
+      <div class="signal-card {{SIG4_WINNER_CLASS}}-wins">
+        <div class="head">
+          <div class="sname"><span class="num">04</span> <span data-lang="en">Better for Resume</span><span data-lang="zh">简历上更值钱</span></div>
+          <span class="winner-tag {{SIG4_WINNER_CLASS}}">🏆 {{SIG4_WINNER}}</span>
+        </div>
+        <div class="verdict-line"><span data-lang="en">{{SIG4_VERDICT_EN}}</span><span data-lang="zh">{{SIG4_VERDICT_ZH}}</span></div>
+        <div class="split">
+          <div class="for"><span data-lang="en">{{SIG4_FOR_EN}}</span><span data-lang="zh">{{SIG4_FOR_ZH}}</span></div>
+          <div class="against"><span data-lang="en">{{SIG4_AGAINST_EN}}</span><span data-lang="zh">{{SIG4_AGAINST_ZH}}</span></div>
+        </div>
+      </div>
+
+      <!-- Signal 5 · Better for Switching Later -->
+      <div class="signal-card {{SIG5_WINNER_CLASS}}-wins">
+        <div class="head">
+          <div class="sname"><span class="num">05</span> <span data-lang="en">Better for Switching Later</span><span data-lang="zh">未来跳槽更便利</span></div>
+          <span class="winner-tag {{SIG5_WINNER_CLASS}}">🏆 {{SIG5_WINNER}}</span>
+        </div>
+        <div class="verdict-line"><span data-lang="en">{{SIG5_VERDICT_EN}}</span><span data-lang="zh">{{SIG5_VERDICT_ZH}}</span></div>
+        <div class="split">
+          <div class="for"><span data-lang="en">{{SIG5_FOR_EN}}</span><span data-lang="zh">{{SIG5_FOR_ZH}}</span></div>
+          <div class="against"><span data-lang="en">{{SIG5_AGAINST_EN}}</span><span data-lang="zh">{{SIG5_AGAINST_ZH}}</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §4 · RISK ANALYSIS (two columns, one per offer)
+       ============================================================ -->
+  <section id="risks">
+    <div class="section-head">
+      <span class="num">§4</span>
+      <h3><span data-lang="en">Risk Analysis</span><span data-lang="zh">风险分析</span></h3>
+      <span class="pill">4-6 risks per offer</span>
+    </div>
+    <p class="section-intro">
+      <span data-lang="en">Every offer has risks. Explicit is safer than optimistic. Each risk gets a severity, category, and mitigation plan.</span>
+      <span data-lang="zh">每份 offer 都有风险，明说比乐观更安全。每条 risk 都标 severity / 类别 / mitigation。</span>
+    </p>
+
+    <div class="risk-columns">
+      <!-- Offer A risks -->
+      <div class="risk-col">
+        <div class="risk-col-head a">
+          <div class="co">{{A_COMPANY}} <small>Offer A</small></div>
+          <div class="summary">
+            <span data-lang="en">{{A_RISK_SUMMARY_EN}}</span>
+            <span data-lang="zh">{{A_RISK_SUMMARY_ZH}}</span>
+          </div>
+        </div>
+        <div class="risk-list">
+          <!-- Repeat this .risk-card 4-6 times per offer.
+               Class: high / medium / low
+               Category label: Equity / Role / Team / Market / Life
+          -->
+          <div class="risk-card {{A_RISK1_SEV}}">
+            <div class="rhead">
+              <div class="rname"><span data-lang="en">{{A_RISK1_NAME_EN}}</span><span data-lang="zh">{{A_RISK1_NAME_ZH}}</span></div>
+              <div class="tags">
+                <span class="sev {{A_RISK1_SEV}}">{{A_RISK1_SEV_LABEL}}</span>
+                <span class="cat">{{A_RISK1_CAT}}</span>
+              </div>
+            </div>
+            <div class="reason"><span data-lang="en">{{A_RISK1_REASON_EN}}</span><span data-lang="zh">{{A_RISK1_REASON_ZH}}</span></div>
+            <div class="ifreal"><span data-lang="en">{{A_RISK1_IFREAL_EN}}</span><span data-lang="zh">{{A_RISK1_IFREAL_ZH}}</span></div>
+            <div class="mit"><span data-lang="en">{{A_RISK1_MIT_EN}}</span><span data-lang="zh">{{A_RISK1_MIT_ZH}}</span></div>
+          </div>
+
+          <!-- ...more risk cards for Offer A (4-6 total)... -->
+
+        </div>
+      </div>
+
+      <!-- Offer B risks -->
+      <div class="risk-col">
+        <div class="risk-col-head b">
+          <div class="co">{{B_COMPANY}} <small>Offer B</small></div>
+          <div class="summary">
+            <span data-lang="en">{{B_RISK_SUMMARY_EN}}</span>
+            <span data-lang="zh">{{B_RISK_SUMMARY_ZH}}</span>
+          </div>
+        </div>
+        <div class="risk-list">
+          <div class="risk-card {{B_RISK1_SEV}}">
+            <div class="rhead">
+              <div class="rname"><span data-lang="en">{{B_RISK1_NAME_EN}}</span><span data-lang="zh">{{B_RISK1_NAME_ZH}}</span></div>
+              <div class="tags">
+                <span class="sev {{B_RISK1_SEV}}">{{B_RISK1_SEV_LABEL}}</span>
+                <span class="cat">{{B_RISK1_CAT}}</span>
+              </div>
+            </div>
+            <div class="reason"><span data-lang="en">{{B_RISK1_REASON_EN}}</span><span data-lang="zh">{{B_RISK1_REASON_ZH}}</span></div>
+            <div class="ifreal"><span data-lang="en">{{B_RISK1_IFREAL_EN}}</span><span data-lang="zh">{{B_RISK1_IFREAL_ZH}}</span></div>
+            <div class="mit"><span data-lang="en">{{B_RISK1_MIT_EN}}</span><span data-lang="zh">{{B_RISK1_MIT_ZH}}</span></div>
+          </div>
+
+          <!-- ...more risk cards for Offer B (4-6 total)... -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §5 · RECOMMENDATION
+       ============================================================ -->
+  <section id="recommendation">
+    <div class="section-head">
+      <span class="num">§5</span>
+      <h3><span data-lang="en">Recommendation</span><span data-lang="zh">最终推荐</span></h3>
+      <span class="pill">Not neutral</span>
+    </div>
+
+    <!-- Main recommendation banner -->
+    <div class="rec-main">
+      <div class="kicker">🎯 <span data-lang="en">My call</span><span data-lang="zh">我的推荐</span></div>
+      <h4>
+        <span data-lang="en">Take <span class="pick">{{PICK_LABEL_EN}}</span></span>
+        <span data-lang="zh">接 <span class="pick">{{PICK_LABEL_ZH}}</span></span>
+      </h4>
+      <ol class="support">
+        <li><span data-lang="en">{{REC_SUPPORT_1_EN}}</span><span data-lang="zh">{{REC_SUPPORT_1_ZH}}</span></li>
+        <li><span data-lang="en">{{REC_SUPPORT_2_EN}}</span><span data-lang="zh">{{REC_SUPPORT_2_ZH}}</span></li>
+        <li><span data-lang="en">{{REC_SUPPORT_3_EN}}</span><span data-lang="zh">{{REC_SUPPORT_3_ZH}}</span></li>
+      </ol>
+      <div class="caveat">
+        <strong><span data-lang="en">Caveats:</span><span data-lang="zh">保留意见：</span></strong>
+        <span data-lang="en">{{REC_CAVEAT_EN}}</span>
+        <span data-lang="zh">{{REC_CAVEAT_ZH}}</span>
+      </div>
+    </div>
+
+    <!-- Tradeoff block -->
+    <div class="rec-block">
+      <h5><span data-lang="en">What you give up by picking {{PICK_LABEL_EN}}</span><span data-lang="zh">选 {{PICK_LABEL_ZH}} 你要放弃什么</span></h5>
+      <ul>
+        <li><span data-lang="en">{{TRADEOFF_1_EN}}</span><span data-lang="zh">{{TRADEOFF_1_ZH}}</span></li>
+        <li><span data-lang="en">{{TRADEOFF_2_EN}}</span><span data-lang="zh">{{TRADEOFF_2_ZH}}</span></li>
+        <li><span data-lang="en">{{TRADEOFF_3_EN}}</span><span data-lang="zh">{{TRADEOFF_3_ZH}}</span></li>
+      </ul>
+    </div>
+
+    <!-- If-you-are-X fork -->
+    <div class="rec-block">
+      <h5><span data-lang="en">Different angle: if you are…</span><span data-lang="zh">换个角度：如果你是……</span></h5>
+      <div class="fork-grid">
+        <!-- Fork 1: 类型 → 推 A / B / walk-away -->
+        <div class="fork-card {{FORK1_CLASS}}">
+          <div class="persona">
+            <span data-lang="en">If you are <strong>"{{FORK1_PERSONA_EN}}"</strong> <span class="arrow">→</span> <span class="go">Take {{FORK1_PICK_EN}}</span></span>
+            <span data-lang="zh">如果你是 <strong>"{{FORK1_PERSONA_ZH}}"</strong> <span class="arrow">→</span> <span class="go">选 {{FORK1_PICK_ZH}}</span></span>
+          </div>
+          <div class="reason"><span data-lang="en">{{FORK1_REASON_EN}}</span><span data-lang="zh">{{FORK1_REASON_ZH}}</span></div>
+        </div>
+
+        <!-- Fork 2 -->
+        <div class="fork-card {{FORK2_CLASS}}">
+          <div class="persona">
+            <span data-lang="en">If you are <strong>"{{FORK2_PERSONA_EN}}"</strong> <span class="arrow">→</span> <span class="go">Take {{FORK2_PICK_EN}}</span></span>
+            <span data-lang="zh">如果你是 <strong>"{{FORK2_PERSONA_ZH}}"</strong> <span class="arrow">→</span> <span class="go">选 {{FORK2_PICK_ZH}}</span></span>
+          </div>
+          <div class="reason"><span data-lang="en">{{FORK2_REASON_EN}}</span><span data-lang="zh">{{FORK2_REASON_ZH}}</span></div>
+        </div>
+
+        <!-- Fork 3 (optional · often walk-away hybrid path) -->
+        <div class="fork-card {{FORK3_CLASS}}">
+          <div class="persona">
+            <span data-lang="en">If you are <strong>"{{FORK3_PERSONA_EN}}"</strong> <span class="arrow">→</span> <span class="go">{{FORK3_PICK_EN}}</span></span>
+            <span data-lang="zh">如果你是 <strong>"{{FORK3_PERSONA_ZH}}"</strong> <span class="arrow">→</span> <span class="go">{{FORK3_PICK_ZH}}</span></span>
+          </div>
+          <div class="reason"><span data-lang="en">{{FORK3_REASON_EN}}</span><span data-lang="zh">{{FORK3_REASON_ZH}}</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next 72 hours -->
+    <div class="rec-block">
+      <h5><span data-lang="en">Next 72 hours · concrete actions</span><span data-lang="zh">接下来 72 小时 · 具体动作</span></h5>
+      <div class="action-list">
+        <div class="action-item">
+          <span class="aid">1</span>
+          <span class="atext"><span data-lang="en">{{ACTION_1_EN}}</span><span data-lang="zh">{{ACTION_1_ZH}}</span></span>
+        </div>
+        <div class="action-item">
+          <span class="aid">2</span>
+          <span class="atext"><span data-lang="en">{{ACTION_2_EN}}</span><span data-lang="zh">{{ACTION_2_ZH}}</span></span>
+        </div>
+        <div class="action-item">
+          <span class="aid">3</span>
+          <span class="atext"><span data-lang="en">{{ACTION_3_EN}}</span><span data-lang="zh">{{ACTION_3_ZH}}</span></span>
+        </div>
+        <div class="action-item">
+          <span class="aid">4</span>
+          <span class="atext"><span data-lang="en">{{ACTION_4_EN}}</span><span data-lang="zh">{{ACTION_4_ZH}}</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER (mandatory — do not simplify or remove)
+       ============================================================ -->
+  <footer>
+    <div class="brand-block">
+      <div>
+        <h2 class="brand-mark">OFFER COMPARE<span class="dot-yellow">.</span></h2>
+        <div class="brand-sub">Created by <strong>Dreameryanyan</strong> · Offer Decision Advisor</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/yanliudesign/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn · yanliudesign">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="https://x.com/yanliudreamer" target="_blank" rel="noopener" aria-label="X (Twitter)" title="X · @yanliudreamer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="xhs" href="https://www.xiaohongshu.com/user/profile/5b2afdf311be104ac3c22931" target="_blank" rel="noopener" aria-label="Xiaohongshu" title="小红书 · Dreameryanyan">
+          <span>小红书</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      Generated {{YYYY-MM-DD}} · {{A_COMPANY}} × {{A_ROLE}} vs {{B_COMPANY}} × {{B_ROLE}} · Candidate: {{CANDIDATE}}<br>
+      <span data-lang="en">Data sources: user-provided offer details + user priorities + public company data. All 4-yr TC as low/high ranges, not points. Recommendation weighted by user priorities — or Balanced default if none. <strong>No fabricated facts.</strong></span>
+      <span data-lang="zh">数据来源：用户提供的 offer 明细 + 用户 priorities + 公开公司情报。4-yr TC 均按 low/high 区间计算，非单点。Recommendation 按用户 priorities 加权 · 若未提供则用 Balanced default。<strong>无杜撰事实</strong>。</span><br>
+      <span data-lang="en">Upstream: JD Skill / Resume Skill / BQ Skill · After decision → BQ Skill for onboarding 90-day stories + negotiation talking points.</span>
+      <span data-lang="zh">上游：JD Skill / Resume Skill / BQ Skill · 决策后转 BQ Skill 挖 onboarding 90-day 故事 + 谈判 talking points。</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // === Language toggle ===
+  function setLang(lang) { document.documentElement.lang = lang; }
+  function toggleLang() {
+    const html = document.documentElement;
+    html.lang = html.lang === 'en' ? 'zh' : 'en';
+  }
+
+  // === Export menu ===
+  function toggleExportMenu(e) {
+    e && e.stopPropagation();
+    const btn = document.querySelector('.rt-btn.pdf');
+    const menu = document.querySelector('.rt-menu');
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    menu.hidden = open;
+  }
+  function closeExportMenu() {
+    const btn = document.querySelector('.rt-btn.pdf');
+    const menu = document.querySelector('.rt-menu');
+    btn.setAttribute('aria-expanded', 'false');
+    menu.hidden = true;
+  }
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.rt-export')) closeExportMenu();
+  });
+
+  // === Export to Markdown ===
+  function exportMarkdown() {
+    const lang = document.documentElement.lang || 'en';
+    const skip = new Set(['SCRIPT', 'STYLE', 'SVG', 'BUTTON']);
+    let out = '';
+
+    function textOf(el) {
+      if (!el) return '';
+      let t = '';
+      for (const n of el.childNodes) {
+        if (n.nodeType === 3) t += n.textContent;
+        else if (n.nodeType === 1) {
+          if (n.tagName === 'SPAN' && n.hasAttribute('data-lang')) {
+            if (n.getAttribute('data-lang') === lang) t += textOf(n);
+          } else t += textOf(n);
+        }
+      }
+      return t.trim().replace(/\s+/g, ' ');
+    }
+
+    function walk(el) {
+      if (!el || skip.has(el.tagName)) return;
+      const tag = el.tagName;
+      if (tag === 'H1') out += `# ${textOf(el)}\n\n`;
+      else if (tag === 'H2') out += `## ${textOf(el)}\n\n`;
+      else if (tag === 'H3') out += `### ${textOf(el)}\n\n`;
+      else if (tag === 'H4') out += `#### ${textOf(el)}\n\n`;
+      else if (tag === 'H5') out += `##### ${textOf(el)}\n\n`;
+      else if (tag === 'P') { const t = textOf(el); if (t) out += `${t}\n\n`; }
+      else if (tag === 'LI') { const t = textOf(el); if (t) out += `- ${t}\n`; }
+      else if (tag === 'TABLE') {
+        const rows = el.querySelectorAll('tr');
+        rows.forEach((r, i) => {
+          const cells = [...r.children].map(c => textOf(c) || ' ').join(' | ');
+          out += `| ${cells} |\n`;
+          if (i === 0) out += `| ${[...r.children].map(() => '---').join(' | ')} |\n`;
+        });
+        out += '\n';
+        return;
+      }
+      else if (tag === 'FOOTER') { out += '\n---\n\n'; }
+      else { for (const c of el.children) walk(c); return; }
+    }
+
+    document.querySelectorAll('.page > *').forEach(walk);
+
+    const slug = document.title.replace(/[^\w-]+/g, '-').toLowerCase();
+    const blob = new Blob([out], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `${slug}.md`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 100);
+  }
+</script>
+
+</body>
+</html>

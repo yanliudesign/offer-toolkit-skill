@@ -21,7 +21,7 @@
 
 </div>
 
-> 📦 Part of **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the complete Search · JD · Resume · BQ workflow.
+> 📦 Part of **[offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)** — the complete Search · JD · Resume · BQ · Compare · Negotiate workflow.
 
 An agent skill for turning a resume, target direction, seed JD, or pile of job links into a searchable HTML job database. It searches public sources, removes duplicates, distinguishes verified facts from inference, and keeps the complete qualified pool instead of collapsing everything into a five-role shortlist.
 
@@ -106,7 +106,7 @@ job-hunt-skill/
 
 ## Related skills
 
-- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — complete Search · JD · Resume · BQ bundle
+- [offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) — complete Search · JD · Resume · BQ · Compare · Negotiate bundle
 - [job-description-skill](https://github.com/yanliudesign/job-description-skill) — deep analysis for a selected role
 - [resume-builder-skill](https://github.com/yanliudesign/resume-builder-skill) — resume generation and beautification
 - [Behavior-question-skill](https://github.com/yanliudesign/Behavior-question-skill) — behavioral interview preparation and story bank

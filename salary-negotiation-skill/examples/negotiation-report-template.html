@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Negotiation Playbook · {{COMPANY}} × {{ROLE}} — {{CANDIDATE}}</title>
+<!--
+  Salary Negotiation Playbook Template · Salary Skill
+  - 单文件 + 一个 Google Fonts 链接 (CJK PDF 嵌入)
+  - 视觉复用 job-description-skill/offer-strategy-template.html 的 cream/sand 系统
+  - 差异：新增 SIGN(绿) / WALK(红) / FREEZE(黄) stop-line 三色卡；leverage tier badge；recruiter quote vs your response 对话样式
+  - 所有数据以 {{PLACEHOLDER}} 标记，由 skill 在生成时填充
+  - 完整规格见: ../frameworks/negotiation-report.md
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-2: #1f1f1d;
+    --paper: #fafaf7;
+    --paper-2: #f3f3ee;
+    --paper-3: #ebebe4;
+    --card: #fff8e6;
+    --card-2: #fef0d4;
+    --muted: #6b6b66;
+    --muted-2: #9a9a92;
+    --line: #d9d9d2;
+    --line-soft: #e6e6df;
+    /* Leverage / stop-line semantic */
+    --go: #18a957;
+    --go-soft: #d8f3e0;
+    --go-ink: #0d8a45;
+    --warn: #d97706;
+    --warn-soft: #fef0d4;
+    --warn-ink: #b45309;
+    --stop: #c2410c;
+    --stop-soft: #fde0d2;
+    --stop-ink: #9a2f0a;
+    --danger: #dc2626;
+    --danger-soft: #fee2e2;
+    --accent: #facc15;
+    --hint: #2563eb;
+    --recruiter: #7c3aed;
+    --recruiter-soft: #ede9fe;
+    /* CJK 字体必须排在前面 */
+    --serif: "Times New Roman", "Noto Serif SC", "Songti SC", Georgia, serif;
+    --display: "SF Pro Display", -apple-system, "Helvetica Neue", "Noto Sans SC", "PingFang SC", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", Menlo, "Noto Sans SC", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: var(--body); font-size: 15px; line-height: 1.62; -webkit-font-smoothing: antialiased; }
+  a { color: var(--hint); text-decoration: none; border-bottom: 1px solid currentColor; }
+  code, kbd { font-family: var(--mono); font-size: 0.88em; background: var(--paper-2); padding: 1px 5px; border-radius: 3px; }
+  .page { max-width: 960px; margin: 0 auto; padding: 56px 56px 96px; }
+
+  /* Lang switch — hide inactive lang by default. Toggled via <html lang="zh|en"> */
+  html[lang="en"] [data-lang="zh"] { display: none; }
+  html[lang="zh"] [data-lang="en"] { display: none; }
+  /* Script + dialog blocks use .en / .zh class names as language pairs — respect toggle */
+  html[lang="en"] .beat > .zh,
+  html[lang="en"] .dialog .zh,
+  html[lang="en"] .dialog .recruiter .zh-inline { display: none; }
+  html[lang="zh"] .beat > .en,
+  html[lang="zh"] .dialog .you > .line,
+  html[lang="zh"] .dialog .recruiter .en-inline { display: none; }
+
+  /* ---------- Header ---------- */
+  .meta-strip { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .meta-strip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink); display: inline-block; }
+  /* Brand chip — highlighted so this skill is visually distinct from JD/Resume/BQ reports */
+  .meta-strip .brand-chip {
+    background: var(--accent);
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.005em;
+    text-transform: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1.75px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    line-height: 1.1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 6px;
+  }
+  .meta-strip .brand-chip::before {
+    content: "💰";
+    font-size: 15px;
+  }
+  h1 { font-family: var(--display); font-weight: 800; font-size: 58px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 14px; }
+  h1 .tag { display: block; font-size: 17px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 14px; line-height: 1.55; }
+  .header-rule { height: 2px; background: var(--ink); margin: 28px 0 28px; }
+  .role-row { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0; margin-bottom: 32px; }
+  .role-row .cell { padding: 0 14px; border-left: 1px solid var(--line); }
+  .role-row .cell:first-child { border-left: 0; padding-left: 0; }
+  .role-row .label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .role-row .value { font-size: 14px; font-weight: 600; line-height: 1.35; }
+
+  /* ---------- TOC ---------- */
+  .toc { background: var(--paper-2); border: 1px solid var(--line); padding: 18px 22px; border-radius: 4px; margin-bottom: 32px; display: grid; grid-template-columns: 100px 1fr; gap: 18px; align-items: start; }
+  .toc .kicker { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+  .toc ol { margin: 0; padding-left: 0; list-style: none; columns: 2; column-gap: 28px; font-size: 13px; }
+  .toc li { padding: 2px 0; break-inside: avoid; }
+  .toc a { color: var(--ink); border: none; }
+  .toc a:hover { border-bottom: 1px solid var(--ink); }
+
+  /* ---------- Assumptions notice ---------- */
+  .notice { background: #fff8e6; border-left: 4px solid var(--accent); padding: 18px 22px; border-radius: 0 3px 3px 0; margin-bottom: 36px; font-size: 13px; color: #4a3f1e; line-height: 1.65; }
+  .notice strong { color: #2a2308; display: block; margin-bottom: 8px; font-family: var(--display); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .notice ul { margin: 6px 0 0; padding-left: 22px; }
+  .notice li { padding: 2px 0; }
+
+  /* ---------- Verdict ---------- */
+  .verdict { background: var(--ink); color: var(--paper); padding: 36px 40px 34px; border-radius: 6px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; margin-bottom: 32px; }
+  .verdict .left .kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #999; margin-bottom: 10px; }
+  .verdict .left h2 { font-size: 32px; font-weight: 800; line-height: 1.18; margin: 0 0 12px; letter-spacing: -0.012em; }
+  .verdict .left .sub { font-size: 14px; color: #c8c8c3; max-width: 560px; line-height: 1.6; }
+  .modality-badge { text-align: right; }
+  .modality-badge .letter { font-family: var(--display); font-size: 84px; font-weight: 900; line-height: 1; color: var(--accent); letter-spacing: -0.04em; }
+  .modality-badge .tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #999; text-align: right; margin-top: 6px; }
+
+  /* ---------- TL;DR (three things) ---------- */
+  .tldr { border: 1px solid var(--ink); border-radius: 6px; padding: 24px 28px; margin-bottom: 40px; background: white; }
+  .tldr .kicker { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .tldr ul { margin: 0; padding-left: 0; list-style: none; counter-reset: tldr; }
+  .tldr li { counter-increment: tldr; padding: 12px 0 12px 44px; border-bottom: 1px dashed var(--line); position: relative; font-size: 14px; line-height: 1.55; font-weight: 600; }
+  .tldr li::before { content: counter(tldr); position: absolute; left: 0; top: 12px; font-family: var(--display); font-size: 28px; font-weight: 800; line-height: 1; color: var(--ink); }
+  .tldr li:last-child { border-bottom: 0; }
+
+  /* ---------- Number cards (gauges) ---------- */
+  .numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 56px; }
+  .num-card { background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 24px 26px; }
+  .num-card .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .num-card .big { font-family: var(--display); font-size: 48px; font-weight: 800; line-height: 1; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .num-card .big small { font-size: 22px; font-weight: 700; color: var(--muted); }
+  .num-card .desc { font-size: 13px; color: #2a2a26; line-height: 1.55; }
+  .num-card .desc strong { color: var(--ink); }
+  .bar-wrap { margin-top: 16px; }
+  .bar-track { position: relative; height: 12px; background: white; border: 1px solid var(--line); border-radius: 999px; }
+  .bar-fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .bar-fill.go { background: linear-gradient(90deg, var(--go), var(--go-ink)); }
+  .bar-fill.warn { background: linear-gradient(90deg, #f59e0b, var(--warn)); }
+  .bar-fill.stop { background: linear-gradient(90deg, var(--stop), var(--danger)); }
+  .bar-scale { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 6px; letter-spacing: 0.04em; }
+
+  /* ---------- Section ---------- */
+  section { margin-bottom: 64px; scroll-margin-top: 24px; }
+  .section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 24px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; }
+  .section-head .num { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--muted); min-width: 30px; }
+  .section-head h3 { font-family: var(--display); font-size: 26px; font-weight: 800; margin: 0; letter-spacing: -0.015em; flex: 1; }
+  .section-head .pill { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); background: var(--paper-2); padding: 4px 10px; border-radius: 999px; }
+  .section-intro { font-size: 14px; color: var(--muted); max-width: 720px; margin-bottom: 24px; line-height: 1.6; }
+
+  /* ---------- Leverage tier badge ---------- */
+  .lev-badge { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 3px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .lev-badge.high { background: var(--go); color: white; }
+  .lev-badge.med  { background: var(--warn); color: white; }
+  .lev-badge.low  { background: var(--muted); color: white; }
+
+  /* ---------- §1 Diagnosis cards ---------- */
+  .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+  .diag-card { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; break-inside: avoid; }
+  .diag-card.high { border-left: 4px solid var(--go); }
+  .diag-card.med  { border-left: 4px solid var(--warn); }
+  .diag-card.low  { border-left: 4px solid var(--muted); }
+  .diag-card .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .diag-card .comp { font-family: var(--display); font-size: 18px; font-weight: 700; }
+  .diag-card table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  .diag-card td { padding: 5px 0; vertical-align: top; }
+  .diag-card td.label { color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; width: 32%; }
+  .diag-card td.value { color: var(--ink); font-family: var(--mono); font-size: 13px; }
+  .diag-card .oneliner { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line-soft); font-size: 13px; color: var(--ink-2); font-style: italic; }
+
+  .tc-table { width: 100%; border-collapse: collapse; margin: 18px 0 22px; font-size: 13px; background: white; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .tc-table th { text-align: left; padding: 10px 14px; background: var(--ink); color: var(--paper); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+  .tc-table td { padding: 10px 14px; border-top: 1px solid var(--line-soft); }
+  .tc-table td.num { font-family: var(--mono); font-weight: 600; text-align: right; }
+
+  .rsu-vest { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0 22px; align-items: end; }
+  .rsu-vest .yr { text-align: center; }
+  .rsu-vest .bar { background: linear-gradient(180deg, var(--go) 0%, var(--go-ink) 100%); border-radius: 4px 4px 0 0; margin: 0 auto; }
+  .rsu-vest .pct { font-family: var(--mono); font-weight: 700; font-size: 13px; margin: 6px 0 2px; }
+  .rsu-vest .label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+  .overall-verdict { background: var(--ink); color: var(--paper); padding: 16px 22px; border-radius: 4px; font-size: 14px; margin-top: 14px; }
+  .overall-verdict strong { color: var(--accent); }
+
+  /* ---------- §2 Leverage map ---------- */
+  .lev-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
+  .lev-col { background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; }
+  .lev-col.you { border-top: 3px solid var(--go); }
+  .lev-col.them { border-top: 3px solid var(--stop); }
+  .lev-col h4 { margin: 0 0 14px; font-family: var(--display); font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .lev-col ul { list-style: none; padding: 0; margin: 0; }
+  .lev-col li { padding: 8px 0 8px 24px; border-bottom: 1px dashed var(--line-soft); font-size: 13px; line-height: 1.5; position: relative; }
+  .lev-col li:last-child { border-bottom: 0; }
+  .lev-col.you li::before { content: "✅"; position: absolute; left: 0; top: 8px; font-size: 12px; }
+  .lev-col.them li::before { content: "⚠️"; position: absolute; left: 0; top: 8px; font-size: 12px; }
+
+  .blindspot-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+  .blindspot-card { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; break-inside: avoid; border-left: 3px solid var(--warn); }
+  .blindspot-card .title { font-family: var(--display); font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--warn-ink); }
+  .blindspot-card .fix { font-size: 12px; color: var(--ink-2); line-height: 1.55; }
+  .blindspot-card .fix::before { content: "MITIGATE: "; font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 0.08em; }
+
+  .balance-verdict { background: var(--card); border: 1px solid var(--accent); border-radius: 4px; padding: 14px 20px; font-size: 14px; font-weight: 600; }
+
+  /* ---------- §3 Strategy ---------- */
+  .modality-card { background: var(--ink); color: var(--paper); border-radius: 8px; padding: 26px 30px; display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: center; margin-bottom: 22px; }
+  .modality-card .big-letter { font-family: var(--display); font-size: 96px; font-weight: 900; line-height: 0.9; color: var(--accent); letter-spacing: -0.05em; }
+  .modality-card .title { font-family: var(--display); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .modality-card .desc { font-size: 13px; color: #c8c8c3; line-height: 1.55; }
+
+  .strat-table { width: 100%; border-collapse: collapse; margin-bottom: 22px; font-size: 13px; background: white; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .strat-table th { text-align: left; padding: 10px 12px; background: var(--ink); color: var(--paper); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  .strat-table td { padding: 12px; border-top: 1px solid var(--line-soft); vertical-align: top; line-height: 1.5; }
+  .strat-table .prio { font-family: var(--mono); font-weight: 800; text-align: center; width: 40px; }
+  .strat-table .prio.p1 { color: var(--danger); }
+  .strat-table .prio.p2 { color: var(--warn); }
+  .strat-table .prio.p3 { color: var(--muted); }
+  .strat-table .ask { font-family: var(--mono); font-weight: 600; color: var(--go-ink); }
+  .strat-table .stop { font-size: 12px; color: var(--muted); font-style: italic; }
+
+  .timing-card { background: var(--paper-2); border-left: 3px solid var(--ink); padding: 14px 20px; font-size: 13px; line-height: 1.6; border-radius: 0 4px 4px 0; }
+  .timing-card strong { color: var(--ink); }
+
+  /* ---------- §4 Scripts ---------- */
+  .script-card { background: white; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 22px; overflow: hidden; break-inside: avoid; }
+  .script-card .head { background: var(--paper-2); padding: 12px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+  .script-card .head .title { font-family: var(--display); font-weight: 700; font-size: 15px; }
+  .script-card .head .type { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .script-card .body { padding: 20px 24px; }
+  .beat { padding: 12px 0; border-bottom: 1px dashed var(--line-soft); }
+  .beat:last-child { border-bottom: 0; }
+  .beat .beat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+  .beat .en { font-family: var(--body); font-size: 14px; line-height: 1.6; color: var(--ink); margin-bottom: 8px; }
+  .beat .zh { font-family: var(--body); font-size: 13px; line-height: 1.6; color: var(--muted); border-left: 2px solid var(--line); padding-left: 12px; }
+  .beat-warn { background: var(--danger-soft); border-left: 3px solid var(--danger); padding: 10px 14px; margin-top: 12px; font-size: 12px; color: var(--stop-ink); font-weight: 600; }
+
+  .email-block { background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: 16px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.6; white-space: pre-wrap; color: var(--ink-2); }
+  .email-subject { font-family: var(--mono); font-size: 12px; background: var(--ink); color: var(--paper); padding: 6px 12px; border-radius: 3px; display: inline-block; margin-bottom: 12px; }
+
+  .copy-btn { background: var(--ink); color: var(--paper); border: 0; padding: 6px 14px; border-radius: 999px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+  .copy-btn:hover { background: var(--warn-ink); }
+
+  /* ---------- §5 Counter simulation ---------- */
+  .pushback { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 22px 26px; margin-bottom: 22px; break-inside: avoid; }
+  .pushback .head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+  .pushback .head .num { font-family: var(--display); font-weight: 900; font-size: 24px; color: var(--stop); }
+  .pushback .head .title { font-family: var(--display); font-weight: 700; font-size: 18px; flex: 1; }
+  .pushback .head .stakes { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .dialog { margin: 10px 0; }
+  .dialog .round { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+  .dialog .recruiter { background: var(--recruiter-soft); border-left: 3px solid var(--recruiter); padding: 12px 16px; margin: 6px 0 12px; border-radius: 0 4px 4px 0; }
+  .dialog .recruiter::before { content: "🎙️ RECRUITER"; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--recruiter); font-weight: 700; display: block; margin-bottom: 6px; }
+  .dialog .recruiter q { font-family: var(--serif); font-style: italic; font-size: 14px; line-height: 1.6; color: var(--ink-2); quotes: "\201C" "\201D"; }
+  .dialog .you { background: var(--go-soft); border-left: 3px solid var(--go); padding: 12px 16px; margin: 6px 0 12px; border-radius: 0 4px 4px 0; }
+  .dialog .you::before { content: "🗣️ YOU"; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--go-ink); font-weight: 700; display: block; margin-bottom: 6px; }
+  .dialog .you .strategy { font-family: var(--body); font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+  .dialog .you .line { font-family: var(--body); font-size: 14px; line-height: 1.6; color: var(--ink); font-weight: 500; }
+  .dialog .you .zh { font-size: 12px; color: var(--muted); margin-top: 6px; padding-left: 12px; border-left: 2px solid var(--line); }
+
+  .stop-signal { background: #1a1a1a; color: var(--paper); border-radius: 4px; padding: 14px 20px; margin-top: 14px; font-size: 13px; line-height: 1.6; }
+  .stop-signal::before { content: "⛔ STOP SIGNAL"; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--danger); font-weight: 700; display: block; margin-bottom: 6px; }
+
+  .bluff-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 20px; background: white; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .bluff-table th { text-align: left; padding: 10px 14px; background: var(--ink); color: var(--paper); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  .bluff-table td { padding: 10px 14px; border-top: 1px solid var(--line-soft); vertical-align: top; }
+  .bluff-table td.verdict-cell { font-family: var(--mono); font-size: 11px; font-weight: 700; }
+  .bluff-table td.verdict-cell.bluff { color: var(--warn); }
+  .bluff-table td.verdict-cell.real { color: var(--danger); }
+
+  /* ---------- §6 Final recommendation ---------- */
+  .ask-list, .dont-list { list-style: none; padding: 0; margin: 0 0 22px; }
+  .ask-list li { padding: 10px 14px; margin-bottom: 6px; background: var(--go-soft); border-left: 3px solid var(--go); border-radius: 0 4px 4px 0; font-size: 14px; line-height: 1.55; }
+  .ask-list li::before { content: "✅ "; font-weight: 700; }
+  .dont-list li { padding: 10px 14px; margin-bottom: 6px; background: var(--stop-soft); border-left: 3px solid var(--stop); border-radius: 0 4px 4px 0; font-size: 14px; line-height: 1.55; }
+  .dont-list li::before { content: "❌ "; font-weight: 700; }
+
+  .stoplines { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .stopline { border-radius: 6px; padding: 22px 24px; break-inside: avoid; }
+  .stopline .kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; margin-bottom: 10px; }
+  .stopline .rule { font-family: var(--display); font-weight: 700; font-size: 15px; margin-bottom: 12px; line-height: 1.4; }
+  .stopline .script { font-family: var(--serif); font-style: italic; font-size: 13px; line-height: 1.55; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.15); }
+  .stopline.sign { background: var(--go-soft); border: 2px solid var(--go); color: var(--go-ink); }
+  .stopline.walk { background: var(--stop-soft); border: 2px solid var(--stop); color: var(--stop-ink); }
+  .stopline.freeze { background: var(--warn-soft); border: 2px solid var(--warn); color: var(--warn-ink); }
+
+  .emergency { background: #1a1a1a; color: var(--paper); border-radius: 6px; padding: 22px 28px; margin: 24px 0; }
+  .emergency h4 { font-family: var(--display); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--danger); margin: 0 0 14px; }
+  .emergency .item { padding: 10px 0; border-bottom: 1px dashed #444; font-size: 13px; line-height: 1.6; }
+  .emergency .item:last-child { border-bottom: 0; }
+  .emergency .trigger { font-family: var(--mono); font-size: 11px; color: var(--accent); display: block; margin-bottom: 4px; letter-spacing: 0.06em; }
+
+  .final-verdict { background: var(--ink); color: var(--paper); padding: 28px 32px; border-radius: 6px; margin-top: 32px; font-family: var(--display); font-size: 20px; font-weight: 700; line-height: 1.4; }
+  .final-verdict .kicker { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: block; font-weight: 700; }
+
+  /* ---------- Footer (see negotiation-report.md for mandatory block) ---------- */
+  footer { margin-top: 40px; }
+  .brand-block { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; padding: 44px 0 28px; border-top: 1px solid var(--line); }
+  .brand-block .brand-mark { font-family: var(--display); font-weight: 800; font-size: 92px; line-height: 0.92; letter-spacing: -0.045em; color: var(--ink); margin: 0; }
+  .brand-block .brand-mark .dot-yellow { color: var(--accent); -webkit-text-stroke: 1px var(--ink); }
+  .brand-block .brand-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); margin-top: 10px; }
+  .brand-block .brand-sub strong { font-style: normal; font-family: var(--display); font-weight: 700; color: var(--ink); }
+  .socials { display: flex; gap: 12px; align-items: center; }
+  .socials a { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper); color: var(--ink); transition: all 0.18s ease; }
+  .socials a:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+  .socials a svg { width: 20px; height: 20px; display: block; }
+  .socials a.xhs { width: 46px; height: 46px; padding: 0; border-radius: 11px; background: #ff2442; border: 1.5px solid #ff2442; color: white; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; font-weight: 900; font-size: 11px; font-style: italic; letter-spacing: -0.02em; line-height: 1; }
+  .socials a.xhs span { display: inline-block; transform: skewX(-6deg); white-space: nowrap; }
+  .socials a.xhs:hover { background: #d11838; border-color: #d11838; transform: translateY(-2px); }
+  .foot-meta { font-size: 11px; color: var(--muted); line-height: 1.75; padding-top: 16px; }
+
+  /* ---------- Export tools (bottom-right) ---------- */
+  .export-tools { position: fixed; bottom: 24px; right: 24px; display: flex; gap: 10px; align-items: center; z-index: 100; }
+  .export-btn { background: var(--ink); color: var(--paper); border: 0; padding: 12px 20px; border-radius: 999px; font-family: var(--body); font-size: 13px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.15); transition: all 0.18s ease; }
+  .export-btn:hover { background: var(--warn-ink); transform: translateY(-2px); }
+  /* Segmented language toggle — highlighted active state */
+  .lang-toggle { display: inline-flex; background: var(--ink); border-radius: 999px; padding: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.20); }
+  .lang-toggle button { background: transparent; color: #9a9a92; border: 0; padding: 9px 16px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; border-radius: 999px; transition: all 0.15s ease; min-width: 54px; }
+  .lang-toggle button:hover { color: var(--paper); }
+  html[lang="en"] .lang-toggle button[data-set="en"],
+  html[lang="zh"] .lang-toggle button[data-set="zh"] {
+    background: var(--accent);
+    color: var(--ink);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .page { padding: 32px 22px 80px; }
+    h1 { font-size: 38px; }
+    .role-row { grid-template-columns: repeat(2, 1fr); }
+    .numbers, .diag-grid, .lev-grid, .stoplines { grid-template-columns: 1fr; }
+    .blindspot-grid { grid-template-columns: 1fr; }
+    .brand-block { grid-template-columns: 1fr; gap: 18px; }
+    .brand-block .brand-mark { font-size: 56px; }
+    .modality-card { grid-template-columns: 1fr; text-align: center; }
+    .verdict { grid-template-columns: 1fr; }
+    .modality-badge { text-align: center; }
+    .modality-badge .tag { text-align: center; }
+  }
+
+  /* ---------- Print / PDF ---------- */
+  @media print {
+    @page { margin: 14mm; }
+    body { background: white; }
+    .page { padding: 0; max-width: none; }
+    .export-tools, .export-btn, .lang-btn, .copy-btn { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    /* Only atomic units avoid page break; long sections flow naturally */
+    .diag-card, .lev-col, .blindspot-card, .num-card, .modality-card,
+    .script-card, .pushback, .stopline, .beat, .dialog, .stop-signal,
+    .emergency, .final-verdict, .tldr li, .role-row {
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    h1, h2, h3, h4, .section-head { break-after: avoid; page-break-after: avoid; }
+    section { margin-bottom: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <div class="meta-strip">
+    <span class="brand-chip">Salary Negotiation Playbook</span>
+    <span>{{YYYY-MM-DD}}</span>
+    <span class="dot"></span>
+    <span>Candidate: {{CANDIDATE}}</span>
+    <span class="dot"></span>
+    <span>Deadline: {{DEADLINE}}</span>
+  </div>
+
+  <h1>
+    {{COMPANY}} × {{ROLE}}
+    <span class="tag">
+      <span data-lang="en">{{ROLE_HOOK_EN}}</span><span data-lang="zh">{{ROLE_HOOK_ZH}}</span>
+    </span>
+  </h1>
+
+  <div class="header-rule"></div>
+
+  <div class="role-row">
+    <div class="cell"><div class="label">Level</div><div class="value">{{LEVEL}}</div></div>
+    <div class="cell"><div class="label">Location</div><div class="value">{{LOCATION}}</div></div>
+    <div class="cell"><div class="label">Current TC</div><div class="value">${{Y1_TC_CURRENT}}</div></div>
+    <div class="cell"><div class="label">Target TC</div><div class="value">${{Y1_TC_TARGET}}</div></div>
+    <div class="cell"><div class="label">Competing offers</div><div class="value">{{COMPETING_COUNT}}</div></div>
+  </div>
+
+  <!-- ============ TOC ============ -->
+  <nav class="toc">
+    <div class="kicker">Inside</div>
+    <ol>
+      <li><a href="#assumptions">⚠️ Assumptions</a></li>
+      <li><a href="#verdict">Verdict · Modality</a></li>
+      <li><a href="#diag">§1 · Offer Diagnosis</a></li>
+      <li><a href="#leverage">§2 · Leverage Map</a></li>
+      <li><a href="#strategy">§3 · Strategy</a></li>
+      <li><a href="#scripts">§4 · Scripts (Phone + Email)</a></li>
+      <li><a href="#counter">§5 · Counter Simulation</a></li>
+      <li><a href="#final">§6 · Final Recommendation</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ ASSUMPTIONS ============ -->
+  <div class="notice" id="assumptions">
+    <strong><span data-lang="en">⚠️ Assumptions · Tell me if any of these is wrong so I can regenerate</span><span data-lang="zh">⚠️ Assumptions · 任一不对告诉我重新生成</span></strong>
+    <ul>
+      <li><span data-lang="en">{{ASSUMPTION_1_EN}}</span><span data-lang="zh">{{ASSUMPTION_1_ZH}}</span></li>
+      <li><span data-lang="en">{{ASSUMPTION_2_EN}}</span><span data-lang="zh">{{ASSUMPTION_2_ZH}}</span></li>
+      <li><span data-lang="en">{{ASSUMPTION_3_EN}}</span><span data-lang="zh">{{ASSUMPTION_3_ZH}}</span></li>
+      <li><span data-lang="en">{{ASSUMPTION_4_EN}}</span><span data-lang="zh">{{ASSUMPTION_4_ZH}}</span></li>
+      <li><span data-lang="en">{{ASSUMPTION_5_EN}}</span><span data-lang="zh">{{ASSUMPTION_5_ZH}}</span></li>
+      <li><span data-lang="en">{{ASSUMPTION_6_EN}}</span><span data-lang="zh">{{ASSUMPTION_6_ZH}}</span></li>
+    </ul>
+  </div>
+
+  <!-- ============ VERDICT ============ -->
+  <div class="verdict" id="verdict">
+    <div class="left">
+      <div class="kicker">Overall Verdict</div>
+      <h2><span data-lang="en">{{VERDICT_HEADLINE_EN}}</span><span data-lang="zh">{{VERDICT_HEADLINE_ZH}}</span></h2>
+      <div class="sub"><span data-lang="en">{{VERDICT_SUB_EN}}</span><span data-lang="zh">{{VERDICT_SUB_ZH}}</span></div>
+    </div>
+    <div class="modality-badge">
+      <div class="letter">{{MODALITY_LETTER}}</div>
+      <div class="tag">Modality · {{MODALITY_NAME}}</div>
+    </div>
+  </div>
+
+  <!-- ============ TL;DR ============ -->
+  <div class="tldr">
+    <div class="kicker">If you only read three things</div>
+    <ul>
+      <li><span data-lang="en">{{TAKEAWAY_1_EN}}</span><span data-lang="zh">{{TAKEAWAY_1_ZH}}</span></li>
+      <li><span data-lang="en">{{TAKEAWAY_2_EN}}</span><span data-lang="zh">{{TAKEAWAY_2_ZH}}</span></li>
+      <li><span data-lang="en">{{TAKEAWAY_3_EN}}</span><span data-lang="zh">{{TAKEAWAY_3_ZH}}</span></li>
+    </ul>
+  </div>
+
+  <!-- ============ KEY METRICS ============ -->
+  <div class="numbers">
+    <div class="num-card">
+      <div class="label">Overall Leverage Score</div>
+      <div class="big">{{LEVERAGE_SCORE}}<small>/100</small></div>
+      <div class="desc"><strong>{{LEVERAGE_TIER}}.</strong> <span data-lang="en">{{LEVERAGE_DESC_EN}}</span><span data-lang="zh">{{LEVERAGE_DESC_ZH}}</span></div>
+      <div class="bar-wrap">
+        <div class="bar-track"><div class="bar-fill {{LEVERAGE_BAR_CLASS}}" style="left:0; width:{{LEVERAGE_SCORE}}%;"></div></div>
+        <div class="bar-scale"><span>0</span><span>50 · LOW</span><span>80 · HIGH</span><span>100</span></div>
+      </div>
+    </div>
+    <div class="num-card">
+      <div class="label">Total Ask Uplift (target)</div>
+      <div class="big">+{{UPLIFT_PCT}}<small>%</small></div>
+      <div class="desc"><strong>${{Y1_TC_CURRENT}} → ${{Y1_TC_TARGET}}</strong> Year-1 TC. <span data-lang="en">{{UPLIFT_DESC_EN}}</span><span data-lang="zh">{{UPLIFT_DESC_ZH}}</span></div>
+      <div class="bar-wrap">
+        <div class="bar-track"><div class="bar-fill go" style="left:0; width:{{UPLIFT_BAR_PCT}}%;"></div></div>
+        <div class="bar-scale"><span>0%</span><span>10%</span><span>20%</span><span>30%+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ §1 DIAGNOSIS ============ -->
+  <section id="diag">
+    <div class="section-head">
+      <span class="num">§1</span>
+      <h3>Offer Diagnosis</h3>
+      <span class="pill">4 components</span>
+    </div>
+    <p class="section-intro"><span data-lang="en">Each component tagged by market position and leverage tier. Bands sourced from Levels.fyi + Blind + user-provided competing offers. All numbers are ranges, not points.</span><span data-lang="zh">每项按市场位置 + 谈判杠杆分级。数据源：Levels.fyi + Blind + 用户提供的 competing offer。所有数字都是区间，不给单点。</span></p>
+
+    <div class="diag-grid">
+      <div class="diag-card {{BASE_LEV_CLASS}}">
+        <div class="head"><div class="comp">Base Salary</div><span class="lev-badge {{BASE_LEV_CLASS}}">{{BASE_LEV}}</span></div>
+        <table>
+          <tr><td class="label">Offer</td><td class="value">${{BASE_OFFER}}</td></tr>
+          <tr><td class="label">Market P50</td><td class="value">${{BASE_P50}}</td></tr>
+          <tr><td class="label">Market P75</td><td class="value">${{BASE_P75}}</td></tr>
+          <tr><td class="label">Position</td><td class="value">{{BASE_POSITION}}</td></tr>
+        </table>
+        <div class="oneliner"><span data-lang="en">{{BASE_DIAG_EN}}</span><span data-lang="zh">{{BASE_DIAG_ZH}}</span></div>
+      </div>
+
+      <div class="diag-card {{RSU_LEV_CLASS}}">
+        <div class="head"><div class="comp">RSU (Equity)</div><span class="lev-badge {{RSU_LEV_CLASS}}">{{RSU_LEV}}</span></div>
+        <table>
+          <tr><td class="label">Offer (4yr total)</td><td class="value">${{RSU_TOTAL}}</td></tr>
+          <tr><td class="label">Curve</td><td class="value">{{RSU_CURVE}}</td></tr>
+          <tr><td class="label">Ref price / current</td><td class="value">${{RSU_REF}} / ${{RSU_CURRENT}}</td></tr>
+          <tr><td class="label">Market P50 (4yr)</td><td class="value">${{RSU_P50}}</td></tr>
+          <tr><td class="label">Position</td><td class="value">{{RSU_POSITION}}</td></tr>
+        </table>
+        <div class="oneliner"><span data-lang="en">{{RSU_DIAG_EN}}</span><span data-lang="zh">{{RSU_DIAG_ZH}}</span></div>
+      </div>
+
+      <div class="diag-card {{SIGN_LEV_CLASS}}">
+        <div class="head"><div class="comp">Sign-on Bonus</div><span class="lev-badge {{SIGN_LEV_CLASS}}">{{SIGN_LEV}}</span></div>
+        <table>
+          <tr><td class="label">Offer</td><td class="value">${{SIGN_OFFER}}</td></tr>
+          <tr><td class="label">Clawback</td><td class="value">{{SIGN_CLAWBACK}}</td></tr>
+          <tr><td class="label">Market typical</td><td class="value">${{SIGN_MARKET}}</td></tr>
+          <tr><td class="label">Position</td><td class="value">{{SIGN_POSITION}}</td></tr>
+        </table>
+        <div class="oneliner"><span data-lang="en">{{SIGN_DIAG_EN}}</span><span data-lang="zh">{{SIGN_DIAG_ZH}}</span></div>
+      </div>
+
+      <div class="diag-card {{BONUS_LEV_CLASS}}">
+        <div class="head"><div class="comp">Annual Bonus</div><span class="lev-badge {{BONUS_LEV_CLASS}}">{{BONUS_LEV}}</span></div>
+        <table>
+          <tr><td class="label">Target</td><td class="value">{{BONUS_PCT}}% of base</td></tr>
+          <tr><td class="label">Y1 guaranteed?</td><td class="value">{{BONUS_GUAR}}</td></tr>
+          <tr><td class="label">Level typical</td><td class="value">{{BONUS_TYPICAL}}</td></tr>
+          <tr><td class="label">Position</td><td class="value">{{BONUS_POSITION}}</td></tr>
+        </table>
+        <div class="oneliner"><span data-lang="en">{{BONUS_DIAG_EN}}</span><span data-lang="zh">{{BONUS_DIAG_ZH}}</span></div>
+      </div>
+    </div>
+
+    <table class="tc-table">
+      <thead><tr><th>Package View</th><th style="text-align:right;">Year 1 TC</th><th style="text-align:right;">4-year Avg TC</th></tr></thead>
+      <tbody>
+        <tr><td>Current offer</td><td class="num">${{Y1_TC_CURRENT}}</td><td class="num">${{Y4_AVG_CURRENT}}</td></tr>
+        <tr><td>Target after negotiation</td><td class="num">${{Y1_TC_TARGET}}</td><td class="num">${{Y4_AVG_TARGET}}</td></tr>
+        <tr><td>Δ Uplift</td><td class="num" style="color:var(--go-ink);">+${{Y1_UPLIFT}} (+{{Y1_UPLIFT_PCT}}%)</td><td class="num" style="color:var(--go-ink);">+${{Y4_UPLIFT}} (+{{Y4_UPLIFT_PCT}}%)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rsu-vest">
+      <!-- fill bar height in percent (max height 80px), pct label matches curve -->
+      <div class="yr"><div class="bar" style="height:{{Y1_VEST_HEIGHT}}px;"></div><div class="pct">{{Y1_VEST_PCT}}%</div><div class="label">Year 1</div></div>
+      <div class="yr"><div class="bar" style="height:{{Y2_VEST_HEIGHT}}px;"></div><div class="pct">{{Y2_VEST_PCT}}%</div><div class="label">Year 2</div></div>
+      <div class="yr"><div class="bar" style="height:{{Y3_VEST_HEIGHT}}px;"></div><div class="pct">{{Y3_VEST_PCT}}%</div><div class="label">Year 3</div></div>
+      <div class="yr"><div class="bar" style="height:{{Y4_VEST_HEIGHT}}px;"></div><div class="pct">{{Y4_VEST_PCT}}%</div><div class="label">Year 4</div></div>
+    </div>
+
+    <div class="overall-verdict">
+      <strong>Overall Leverage: {{OVERALL_LEV}}.</strong> <span data-lang="en">{{OVERALL_LEV_DESC_EN}}</span><span data-lang="zh">{{OVERALL_LEV_DESC_ZH}}</span>
+    </div>
+  </section>
+
+  <!-- ============ §2 LEVERAGE MAP ============ -->
+  <section id="leverage">
+    <div class="section-head">
+      <span class="num">§2</span>
+      <h3>Leverage Map</h3>
+      <span class="pill">Power balance</span>
+    </div>
+
+    <div class="lev-grid">
+      <div class="lev-col you">
+        <h4>Your Power</h4>
+        <ul>
+          <li><span data-lang="en">{{YOUR_POWER_1_EN}}</span><span data-lang="zh">{{YOUR_POWER_1_ZH}}</span></li>
+          <li><span data-lang="en">{{YOUR_POWER_2_EN}}</span><span data-lang="zh">{{YOUR_POWER_2_ZH}}</span></li>
+          <li><span data-lang="en">{{YOUR_POWER_3_EN}}</span><span data-lang="zh">{{YOUR_POWER_3_ZH}}</span></li>
+        </ul>
+      </div>
+      <div class="lev-col them">
+        <h4>Recruiter's Power</h4>
+        <ul>
+          <li><span data-lang="en">{{THEIR_POWER_1_EN}}</span><span data-lang="zh">{{THEIR_POWER_1_ZH}}</span></li>
+          <li><span data-lang="en">{{THEIR_POWER_2_EN}}</span><span data-lang="zh">{{THEIR_POWER_2_ZH}}</span></li>
+          <li><span data-lang="en">{{THEIR_POWER_3_EN}}</span><span data-lang="zh">{{THEIR_POWER_3_ZH}}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="font-family:var(--display); font-size:14px; letter-spacing:0.08em; text-transform:uppercase; margin: 18px 0 10px;">Your Blind Spots</h4>
+    <div class="blindspot-grid">
+      <div class="blindspot-card">
+        <div class="title"><span data-lang="en">{{BLIND_1_TITLE_EN}}</span><span data-lang="zh">{{BLIND_1_TITLE_ZH}}</span></div>
+        <div class="fix"><span data-lang="en">{{BLIND_1_FIX_EN}}</span><span data-lang="zh">{{BLIND_1_FIX_ZH}}</span></div>
+      </div>
+      <div class="blindspot-card">
+        <div class="title"><span data-lang="en">{{BLIND_2_TITLE_EN}}</span><span data-lang="zh">{{BLIND_2_TITLE_ZH}}</span></div>
+        <div class="fix"><span data-lang="en">{{BLIND_2_FIX_EN}}</span><span data-lang="zh">{{BLIND_2_FIX_ZH}}</span></div>
+      </div>
+      <div class="blindspot-card">
+        <div class="title"><span data-lang="en">{{BLIND_3_TITLE_EN}}</span><span data-lang="zh">{{BLIND_3_TITLE_ZH}}</span></div>
+        <div class="fix"><span data-lang="en">{{BLIND_3_FIX_EN}}</span><span data-lang="zh">{{BLIND_3_FIX_ZH}}</span></div>
+      </div>
+    </div>
+
+    <div class="balance-verdict">
+      <span data-lang="en"><strong>Net:</strong> {{BALANCE_EN}}</span>
+      <span data-lang="zh"><strong>净判：</strong>{{BALANCE_ZH}}</span>
+    </div>
+  </section>
+
+  <!-- ============ §3 STRATEGY ============ -->
+  <section id="strategy">
+    <div class="section-head">
+      <span class="num">§3</span>
+      <h3>Strategy</h3>
+      <span class="pill">Modality {{MODALITY_LETTER}}</span>
+    </div>
+
+    <div class="modality-card">
+      <div class="big-letter">{{MODALITY_LETTER}}</div>
+      <div>
+        <div class="title">{{MODALITY_TITLE}}</div>
+        <div class="desc"><span data-lang="en">{{MODALITY_DESC_EN}}</span><span data-lang="zh">{{MODALITY_DESC_ZH}}</span></div>
+      </div>
+    </div>
+
+    <table class="strat-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Component</th>
+          <th>Current → Ask (range)</th>
+          <th>Justification</th>
+          <th>Channel</th>
+          <th>Stop at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prio p1">1</td>
+          <td>{{ASK1_COMP}}</td>
+          <td class="ask">${{ASK1_CUR}} → ${{ASK1_RANGE}}</td>
+          <td><span data-lang="en">{{ASK1_JUST_EN}}</span><span data-lang="zh">{{ASK1_JUST_ZH}}</span></td>
+          <td>{{ASK1_CHANNEL}}</td>
+          <td class="stop"><span data-lang="en">{{ASK1_STOP_EN}}</span><span data-lang="zh">{{ASK1_STOP_ZH}}</span></td>
+        </tr>
+        <tr>
+          <td class="prio p1">1</td>
+          <td>{{ASK2_COMP}}</td>
+          <td class="ask">${{ASK2_CUR}} → ${{ASK2_RANGE}}</td>
+          <td><span data-lang="en">{{ASK2_JUST_EN}}</span><span data-lang="zh">{{ASK2_JUST_ZH}}</span></td>
+          <td>{{ASK2_CHANNEL}}</td>
+          <td class="stop"><span data-lang="en">{{ASK2_STOP_EN}}</span><span data-lang="zh">{{ASK2_STOP_ZH}}</span></td>
+        </tr>
+        <tr>
+          <td class="prio p2">2</td>
+          <td>{{ASK3_COMP}}</td>
+          <td class="ask">${{ASK3_CUR}} → ${{ASK3_RANGE}}</td>
+          <td><span data-lang="en">{{ASK3_JUST_EN}}</span><span data-lang="zh">{{ASK3_JUST_ZH}}</span></td>
+          <td>{{ASK3_CHANNEL}}</td>
+          <td class="stop"><span data-lang="en">{{ASK3_STOP_EN}}</span><span data-lang="zh">{{ASK3_STOP_ZH}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="timing-card">
+      <strong>Timing:</strong> <span data-lang="en">{{TIMING_EN}}</span><span data-lang="zh">{{TIMING_ZH}}</span>
+    </div>
+  </section>
+
+  <!-- ============ §4 SCRIPTS ============ -->
+  <section id="scripts">
+    <div class="section-head">
+      <span class="num">§4</span>
+      <h3>Scripts · Phone + Email</h3>
+      <span class="pill">Word-for-word usable</span>
+    </div>
+
+    <!-- Phone script -->
+    <div class="script-card" id="phone-script">
+      <div class="head">
+        <div class="title">📞 Phone Script · First Counter</div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <div class="type">60-90 seconds · 4 beats</div>
+          <button class="copy-btn" onclick="copyPhone()">Copy</button>
+        </div>
+      </div>
+      <div class="body">
+        <div class="beat">
+          <div class="beat-label">Beat 1 · Warm open (~15s)</div>
+          <div class="en" data-lang="en">{{PHONE_BEAT1_EN}}</div>
+          <div class="zh" data-lang="zh">{{PHONE_BEAT1_ZH}}</div>
+        </div>
+        <div class="beat">
+          <div class="beat-label">Beat 2 · Pivot (~15s)</div>
+          <div class="en" data-lang="en">{{PHONE_BEAT2_EN}}</div>
+          <div class="zh" data-lang="zh">{{PHONE_BEAT2_ZH}}</div>
+        </div>
+        <div class="beat">
+          <div class="beat-label">Beat 3 · Ask + justification (~30-45s)</div>
+          <div class="en" data-lang="en">{{PHONE_BEAT3_EN}}</div>
+          <div class="zh" data-lang="zh">{{PHONE_BEAT3_ZH}}</div>
+        </div>
+        <div class="beat">
+          <div class="beat-label">Beat 4 · Close · hand off (~15s)</div>
+          <div class="en" data-lang="en">{{PHONE_BEAT4_EN}}</div>
+          <div class="zh" data-lang="zh">{{PHONE_BEAT4_ZH}}</div>
+        </div>
+        <div class="beat-warn">
+          ⛔ <span data-lang="en">After Beat 4 · STOP TALKING. Silence is your leverage. Do NOT continue with "…and I mean, it's flexible if…". Wait for the recruiter to speak next.</span>
+          <span data-lang="zh">Beat 4 之后 · 闭嘴。沉默是杠杆。别继续 "…其实我也可以少一点…"。等 recruiter 说下句。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email script -->
+    <div class="script-card">
+      <div class="head">
+        <div class="title">📧 Email Version · Written Counter</div>
+        <button class="copy-btn" onclick="copyEmail()">Copy</button>
+      </div>
+      <div class="body">
+        <div class="email-subject">Subject: Following up on offer discussion — {{CANDIDATE}}</div>
+        <div class="email-block" id="email-body">{{EMAIL_BODY}}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §5 COUNTER SIMULATION ============ -->
+  <section id="counter">
+    <div class="section-head">
+      <span class="num">§5</span>
+      <h3>Counter Simulation · 3 Pushbacks × 2 Rounds</h3>
+      <span class="pill">Realistic recruiter dynamics</span>
+    </div>
+    <p class="section-intro"><span data-lang="en">Most negotiations fail in Round 2, not Round 1. Below: 3 typical recruiter pushbacks, your response, their likely counter, and — critically — the STOP SIGNAL for each.</span><span data-lang="zh">多数谈判死在第 2 轮，不是第 1 轮。下方是招聘官 3 种典型 pushback + 你的应对 + 招聘官可能的 Round 2 回话 + 关键：每种的 STOP SIGNAL。</span></p>
+
+    <!-- Pushback #1 -->
+    <div class="pushback">
+      <div class="head">
+        <div class="num">#1</div>
+        <div class="title"><span data-lang="en">"This is our best offer"</span><span data-lang="zh">"这是我们最好的了"</span></div>
+        <div class="stakes">Most common · low-medium stakes</div>
+      </div>
+      <div class="dialog">
+        <div class="round">Round 1 · Recruiter says</div>
+        <div class="recruiter"><q>{{PB1_R1_RECRUITER}}</q></div>
+        <div class="round">Round 1 · You respond</div>
+        <div class="you">
+          <div class="strategy"><span data-lang="en">Strategy: {{PB1_R1_STRATEGY_EN}}</span><span data-lang="zh">策略：{{PB1_R1_STRATEGY_ZH}}</span></div>
+          <div class="line" data-lang="en">{{PB1_R1_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB1_R1_YOU_ZH}}</div>
+        </div>
+        <div class="round">Round 2 · Recruiter likely says</div>
+        <div class="recruiter"><q>{{PB1_R2_RECRUITER}}</q></div>
+        <div class="round">Round 2 · You respond</div>
+        <div class="you">
+          <div class="line" data-lang="en">{{PB1_R2_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB1_R2_YOU_ZH}}</div>
+        </div>
+      </div>
+      <div class="stop-signal">
+        <span data-lang="en">{{PB1_STOP_EN}}</span>
+        <span data-lang="zh">{{PB1_STOP_ZH}}</span>
+      </div>
+    </div>
+
+    <!-- Pushback #2 -->
+    <div class="pushback">
+      <div class="head">
+        <div class="num">#2</div>
+        <div class="title"><span data-lang="en">"Budget is fixed"</span><span data-lang="zh">"预算固定，走不了流程"</span></div>
+        <div class="stakes">Bureaucratic push · medium stakes</div>
+      </div>
+      <div class="dialog">
+        <div class="round">Round 1 · Recruiter says</div>
+        <div class="recruiter"><q>{{PB2_R1_RECRUITER}}</q></div>
+        <div class="round">Round 1 · You respond</div>
+        <div class="you">
+          <div class="strategy"><span data-lang="en">Strategy: {{PB2_R1_STRATEGY_EN}}</span><span data-lang="zh">策略：{{PB2_R1_STRATEGY_ZH}}</span></div>
+          <div class="line" data-lang="en">{{PB2_R1_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB2_R1_YOU_ZH}}</div>
+        </div>
+        <div class="round">Round 2 · Recruiter likely says</div>
+        <div class="recruiter"><q>{{PB2_R2_RECRUITER}}</q></div>
+        <div class="round">Round 2 · You respond</div>
+        <div class="you">
+          <div class="line" data-lang="en">{{PB2_R2_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB2_R2_YOU_ZH}}</div>
+        </div>
+      </div>
+      <div class="stop-signal">
+        <span data-lang="en">{{PB2_STOP_EN}}</span>
+        <span data-lang="zh">{{PB2_STOP_ZH}}</span>
+      </div>
+    </div>
+
+    <!-- Pushback #3 -->
+    <div class="pushback">
+      <div class="head">
+        <div class="num">#3</div>
+        <div class="title"><span data-lang="en">"We may need to reconsider the candidate pool"</span><span data-lang="zh">"我们可能会重新考虑其他候选人"</span></div>
+        <div class="stakes">Weak-to-real threat · HIGH stakes</div>
+      </div>
+      <div class="dialog">
+        <div class="round">Round 1 · Recruiter says</div>
+        <div class="recruiter"><q>{{PB3_R1_RECRUITER}}</q></div>
+        <div class="round">Round 1 · You respond</div>
+        <div class="you">
+          <div class="strategy"><span data-lang="en">Strategy: {{PB3_R1_STRATEGY_EN}}</span><span data-lang="zh">策略：{{PB3_R1_STRATEGY_ZH}}</span></div>
+          <div class="line" data-lang="en">{{PB3_R1_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB3_R1_YOU_ZH}}</div>
+        </div>
+        <div class="round">Round 2 · Recruiter likely says</div>
+        <div class="recruiter"><q>{{PB3_R2_RECRUITER}}</q></div>
+        <div class="round">Round 2 · You respond</div>
+        <div class="you">
+          <div class="line" data-lang="en">{{PB3_R2_YOU}}</div>
+          <div class="zh" data-lang="zh">{{PB3_R2_YOU_ZH}}</div>
+        </div>
+      </div>
+      <div class="stop-signal">
+        <span data-lang="en">{{PB3_STOP_EN}}</span>
+        <span data-lang="zh">{{PB3_STOP_ZH}}</span>
+      </div>
+    </div>
+
+    <!-- Bluff detection -->
+    <h4 style="font-family:var(--display); font-size:14px; letter-spacing:0.08em; text-transform:uppercase; margin: 22px 0 8px;">Bluff vs Real · Recruiter Language Cheatsheet</h4>
+    <table class="bluff-table">
+      <thead><tr><th style="width:60%;">Recruiter says…</th><th>Probability</th></tr></thead>
+      <tbody>
+        <tr><td>"This is our best offer" (Round 1)</td><td class="verdict-cell bluff">90% BLUFF</td></tr>
+        <tr><td>"This is our final offer" (Round 2+)</td><td class="verdict-cell bluff">50/50</td></tr>
+        <tr><td>"We built this with your background in mind"</td><td class="verdict-cell bluff">SOFT ANCHOR</td></tr>
+        <tr><td>"We may need to reconsider the pool" (once)</td><td class="verdict-cell bluff">80% BLUFF</td></tr>
+        <tr><td>"We may need to reconsider" (2× in a row)</td><td class="verdict-cell real">POSSIBLY REAL</td></tr>
+        <tr><td>"Let me take it back and get you an answer by [specific date]"</td><td class="verdict-cell" style="color:var(--go-ink);">GOOD SIGNAL</td></tr>
+        <tr><td>"I need an answer by [tight date]"</td><td class="verdict-cell bluff">PRESSURE TACTIC</td></tr>
+        <tr><td>"Leadership has finalized the offer"</td><td class="verdict-cell real">MOSTLY REAL</td></tr>
+        <tr><td>Tone shifts cold / reply time doubles</td><td class="verdict-cell real">WARNING</td></tr>
+        <tr><td>Recruiter proactively offers a mid-way number</td><td class="verdict-cell" style="color:var(--go-ink);">WANTS TO CLOSE — usually accept (after 24h)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ §6 FINAL RECOMMENDATION ============ -->
+  <section id="final">
+    <div class="section-head">
+      <span class="num">§6</span>
+      <h3>Final Recommendation</h3>
+      <span class="pill">The playbook</span>
+    </div>
+
+    <h4 style="font-family:var(--display); font-size:14px; letter-spacing:0.08em; text-transform:uppercase; margin: 8px 0 12px;">What to ask for</h4>
+    <ul class="ask-list">
+      <li><span data-lang="en">{{ASK_ITEM_1_EN}}</span><span data-lang="zh">{{ASK_ITEM_1_ZH}}</span></li>
+      <li><span data-lang="en">{{ASK_ITEM_2_EN}}</span><span data-lang="zh">{{ASK_ITEM_2_ZH}}</span></li>
+      <li><span data-lang="en">{{ASK_ITEM_3_EN}}</span><span data-lang="zh">{{ASK_ITEM_3_ZH}}</span></li>
+    </ul>
+
+    <h4 style="font-family:var(--display); font-size:14px; letter-spacing:0.08em; text-transform:uppercase; margin: 20px 0 12px;">What NOT to push</h4>
+    <ul class="dont-list">
+      <li><span data-lang="en">{{DONT_ITEM_1_EN}}</span><span data-lang="zh">{{DONT_ITEM_1_ZH}}</span></li>
+      <li><span data-lang="en">{{DONT_ITEM_2_EN}}</span><span data-lang="zh">{{DONT_ITEM_2_ZH}}</span></li>
+      <li><span data-lang="en">{{DONT_ITEM_3_EN}}</span><span data-lang="zh">{{DONT_ITEM_3_ZH}}</span></li>
+    </ul>
+
+    <h4 style="font-family:var(--display); font-size:14px; letter-spacing:0.08em; text-transform:uppercase; margin: 24px 0 12px;">Three Stop-Lines</h4>
+    <div class="stoplines">
+      <div class="stopline sign">
+        <div class="kicker">Sign Line ✍️</div>
+        <div class="rule"><span data-lang="en">{{SIGN_RULE_EN}}</span><span data-lang="zh">{{SIGN_RULE_ZH}}</span></div>
+        <div class="script"><span data-lang="en">"{{SIGN_SCRIPT_EN}}"</span><span data-lang="zh">"{{SIGN_SCRIPT_ZH}}"</span></div>
+      </div>
+      <div class="stopline walk">
+        <div class="kicker">Walk Line 🚪</div>
+        <div class="rule"><span data-lang="en">{{WALK_RULE_EN}}</span><span data-lang="zh">{{WALK_RULE_ZH}}</span></div>
+        <div class="script"><span data-lang="en">"{{WALK_SCRIPT_EN}}"</span><span data-lang="zh">"{{WALK_SCRIPT_ZH}}"</span></div>
+      </div>
+      <div class="stopline freeze">
+        <div class="kicker">Freeze Line ⏸</div>
+        <div class="rule"><span data-lang="en">{{FREEZE_RULE_EN}}</span><span data-lang="zh">{{FREEZE_RULE_ZH}}</span></div>
+        <div class="script"><span data-lang="en">"{{FREEZE_SCRIPT_EN}}"</span><span data-lang="zh">"{{FREEZE_SCRIPT_ZH}}"</span></div>
+      </div>
+    </div>
+
+    <div class="emergency">
+      <h4>🚨 Emergency Protocol</h4>
+      <div class="item">
+        <span class="trigger">IF recruiter says "we need an answer in the next hour":</span>
+        <span data-lang="en">Say: "I need to review with my family / sleep on it — I'll respond by [tomorrow morning]." Do NOT answer on the spot.</span>
+        <span data-lang="zh">说："我需要跟家人商量 / 睡一觉 —— [明天早上] 我给你答复。" 别当场答。</span>
+      </div>
+      <div class="item">
+        <span class="trigger">IF recruiter says "if you don't accept, we're pulling the offer":</span>
+        <span data-lang="en">Say: "I hear you. Given that timeline, let me confirm — are you saying the offer will be withdrawn if I don't accept by [time]? I want to be sure I understand." Force him to repeat. 90% will back off. 10% is real → make a firm sign/walk call.</span>
+        <span data-lang="zh">说："我听到了。就这个 timeline 我想确认一下 — 如果我 [时间] 前不 accept，offer 会被撤回，对吗？我想确认理解正确。" 让他重复一次。90% 会 back off。10% 是真的 → 做 sign/walk 决定。</span>
+      </div>
+      <div class="item">
+        <span class="trigger">IF you regret rejecting and want to revisit:</span>
+        <span data-lang="en">Call (not email) immediately: "I've reflected on our conversation and would like to revisit if the door is still open." 40% chance door is still open. Do not wait past 48 hours.</span>
+        <span data-lang="zh">立刻打电话（不要邮件）："我重新思考了我们的对话，如果门还开着，我想重新聊。" 40% 情况门还开着。别拖过 48 小时。</span>
+      </div>
+      <div class="item">
+        <span class="trigger">IF the revised offer is quietly LOWER on some component vs original:</span>
+        <span data-lang="en">Say: "The updated offer is actually lower than the original on [component]. Was that intentional?" — Force him to answer. 80% is "internal error" and gets rolled back.</span>
+        <span data-lang="zh">说："修改版 offer 在 [组件] 上比原版低了。是有意的吗？" — 强迫他回答。80% 是"内部改错了"，会回滚。</span>
+      </div>
+    </div>
+
+    <div class="final-verdict">
+      <span class="kicker">Final Verdict</span>
+      <span data-lang="en">{{FINAL_VERDICT_EN}}</span>
+      <span data-lang="zh">{{FINAL_VERDICT_ZH}}</span>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER (MANDATORY) ============ -->
+  <footer>
+    <div class="brand-block">
+      <div>
+        <h2 class="brand-mark">SALARY SKILL<span class="dot-yellow">.</span></h2>
+        <div class="brand-sub">Created by <strong>Dreameryanyan</strong> · Salary Negotiation Coach</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/yanliudesign/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn · yanliudesign">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="https://x.com/yanliudreamer" target="_blank" rel="noopener" aria-label="X (Twitter)" title="X · @yanliudreamer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="xhs" href="https://www.xiaohongshu.com/user/profile/5b2afdf311be104ac3c22931" target="_blank" rel="noopener" aria-label="Xiaohongshu" title="小红书 · Dreameryanyan">
+          <span>小红书</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      Generated {{YYYY-MM-DD}} · {{COMPANY}} × {{ROLE}} ({{LEVEL}}) · Deadline: {{DEADLINE}} · Candidate: {{CANDIDATE}}<br>
+      <span data-lang="en">Sources: recruiter-provided offer letter + user-provided context + Levels.fyi / Blind public comp data. Every number is a range; single-point numbers only appear in stop-lines. <strong>No fabricated comp data · no fabricated recruiter quotes.</strong><br>
+      Upstream: Offer Strategy Report → Job Description Skill · Downstream: new negotiation rounds → this report updates (same filename overwrite).</span><span data-lang="zh">数据来源：Recruiter 提供的 offer letter + 用户提供的 context + Levels.fyi / Blind 公开薪资情报。每项数字都给区间；单点数字仅在 stop-lines 中出现。<strong>无杜撰 comp 数据 · 无 fabricated recruiter 原话</strong>。<br>
+      上游：Offer Strategy Report → Job Description Skill · 下游：新一轮谈判进展 → 更新本 report（同文件名覆盖）。</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ EXPORT + LANG TOOLS ============ -->
+<div class="export-tools">
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button data-set="en" onclick="setLang('en')">EN</button>
+    <button data-set="zh" onclick="setLang('zh')">中文</button>
+  </div>
+  <button class="export-btn" onclick="exportMarkdown()">Export MD</button>
+  <button class="export-btn" onclick="window.print()">Export PDF</button>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+  }
+  function toggleLang() {
+    const html = document.documentElement;
+    html.lang = (html.lang === 'zh') ? 'en' : 'zh';
+  }
+  function copyEmail() {
+    const body = document.getElementById('email-body').innerText;
+    navigator.clipboard.writeText(body).then(() => alert('Email copied to clipboard.'));
+  }
+  function copyPhone() {
+    const beats = Array.from(document.querySelectorAll('#phone-script .beat')).map(b => {
+      const label = (b.querySelector('.beat-label') || {}).innerText || '';
+      const en = (b.querySelector('.en') || {}).innerText || '';
+      return `[${label}]\n${en}`;
+    }).join('\n\n');
+    navigator.clipboard.writeText(beats).then(() => alert('Phone script copied to clipboard.'));
+  }
+
+  // DOM → Markdown converter. Walks the playbook and emits a readable .md file.
+  // Skips UI chrome (buttons, SVGs, export tools), preserves headings / lists / tables / links / emphasis.
+  // Adapted from job-description-skill for consistency across the offer-toolkit family.
+  (function () {
+    const SKIP_SELECTOR = 'script, style, svg, .export-tools, .lang-toggle, .export-btn, .copy-btn';
+    function walk(node) {
+      if (!node) return '';
+      if (node.nodeType === 3) return node.textContent.replace(/\s+/g, ' ');
+      if (node.nodeType !== 1) return '';
+      if (node.matches && node.matches(SKIP_SELECTOR)) return '';
+      // Skip the twin-language span that isn't the currently-shown language
+      if (node.dataset && node.dataset.lang && node.dataset.lang !== document.documentElement.lang) return '';
+      const tag = node.tagName.toLowerCase();
+      const kids = () => Array.from(node.childNodes).map(walk).join('');
+      const txt  = () => node.textContent.trim().replace(/\s+/g, ' ');
+      switch (tag) {
+        case 'h1': return `\n\n# ${txt()}\n\n`;
+        case 'h2': return `\n\n## ${txt()}\n\n`;
+        case 'h3': return `\n\n### ${txt()}\n\n`;
+        case 'h4': return `\n\n#### ${txt()}\n\n`;
+        case 'h5':
+        case 'h6': return `\n\n##### ${txt()}\n\n`;
+        case 'p':  return `${kids().trim()}\n\n`;
+        case 'br': return '\n';
+        case 'hr': return '\n---\n\n';
+        case 'strong': case 'b': return `**${kids().trim()}**`;
+        case 'em': case 'i':     return `_${kids().trim()}_`;
+        case 'code': return `\`${node.textContent}\``;
+        case 'q':   return `“${kids().trim()}”`;
+        case 'a': {
+          const href = node.getAttribute('href') || '';
+          const t = kids().trim();
+          return href ? `[${t}](${href})` : t;
+        }
+        case 'ul':
+        case 'ol': {
+          const items = Array.from(node.children).filter(c => c.tagName === 'LI');
+          return '\n' + items.map((li, i) => {
+            const marker = tag === 'ol' ? `${i + 1}.` : '-';
+            const content = Array.from(li.childNodes).map(walk).join('').trim().replace(/\n+/g, ' ');
+            return `${marker} ${content}`;
+          }).join('\n') + '\n\n';
+        }
+        case 'table': {
+          const rows = Array.from(node.querySelectorAll('tr'));
+          if (!rows.length) return '';
+          const cells = r => Array.from(r.children).map(c => c.textContent.trim().replace(/\|/g, '\\|').replace(/\s+/g, ' '));
+          const head = cells(rows[0]);
+          const lines = [
+            '| ' + head.join(' | ') + ' |',
+            '| ' + head.map(() => '---').join(' | ') + ' |',
+            ...rows.slice(1).map(r => '| ' + cells(r).join(' | ') + ' |'),
+          ];
+          return '\n' + lines.join('\n') + '\n\n';
+        }
+        case 'blockquote': return '\n' + kids().trim().split('\n').map(l => `> ${l}`).join('\n') + '\n\n';
+        case 'pre':        return '\n```\n' + node.textContent.trim() + '\n```\n\n';
+        default: return kids();
+      }
+    }
+    window.exportMarkdown = function () {
+      const title = (document.title || 'negotiation-playbook').trim();
+      const root  = document.querySelector('.page') || document.body;
+      let md = walk(root);
+      md = md.replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').trim() + '\n';
+      const slug = title.replace(/[\\/:*?"<>|]+/g, '-').replace(/\s+/g, '-').slice(0, 100) || 'playbook';
+      const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = slug + '.md';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+  })();
+</script>
+</body>
+</html>
