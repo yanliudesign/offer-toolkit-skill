@@ -43,7 +43,9 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 | **[offer-compare-skill](offer-compare-skill/)** | Compares two or more offers across four-year TC, growth, AI exposure, company and team risk, promotion, lifestyle, resume value, and future mobility. It produces an HTML Offer Decision Report with an explicit recommendation. |
 | **[salary-negotiation-skill](salary-negotiation-skill/)** | Diagnoses Base, RSU, Sign-on, and Bonus leverage; builds a negotiation strategy; writes ready-to-use phone and email scripts; simulates recruiter pushback; and defines clear sign, walk, and stop-lines in an HTML Negotiation Playbook. |
 
-## Example
+## Examples
+
+### Job discovery
 
 <img src="job-hunt-skill/examples/en/job-search-01.png" alt="job-hunt-skill report overview" width="100%">
 
@@ -59,6 +61,18 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 <td><img src="job-hunt-skill/examples/en/job-search-05.png" alt="job-hunt-skill report methodology" width="100%"></td>
 </tr>
 </table>
+
+### Job description analysis
+
+<img src="job-description-skill/docs/report-preview-en.png" alt="job-description-skill Offer Strategy Report preview" width="100%">
+
+<sub>A generated Offer Strategy Report covering role fit, gaps, interview predictions, compensation, and a six-week action plan.</sub>
+
+### Behavioral interview prep
+
+<img src="bq-skill/assets/preview.png" alt="bq-skill behavioral interview prep report preview" width="100%">
+
+<sub>A JD-driven Top 20 question set with STAR templates and editable model answers, generated from a fictional candidate profile.</sub>
 
 ## Four rules the sub-skills share
 

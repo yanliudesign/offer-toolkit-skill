@@ -45,6 +45,8 @@
 
 ## 示例
 
+### 岗位发现
+
 <img src="job-hunt-skill/examples/cn/job-search-01.png" alt="job-hunt-skill 报告总览" width="100%">
 
 <sub>自动生成的 job-hunt-skill 报告，包含岗位排序、证据标签和快速筛选。</sub>
@@ -59,6 +61,18 @@
 <td><img src="job-hunt-skill/examples/cn/job-search-05.png" alt="job-hunt-skill 报告方法说明" width="100%"></td>
 </tr>
 </table>
+
+### JD 解码
+
+<img src="job-description-skill/docs/report-preview-zh.png" alt="job-description-skill Offer Strategy 报告预览" width="100%">
+
+<sub>自动生成的 Offer Strategy 报告，包含岗位匹配度、能力差距、面试预测、薪资分析和六周行动计划。</sub>
+
+### 行为面试准备
+
+<img src="bq-skill/assets/preview.png" alt="bq-skill 行为面试准备报告预览" width="100%">
+
+<sub>根据 JD 反推的 Top 20 面试题，包含 STAR 模板和可编辑的示例答案；演示使用虚构候选人资料。</sub>
 
 ## 四条共用规则
 
