@@ -45,7 +45,7 @@
 
 ## 示例
 
-### 岗位发现
+## 岗位发现
 
 <img src="job-hunt-skill/examples/cn/job-search-01.png" alt="job-hunt-skill 报告总览" width="100%">
 
@@ -62,13 +62,13 @@
 </tr>
 </table>
 
-### JD 解码
+## JD 解码
 
 <img src="job-description-skill/docs/report-preview-zh.png" alt="job-description-skill Offer Strategy 报告预览" width="100%">
 
 <sub>自动生成的 Offer Strategy 报告，包含岗位匹配度、能力差距、面试预测、薪资分析和六周行动计划。</sub>
 
-### 行为面试准备
+## 行为面试准备
 
 <img src="bq-skill/assets/preview.png" alt="bq-skill 行为面试准备报告预览" width="100%">
 

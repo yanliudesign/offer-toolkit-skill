@@ -45,7 +45,7 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 
 ## Examples
 
-### Job discovery
+## Job discovery
 
 <img src="job-hunt-skill/examples/en/job-search-01.png" alt="job-hunt-skill report overview" width="100%">
 
@@ -62,13 +62,13 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 </tr>
 </table>
 
-### Job description analysis
+## Job description analysis
 
 <img src="job-description-skill/docs/report-preview-en.png" alt="job-description-skill Offer Strategy Report preview" width="100%">
 
 <sub>A generated Offer Strategy Report covering role fit, gaps, interview predictions, compensation, and a six-week action plan.</sub>
 
-### Behavioral interview prep
+## Behavioral interview prep
 
 <img src="bq-skill/assets/preview.png" alt="bq-skill behavioral interview prep report preview" width="100%">
 
