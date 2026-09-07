@@ -35,14 +35,17 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 
 ## What's inside
 
-| Sub-skill | What it does |
-|---|---|
-| **[job-hunt-skill](job-hunt-skill/)** | Give it a resume, target direction, seed JD, or existing job links. It searches public sources, deduplicates candidates, separates verified facts from inference, and generates a searchable HTML job list. It discovers and analyzes; it never applies for you. |
-| **[job-description-skill](job-description-skill/)** | Give it a JD and your resume. You get back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what you'll probably be asked in interviews, whether the salary is reasonable, and what to do over the next six weeks. |
-| **[resume-skill](resume-skill/)** | Polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. The content then flows into **11 print-ready templates** (Classic-ATS, Ledger, Tech Compact, Modern Sidebar, Pillar, Elegant Serif, Atelier, Timeline, Swiss, Executive, Color-block). Each render gives you two files: one that prints straight to PDF, and one you can click on in the browser to edit. |
-| **[bq-skill](bq-skill/)** | Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves them in English and Chinese — so next time you get a different behavioral question, the same story still works. It can also read a JD, predict the 20 questions that company is likely to ask, and walk you through prep for each one. |
-| **[offer-compare-skill](offer-compare-skill/)** | Compares two or more offers across four-year TC, growth, AI exposure, company and team risk, promotion, lifestyle, resume value, and future mobility. It produces an HTML Offer Decision Report with an explicit recommendation. |
-| **[salary-negotiation-skill](salary-negotiation-skill/)** | Diagnoses Base, RSU, Sign-on, and Bonus leverage; builds a negotiation strategy; writes ready-to-use phone and email scripts; simulates recruiter pushback; and defines clear sign, walk, and stop-lines in an HTML Negotiation Playbook. |
+<table>
+<thead><tr><th width="30%">Sub-skill</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><strong><a href="job-hunt-skill/">job&#8209;hunt&#8209;skill</a></strong></td><td>Give it a resume, target direction, seed JD, or existing job links. It searches public sources, deduplicates candidates, separates verified facts from inference, and generates a searchable HTML job list. It discovers and analyzes; it never applies for you.</td></tr>
+<tr><td><strong><a href="job-description-skill/">job&#8209;description&#8209;skill</a></strong></td><td>Give it a JD and your resume. You get back an HTML report telling you: whether this job is worth applying to, how well you match it, where the gaps are, what you'll probably be asked in interviews, whether the salary is reasonable, and what to do over the next six weeks.</td></tr>
+<tr><td><strong><a href="resume-skill/">resume&#8209;skill</a></strong></td><td>Polishes an existing resume, pulls one in from LinkedIn, or builds one from scratch by chatting with you. The content then flows into <strong>11 print-ready templates</strong> (Classic-ATS, Ledger, Tech Compact, Modern Sidebar, Pillar, Elegant Serif, Atelier, Timeline, Swiss, Executive, Color-block). Each render gives you two files: one that prints straight to PDF, and one you can click on in the browser to edit.</td></tr>
+<tr><td><strong><a href="bq-skill/">bq&#8209;skill</a></strong></td><td>Instead of handing you canned answers, it helps you dig your real past experiences out and organize them into a story bank you can reuse. It asks about your experience step by step, uses STAR/CAR to shape each story, tags them ("took ownership", "handled ambiguity", etc.), and saves them in English and Chinese — so next time you get a different behavioral question, the same story still works. It can also read a JD, predict the 20 questions that company is likely to ask, and walk you through prep for each one.</td></tr>
+<tr><td><strong><a href="offer-compare-skill/">offer&#8209;compare&#8209;skill</a></strong></td><td>Compares two or more offers across four-year TC, growth, AI exposure, company and team risk, promotion, lifestyle, resume value, and future mobility. It produces an HTML Offer Decision Report with an explicit recommendation.</td></tr>
+<tr><td><strong><a href="salary-negotiation-skill/">salary&#8209;negotiation&#8209;skill</a></strong></td><td>Diagnoses Base, RSU, Sign-on, and Bonus leverage; builds a negotiation strategy; writes ready-to-use phone and email scripts; simulates recruiter pushback; and defines clear sign, walk, and stop-lines in an HTML Negotiation Playbook.</td></tr>
+</tbody>
+</table>
 
 ## Examples
 
