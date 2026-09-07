@@ -58,7 +58,22 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 <tr>
 <td valign="top"><img src="docs/showcase/en/01-job-discovery-v2.png" alt="job-hunt-skill report overview" width="100%"></td>
 <td valign="top"><img src="docs/showcase/en/02-jd-analysis.png" alt="job-description-skill Offer Strategy Report preview" width="100%"></td>
-<td valign="top"><img src="docs/showcase/en/03-resume.png" alt="resume-skill template gallery preview" width="100%"></td>
+<td valign="top">
+<table>
+<tr>
+<td align="center"><img src="resume-skill/docs/templates/classic-ats.png" alt="Classic ATS resume template" width="100%"><br><sub><strong>Classic / ATS</strong></sub></td>
+<td align="center"><img src="resume-skill/docs/templates/modern-sidebar.png" alt="Modern Sidebar resume template" width="100%"><br><sub><strong>Modern Sidebar</strong></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="resume-skill/docs/templates/pillar.png" alt="Pillar resume template" width="100%"><br><sub><strong>Pillar</strong></sub></td>
+<td align="center"><img src="resume-skill/docs/templates/atelier.png" alt="Atelier resume template" width="100%"><br><sub><strong>Atelier</strong></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="resume-skill/docs/templates/executive.png" alt="Executive resume template" width="100%"><br><sub><strong>Executive</strong></sub></td>
+<td align="center"><img src="resume-skill/docs/templates/editorial-banner.png" alt="Editorial Banner resume template" width="100%"><br><sub><strong>Editorial Banner</strong></sub></td>
+</tr>
+</table>
+</td>
 </tr>
 <tr>
 <td valign="top"><sub>Ranked opportunities, evidence labels, and filters.</sub></td>
