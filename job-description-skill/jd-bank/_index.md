@@ -36,6 +36,7 @@
 | [linear-principal-product-designer-202606.md](linear-principal-product-designer-202606.md) | Linear | Principal Product Designer | 70–80% | 3.5/5 | Yan Liu |
 | [xai-exceptional-designer-202606.md](xai-exceptional-designer-202606.md) | xAI | Exceptional Designer | 78–85% | 4/5 | Yan Liu |
 | [anthropic-product-designer-claude-code-202606.md](anthropic-product-designer-claude-code-202606.md) | Anthropic | Product Designer, Claude Code | 80–88% | 4.5/5 | Yan Liu |
+| [openai-product-design-lead-growth-codex-202609.md](openai-product-design-lead-growth-codex-202609.md) | OpenAI | Product Design Lead, Growth - Codex | 84–90% | 4.5/5 | Yan Liu |
 
 <!--
 | 文件 | 公司 | 岗位 | Match | 下一步 |
@@ -73,6 +74,7 @@
 
 ### OpenAI
 - [openai-product-designer-chatgpt-202606.md](openai-product-designer-chatgpt-202606.md) — Product Designer, ChatGPT (Senior IC, SF)
+- [openai-product-design-lead-growth-codex-202609.md](openai-product-design-lead-growth-codex-202609.md) — Product Design Lead, Growth - Codex (Design Lead / Manager, SF HQ)
 
 ### xAI
 - [xai-exceptional-designer-202606.md](xai-exceptional-designer-202606.md) — Exceptional Designer (Mid→Principal IC, Palo Alto on-site · Grok + X)
@@ -91,6 +93,9 @@
 - [openai-product-designer-chatgpt-202606.md](openai-product-designer-chatgpt-202606.md) — OpenAI / ChatGPT
 - [xai-exceptional-designer-202606.md](xai-exceptional-designer-202606.md) — xAI / Grok + X（社交 × AI 双线）
 - [anthropic-product-designer-claude-code-202606.md](anthropic-product-designer-claude-code-202606.md) — Anthropic / Claude Code（AI 编码 dev tool）
+
+### AI Product Design Leadership / Growth
+- [openai-product-design-lead-growth-codex-202609.md](openai-product-design-lead-growth-codex-202609.md) — OpenAI / Codex + ChatGPT Business（增长 × 开发者产品 × 管理）
 
 <!--
 ### AI Product Designer

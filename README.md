@@ -50,17 +50,32 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 <tr>
 <td width="33%" align="center"><h2>01 · JOB DISCOVERY</h2></td>
 <td width="34%" align="center"><h2>02 · JD ANALYSIS</h2></td>
-<td width="33%" align="center"><h2>03 · BQ PREP</h2></td>
+<td width="33%" align="center"><h2>03 · RESUME</h2></td>
 </tr>
 <tr>
-<td valign="top"><img src="job-hunt-skill/examples/en/job-search-01.png" alt="job-hunt-skill report overview" width="100%"></td>
-<td valign="top"><img src="job-description-skill/docs/report-preview-en.png" alt="job-description-skill Offer Strategy Report preview" width="100%"></td>
-<td valign="top"><img src="bq-skill/assets/preview.png" alt="bq-skill behavioral interview prep report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/01-job-discovery.png" alt="job-hunt-skill report overview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/02-jd-analysis.png" alt="job-description-skill Offer Strategy Report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/03-resume.png" alt="resume-skill template gallery preview" width="100%"></td>
 </tr>
 <tr>
 <td valign="top"><sub>Ranked opportunities, evidence labels, and filters.</sub></td>
 <td valign="top"><sub>Role fit, gaps, interview predictions, compensation, and action plan.</sub></td>
+<td valign="top"><sub>Eleven print-ready layouts with browser editing and PDF export.</sub></td>
+</tr>
+<tr>
+<td align="center"><h2>04 · BQ PREP</h2></td>
+<td align="center"><h2>05 · OFFER COMPARE</h2></td>
+<td align="center"><h2>06 · NEGOTIATION</h2></td>
+</tr>
+<tr>
+<td valign="top"><img src="docs/showcase/en/04-bq-prep.png" alt="bq-skill behavioral interview prep report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/05-offer-compare.png" alt="offer-compare-skill decision report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/06-salary-negotiation.png" alt="salary-negotiation-skill playbook preview" width="100%"></td>
+</tr>
+<tr>
 <td valign="top"><sub>Top 20 questions with STAR templates and editable model answers.</sub></td>
+<td valign="top"><sub>Four-year compensation, career upside, risks, and a clear recommendation.</sub></td>
+<td valign="top"><sub>Leverage diagnosis, counter strategy, scripts, and decision boundaries.</sub></td>
 </tr>
 </table>
 

@@ -50,17 +50,32 @@
 <tr>
 <td width="33%" align="center"><h2>01 · 岗位发现</h2></td>
 <td width="34%" align="center"><h2>02 · JD 解码</h2></td>
-<td width="33%" align="center"><h2>03 · 行为面试</h2></td>
+<td width="33%" align="center"><h2>03 · 简历</h2></td>
 </tr>
 <tr>
-<td valign="top"><img src="job-hunt-skill/examples/cn/job-search-01.png" alt="job-hunt-skill 报告总览" width="100%"></td>
-<td valign="top"><img src="job-description-skill/docs/report-preview-zh.png" alt="job-description-skill Offer Strategy 报告预览" width="100%"></td>
-<td valign="top"><img src="bq-skill/assets/preview.png" alt="bq-skill 行为面试准备报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/01-job-discovery.png" alt="job-hunt-skill 报告总览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/02-jd-analysis.png" alt="job-description-skill Offer Strategy 报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/03-resume.png" alt="resume-skill 模板预览" width="100%"></td>
 </tr>
 <tr>
 <td valign="top"><sub>岗位排序、证据标签和快速筛选。</sub></td>
 <td valign="top"><sub>岗位匹配度、能力差距、面试预测、薪资分析和行动计划。</sub></td>
+<td valign="top"><sub>11 套打印级版式，支持浏览器编辑和 PDF 导出。</sub></td>
+</tr>
+<tr>
+<td align="center"><h2>04 · 行为面试</h2></td>
+<td align="center"><h2>05 · OFFER 对比</h2></td>
+<td align="center"><h2>06 · 薪资谈判</h2></td>
+</tr>
+<tr>
+<td valign="top"><img src="docs/showcase/zh/04-bq-prep.png" alt="bq-skill 行为面试准备报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/05-offer-compare.png" alt="offer-compare-skill 决策报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/06-salary-negotiation.png" alt="salary-negotiation-skill 谈判手册预览" width="100%"></td>
+</tr>
+<tr>
 <td valign="top"><sub>Top 20 面试题、STAR 模板和可编辑的示例答案。</sub></td>
+<td valign="top"><sub>对比 4 年总包、成长空间和隐藏风险，并给出明确推荐。</sub></td>
+<td valign="top"><sub>诊断谈判杠杆，生成反提策略、沟通话术和决策边界。</sub></td>
 </tr>
 </table>
 
