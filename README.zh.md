@@ -69,8 +69,8 @@
 </tr>
 <tr>
 <td valign="top"><img src="docs/showcase/zh/04-bq-prep.png" alt="bq-skill 行为面试准备报告预览" width="100%"></td>
-<td valign="top"><img src="docs/showcase/zh/05-offer-compare.png" alt="offer-compare-skill 决策报告预览" width="100%"></td>
-<td valign="top"><img src="docs/showcase/zh/06-salary-negotiation.png" alt="salary-negotiation-skill 谈判手册预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/05-offer-compare-v2.png" alt="offer-compare-skill 决策报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/06-salary-negotiation-v2.png" alt="salary-negotiation-skill 谈判手册预览" width="100%"></td>
 </tr>
 <tr>
 <td valign="top"><sub>Top 20 面试题、STAR 模板和可编辑的示例答案。</sub></td>
