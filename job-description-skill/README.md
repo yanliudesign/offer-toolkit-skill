@@ -48,7 +48,7 @@ If you explicitly want only one flow ("only decode this" / "just match score") t
 
 Every wizard run ends with a single-file HTML report at `~/Desktop/Claude skills/offer-strategy-<slug>.html`. Fixed 10-section spine, plus a TL;DR preamble and a key-metrics gauge block:
 
-![Offer Strategy Report preview](docs/report-preview-en.png)
+![Offer Strategy Report preview](docs/report-preview-en-v2.png)
 
 *Hero of an actual run — verdict + assumptions + TL;DR + two gauges, plus the in-page Export PDF / Export Markdown buttons in the bottom right.*
 
