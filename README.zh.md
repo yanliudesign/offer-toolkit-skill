@@ -58,22 +58,7 @@
 <tr>
 <td valign="top"><img src="docs/showcase/zh/01-job-discovery-v2.png" alt="job-hunt-skill 报告总览" width="100%"></td>
 <td valign="top"><img src="docs/showcase/zh/02-jd-analysis.png" alt="job-description-skill Offer Strategy 报告预览" width="100%"></td>
-<td valign="top">
-<table>
-<tr>
-<td align="center"><img src="resume-skill/docs/templates/classic-ats.png" alt="Classic ATS 简历模板" width="100%"><br><sub><strong>Classic / ATS</strong></sub></td>
-<td align="center"><img src="resume-skill/docs/templates/modern-sidebar.png" alt="Modern Sidebar 简历模板" width="100%"><br><sub><strong>Modern Sidebar</strong></sub></td>
-</tr>
-<tr>
-<td align="center"><img src="resume-skill/docs/templates/pillar.png" alt="Pillar 简历模板" width="100%"><br><sub><strong>Pillar 信息卡</strong></sub></td>
-<td align="center"><img src="resume-skill/docs/templates/atelier.png" alt="Atelier 简历模板" width="100%"><br><sub><strong>Atelier 极简</strong></sub></td>
-</tr>
-<tr>
-<td align="center"><img src="resume-skill/docs/templates/executive.png" alt="Executive 简历模板" width="100%"><br><sub><strong>Executive 高管</strong></sub></td>
-<td align="center"><img src="resume-skill/docs/templates/editorial-banner.png" alt="Editorial Banner 简历模板" width="100%"><br><sub><strong>Editorial Banner 编辑横幅</strong></sub></td>
-</tr>
-</table>
-</td>
+<td valign="top"><img src="docs/showcase/en/03-resume-v2.png" alt="resume-skill 简历模板画廊" width="100%"></td>
 </tr>
 <tr>
 <td valign="top"><sub>岗位排序、证据标签和快速筛选。</sub></td>
