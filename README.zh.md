@@ -56,7 +56,7 @@
 <td width="33%" align="center"><h2>03 · 简历</h2></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/showcase/zh/01-job-discovery.png" alt="job-hunt-skill 报告总览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/01-job-discovery-v2.png" alt="job-hunt-skill 报告总览" width="100%"></td>
 <td valign="top"><img src="docs/showcase/zh/02-jd-analysis.png" alt="job-description-skill Offer Strategy 报告预览" width="100%"></td>
 <td valign="top"><img src="docs/showcase/zh/03-resume.png" alt="resume-skill 模板预览" width="100%"></td>
 </tr>
