@@ -57,7 +57,7 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 </tr>
 <tr>
 <td valign="top"><img src="docs/showcase/en/01-job-discovery-v2.png" alt="job-hunt-skill report overview" width="100%"></td>
-<td valign="top"><img src="docs/showcase/en/02-jd-analysis.png" alt="job-description-skill Offer Strategy Report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/02-jd-analysis-v2.png" alt="job-description-skill Offer Strategy Report preview" width="100%"></td>
 <td valign="top"><img src="docs/showcase/en/03-resume-v2.png" alt="resume-skill template gallery" width="100%"></td>
 </tr>
 <tr>
