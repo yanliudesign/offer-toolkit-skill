@@ -72,7 +72,7 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 </tr>
 <tr>
 <td valign="top"><img src="docs/showcase/en/04-bq-prep-v2.png" alt="bq-skill behavioral interview prep report preview" width="100%"></td>
-<td valign="top"><img src="docs/showcase/en/05-offer-compare-v3.png" alt="offer-compare-skill decision report preview" width="100%"></td>
+<td valign="top"><img src="docs/showcase/en/05-offer-compare-v4.png" alt="offer-compare-skill decision report preview" width="100%"></td>
 <td valign="top"><img src="docs/showcase/en/06-salary-negotiation-v2.png" alt="salary-negotiation-skill playbook preview" width="100%"></td>
 </tr>
 <tr>

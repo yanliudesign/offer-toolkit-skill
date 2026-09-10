@@ -72,7 +72,7 @@
 </tr>
 <tr>
 <td valign="top"><img src="docs/showcase/zh/04-bq-prep.png" alt="bq-skill 行为面试准备报告预览" width="100%"></td>
-<td valign="top"><img src="docs/showcase/zh/05-offer-compare-v3.png" alt="offer-compare-skill 决策报告预览" width="100%"></td>
+<td valign="top"><img src="docs/showcase/zh/05-offer-compare-v4.png" alt="offer-compare-skill 决策报告预览" width="100%"></td>
 <td valign="top"><img src="docs/showcase/zh/06-salary-negotiation-v2.png" alt="salary-negotiation-skill 谈判手册预览" width="100%"></td>
 </tr>
 <tr>
