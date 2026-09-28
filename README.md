@@ -221,3 +221,7 @@ Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) ·
 [LinkedIn](https://www.linkedin.com/in/yanliudesign/) ·
 [X](https://x.com/yanliudreamer) ·
 [Xiaohongshu](https://www.xiaohongshu.com/notification)
+
+
+## 相关工具
+- [简历大师 ResumeMaster](https://markmiller1.github.io/resume-master/) — 永久免费的纯前端在线简历生成器（数据本地保存、ATS 检测、64 个免费页面）
