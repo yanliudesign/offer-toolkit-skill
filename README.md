@@ -9,20 +9,22 @@
 **Six job-hunt tools in one agent skill pack — Search · JD · Resume · BQ · Compare · Negotiate.**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
-[![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)]()
-[![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)]()
+![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)
+![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)
 [![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
-[![Disclaimer](https://img.shields.io/badge/DISCLAIMER-Not_professional_advice-6b7280?style=flat-square&labelColor=333)]()
+![Disclaimer](https://img.shields.io/badge/DISCLAIMER-Not_professional_advice-6b7280?style=flat-square&labelColor=333)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
-[![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
-[![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)]()
-[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)]()
-[![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)]()
+![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)
+![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)
+![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)
 
 </div>
 
 Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or just the piece you need — each sub-folder works on its own.
+
+**Quick links:** [See the skills](#whats-inside) · [View examples](#examples) · [Install](#install) · [Try it](#try-it-in-30-seconds) · [FAQ](#faq)
 
 | Stage | Skill | What it does |
 |---|---|---|
@@ -91,9 +93,24 @@ Six job-hunting tools bundled as an agent skill pack. Use the whole thing, or ju
 
 ## Install
 
-Drop the whole `offer-toolkit-skill/` folder into your skills directory (e.g. `~/.claude/skills/` or VS Code's prompts folder). All six sub-skills get picked up.
+Copy the whole `offer-toolkit-skill/` folder into your client's supported skills directory, preserving the top-level `SKILL.md` and all six sub-skill folders. The top-level skill routes requests to the relevant workflow.
 
-Only want one? Copy just that sub-folder — each one is self-contained.
+For Claude Code, a user-level installation can look like this:
+
+```text
+~/.claude/skills/offer-toolkit-skill/
+├── SKILL.md
+├── job-hunt-skill/
+├── job-description-skill/
+├── resume-skill/
+├── bq-skill/
+├── offer-compare-skill/
+└── salary-negotiation-skill/
+```
+
+Only want one? Copy just that sub-folder into your skills directory — each one is self-contained. For example, install Resume Skill as `~/.claude/skills/resume-skill/`, keeping its `SKILL.md` and supporting files together.
+
+**Other clients:** use the skills location documented by your client. Nested skill discovery varies; installing the toolkit does not necessarily register all six child skills separately. To make a child skill directly discoverable, install its folder as a standalone skill. Start a new chat or reload your agent after installation, then try an explicit prompt such as “Use offer-toolkit-skill to help me prepare for an interview.”
 
 > 🔒 **Your generated files stay local.** Reports, resumes, and story banks are written to your machine. Your prompts and attachments are processed according to the data policy of the agent and model provider you use.
 
@@ -125,7 +142,7 @@ Compare these two offers and tell me which one to take.
 Help me negotiate this offer.
 ```
 
-The router picks the right sub-skill. You get an HTML report / resume / story bank on your desktop, ready to open.
+The router picks the right sub-skill. You get a local HTML report, resume, or story bank, plus the exact path where it was saved.
 
 ## FAQ
 
@@ -181,7 +198,7 @@ No. It can discover and analyze public job listings, but applications, form subm
 | *"Prep me for behavioral interviews"* / *"tell me about a time…"* / *"mine a story"* | bq-skill |
 | *"Compare these offers"* / *"which offer should I take?"* / *"calculate four-year TC"* | offer-compare-skill |
 | *"Help me negotiate"* / *"write a counter offer"* / *"can I ask for more RSU?"* | salary-negotiation-skill |
-| *"Help me find a job"* / hand over JD + resume at once | Top-level [SKILL.md](SKILL.md) routes you to the right one |
+| *"Help me with my job search"* without a clear next step | Top-level [SKILL.md](SKILL.md) asks which stage you are at |
 
 ## Layout
 
@@ -198,7 +215,7 @@ offer-toolkit-skill/
 └── salary-negotiation-skill/       # ⑤ Package negotiation + scripts
 ```
 
-Each sub-folder has its own `SKILL.md`, README, prompts, frameworks, and templates.
+Each of the six sub-skills has its own `SKILL.md`, bilingual README, and supporting resources for its workflow.
 
 ## Standalone repos
 

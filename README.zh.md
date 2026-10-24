@@ -9,20 +9,22 @@
 **六个求职工具打包成一个 agent skill 包 — Search · JD · Resume · BQ · Compare · Negotiate。**
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
-[![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)]()
-[![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)]()
+![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)
+![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)
 [![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
-[![免责声明](https://img.shields.io/badge/免责声明-仅供参考-6b7280?style=flat-square&labelColor=333)]()
+![免责声明](https://img.shields.io/badge/免责声明-仅供参考-6b7280?style=flat-square&labelColor=333)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
-[![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
-[![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)]()
-[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)]()
-[![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)]()
+![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)
+![OpenCode](https://img.shields.io/badge/OpenCode-Skill-4c8bf5?style=flat-square&labelColor=1a1a1a)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-8b5cf6?style=flat-square&labelColor=1a1a1a)
+![Hermes](https://img.shields.io/badge/Hermes-Skill-e879a8?style=flat-square&labelColor=1a1a1a)
 
 </div>
 
 六个求职工具打包成一个 agent skill 包。可以整包用，也可以只挑其中一个——每个子目录都能独立跑。
+
+**快速导航：** [技能介绍](#里面有什么) · [查看示例](#示例) · [安装](#安装) · [立即上手](#30-秒上手) · [常见问题](#常见问题)
 
 | 阶段 | Skill | 做什么 |
 |---|---|---|
@@ -41,7 +43,7 @@
 <tr><td><strong><a href="job-hunt-skill/">job&#8209;hunt&#8209;skill</a></strong></td><td>给一份简历、目标方向、种子 JD 或已有职位链接，自动搜索公开来源、去重并区分事实与推断，生成可搜索筛选的 HTML 职位清单。只发现和分析，不自动投递。</td></tr>
 <tr><td><strong><a href="job-description-skill/">job&#8209;description&#8209;skill</a></strong></td><td>贴一份 JD 和你的简历，给你一份 HTML 报告，告诉你：这岗位到底该不该投、你和它多匹配、差在哪里、面试大概会问什么、薪资合不合理、接下来 6 周该做什么。</td></tr>
 <tr><td><strong><a href="resume-skill/">resume&#8209;skill</a></strong></td><td>帮你把现有简历改好看，或者从 LinkedIn 导入，再或者聊着聊着帮你从零写一份。给你 <strong>12 套打印级模板</strong>（Classic-ATS、Ledger、Modern Sidebar、Pillar、Elegant Serif、Atelier、Timeline、Swiss、Executive、Editorial Banner、Photo Corporate、Photo Minimal）。每次同时给你两份文件：一份直接可以打印成 PDF，一份在浏览器里点字就能改。</td></tr>
-<tr><td><strong><a href="bq-skill/">bq&#8209;skill</a></strong></td><td>不是给你现成答案，而是帮你把过去真实做过的事情挖出来、整理成一个可以反复用的故事库。它会一步步追问你的经历，帮你用 STAR/CAR 理清思路，打上“拿主意”“択历就难”这类标签，中英文各存一份，下次碰上不同行为面试题也能用同一个故事。还能对着一份 JD，预测这家公司会问的 20 道题，帮你逐题准备。</td></tr>
+<tr><td><strong><a href="bq-skill/">bq&#8209;skill</a></strong></td><td>不是给你现成答案，而是帮你把过去真实做过的事情挖出来、整理成一个可以反复用的故事库。它会一步步追问你的经历，帮你用 STAR/CAR 理清思路，打上“主动担当”“应对模糊情境”这类标签，中英文各存一份，下次碰上不同行为面试题也能用同一个故事。还能对着一份 JD，预测这家公司会问的 20 道题，帮你逐题准备。</td></tr>
 <tr><td><strong><a href="offer-compare-skill/">offer&#8209;compare&#8209;skill</a></strong></td><td>对比两份或多份 offer 的 4 年 TC、成长、AI 敞口、公司与团队风险、晋升、生活方式、简历价值和未来跳槽便利，生成 HTML Offer Decision Report，并给出明确推荐。</td></tr>
 <tr><td><strong><a href="salary-negotiation-skill/">salary&#8209;negotiation&#8209;skill</a></strong></td><td>诊断 Base、RSU、Sign-on、Bonus 的谈判空间，制定策略，生成可直接使用的中英文电话/邮件话术，模拟招聘官 pushback，并在 HTML Negotiation Playbook 中写清签、走和停止线。</td></tr>
 </tbody>
@@ -91,9 +93,24 @@
 
 ## 安装
 
-把整个 `offer-toolkit-skill/` 目录放进你的 skill 目录（例如 `~/.claude/skills/` 或 VS Code 的 prompts 目录）。六个子 skill 会一起被发现。
+把整个 `offer-toolkit-skill/` 目录放进客户端支持的 skills 目录，保留顶层 `SKILL.md` 和六个子 skill 目录。顶层 skill 会根据请求路由到对应流程。
 
-只想装一个？把对应子目录（如 `resume-skill/`）单独复制过去，每个都自包含。
+以 Claude Code 的用户级安装为例：
+
+```text
+~/.claude/skills/offer-toolkit-skill/
+├── SKILL.md
+├── job-hunt-skill/
+├── job-description-skill/
+├── resume-skill/
+├── bq-skill/
+├── offer-compare-skill/
+└── salary-negotiation-skill/
+```
+
+只想装一个？把对应子目录单独复制到 skills 目录即可，每个都自包含。例如，将 Resume Skill 安装到 `~/.claude/skills/resume-skill/`，保留其中的 `SKILL.md` 和配套文件。
+
+**其他客户端：** 请使用对应客户端文档指定的 skills 路径。嵌套 skill 的发现机制不同，整包安装不代表六个子 skill 都会被单独注册；如果需要直接发现某个子 skill，可将其目录独立安装。安装后新开对话或重新加载 agent，再明确调用，例如：“使用 offer-toolkit-skill 帮我准备面试。”
 
 > 🔒 **生成文件保存在本机。** 报告、简历和故事库会写入你的本地磁盘；你提交的提示词和附件如何被处理，取决于所使用的 agent 与模型服务商的数据政策。
 
@@ -125,7 +142,7 @@
 帮我谈一下这份 offer。
 ```
 
-顶层 router 会自动路由到对应子 skill，报告 / 简历 / 故事库直接生成在你桌面上，双击就能打开。
+顶层 router 会路由到对应子 skill，在本地生成报告、简历或故事库，并告知实际保存路径。
 
 ## 常见问题
 
@@ -198,7 +215,7 @@ offer-toolkit-skill/
 └── salary-negotiation-skill/       # ⑤ 薪资谈判 + 可执行话术
 ```
 
-每个子目录里都有各自的 `SKILL.md`、README、prompts、frameworks、templates。
+六个子 skill 都有各自的 `SKILL.md`、中英文 README，以及对应流程所需的配套资源。
 
 ## 独立仓库
 
