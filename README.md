@@ -13,6 +13,7 @@
 ![Status](https://img.shields.io/badge/STATUS-development-e37f2c?style=flat-square&labelColor=333)
 ![Topic](https://img.shields.io/badge/TOPIC-careerdevelopment-4c8bf5?style=flat-square&labelColor=333)
 ![Topic](https://img.shields.io/badge/TOPIC-international-8b5cf6?style=flat-square&labelColor=333)
+![Topic](https://img.shields.io/badge/TOPIC-life-e879a8?style=flat-square&labelColor=333)
 ![Skills](https://img.shields.io/badge/SKILLS-6-2ea44f?style=flat-square&labelColor=333)
 [![Stars](https://img.shields.io/github/stars/yanliudesign/offer-toolkit-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/offer-toolkit-skill/stargazers)
 ![Disclaimer](https://img.shields.io/badge/DISCLAIMER-Not_professional_advice-6b7280?style=flat-square&labelColor=333)
