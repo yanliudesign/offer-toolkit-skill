@@ -8,6 +8,8 @@
 
 **Six job-hunt tools in one agent skill pack — Search · JD · Resume · BQ · Compare · Negotiate.**
 
+[![Deploy on MindPal](https://mindpal.space/badges/deploy-on-mindpal.svg)](https://mindpal.space/skills/offer-toolkit?utm_source=github&utm_medium=readme_button)
+
 [![License](https://img.shields.io/badge/LICENSE-MIT-4c8bf5?style=flat-square&labelColor=333)](./LICENSE)
 ![Version](https://img.shields.io/badge/VERSION-1.2.0-2ea44f?style=flat-square&labelColor=333)
 ![Status](https://img.shields.io/badge/STATUS-development-e37f2c?style=flat-square&labelColor=333)
